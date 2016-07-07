@@ -107,14 +107,12 @@
                       <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jComboBox1" pref="237" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jTextFieldUser" alignment="0" pref="237" max="32767" attributes="0"/>
-                              <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabelUserName" alignment="1" max="32767" attributes="0"/>
-                              <Component id="jPasswordFieldUserPass" alignment="0" pref="237" max="32767" attributes="0"/>
-                              <Component id="jLabelPass" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabelPass1" alignment="0" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="jTextFieldUser" alignment="0" pref="237" max="32767" attributes="0"/>
+                          <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jLabelUserName" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jPasswordFieldUserPass" alignment="0" pref="237" max="32767" attributes="0"/>
+                          <Component id="jLabelPass" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jLabelPass1" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>

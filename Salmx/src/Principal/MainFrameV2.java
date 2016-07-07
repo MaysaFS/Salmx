@@ -21,6 +21,7 @@ public class MainFrameV2 extends javax.swing.JFrame {
      */
     public MainFrameV2() {
         initComponents();
+        
     }
 
     /**
@@ -64,7 +65,7 @@ public class MainFrameV2 extends javax.swing.JFrame {
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/UserGrey.png"))); // NOI18N
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
@@ -104,7 +105,7 @@ public class MainFrameV2 extends javax.swing.JFrame {
         Fornecedores_Icone.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Fornecedores_Icone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/icones/Fornecedor_100.png"))); // NOI18N
         Fornecedores_Icone.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        Fornecedores_Icone.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Fornecedores_Icone.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Fornecedores_Icone.setMaximumSize(null);
         Fornecedores_Icone.setMinimumSize(new java.awt.Dimension(120, 120));
         Fornecedores_Icone.setOpaque(true);
@@ -123,7 +124,7 @@ public class MainFrameV2 extends javax.swing.JFrame {
         Categorias_Icone.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Categorias_Icone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/icones/Categorias_100.png"))); // NOI18N
         Categorias_Icone.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        Categorias_Icone.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Categorias_Icone.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Categorias_Icone.setMaximumSize(null);
         Categorias_Icone.setMinimumSize(new java.awt.Dimension(120, 120));
         Categorias_Icone.setOpaque(true);
@@ -142,11 +143,16 @@ public class MainFrameV2 extends javax.swing.JFrame {
         Produtos_Icone.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Produtos_Icone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/icones/Produtos_100.png"))); // NOI18N
         Produtos_Icone.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        Produtos_Icone.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Produtos_Icone.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Produtos_Icone.setMaximumSize(null);
         Produtos_Icone.setMinimumSize(new java.awt.Dimension(120, 120));
         Produtos_Icone.setOpaque(true);
         Produtos_Icone.setPreferredSize(new java.awt.Dimension(150, 150));
+        Produtos_Icone.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Produtos_IconeMouseClicked(evt);
+            }
+        });
 
         Produtos_Label.setBackground(new java.awt.Color(255, 255, 255));
         Produtos_Label.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -161,7 +167,7 @@ public class MainFrameV2 extends javax.swing.JFrame {
         Usuarios_Icone.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Usuarios_Icone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/icones/User_100.png"))); // NOI18N
         Usuarios_Icone.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        Usuarios_Icone.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Usuarios_Icone.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Usuarios_Icone.setMaximumSize(null);
         Usuarios_Icone.setMinimumSize(new java.awt.Dimension(120, 120));
         Usuarios_Icone.setOpaque(true);
@@ -185,7 +191,7 @@ public class MainFrameV2 extends javax.swing.JFrame {
         Relatorios_Icone.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Relatorios_Icone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/icones/Relatorios-02_100.png"))); // NOI18N
         Relatorios_Icone.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        Relatorios_Icone.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Relatorios_Icone.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Relatorios_Icone.setMaximumSize(null);
         Relatorios_Icone.setMinimumSize(new java.awt.Dimension(120, 120));
         Relatorios_Icone.setOpaque(true);
@@ -204,7 +210,7 @@ public class MainFrameV2 extends javax.swing.JFrame {
         Setores_Icone.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Setores_Icone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/icones/Setores_100.png"))); // NOI18N
         Setores_Icone.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        Setores_Icone.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Setores_Icone.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Setores_Icone.setMaximumSize(null);
         Setores_Icone.setMinimumSize(new java.awt.Dimension(120, 120));
         Setores_Icone.setOpaque(true);
@@ -305,6 +311,11 @@ public class MainFrameV2 extends javax.swing.JFrame {
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
             new LoginFrame().setVisible(true);
     }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void Produtos_IconeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Produtos_IconeMouseClicked
+        // TODO add your handling code here:
+        new Materiais.MateriaisFrame().setVisible(true);
+    }//GEN-LAST:event_Produtos_IconeMouseClicked
 
     /**
      * @param args the command line arguments

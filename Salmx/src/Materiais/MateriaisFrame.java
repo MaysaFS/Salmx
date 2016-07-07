@@ -4,6 +4,8 @@
  */
 package Materiais;
 
+import Materiais.criar.NovoMaterialFrame;
+
 /**
  *
  * @author Maysa
@@ -15,6 +17,7 @@ public class MateriaisFrame extends javax.swing.JFrame {
      */
     public MateriaisFrame() {
         initComponents();
+         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -231,7 +234,7 @@ public class MateriaisFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextBuscaMaterialActionPerformed
 
     private void novoMaterialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_novoMaterialMouseClicked
-       
+        new NovoMaterialFrame().setVisible(true);
     }//GEN-LAST:event_novoMaterialMouseClicked
 
    
