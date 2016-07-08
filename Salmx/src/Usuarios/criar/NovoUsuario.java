@@ -40,6 +40,8 @@ public class NovoUsuario extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jPasswordFieldUserPass1 = new javax.swing.JPasswordField();
         jLabelPass1 = new javax.swing.JLabel();
+        jTextFieldUser1 = new javax.swing.JTextField();
+        jLabelUserName1 = new javax.swing.JLabel();
 
         jPanelBack.setBackground(new java.awt.Color(247, 247, 247));
 
@@ -79,7 +81,7 @@ public class NovoUsuario extends javax.swing.JPanel {
         jLabelUserName.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelUserName.setForeground(new java.awt.Color(255, 102, 102));
         jLabelUserName.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabelUserName.setText("Nome de Usuário*");
+        jLabelUserName.setText("Nome de Usuário: ");
 
         jPasswordFieldUserPass.setForeground(new java.awt.Color(153, 153, 153));
         jPasswordFieldUserPass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -93,7 +95,7 @@ public class NovoUsuario extends javax.swing.JPanel {
         jLabelPass.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelPass.setForeground(new java.awt.Color(255, 102, 102));
         jLabelPass.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabelPass.setText("Senha *");
+        jLabelPass.setText("Senha:  ");
 
         jLabel1.setBackground(new java.awt.Color(255, 102, 102));
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -113,7 +115,25 @@ public class NovoUsuario extends javax.swing.JPanel {
         jLabelPass1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelPass1.setForeground(new java.awt.Color(255, 102, 102));
         jLabelPass1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabelPass1.setText("Repetir Senha *");
+        jLabelPass1.setText("Repetir Senha: ");
+
+        jTextFieldUser1.setForeground(new java.awt.Color(153, 153, 153));
+        jTextFieldUser1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldUser1.setText(" ");
+        jTextFieldUser1.setToolTipText("");
+        jTextFieldUser1.setAutoscrolls(false);
+        jTextFieldUser1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jTextFieldUser1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jTextFieldUser1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldUser1ActionPerformed(evt);
+            }
+        });
+
+        jLabelUserName1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelUserName1.setForeground(new java.awt.Color(255, 102, 102));
+        jLabelUserName1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabelUserName1.setText("Nome Completo: ");
 
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
         jPanelBody.setLayout(jPanelBodyLayout);
@@ -121,24 +141,32 @@ public class NovoUsuario extends javax.swing.JPanel {
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBodyLayout.createSequentialGroup()
                 .addGap(48, 48, 48)
-                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextFieldUser, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabelUserName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPasswordFieldUserPass, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
-                    .addComponent(jLabelPass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPasswordFieldUserPass1, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
-                    .addComponent(jLabelPass1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jTextFieldUser1)
+                        .addComponent(jLabelUserName1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jTextFieldUser, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelUserName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPasswordFieldUserPass, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+                        .addComponent(jLabelPass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPasswordFieldUserPass1, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+                        .addComponent(jLabelPass1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         jPanelBodyLayout.setVerticalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBodyLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
+                .addContainerGap()
+                .addComponent(jLabelUserName1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabelUserName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldUser, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabelPass)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPasswordFieldUserPass, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -146,7 +174,7 @@ public class NovoUsuario extends javax.swing.JPanel {
                 .addComponent(jLabelPass1)
                 .addGap(2, 2, 2)
                 .addComponent(jPasswordFieldUserPass1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
@@ -190,6 +218,10 @@ public class NovoUsuario extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordFieldUserPass1ActionPerformed
 
+    private void jTextFieldUser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUser1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldUser1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -197,11 +229,13 @@ public class NovoUsuario extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelPass1;
     private javax.swing.JLabel jLabelSalmxLogo;
     private javax.swing.JLabel jLabelUserName;
+    private javax.swing.JLabel jLabelUserName1;
     private javax.swing.JPanel jPanelBack;
     private javax.swing.JPanel jPanelBody;
     private javax.swing.JPanel jPanelTop;
     private javax.swing.JPasswordField jPasswordFieldUserPass;
     private javax.swing.JPasswordField jPasswordFieldUserPass1;
     private javax.swing.JTextField jTextFieldUser;
+    private javax.swing.JTextField jTextFieldUser1;
     // End of variables declaration//GEN-END:variables
 }

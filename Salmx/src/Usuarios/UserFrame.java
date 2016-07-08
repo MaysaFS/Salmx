@@ -5,7 +5,7 @@
  */
 package Usuarios;
 
-import Usuarios.criar.NovoUsuarioV02;
+import Usuarios.criar.NovoUsuario_FinalV01;
 import java.awt.Frame;
 /**
  *
@@ -31,18 +31,18 @@ public class UserFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jPanelTop = new javax.swing.JPanel();
+        Background = new javax.swing.JPanel();
+        Top = new javax.swing.JPanel();
         jLabelSalmxLogo = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        TituloGestaoDeUsuario = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableUsersList = new javax.swing.JTable();
-        jTextFieldUser = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        CaixaBuscar = new javax.swing.JTextField();
+        BotaoBuscar = new javax.swing.JLabel();
+        Menu = new javax.swing.JPanel();
+        CadastrarUsuario = new javax.swing.JLabel();
+        EditarUsuario = new javax.swing.JLabel();
+        RemoverUsuario = new javax.swing.JLabel();
 
         jLabel2.setText("jLabel2");
 
@@ -50,36 +50,36 @@ public class UserFrame extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(800, 600));
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(242, 242, 242));
+        Background.setBackground(new java.awt.Color(242, 242, 242));
 
-        jPanelTop.setBackground(new java.awt.Color(255, 102, 102));
+        Top.setBackground(new java.awt.Color(255, 102, 102));
 
         jLabelSalmxLogo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabelSalmxLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/SalmxLogoPequeno.png"))); // NOI18N
         jLabelSalmxLogo.setText(" ");
         jLabelSalmxLogo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 1));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Gestão de Usuário");
+        TituloGestaoDeUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        TituloGestaoDeUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        TituloGestaoDeUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TituloGestaoDeUsuario.setText("GESTÃO DE USUÁRIO");
 
-        javax.swing.GroupLayout jPanelTopLayout = new javax.swing.GroupLayout(jPanelTop);
-        jPanelTop.setLayout(jPanelTopLayout);
-        jPanelTopLayout.setHorizontalGroup(
-            jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelTopLayout.createSequentialGroup()
-                .addComponent(jLabelSalmxLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout TopLayout = new javax.swing.GroupLayout(Top);
+        Top.setLayout(TopLayout);
+        TopLayout.setHorizontalGroup(
+            TopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TopLayout.createSequentialGroup()
+                .addComponent(jLabelSalmxLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(TituloGestaoDeUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanelTopLayout.setVerticalGroup(
-            jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelTopLayout.createSequentialGroup()
-                .addGroup(jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        TopLayout.setVerticalGroup(
+            TopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TopLayout.createSequentialGroup()
+                .addGroup(TopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(TituloGestaoDeUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabelSalmxLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
 
         jTableUsersList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
@@ -110,112 +110,112 @@ public class UserFrame extends javax.swing.JFrame {
         jTableUsersList.setSelectionBackground(new java.awt.Color(51, 51, 51));
         jScrollPane1.setViewportView(jTableUsersList);
 
-        jTextFieldUser.setForeground(new java.awt.Color(153, 153, 153));
-        jTextFieldUser.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextFieldUser.setText(" ");
-        jTextFieldUser.setToolTipText("");
-        jTextFieldUser.setAutoscrolls(false);
-        jTextFieldUser.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTextFieldUser.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jTextFieldUser.addActionListener(new java.awt.event.ActionListener() {
+        CaixaBuscar.setForeground(new java.awt.Color(153, 153, 153));
+        CaixaBuscar.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        CaixaBuscar.setText(" ");
+        CaixaBuscar.setToolTipText("");
+        CaixaBuscar.setAutoscrolls(false);
+        CaixaBuscar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        CaixaBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        CaixaBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUserActionPerformed(evt);
+                CaixaBuscarActionPerformed(evt);
             }
         });
 
-        jLabel4.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Search_Small.png"))); // NOI18N
-        jLabel4.setText("BUSCAR");
-        jLabel4.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
-        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        BotaoBuscar.setBackground(new java.awt.Color(51, 51, 51));
+        BotaoBuscar.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        BotaoBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Search_Small.png"))); // NOI18N
+        BotaoBuscar.setText("BUSCAR");
+        BotaoBuscar.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
+        BotaoBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
+        Menu.setBackground(new java.awt.Color(51, 51, 51));
 
-        jLabel3.setBackground(new java.awt.Color(63, 63, 63));
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Delet_Small..png"))); // NOI18N
-        jLabel3.setText("EXCLUIR ");
-        jLabel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jLabel3.setOpaque(true);
-
-        jLabel5.setBackground(new java.awt.Color(63, 63, 63));
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Edit_Small.png"))); // NOI18N
-        jLabel5.setText("EDITAR");
-        jLabel5.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
-        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jLabel5.setOpaque(true);
-
-        jLabel6.setBackground(new java.awt.Color(63, 63, 63));
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_New_Small..png"))); // NOI18N
-        jLabel6.setText("ADICIONAR");
-        jLabel6.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
-        jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jLabel6.setOpaque(true);
-        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+        CadastrarUsuario.setBackground(new java.awt.Color(63, 63, 63));
+        CadastrarUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        CadastrarUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        CadastrarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_New_Small..png"))); // NOI18N
+        CadastrarUsuario.setText("ADICIONAR");
+        CadastrarUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
+        CadastrarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        CadastrarUsuario.setOpaque(true);
+        CadastrarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel6MouseClicked(evt);
+                CadastrarUsuarioMouseClicked(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        EditarUsuario.setBackground(new java.awt.Color(63, 63, 63));
+        EditarUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        EditarUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        EditarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Edit_Small.png"))); // NOI18N
+        EditarUsuario.setText("EDITAR");
+        EditarUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
+        EditarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        EditarUsuario.setOpaque(true);
+
+        RemoverUsuario.setBackground(new java.awt.Color(63, 63, 63));
+        RemoverUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        RemoverUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        RemoverUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Delet_Small..png"))); // NOI18N
+        RemoverUsuario.setText("EXCLUIR ");
+        RemoverUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
+        RemoverUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        RemoverUsuario.setOpaque(true);
+
+        javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
+        Menu.setLayout(MenuLayout);
+        MenuLayout.setHorizontalGroup(
+            MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(CadastrarUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+            .addComponent(EditarUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(RemoverUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        MenuLayout.setVerticalGroup(
+            MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MenuLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(CadastrarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(EditarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addComponent(RemoverUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(267, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelTop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout BackgroundLayout = new javax.swing.GroupLayout(Background);
+        Background.setLayout(BackgroundLayout);
+        BackgroundLayout.setHorizontalGroup(
+            BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Top, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(BackgroundLayout.createSequentialGroup()
+                .addComponent(Menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextFieldUser)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 555, Short.MAX_VALUE))
+                .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
+                    .addGroup(BackgroundLayout.createSequentialGroup()
+                        .addComponent(CaixaBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)
+                        .addComponent(BotaoBuscar)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanelTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        BackgroundLayout.setVerticalGroup(
+            BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BackgroundLayout.createSequentialGroup()
+                .addComponent(Top, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BackgroundLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(jLabel4)
-                            .addComponent(jTextFieldUser, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addGap(24, 24, 24))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(CaixaBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BotaoBuscar))
+                        .addGap(31, 31, 31)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(BackgroundLayout.createSequentialGroup()
                         .addGap(1, 1, 1)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(Menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -223,41 +223,43 @@ public class UserFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(Background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUserActionPerformed
+    private void CaixaBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CaixaBuscarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUserActionPerformed
+    }//GEN-LAST:event_CaixaBuscarActionPerformed
 
-    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-        new NovoUsuarioV02().setVisible(true);
-    }//GEN-LAST:event_jLabel6MouseClicked
+    private void CadastrarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CadastrarUsuarioMouseClicked
+        new NovoUsuario_FinalV01().setVisible(true);
+    }//GEN-LAST:event_CadastrarUsuarioMouseClicked
 
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel Background;
+    private javax.swing.JLabel BotaoBuscar;
+    private javax.swing.JLabel CadastrarUsuario;
+    private javax.swing.JTextField CaixaBuscar;
+    private javax.swing.JLabel EditarUsuario;
+    private javax.swing.JPanel Menu;
+    private javax.swing.JLabel RemoverUsuario;
+    private javax.swing.JLabel TituloGestaoDeUsuario;
+    private javax.swing.JPanel Top;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabelSalmxLogo;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanelTop;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableUsersList;
-    private javax.swing.JTextField jTextFieldUser;
     // End of variables declaration//GEN-END:variables
 }

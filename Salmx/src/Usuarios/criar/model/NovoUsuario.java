@@ -10,18 +10,26 @@ package Usuarios.criar.model;
  * @author jimmy
  */
 public class NovoUsuario {
-    
-    private String usuario_nome;
+    private String nome;
+    private String login;
     private String senha;
     private String confirma_senha;
     
-    
-    public String getUsuario_nome() {
-        return usuario_nome;
+
+    public String getNome() {
+        return nome;
     }
 
-    public void setUsuario_nome(String usuario_nome) {
-        this.usuario_nome = usuario_nome;
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getSenha() {
