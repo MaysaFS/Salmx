@@ -1,7 +1,7 @@
 package Principal;
 
 import Usuarios.login.LoginFrame;
-import Usuarios.criar.NovoUsuarioV02;
+import Usuarios.criar.*;
 import Usuarios.UserFrame;
 
 /*
