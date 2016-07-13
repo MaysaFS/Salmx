@@ -1,8 +1,7 @@
 package Principal;
 
 import Usuarios.login.LoginFrame;
-import Usuarios.criar.*;
-import Usuarios.UserFrame;
+import Usuarios.view.UserFrame;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -314,7 +313,7 @@ public class MainFrameV2 extends javax.swing.JFrame {
 
     private void Produtos_IconeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Produtos_IconeMouseClicked
         // TODO add your handling code here:
-        new Materiais.MateriaisFrame().setVisible(true);
+        new Materiais.view.MateriaisFrame().setVisible(true);
     }//GEN-LAST:event_Produtos_IconeMouseClicked
 
     /**

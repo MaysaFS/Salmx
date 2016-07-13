@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Materiais;
+package Materiais.view;
 
 import Materiais.criar.NovoMaterialFrame;
 
@@ -44,7 +44,6 @@ public class MateriaisFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("GESTÃO DE MATERIAIS");
-        setPreferredSize(new java.awt.Dimension(800, 600));
 
         jPanel1.setBackground(new java.awt.Color(242, 242, 242));
 

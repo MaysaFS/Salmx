@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Usuarios;
+package Usuarios.view;
 
-import Usuarios.criar.NovoUsuario_FinalV01;
+import Usuarios.view.NovoUsuario_FinalV01;
 import java.awt.Frame;
 /**
  *
