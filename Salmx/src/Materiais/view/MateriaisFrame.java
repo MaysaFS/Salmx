@@ -4,7 +4,7 @@
  */
 package Materiais.view;
 
-import Materiais.criar.NovoMaterialFrame;
+import Materiais.view.criar.NovoMaterialFrame;
 
 /**
  *
