@@ -37,9 +37,9 @@ public class LoginFrame extends javax.swing.JFrame {
         jTextFieldUser = new javax.swing.JTextField();
         jLabelUserName = new javax.swing.JLabel();
         jPasswordFieldUserPass = new javax.swing.JPasswordField();
-        jLabelPass = new javax.swing.JLabel();
+        jLabelSenha = new javax.swing.JLabel();
         jLabelUserLogo = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("User Login");
@@ -84,7 +84,7 @@ public class LoginFrame extends javax.swing.JFrame {
         jLabelUserName.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelUserName.setForeground(new java.awt.Color(255, 102, 102));
         jLabelUserName.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabelUserName.setText("User Name *");
+        jLabelUserName.setText("Login *");
 
         jPasswordFieldUserPass.setForeground(new java.awt.Color(153, 153, 153));
         jPasswordFieldUserPass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -95,20 +95,20 @@ public class LoginFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabelPass.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabelPass.setForeground(new java.awt.Color(255, 102, 102));
-        jLabelPass.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabelPass.setText("Password *");
+        jLabelSenha.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelSenha.setForeground(new java.awt.Color(255, 102, 102));
+        jLabelSenha.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabelSenha.setText("Senha *");
 
         jLabelUserLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelUserLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/UserLoginIcon.png"))); // NOI18N
         jLabelUserLogo.setText(" ");
 
-        jLabel1.setBackground(new java.awt.Color(255, 102, 102));
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("LOGIN");
-        jLabel1.setOpaque(true);
+        jLabelLogin.setBackground(new java.awt.Color(255, 102, 102));
+        jLabelLogin.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelLogin.setText("LOGIN");
+        jLabelLogin.setOpaque(true);
 
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
         jPanelBody.setLayout(jPanelBodyLayout);
@@ -118,15 +118,15 @@ public class LoginFrame extends javax.swing.JFrame {
             .addGroup(jPanelBodyLayout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabelUserName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPasswordFieldUserPass, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
                     .addComponent(jTextFieldUser, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
-                    .addComponent(jLabelPass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(jLabelSenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanelBodyLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel1, jPasswordFieldUserPass, jTextFieldUser});
+        jPanelBodyLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabelLogin, jPasswordFieldUserPass, jTextFieldUser});
 
         jPanelBodyLayout.setVerticalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,15 +138,15 @@ public class LoginFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21)
-                .addComponent(jLabelPass)
+                .addComponent(jLabelSenha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPasswordFieldUserPass, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(jLabel1)
+                .addComponent(jLabelLogin)
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        jPanelBodyLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel1, jPasswordFieldUserPass, jTextFieldUser});
+        jPanelBodyLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabelLogin, jPasswordFieldUserPass, jTextFieldUser});
 
         javax.swing.GroupLayout jPanelBackLayout = new javax.swing.GroupLayout(jPanelBack);
         jPanelBack.setLayout(jPanelBackLayout);
@@ -224,9 +224,9 @@ public class LoginFrame extends javax.swing.JFrame {
  }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabelPass;
+    private javax.swing.JLabel jLabelLogin;
     private javax.swing.JLabel jLabelSalmxLogo;
+    private javax.swing.JLabel jLabelSenha;
     private javax.swing.JLabel jLabelUserLogo;
     private javax.swing.JLabel jLabelUserName;
     private javax.swing.JPanel jPanelBack;
