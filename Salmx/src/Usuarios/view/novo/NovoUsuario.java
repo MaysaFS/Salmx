@@ -3,18 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Usuarios.view;
+package Usuarios.view.novo;
+
+import Usuarios.view.editar.*;
+import Usuarios.view.novo.NovoUsuario;
 
 /**
  *
  * @author jimmy
  */
-public class NovoUsuario_FinalV01 extends javax.swing.JFrame {
+public class NovoUsuario extends javax.swing.JFrame {
 
     /**
      * Creates new form NovoUsuarioV02
      */
-    public NovoUsuario_FinalV01() {
+    public NovoUsuario() {
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
@@ -32,14 +35,14 @@ public class NovoUsuario_FinalV01 extends javax.swing.JFrame {
         jPanelTop = new javax.swing.JPanel();
         jLabelSalmxLogo = new javax.swing.JLabel();
         jPanelBody = new javax.swing.JPanel();
-        BotaoCadastrar = new javax.swing.JLabel();
-        TextoNomeCompleto = new javax.swing.JLabel();
-        CaixaNomeCompleto = new javax.swing.JTextField();
-        TextoNickname = new javax.swing.JLabel();
-        CaixaNickname = new javax.swing.JTextField();
-        TextoPass = new javax.swing.JLabel();
+        JLabelSalvar = new javax.swing.JLabel();
+        JLabelNome = new javax.swing.JLabel();
+        JTextFieldNome = new javax.swing.JTextField();
+        JLabelLogin = new javax.swing.JLabel();
+        JTextFieldLogin = new javax.swing.JTextField();
+        JLabelSenha = new javax.swing.JLabel();
         jPasswordFieldSenha = new javax.swing.JPasswordField();
-        TextoConfirmaPass = new javax.swing.JLabel();
+        JLabelConfirmaSenha = new javax.swing.JLabel();
         jPasswordFieldConfirmaSenha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,52 +69,52 @@ public class NovoUsuario_FinalV01 extends javax.swing.JFrame {
 
         jPanelBody.setBackground(new java.awt.Color(242, 242, 242));
 
-        BotaoCadastrar.setBackground(new java.awt.Color(255, 102, 102));
-        BotaoCadastrar.setForeground(new java.awt.Color(255, 255, 255));
-        BotaoCadastrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BotaoCadastrar.setText("CADASTRAR");
-        BotaoCadastrar.setOpaque(true);
+        JLabelSalvar.setBackground(new java.awt.Color(255, 102, 102));
+        JLabelSalvar.setForeground(new java.awt.Color(255, 255, 255));
+        JLabelSalvar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLabelSalvar.setText("SALVAR");
+        JLabelSalvar.setOpaque(true);
 
-        TextoNomeCompleto.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        TextoNomeCompleto.setForeground(new java.awt.Color(255, 102, 102));
-        TextoNomeCompleto.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        TextoNomeCompleto.setText("Nome Completo: ");
+        JLabelNome.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JLabelNome.setForeground(new java.awt.Color(255, 102, 102));
+        JLabelNome.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JLabelNome.setText("Nome Completo: ");
 
-        CaixaNomeCompleto.setForeground(new java.awt.Color(153, 153, 153));
-        CaixaNomeCompleto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        CaixaNomeCompleto.setText(" ");
-        CaixaNomeCompleto.setToolTipText("");
-        CaixaNomeCompleto.setAutoscrolls(false);
-        CaixaNomeCompleto.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        CaixaNomeCompleto.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        CaixaNomeCompleto.addActionListener(new java.awt.event.ActionListener() {
+        JTextFieldNome.setForeground(new java.awt.Color(153, 153, 153));
+        JTextFieldNome.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        JTextFieldNome.setText(" ");
+        JTextFieldNome.setToolTipText("");
+        JTextFieldNome.setAutoscrolls(false);
+        JTextFieldNome.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        JTextFieldNome.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        JTextFieldNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CaixaNomeCompletoActionPerformed(evt);
+                JTextFieldNomeActionPerformed(evt);
             }
         });
 
-        TextoNickname.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        TextoNickname.setForeground(new java.awt.Color(255, 102, 102));
-        TextoNickname.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        TextoNickname.setText("Nome de Usuário: ");
+        JLabelLogin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JLabelLogin.setForeground(new java.awt.Color(255, 102, 102));
+        JLabelLogin.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JLabelLogin.setText("Login:");
 
-        CaixaNickname.setForeground(new java.awt.Color(153, 153, 153));
-        CaixaNickname.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        CaixaNickname.setText(" ");
-        CaixaNickname.setToolTipText("");
-        CaixaNickname.setAutoscrolls(false);
-        CaixaNickname.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        CaixaNickname.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        CaixaNickname.addActionListener(new java.awt.event.ActionListener() {
+        JTextFieldLogin.setForeground(new java.awt.Color(153, 153, 153));
+        JTextFieldLogin.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        JTextFieldLogin.setText(" ");
+        JTextFieldLogin.setToolTipText("");
+        JTextFieldLogin.setAutoscrolls(false);
+        JTextFieldLogin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        JTextFieldLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        JTextFieldLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CaixaNicknameActionPerformed(evt);
+                JTextFieldLoginActionPerformed(evt);
             }
         });
 
-        TextoPass.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        TextoPass.setForeground(new java.awt.Color(255, 102, 102));
-        TextoPass.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        TextoPass.setText("Senha:  ");
+        JLabelSenha.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JLabelSenha.setForeground(new java.awt.Color(255, 102, 102));
+        JLabelSenha.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JLabelSenha.setText("Senha:  ");
 
         jPasswordFieldSenha.setForeground(new java.awt.Color(153, 153, 153));
         jPasswordFieldSenha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -122,10 +125,10 @@ public class NovoUsuario_FinalV01 extends javax.swing.JFrame {
             }
         });
 
-        TextoConfirmaPass.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        TextoConfirmaPass.setForeground(new java.awt.Color(255, 102, 102));
-        TextoConfirmaPass.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        TextoConfirmaPass.setText("Repetir Senha: ");
+        JLabelConfirmaSenha.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JLabelConfirmaSenha.setForeground(new java.awt.Color(255, 102, 102));
+        JLabelConfirmaSenha.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        JLabelConfirmaSenha.setText("Confirmar Senha: ");
 
         jPasswordFieldConfirmaSenha.setForeground(new java.awt.Color(153, 153, 153));
         jPasswordFieldConfirmaSenha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -144,39 +147,39 @@ public class NovoUsuario_FinalV01 extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(CaixaNomeCompleto)
-                        .addComponent(TextoNomeCompleto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(JTextFieldNome)
+                        .addComponent(JLabelNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(CaixaNickname)
-                        .addComponent(TextoNickname, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JTextFieldLogin)
+                        .addComponent(JLabelLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPasswordFieldSenha)
-                        .addComponent(TextoPass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JLabelSenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPasswordFieldConfirmaSenha)
-                        .addComponent(TextoConfirmaPass, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(BotaoCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(JLabelConfirmaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JLabelSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(43, Short.MAX_VALUE))
         );
         jPanelBodyLayout.setVerticalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBodyLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(TextoNomeCompleto)
+                .addComponent(JLabelNome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CaixaNomeCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(TextoNickname)
+                .addComponent(JLabelLogin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CaixaNickname, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JTextFieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(TextoPass)
+                .addComponent(JLabelSenha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPasswordFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(TextoConfirmaPass)
+                .addComponent(JLabelConfirmaSenha)
                 .addGap(2, 2, 2)
                 .addComponent(jPasswordFieldConfirmaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(BotaoCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JLabelSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
 
@@ -209,13 +212,13 @@ public class NovoUsuario_FinalV01 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CaixaNomeCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CaixaNomeCompletoActionPerformed
+    private void JTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CaixaNomeCompletoActionPerformed
+    }//GEN-LAST:event_JTextFieldNomeActionPerformed
 
-    private void CaixaNicknameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CaixaNicknameActionPerformed
+    private void JTextFieldLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldLoginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CaixaNicknameActionPerformed
+    }//GEN-LAST:event_JTextFieldLoginActionPerformed
 
     private void jPasswordFieldSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldSenhaActionPerformed
         // TODO add your handling code here:
@@ -231,13 +234,13 @@ public class NovoUsuario_FinalV01 extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel BotaoCadastrar;
-    private javax.swing.JTextField CaixaNickname;
-    private javax.swing.JTextField CaixaNomeCompleto;
-    private javax.swing.JLabel TextoConfirmaPass;
-    private javax.swing.JLabel TextoNickname;
-    private javax.swing.JLabel TextoNomeCompleto;
-    private javax.swing.JLabel TextoPass;
+    private javax.swing.JLabel JLabelConfirmaSenha;
+    private javax.swing.JLabel JLabelLogin;
+    private javax.swing.JLabel JLabelNome;
+    private javax.swing.JLabel JLabelSalvar;
+    private javax.swing.JLabel JLabelSenha;
+    private javax.swing.JTextField JTextFieldLogin;
+    private javax.swing.JTextField JTextFieldNome;
     private javax.swing.JLabel jLabelSalmxLogo;
     private javax.swing.JPanel jPanelBack;
     private javax.swing.JPanel jPanelBody;

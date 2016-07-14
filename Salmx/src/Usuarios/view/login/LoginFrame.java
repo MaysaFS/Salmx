@@ -3,21 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package Usuarios.view.login;
 
-package Usuarios.view;
 
+import java.awt.Frame;
 /**
  *
- * @author Aluno
+ * @author jimmy
  */
-public class NovoUsuario extends javax.swing.JPanel {
+public class LoginFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form NovoUsuario
+     * Creates new form UserLogin
      */
-    public NovoUsuario() {
+    public LoginFrame() {
         initComponents();
-        
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -37,11 +38,13 @@ public class NovoUsuario extends javax.swing.JPanel {
         jLabelUserName = new javax.swing.JLabel();
         jPasswordFieldUserPass = new javax.swing.JPasswordField();
         jLabelPass = new javax.swing.JLabel();
+        jLabelUserLogo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jPasswordFieldUserPass1 = new javax.swing.JPasswordField();
-        jLabelPass1 = new javax.swing.JLabel();
-        jTextFieldUser1 = new javax.swing.JTextField();
-        jLabelUserName1 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("User Login");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setResizable(false);
 
         jPanelBack.setBackground(new java.awt.Color(247, 247, 247));
 
@@ -56,14 +59,14 @@ public class NovoUsuario extends javax.swing.JPanel {
         jPanelTop.setLayout(jPanelTopLayout);
         jPanelTopLayout.setHorizontalGroup(
             jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelSalmxLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
+            .addComponent(jLabelSalmxLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
         );
         jPanelTopLayout.setVerticalGroup(
             jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelSalmxLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+            .addComponent(jLabelSalmxLogo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
         );
 
-        jPanelBody.setBackground(new java.awt.Color(242, 242, 242));
+        jPanelBody.setBackground(new java.awt.Color(234, 234, 234));
 
         jTextFieldUser.setForeground(new java.awt.Color(153, 153, 153));
         jTextFieldUser.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -81,7 +84,7 @@ public class NovoUsuario extends javax.swing.JPanel {
         jLabelUserName.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelUserName.setForeground(new java.awt.Color(255, 102, 102));
         jLabelUserName.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabelUserName.setText("Nome de Usuário: ");
+        jLabelUserName.setText("User Name *");
 
         jPasswordFieldUserPass.setForeground(new java.awt.Color(153, 153, 153));
         jPasswordFieldUserPass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -95,89 +98,55 @@ public class NovoUsuario extends javax.swing.JPanel {
         jLabelPass.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelPass.setForeground(new java.awt.Color(255, 102, 102));
         jLabelPass.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabelPass.setText("Senha:  ");
+        jLabelPass.setText("Password *");
+
+        jLabelUserLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelUserLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/UserLoginIcon.png"))); // NOI18N
+        jLabelUserLogo.setText(" ");
 
         jLabel1.setBackground(new java.awt.Color(255, 102, 102));
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("CRIAR");
+        jLabel1.setText("LOGIN");
         jLabel1.setOpaque(true);
-
-        jPasswordFieldUserPass1.setForeground(new java.awt.Color(153, 153, 153));
-        jPasswordFieldUserPass1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPasswordFieldUserPass1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPasswordFieldUserPass1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordFieldUserPass1ActionPerformed(evt);
-            }
-        });
-
-        jLabelPass1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabelPass1.setForeground(new java.awt.Color(255, 102, 102));
-        jLabelPass1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabelPass1.setText("Repetir Senha: ");
-
-        jTextFieldUser1.setForeground(new java.awt.Color(153, 153, 153));
-        jTextFieldUser1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldUser1.setText(" ");
-        jTextFieldUser1.setToolTipText("");
-        jTextFieldUser1.setAutoscrolls(false);
-        jTextFieldUser1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTextFieldUser1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jTextFieldUser1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUser1ActionPerformed(evt);
-            }
-        });
-
-        jLabelUserName1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabelUserName1.setForeground(new java.awt.Color(255, 102, 102));
-        jLabelUserName1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabelUserName1.setText("Nome Completo: ");
 
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
         jPanelBody.setLayout(jPanelBodyLayout);
         jPanelBodyLayout.setHorizontalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelUserLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanelBodyLayout.createSequentialGroup()
                 .addGap(48, 48, 48)
-                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextFieldUser1)
-                        .addComponent(jLabelUserName1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextFieldUser, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelUserName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPasswordFieldUserPass, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
-                        .addComponent(jLabelPass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPasswordFieldUserPass1, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
-                        .addComponent(jLabelPass1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelUserName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPasswordFieldUserPass, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                    .addComponent(jTextFieldUser, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+                    .addComponent(jLabelPass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
+
+        jPanelBodyLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel1, jPasswordFieldUserPass, jTextFieldUser});
+
         jPanelBodyLayout.setVerticalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBodyLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelUserName1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelUserLogo)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelUserName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldUser, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jTextFieldUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
                 .addComponent(jLabelPass)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPasswordFieldUserPass, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabelPass1)
-                .addGap(2, 2, 2)
-                .addComponent(jPasswordFieldUserPass1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addGap(26, 26, 26)
+                .addComponent(jLabel1)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
+
+        jPanelBodyLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel1, jPasswordFieldUserPass, jTextFieldUser});
 
         javax.swing.GroupLayout jPanelBackLayout = new javax.swing.GroupLayout(jPanelBack);
         jPanelBack.setLayout(jPanelBackLayout);
@@ -194,8 +163,8 @@ public class NovoUsuario extends javax.swing.JPanel {
                 .addComponent(jPanelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -204,6 +173,8 @@ public class NovoUsuario extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextFieldUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUserActionPerformed
@@ -214,28 +185,54 @@ public class NovoUsuario extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordFieldUserPassActionPerformed
 
-    private void jPasswordFieldUserPass1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldUserPass1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordFieldUserPass1ActionPerformed
+    /**
+     * @param args the command line arguments
+     */
 
-    private void jTextFieldUser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUser1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUser1ActionPerformed
 
+    /*public static void main(String args[]) {
+      /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(UserLoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(UserLoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(UserLoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(UserLoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+     //</editor-fold>
+   
+     /* Create and display the form */
+      /*java.awt.EventQueue.invokeLater(new Runnable() {
+          public void run() {
+             new UserLoginFrame().setVisible(true);
+          }
+   });
+ }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelPass;
-    private javax.swing.JLabel jLabelPass1;
     private javax.swing.JLabel jLabelSalmxLogo;
+    private javax.swing.JLabel jLabelUserLogo;
     private javax.swing.JLabel jLabelUserName;
-    private javax.swing.JLabel jLabelUserName1;
     private javax.swing.JPanel jPanelBack;
     private javax.swing.JPanel jPanelBody;
     private javax.swing.JPanel jPanelTop;
     private javax.swing.JPasswordField jPasswordFieldUserPass;
-    private javax.swing.JPasswordField jPasswordFieldUserPass1;
     private javax.swing.JTextField jTextFieldUser;
-    private javax.swing.JTextField jTextFieldUser1;
     // End of variables declaration//GEN-END:variables
 }

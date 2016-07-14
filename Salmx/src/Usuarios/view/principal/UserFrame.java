@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Usuarios.view;
+package Usuarios.view.principal;
 
-import Usuarios.view.NovoUsuario_FinalV01;
+import Usuarios.view.novo.NovoUsuario;
 import java.awt.Frame;
 /**
  *
@@ -102,7 +102,7 @@ public class UserFrame extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "ID", "Usuário", "Tipo"
+                "ID", "Nome", "Tipo"
             }
         ));
         jTableUsersList.setGridColor(new java.awt.Color(153, 153, 153));
@@ -211,8 +211,9 @@ public class UserFrame extends javax.swing.JFrame {
                         .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(CaixaBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(BotaoBuscar))
-                        .addGap(31, 31, 31)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(BackgroundLayout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addComponent(Menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -240,7 +241,7 @@ public class UserFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_CaixaBuscarActionPerformed
 
     private void CadastrarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CadastrarUsuarioMouseClicked
-        new NovoUsuario_FinalV01().setVisible(true);
+        new NovoUsuario().setVisible(true);
     }//GEN-LAST:event_CadastrarUsuarioMouseClicked
 
     /**

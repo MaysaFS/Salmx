@@ -1,7 +1,7 @@
 package Principal;
 
-import Usuarios.login.LoginFrame;
-import Usuarios.view.UserFrame;
+import Usuarios.view.login.LoginFrame;
+import Usuarios.view.principal.UserFrame;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
