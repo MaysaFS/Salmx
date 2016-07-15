@@ -72,7 +72,7 @@ public class EditarUsuario extends javax.swing.JFrame {
         JLabelNome.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         JLabelNome.setForeground(new java.awt.Color(255, 102, 102));
         JLabelNome.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        JLabelNome.setText("Nome Completo: ");
+        JLabelNome.setText("Nome Completo: *");
 
         JTextFieldNome.setForeground(new java.awt.Color(153, 153, 153));
         JTextFieldNome.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -90,7 +90,7 @@ public class EditarUsuario extends javax.swing.JFrame {
         JLabelLogin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         JLabelLogin.setForeground(new java.awt.Color(255, 102, 102));
         JLabelLogin.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        JLabelLogin.setText("Login:");
+        JLabelLogin.setText("Login: *");
 
         JTextFieldLogin.setForeground(new java.awt.Color(153, 153, 153));
         JTextFieldLogin.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -108,7 +108,7 @@ public class EditarUsuario extends javax.swing.JFrame {
         JLabelSenha.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         JLabelSenha.setForeground(new java.awt.Color(255, 102, 102));
         JLabelSenha.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        JLabelSenha.setText("Senha:  ");
+        JLabelSenha.setText("Senha: * ");
 
         jPasswordFieldSenha.setForeground(new java.awt.Color(153, 153, 153));
         jPasswordFieldSenha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -122,7 +122,7 @@ public class EditarUsuario extends javax.swing.JFrame {
         JLabelConfirmaSenha.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         JLabelConfirmaSenha.setForeground(new java.awt.Color(255, 102, 102));
         JLabelConfirmaSenha.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        JLabelConfirmaSenha.setText("Confirmar Senha: ");
+        JLabelConfirmaSenha.setText("Confirmar Senha: *");
 
         jPasswordFieldConfirmaSenha.setForeground(new java.awt.Color(153, 153, 153));
         jPasswordFieldConfirmaSenha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
