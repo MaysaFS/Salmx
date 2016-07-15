@@ -5,6 +5,7 @@
  */
 package Usuarios.view.principal;
 
+import Usuarios.view.editar.EditarUsuario;
 import Usuarios.view.novo.NovoUsuario;
 import java.awt.Frame;
 /**
@@ -154,6 +155,11 @@ public class UserFrame extends javax.swing.JFrame {
         EditarUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
         EditarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         EditarUsuario.setOpaque(true);
+        EditarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EditarUsuarioMouseClicked(evt);
+            }
+        });
 
         RemoverUsuario.setBackground(new java.awt.Color(63, 63, 63));
         RemoverUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -241,8 +247,14 @@ public class UserFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_CaixaBuscarActionPerformed
 
     private void CadastrarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CadastrarUsuarioMouseClicked
+       //Aciona a tela NovoUsuário
         new NovoUsuario().setVisible(true);
     }//GEN-LAST:event_CadastrarUsuarioMouseClicked
+
+    private void EditarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditarUsuarioMouseClicked
+        //Aciona a tela de edição EditarUsuario
+        new EditarUsuario().setVisible(true);
+    }//GEN-LAST:event_EditarUsuarioMouseClicked
 
     /**
      * @param args the command line arguments
