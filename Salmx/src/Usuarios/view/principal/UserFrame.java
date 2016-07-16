@@ -48,7 +48,7 @@ public class UserFrame extends javax.swing.JFrame {
         jLabel2.setText("jLabel2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(800, 600));
+        setMinimumSize(new java.awt.Dimension(600, 400));
         setResizable(false);
 
         Background.setBackground(new java.awt.Color(242, 242, 242));
@@ -126,20 +126,20 @@ public class UserFrame extends javax.swing.JFrame {
 
         BotaoBuscar.setBackground(new java.awt.Color(51, 51, 51));
         BotaoBuscar.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        BotaoBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Search_Small.png"))); // NOI18N
+        BotaoBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagensV2/search.png"))); // NOI18N
         BotaoBuscar.setText("BUSCAR");
         BotaoBuscar.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
-        BotaoBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        BotaoBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         Menu.setBackground(new java.awt.Color(51, 51, 51));
 
         CadastrarUsuario.setBackground(new java.awt.Color(63, 63, 63));
         CadastrarUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         CadastrarUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        CadastrarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_New_Small..png"))); // NOI18N
+        CadastrarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagensV2/add.png"))); // NOI18N
         CadastrarUsuario.setText("ADICIONAR");
         CadastrarUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
-        CadastrarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        CadastrarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         CadastrarUsuario.setOpaque(true);
         CadastrarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -150,10 +150,10 @@ public class UserFrame extends javax.swing.JFrame {
         EditarUsuario.setBackground(new java.awt.Color(63, 63, 63));
         EditarUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         EditarUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        EditarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Edit_Small.png"))); // NOI18N
+        EditarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagensV2/edit.png"))); // NOI18N
         EditarUsuario.setText("EDITAR");
         EditarUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
-        EditarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        EditarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         EditarUsuario.setOpaque(true);
         EditarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -164,10 +164,10 @@ public class UserFrame extends javax.swing.JFrame {
         RemoverUsuario.setBackground(new java.awt.Color(63, 63, 63));
         RemoverUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         RemoverUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        RemoverUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Delet_Small..png"))); // NOI18N
+        RemoverUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagensV2/delet.png"))); // NOI18N
         RemoverUsuario.setText("EXCLUIR ");
         RemoverUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
-        RemoverUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        RemoverUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         RemoverUsuario.setOpaque(true);
 
         javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
@@ -181,13 +181,13 @@ public class UserFrame extends javax.swing.JFrame {
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(20, 20, 20)
                 .addComponent(CadastrarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(20, 20, 20)
                 .addComponent(EditarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(20, 20, 20)
                 .addComponent(RemoverUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(267, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout BackgroundLayout = new javax.swing.GroupLayout(Background);
@@ -199,7 +199,7 @@ public class UserFrame extends javax.swing.JFrame {
                 .addComponent(Menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
                     .addGroup(BackgroundLayout.createSequentialGroup()
                         .addComponent(CaixaBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(2, 2, 2)
@@ -214,16 +214,15 @@ public class UserFrame extends javax.swing.JFrame {
                 .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BackgroundLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CaixaBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BotaoBuscar))
-                        .addGap(29, 29, 29)
+                        .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(BotaoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CaixaBuscar))
+                        .addGap(21, 21, 21)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addContainerGap(235, Short.MAX_VALUE))
                     .addGroup(BackgroundLayout.createSequentialGroup()
                         .addGap(1, 1, 1)
-                        .addComponent(Menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(Menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

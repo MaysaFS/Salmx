@@ -1,6 +1,5 @@
 package Principal;
 
-import Materiais.view.MateriaisFrame;
 import Usuarios.view.login.LoginFrame;
 import Usuarios.view.principal.UserFrame;
 
@@ -14,12 +13,12 @@ import Usuarios.view.principal.UserFrame;
  *
  * @author jimmy
  */
-public class MainFrameV2 extends javax.swing.JFrame {
+public class MainFrameV1 extends javax.swing.JFrame {
 
     /**
      * Creates new form MainFrameV2
      */
-    public MainFrameV2() {
+    public MainFrameV1() {
         initComponents();
         
     }
@@ -36,6 +35,8 @@ public class MainFrameV2 extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         TopoPrincipal2 = new javax.swing.JPanel();
         Salmx_Logo4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         Fornecedores_Icone = new javax.swing.JLabel();
         Fornecedores_Label = new javax.swing.JLabel();
@@ -49,8 +50,6 @@ public class MainFrameV2 extends javax.swing.JFrame {
         Relatorios_Label = new javax.swing.JLabel();
         Setores_Icone = new javax.swing.JLabel();
         Setores_Label = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
@@ -63,27 +62,49 @@ public class MainFrameV2 extends javax.swing.JFrame {
         Salmx_Logo4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Salmx_Logo4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/SalmxLogo.png"))); // NOI18N
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/UserGrey.png"))); // NOI18N
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Login");
+
         javax.swing.GroupLayout TopoPrincipal2Layout = new javax.swing.GroupLayout(TopoPrincipal2);
         TopoPrincipal2.setLayout(TopoPrincipal2Layout);
         TopoPrincipal2Layout.setHorizontalGroup(
             TopoPrincipal2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TopoPrincipal2Layout.createSequentialGroup()
                 .addComponent(Salmx_Logo4, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(TopoPrincipal2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)))
         );
         TopoPrincipal2Layout.setVerticalGroup(
             TopoPrincipal2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Salmx_Logo4, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+            .addGroup(TopoPrincipal2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addContainerGap())
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        Fornecedores_Icone.setBackground(new java.awt.Color(249, 249, 249));
+        Fornecedores_Icone.setBackground(new java.awt.Color(244, 244, 244));
         Fornecedores_Icone.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         Fornecedores_Icone.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Fornecedores_Icone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/IconesTelaV2/Fornecedores.png"))); // NOI18N
+        Fornecedores_Icone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/icones/Fornecedor_100.png"))); // NOI18N
         Fornecedores_Icone.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        Fornecedores_Icone.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Fornecedores_Icone.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Fornecedores_Icone.setMaximumSize(null);
         Fornecedores_Icone.setMinimumSize(new java.awt.Dimension(120, 120));
         Fornecedores_Icone.setOpaque(true);
@@ -97,12 +118,12 @@ public class MainFrameV2 extends javax.swing.JFrame {
         Fornecedores_Label.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         Fornecedores_Label.setMaximumSize(new java.awt.Dimension(300, 300));
 
-        Categorias_Icone.setBackground(new java.awt.Color(249, 249, 249));
+        Categorias_Icone.setBackground(new java.awt.Color(244, 244, 244));
         Categorias_Icone.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         Categorias_Icone.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Categorias_Icone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/IconesTelaV2/Categorias.png"))); // NOI18N
+        Categorias_Icone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/icones/Categorias_100.png"))); // NOI18N
         Categorias_Icone.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        Categorias_Icone.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Categorias_Icone.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Categorias_Icone.setMaximumSize(null);
         Categorias_Icone.setMinimumSize(new java.awt.Dimension(120, 120));
         Categorias_Icone.setOpaque(true);
@@ -116,12 +137,12 @@ public class MainFrameV2 extends javax.swing.JFrame {
         Categorias_Label.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         Categorias_Label.setMaximumSize(new java.awt.Dimension(300, 300));
 
-        Produtos_Icone.setBackground(new java.awt.Color(249, 249, 249));
+        Produtos_Icone.setBackground(new java.awt.Color(244, 244, 244));
         Produtos_Icone.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         Produtos_Icone.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Produtos_Icone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/IconesTelaV2/Produtos.png"))); // NOI18N
+        Produtos_Icone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/icones/Produtos_100.png"))); // NOI18N
         Produtos_Icone.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        Produtos_Icone.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Produtos_Icone.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Produtos_Icone.setMaximumSize(null);
         Produtos_Icone.setMinimumSize(new java.awt.Dimension(120, 120));
         Produtos_Icone.setOpaque(true);
@@ -140,12 +161,12 @@ public class MainFrameV2 extends javax.swing.JFrame {
         Produtos_Label.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         Produtos_Label.setMaximumSize(new java.awt.Dimension(300, 300));
 
-        Usuarios_Icone.setBackground(new java.awt.Color(249, 249, 249));
+        Usuarios_Icone.setBackground(new java.awt.Color(244, 244, 244));
         Usuarios_Icone.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         Usuarios_Icone.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Usuarios_Icone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/IconesTelaV2/Usuarios.png"))); // NOI18N
+        Usuarios_Icone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/icones/User_100.png"))); // NOI18N
         Usuarios_Icone.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        Usuarios_Icone.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Usuarios_Icone.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Usuarios_Icone.setMaximumSize(null);
         Usuarios_Icone.setMinimumSize(new java.awt.Dimension(120, 120));
         Usuarios_Icone.setOpaque(true);
@@ -160,16 +181,16 @@ public class MainFrameV2 extends javax.swing.JFrame {
         Usuarios_Label.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         Usuarios_Label.setForeground(new java.awt.Color(153, 153, 153));
         Usuarios_Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Usuarios_Label.setText("USUÁRIOS");
+        Usuarios_Label.setText("USUARIOS");
         Usuarios_Label.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         Usuarios_Label.setMaximumSize(new java.awt.Dimension(300, 300));
 
-        Relatorios_Icone.setBackground(new java.awt.Color(249, 249, 249));
+        Relatorios_Icone.setBackground(new java.awt.Color(244, 244, 244));
         Relatorios_Icone.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         Relatorios_Icone.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Relatorios_Icone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/IconesTelaV2/Relatorios.png"))); // NOI18N
+        Relatorios_Icone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/icones/Relatorios-02_100.png"))); // NOI18N
         Relatorios_Icone.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        Relatorios_Icone.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Relatorios_Icone.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Relatorios_Icone.setMaximumSize(null);
         Relatorios_Icone.setMinimumSize(new java.awt.Dimension(120, 120));
         Relatorios_Icone.setOpaque(true);
@@ -183,12 +204,12 @@ public class MainFrameV2 extends javax.swing.JFrame {
         Relatorios_Label.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         Relatorios_Label.setMaximumSize(new java.awt.Dimension(300, 300));
 
-        Setores_Icone.setBackground(new java.awt.Color(249, 249, 249));
+        Setores_Icone.setBackground(new java.awt.Color(244, 244, 244));
         Setores_Icone.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         Setores_Icone.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Setores_Icone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/IconesTelaV2/Setores.png"))); // NOI18N
+        Setores_Icone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/icones/Setores_100.png"))); // NOI18N
         Setores_Icone.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        Setores_Icone.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Setores_Icone.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Setores_Icone.setMaximumSize(null);
         Setores_Icone.setMinimumSize(new java.awt.Dimension(120, 120));
         Setores_Icone.setOpaque(true);
@@ -202,96 +223,62 @@ public class MainFrameV2 extends javax.swing.JFrame {
         Setores_Label.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         Setores_Label.setMaximumSize(new java.awt.Dimension(300, 300));
 
-        jLabel2.setBackground(new java.awt.Color(255, 102, 102));
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("LOGIN");
-        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel2.setOpaque(true);
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
-            }
-        });
-
-        jLabel1.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("LOGOUT");
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel1.setOpaque(true);
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(Fornecedores_Icone, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(Fornecedores_Label, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                            .addComponent(Setores_Icone, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(Setores_Label, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
-                        .addGap(100, 100, 100)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(Categorias_Icone, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(Categorias_Label, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                            .addComponent(Relatorios_Icone, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(Relatorios_Label, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
-                        .addGap(100, 100, 100)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(Produtos_Icone, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(Produtos_Label, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                            .addComponent(Usuarios_Icone, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(Usuarios_Label, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))))
+                .addGap(50, 50, 50)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(Fornecedores_Icone, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(Fornecedores_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                    .addComponent(Setores_Icone, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(Setores_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(102, 102, 102)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(Categorias_Icone, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(Categorias_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Relatorios_Icone, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(Relatorios_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(101, 101, 101)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(Produtos_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Usuarios_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Produtos_Icone, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(Usuarios_Icone, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))
                 .addGap(50, 50, 50))
         );
-
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel1, jLabel2});
-
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(50, 50, 50)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(Categorias_Icone, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                    .addComponent(Fornecedores_Icone, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(Categorias_Icone, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(Fornecedores_Icone, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(Produtos_Icone, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Fornecedores_Label, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Categorias_Label, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Produtos_Label, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Fornecedores_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Categorias_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Produtos_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(50, 50, 50)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(Setores_Icone, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                    .addComponent(Relatorios_Icone, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(Setores_Icone, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(Relatorios_Icone, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(Usuarios_Icone, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Relatorios_Label, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Usuarios_Label, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Setores_Label, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Relatorios_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Usuarios_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Setores_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(50, 50, 50))
         );
-
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel1, jLabel2});
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TopoPrincipal2, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE)
+            .addComponent(TopoPrincipal2, javax.swing.GroupLayout.DEFAULT_SIZE, 663, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
@@ -317,17 +304,17 @@ public class MainFrameV2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Usuarios_IconeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Usuarios_IconeMouseClicked
-        new UserFrame().setVisible(true);
+       new UserFrame().setVisible(true);
     }//GEN-LAST:event_Usuarios_IconeMouseClicked
 
-    private void Produtos_IconeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Produtos_IconeMouseClicked
-       
-        new MateriaisFrame().setVisible(true);
-    }//GEN-LAST:event_Produtos_IconeMouseClicked
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+            new LoginFrame().setVisible(true);
+    }//GEN-LAST:event_jLabel1MouseClicked
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        new LoginFrame().setVisible(true);
-    }//GEN-LAST:event_jLabel2MouseClicked
+    private void Produtos_IconeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Produtos_IconeMouseClicked
+        // TODO add your handling code here:
+        new Materiais.view.MateriaisFrame().setVisible(true);
+    }//GEN-LAST:event_Produtos_IconeMouseClicked
 
     /**
      * @param args the command line arguments
@@ -346,20 +333,21 @@ public class MainFrameV2 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainFrameV2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainFrameV1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainFrameV2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainFrameV1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainFrameV2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainFrameV1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainFrameV2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainFrameV1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainFrameV2().setVisible(true);
+                new MainFrameV1().setVisible(true);
             }
         });
     }
