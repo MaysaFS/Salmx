@@ -6,6 +6,7 @@
 package Usuarios.view.login;
 
 
+import Principal.MainFrameV2;
 import java.awt.Frame;
 /**
  *
@@ -18,7 +19,7 @@ public class LoginFrame extends javax.swing.JFrame {
      */
     public LoginFrame() {
         initComponents();
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+       setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE); 
     }
 
     /**
@@ -110,6 +111,11 @@ public class LoginFrame extends javax.swing.JFrame {
         jLabelLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelLogin.setText("LOGIN");
         jLabelLogin.setOpaque(true);
+        jLabelLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelLoginMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
         jPanelBody.setLayout(jPanelBodyLayout);
@@ -186,6 +192,12 @@ public class LoginFrame extends javax.swing.JFrame {
     private void jPasswordFieldUserPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldUserPassActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordFieldUserPassActionPerformed
+
+    private void jLabelLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLoginMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+        new MainFrameV2(true);
+    }//GEN-LAST:event_jLabelLoginMouseClicked
 
     /**
      * @param args the command line arguments
