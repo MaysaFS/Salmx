@@ -119,13 +119,13 @@
                                   <Component id="jPasswordFieldSenha" alignment="0" max="32767" attributes="0"/>
                                   <Component id="JLabelSenha" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jPasswordFieldConfirmaSenha" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="JLabelConfirmaSenha" alignment="1" min="-2" pref="237" max="-2" attributes="0"/>
+                                  <Component id="JLabelConfirmaSenha" alignment="0" min="-2" pref="237" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="JLabelCancelar" linkSize="3" min="-2" pref="108" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="JLabelSalvar" linkSize="3" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="JLabelCancelar" min="-2" pref="108" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                              <Component id="JLabelSalvar" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="50" max="32767" attributes="0"/>
@@ -136,22 +136,22 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="JLabelNome" min="-2" pref="15" max="-2" attributes="0"/>
+                      <Component id="JLabelNome" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JTextFieldNome" min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="JTextFieldNome" linkSize="3" min="-2" pref="26" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="JLabelLogin" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JTextFieldLogin" min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="JTextFieldLogin" linkSize="3" min="-2" pref="26" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="JLabelSenha" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPasswordFieldSenha" min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="jPasswordFieldSenha" linkSize="3" min="-2" pref="29" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="JLabelConfirmaSenha" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPasswordFieldConfirmaSenha" min="-2" pref="29" max="-2" attributes="0"/>
-                      <EmptySpace pref="30" max="32767" attributes="0"/>
+                      <Component id="jPasswordFieldConfirmaSenha" linkSize="3" min="-2" pref="29" max="-2" attributes="0"/>
+                      <EmptySpace pref="24" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="JLabelCancelar" linkSize="2" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           <Component id="JLabelSalvar" linkSize="2" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
