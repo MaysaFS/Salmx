@@ -128,7 +128,7 @@ public class SetorFrame extends javax.swing.JFrame {
         retirarMaterial.setBackground(new java.awt.Color(63, 63, 63));
         retirarMaterial.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         retirarMaterial.setForeground(new java.awt.Color(255, 255, 255));
-        retirarMaterial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Delet_Small..png"))); // NOI18N
+        retirarMaterial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Delet_Small.png"))); // NOI18N
         retirarMaterial.setText("RETIRAR");
         retirarMaterial.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
         retirarMaterial.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -146,7 +146,7 @@ public class SetorFrame extends javax.swing.JFrame {
         novoMaterial.setBackground(new java.awt.Color(63, 63, 63));
         novoMaterial.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         novoMaterial.setForeground(new java.awt.Color(255, 255, 255));
-        novoMaterial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_New_Small..png"))); // NOI18N
+        novoMaterial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_New_Small.png"))); // NOI18N
         novoMaterial.setText("ADICIONAR");
         novoMaterial.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
         novoMaterial.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));

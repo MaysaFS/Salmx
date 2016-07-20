@@ -9,6 +9,7 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -45,7 +46,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="JPanelTop" alignment="0" pref="705" max="32767" attributes="0"/>
+              <Component id="JPanelTop" alignment="0" pref="743" max="32767" attributes="0"/>
               <Component id="JPanelBody" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
@@ -74,14 +75,11 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="Salmx_Logo" min="-2" pref="259" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="348" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel1" pref="88" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                              <Component id="jLabelLogout" max="32767" attributes="0"/>
-                          </Group>
+                      <Component id="Salmx_Logo" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="2" attributes="0">
+                          <Component id="jLabelLogout" alignment="2" min="-2" pref="76" max="-2" attributes="0"/>
+                          <Component id="jLabel1" alignment="2" min="-2" pref="76" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -89,13 +87,13 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="Salmx_Logo" pref="86" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                  <Component id="Salmx_Logo" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="jLabel1" min="-2" pref="41" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabelLogout" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -103,9 +101,14 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="Salmx_Logo">
               <Properties>
-                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="horizontalAlignment" type="int" value="2"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Images/SalmxLogo.png"/>
+                </Property>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                    <EmptyBorder bottom="10" left="10" right="10" top="10"/>
+                  </Border>
                 </Property>
               </Properties>
             </Component>
@@ -116,7 +119,7 @@
                   <Image iconType="3" name="/Images/UserGrey.png"/>
                 </Property>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor padr&#xe3;o"/>
+                  <Color id="Cursor Padr&#xe3;o"/>
                 </Property>
               </Properties>
               <Events>
@@ -134,7 +137,7 @@
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="LOGOUT"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor padr&#xe3;o"/>
+                  <Color id="Cursor Padr&#xe3;o"/>
                 </Property>
                 <Property name="opaque" type="boolean" value="true"/>
               </Properties>
@@ -154,24 +157,24 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="2" attributes="0">
-                          <Component id="Fornecedores_Icone" alignment="2" pref="0" max="32767" attributes="0"/>
-                          <Component id="Fornecedores_Label" alignment="2" pref="135" max="32767" attributes="0"/>
+                          <Component id="Fornecedores_Icone" alignment="2" pref="169" max="32767" attributes="0"/>
+                          <Component id="Fornecedores_Label" alignment="2" max="32767" attributes="0"/>
                           <Component id="Setores_Icone" alignment="2" pref="0" max="32767" attributes="0"/>
-                          <Component id="Setores_Label" alignment="2" pref="135" max="32767" attributes="0"/>
+                          <Component id="Setores_Label" alignment="2" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="2" attributes="0">
                           <Component id="Categorias_Icone" alignment="2" pref="0" max="32767" attributes="0"/>
-                          <Component id="Categorias_Label" alignment="2" pref="135" max="32767" attributes="0"/>
+                          <Component id="Categorias_Label" alignment="2" pref="146" max="32767" attributes="0"/>
                           <Component id="Relatorios_Icone" alignment="2" pref="0" max="32767" attributes="0"/>
-                          <Component id="Relatorios_Label" alignment="2" pref="135" max="32767" attributes="0"/>
+                          <Component id="Relatorios_Label" alignment="2" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="2" attributes="0">
                           <Component id="Materiais_Icone" alignment="2" pref="0" max="32767" attributes="0"/>
-                          <Component id="Materias_Label" alignment="2" pref="135" max="32767" attributes="0"/>
+                          <Component id="Materias_Label" alignment="2" pref="128" max="32767" attributes="0"/>
                           <Component id="Usuarios_Icone" alignment="2" pref="0" max="32767" attributes="0"/>
-                          <Component id="Usuarios_Label" alignment="2" pref="135" max="32767" attributes="0"/>
+                          <Component id="Usuarios_Label" alignment="2" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                   </Group>
@@ -228,7 +231,7 @@
                   </Border>
                 </Property>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor padr&#xe3;o"/>
+                  <Color id="Cursor Padr&#xe3;o"/>
                 </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="null"/>
@@ -283,7 +286,7 @@
                   </Border>
                 </Property>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor padr&#xe3;o"/>
+                  <Color id="Cursor Padr&#xe3;o"/>
                 </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="null"/>
@@ -338,7 +341,7 @@
                   </Border>
                 </Property>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor padr&#xe3;o"/>
+                  <Color id="Cursor Padr&#xe3;o"/>
                 </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="null"/>
@@ -396,7 +399,7 @@
                   </Border>
                 </Property>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor padr&#xe3;o"/>
+                  <Color id="Cursor Padr&#xe3;o"/>
                 </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="null"/>
@@ -454,7 +457,7 @@
                   </Border>
                 </Property>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor padr&#xe3;o"/>
+                  <Color id="Cursor Padr&#xe3;o"/>
                 </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="null"/>
@@ -509,7 +512,7 @@
                   </Border>
                 </Property>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor padr&#xe3;o"/>
+                  <Color id="Cursor Padr&#xe3;o"/>
                 </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="null"/>

@@ -126,7 +126,7 @@ public class UserFrame extends javax.swing.JFrame {
 
         BotaoBuscar.setBackground(new java.awt.Color(51, 51, 51));
         BotaoBuscar.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        BotaoBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagensV2/search.png"))); // NOI18N
+        BotaoBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Search_Small.png"))); // NOI18N
         BotaoBuscar.setText("BUSCAR");
         BotaoBuscar.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
         BotaoBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -136,7 +136,7 @@ public class UserFrame extends javax.swing.JFrame {
         CadastrarUsuario.setBackground(new java.awt.Color(63, 63, 63));
         CadastrarUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         CadastrarUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        CadastrarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagensV2/add.png"))); // NOI18N
+        CadastrarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_New_Small.png"))); // NOI18N
         CadastrarUsuario.setText("ADICIONAR");
         CadastrarUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
         CadastrarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -150,7 +150,7 @@ public class UserFrame extends javax.swing.JFrame {
         EditarUsuario.setBackground(new java.awt.Color(63, 63, 63));
         EditarUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         EditarUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        EditarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagensV2/edit.png"))); // NOI18N
+        EditarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Edit_Small.png"))); // NOI18N
         EditarUsuario.setText("EDITAR");
         EditarUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
         EditarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -164,7 +164,7 @@ public class UserFrame extends javax.swing.JFrame {
         RemoverUsuario.setBackground(new java.awt.Color(63, 63, 63));
         RemoverUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         RemoverUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        RemoverUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagensV2/delet.png"))); // NOI18N
+        RemoverUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Delet_Small.png"))); // NOI18N
         RemoverUsuario.setText("EXCLUIR ");
         RemoverUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
         RemoverUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
