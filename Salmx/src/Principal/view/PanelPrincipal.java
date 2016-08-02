@@ -1,31 +1,46 @@
-package Principal;
-
-import Materiais.view.MateriaisFrame;
-import Usuarios.view.login.LoginFrame;
-import Usuarios.view.principal.UserFrame;
-
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+package Principal.view;
+
+import javax.swing.JLabel;
 
 /**
  *
- * @author jimmy
+ * @author Maysa
  */
-public class MainFrameV2 extends javax.swing.JFrame {
+public class PanelPrincipal extends javax.swing.JPanel {
 
     /**
-     * Creates new form MainFrameV2
+     * Creates new form PanelPrincipal
      */
-    public MainFrameV2() {
-      new LoginFrame().setVisible(true);     
-       initComponents();     
+    public PanelPrincipal() {
+        initComponents();
     }
-     public MainFrameV2(boolean op) {
-      this.setVisible(op);     
-        initComponents();    
+
+    public JLabel getCategorias_Icone() {
+        return Categorias_Icone;
+    }
+
+    public JLabel getFornecedores_Icone() {
+        return Fornecedores_Icone;
+    }
+
+    public JLabel getMateriais_Icone() {
+        return Materiais_Icone;
+    }
+
+    public JLabel getRelatorios_Icone() {
+        return Relatorios_Icone;
+    }
+
+    public JLabel getSetores_Icone() {
+        return Setores_Icone;
+    }
+
+    public JLabel getUsuarios_Icone() {
+        return Usuarios_Icone;
     }
 
     /**
@@ -55,9 +70,6 @@ public class MainFrameV2 extends javax.swing.JFrame {
         Relatorios_Label = new javax.swing.JLabel();
         Setores_Icone = new javax.swing.JLabel();
         Setores_Label = new javax.swing.JLabel();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(800, 600));
 
         JPanelBackground.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -89,19 +101,16 @@ public class MainFrameV2 extends javax.swing.JFrame {
         JPanelTopLayout.setHorizontalGroup(
             JPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelTopLayout.createSequentialGroup()
-                .addComponent(Salmx_Logo, javax.swing.GroupLayout.DEFAULT_SIZE, 617, Short.MAX_VALUE)
+                .addComponent(Salmx_Logo, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
                 .addGroup(JPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPanelTopLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelTopLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelLogout, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)))
+                        .addComponent(jLabelLogout, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-
-        JPanelTopLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel1, jLabelLogout});
-
         JPanelTopLayout.setVerticalGroup(
             JPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Salmx_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -110,7 +119,7 @@ public class MainFrameV2 extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         JPanelBody.setBackground(new java.awt.Color(255, 255, 255));
@@ -305,8 +314,8 @@ public class MainFrameV2 extends javax.swing.JFrame {
                 .addComponent(JPanelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(JPanelBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -315,57 +324,20 @@ public class MainFrameV2 extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(JPanelBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Usuarios_IconeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Usuarios_IconeMouseClicked
-        new UserFrame().setVisible(true);
-    }//GEN-LAST:event_Usuarios_IconeMouseClicked
-
-    private void Materiais_IconeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Materiais_IconeMouseClicked
-       
-        new MateriaisFrame().setVisible(true);
-    }//GEN-LAST:event_Materiais_IconeMouseClicked
-
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        
+
     }//GEN-LAST:event_jLabel1MouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainFrameV2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainFrameV2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainFrameV2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainFrameV2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void Materiais_IconeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Materiais_IconeMouseClicked
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainFrameV2().setVisible(false);
-            }
-        });
-    }
+        
+    }//GEN-LAST:event_Materiais_IconeMouseClicked
+
+    private void Usuarios_IconeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Usuarios_IconeMouseClicked
+        
+    }//GEN-LAST:event_Usuarios_IconeMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Categorias_Icone;

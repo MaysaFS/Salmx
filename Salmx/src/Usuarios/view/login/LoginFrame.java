@@ -6,20 +6,59 @@
 package Usuarios.view.login;
 
 
-import Principal.MainFrameV2;
+import Principal.view.TelaPrincipal;
+import java.awt.Dimension;
 import java.awt.Frame;
+import java.awt.Toolkit;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 /**
  *
  * @author jimmy
  */
 public class LoginFrame extends javax.swing.JFrame {
-
+    
+private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     /**
      * Creates new form UserLogin
      */
     public LoginFrame() {
         initComponents();
+        iniciar();
        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE); 
+    }
+
+    public JPasswordField getjPasswordFieldUserPass() {
+        return jPasswordFieldUserPass;
+    }
+
+    public JTextField getjTextFieldUser() {
+        return jTextFieldUser;
+    }
+    
+    
+    
+    
+     private void iniciar() {
+        this.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                System.exit(0);
+            }
+        });
+        this.setLocationRelativeTo(null);
+        //this.setBounds((screenSize.width-250)/2, (screenSize.height-250)/2, 250, 250);
+    }
+     public boolean validaCampos(){
+        if(jTextFieldUser.getText().isEmpty() || 
+                jPasswordFieldUserPass.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Preencha todos os campos");
+            return false;
+        } else{
+            return true;
+        }
     }
 
     /**
@@ -111,11 +150,6 @@ public class LoginFrame extends javax.swing.JFrame {
         jLabelLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelLogin.setText("LOGIN");
         jLabelLogin.setOpaque(true);
-        jLabelLogin.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelLoginMouseClicked(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
         jPanelBody.setLayout(jPanelBodyLayout);
@@ -192,13 +226,7 @@ public class LoginFrame extends javax.swing.JFrame {
     private void jPasswordFieldUserPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldUserPassActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordFieldUserPassActionPerformed
-
-    private void jLabelLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLoginMouseClicked
-        // TODO add your handling code here:
-        this.dispose();
-        new MainFrameV2(true);
-    }//GEN-LAST:event_jLabelLoginMouseClicked
-
+ 
     /**
      * @param args the command line arguments
      */
@@ -249,4 +277,10 @@ public class LoginFrame extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordFieldUserPass;
     private javax.swing.JTextField jTextFieldUser;
     // End of variables declaration//GEN-END:variables
+
+    public JLabel getjLabelLogin() {
+        return jLabelLogin;
+    }
+
+    
 }
