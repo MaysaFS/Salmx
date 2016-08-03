@@ -50,9 +50,11 @@ public class ControleUsuario implements MouseListener{
         
         if(e.getSource() == gUsuario.getVoltar()){
              cp.getTelaPrincipal().setContentPane(cp.getTela());            
-             gUsuario.show(false);
-             
-
+             gUsuario.show(false);  
+        }
+        if(e.getSource() == gUsuario.getNovoUsuario()){
+            NovoUsuario novo = new NovoUsuario();
+            novo.setVisible(true);
         }
         
      
