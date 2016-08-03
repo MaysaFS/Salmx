@@ -8,7 +8,6 @@ import Principal.controle.ControlePrincipal;
 import Principal.view.TelaPrincipal;
 import Setor.model.RnSetor;
 import Setor.view.novo.GSetor;
-import Setor.view.TelaSetor;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.table.DefaultTableModel;

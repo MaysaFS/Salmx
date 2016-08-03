@@ -1,8 +1,8 @@
 package Principal.IconesTelaV2;
 
 import Materiais.view.MateriaisFrame;
-import Usuarios.view.login.LoginFrame;
-import Usuarios.view.principal.UserFrame;
+import Usuarios.view.LoginFrame;
+import Usuarios.view.UserFrame;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

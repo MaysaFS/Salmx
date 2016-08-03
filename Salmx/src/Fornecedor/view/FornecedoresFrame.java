@@ -5,6 +5,8 @@
  */
 package Fornecedores;
 
+import Fornecedor.view.AddFornecedorFrame;
+
 /**
  *
  * @author Windows

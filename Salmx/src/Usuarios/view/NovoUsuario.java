@@ -3,13 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Usuarios.view.editar;
+package Usuarios.view;
 
-import Usuarios.view.novo.*;
+public class NovoUsuario extends javax.swing.JFrame {
 
-public class EditarUsuario extends javax.swing.JFrame {
-
-    public EditarUsuario() {
+    public NovoUsuario() {
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
@@ -126,14 +124,14 @@ public class EditarUsuario extends javax.swing.JFrame {
         JLabelCancelar.setForeground(new java.awt.Color(255, 255, 255));
         JLabelCancelar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabelCancelar.setText("CANCELAR");
-        JLabelCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JLabelCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         JLabelCancelar.setOpaque(true);
 
         JLabelSalvar.setBackground(new java.awt.Color(255, 102, 102));
         JLabelSalvar.setForeground(new java.awt.Color(255, 255, 255));
         JLabelSalvar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabelSalvar.setText("SALVAR");
-        JLabelSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JLabelSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         JLabelSalvar.setOpaque(true);
 
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);

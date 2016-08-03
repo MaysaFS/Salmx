@@ -9,7 +9,9 @@ import Principal.view.TelaPrincipal;
 import Setor.controle.ControleSetor;
 import Setor.view.TelaSetor;
 import Usuarios.controle.ControleLogin;
-import Usuarios.view.login.LoginFrame;
+import Usuarios.controle.ControleUsuario;
+import Usuarios.view.GUsuario;
+import Usuarios.view.LoginFrame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -27,6 +29,7 @@ public class ControlePrincipal implements ActionListener,MouseListener {
     TelaSetor telaSetor;
     ControleLogin controleLogin;
     ControleSetor controleSetor;
+    ControleUsuario controleUsuario;
     PanelPrincipal pp;
 
     public ControlePrincipal() {
@@ -37,7 +40,7 @@ public class ControlePrincipal implements ActionListener,MouseListener {
     public void carregaTelas(){
         pp= new PanelPrincipal();
         telaPrincipal= new TelaPrincipal();
-        telaPrincipal.setContentPane(pp);
+        telaPrincipal.setContentPane(pp);      
         telaPrincipal.repaint();
         telaPrincipal.validate();
         telaLogin= new LoginFrame();
@@ -70,10 +73,10 @@ public class ControlePrincipal implements ActionListener,MouseListener {
           // telaPrincipal.validate();
         }
           if(e.getSource() == pp.getUsuarios_Icone()){
-          // controlePessoa =  new ControlePessoa();
-          // telaPrincipal.setContentPane(controlePessoa.getTela());
-          // telaPrincipal.repaint();
-          // telaPrincipal.validate();
+            controleUsuario =  new ControleUsuario(telaPrincipal, this);
+            telaPrincipal.setContentPane(controleUsuario.getTela());
+            telaPrincipal.repaint();
+            telaPrincipal.validate();
         }
            if(e.getSource() == pp.getFornecedores_Icone()){
           // controlePessoa =  new ControlePessoa();
