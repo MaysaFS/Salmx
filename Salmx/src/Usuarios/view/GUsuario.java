@@ -84,8 +84,8 @@ public class GUsuario extends javax.swing.JPanel {
 
         Background = new javax.swing.JPanel();
         Top = new javax.swing.JPanel();
-        voltar = new javax.swing.JLabel();
         TituloGestaoDeUsuario = new javax.swing.JLabel();
+        voltar = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableUsersList = new javax.swing.JTable();
         CaixaBuscar = new javax.swing.JTextField();
@@ -99,30 +99,32 @@ public class GUsuario extends javax.swing.JPanel {
 
         Top.setBackground(new java.awt.Color(255, 102, 102));
 
-        voltar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        voltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/voltar2.png"))); // NOI18N
-        voltar.setText(" ");
-        voltar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 1));
-        voltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
         TituloGestaoDeUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         TituloGestaoDeUsuario.setForeground(new java.awt.Color(255, 255, 255));
         TituloGestaoDeUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TituloGestaoDeUsuario.setText("GESTÃO DE USUÁRIO");
+
+        voltar.setBackground(new java.awt.Color(255, 0, 0));
+        voltar.setForeground(new java.awt.Color(255, 255, 255));
+        voltar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        voltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Voltar.png"))); // NOI18N
+        voltar.setText("Voltar");
+        voltar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 1));
+        voltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout TopLayout = new javax.swing.GroupLayout(Top);
         Top.setLayout(TopLayout);
         TopLayout.setHorizontalGroup(
             TopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TopLayout.createSequentialGroup()
-                .addComponent(voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(voltar)
+                .addGap(88, 88, 88)
                 .addComponent(TituloGestaoDeUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         TopLayout.setVerticalGroup(
             TopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TopLayout.createSequentialGroup()
-                .addGroup(TopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(TopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TituloGestaoDeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, 0))
