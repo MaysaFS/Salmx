@@ -110,7 +110,6 @@ private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
         jTextFieldUser.setForeground(new java.awt.Color(153, 153, 153));
         jTextFieldUser.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldUser.setText(" ");
         jTextFieldUser.setToolTipText("");
         jTextFieldUser.setAutoscrolls(false);
         jTextFieldUser.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));

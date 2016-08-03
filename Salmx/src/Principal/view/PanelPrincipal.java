@@ -95,12 +95,12 @@ public class PanelPrincipal extends javax.swing.JPanel {
         JPanelTopLayout.setHorizontalGroup(
             JPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelTopLayout.createSequentialGroup()
-                .addComponent(Salmx_Logo, javax.swing.GroupLayout.DEFAULT_SIZE, 625, Short.MAX_VALUE)
+                .addComponent(Salmx_Logo, javax.swing.GroupLayout.DEFAULT_SIZE, 587, Short.MAX_VALUE)
                 .addGap(39, 39, 39)
                 .addGroup(JPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabelLogout, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGap(50, 50, 50))
         );
         JPanelTopLayout.setVerticalGroup(
             JPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
