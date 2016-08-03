@@ -5,6 +5,7 @@
 package Setor.controle;
 
 import Principal.controle.ControlePrincipal;
+import Principal.view.PanelPrincipal;
 import Principal.view.TelaPrincipal;
 import Setor.model.RnSetor;
 import Setor.view.novo.GSetor;
@@ -74,7 +75,8 @@ public class ControleSetor implements MouseListener {
             
         }
         if(e.getSource() == gSetor.getRetornarPrincip()){
-            gSetor.show(true);           
+            gSetor.show(true);       
+            
         }       
     }
        

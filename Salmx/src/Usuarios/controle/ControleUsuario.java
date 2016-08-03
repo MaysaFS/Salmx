@@ -10,16 +10,20 @@ package Usuarios.controle;
  * @author jimmy
  */
 import Principal.controle.ControlePrincipal;
+import Principal.view.PanelPrincipal;
 import Principal.view.TelaPrincipal;
+import Setor.model.RnSetor;
 import Usuarios.view.GUsuario;
 import Usuarios.view.NovoUsuario;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class ControleUsuario implements MouseListener{
     GUsuario gUsuario;
+    PanelPrincipal pp;
     TelaPrincipal principal;
     ControlePrincipal cp;
      
@@ -35,7 +39,7 @@ public class ControleUsuario implements MouseListener{
         gUsuario.getEditarUsuario().addMouseListener(this);
         gUsuario.getExcluirUsuario().addMouseListener(this);  
         gUsuario.getPesquisarUsuario().addMouseListener(this);
-        
+        gUsuario.getVoltar().addMouseListener(this);
     }
     public GUsuario getTela(){
         return gUsuario;
@@ -44,31 +48,31 @@ public class ControleUsuario implements MouseListener{
     @Override
     public void mouseClicked(MouseEvent e) {
         
-        if(e.getSource() == gUsuario.getNovoUsuario()){
-            
+        if(e.getSource() == gUsuario.getVoltar()){
+             cp.getTelaPrincipal().setContentPane(cp.getTela());            
+             gUsuario.show(false);
+             
+
         }
+        
      
      
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

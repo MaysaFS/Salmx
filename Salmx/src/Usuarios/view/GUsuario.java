@@ -6,6 +6,7 @@
 package Usuarios.view;
 
 import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -20,21 +21,55 @@ public class GUsuario extends javax.swing.JPanel {
         initComponents();
     }
 
-    public JLabel getPesquisarUsuario() {
-        return PesquisarUsuario;
+    public JTextField getCaixaBuscar() {
+        return CaixaBuscar;
+    }
+
+    public void setCaixaBuscar(JTextField CaixaBuscar) {
+        this.CaixaBuscar = CaixaBuscar;
     }
 
     public JLabel getEditarUsuario() {
         return EditarUsuario;
     }
 
+    public void setEditarUsuario(JLabel EditarUsuario) {
+        this.EditarUsuario = EditarUsuario;
+    }
+
     public JLabel getExcluirUsuario() {
         return ExcluirUsuario;
+    }
+
+    public void setExcluirUsuario(JLabel ExcluirUsuario) {
+        this.ExcluirUsuario = ExcluirUsuario;
     }
 
     public JLabel getNovoUsuario() {
         return NovoUsuario;
     }
+
+    public void setNovoUsuario(JLabel NovoUsuario) {
+        this.NovoUsuario = NovoUsuario;
+    }
+
+    public JLabel getPesquisarUsuario() {
+        return PesquisarUsuario;
+    }
+
+    public void setPesquisarUsuario(JLabel PesquisarUsuario) {
+        this.PesquisarUsuario = PesquisarUsuario;
+    }
+
+    public JLabel getVoltar() {
+        return voltar;
+    }
+
+    public void setVoltar(JLabel voltar) {
+        this.voltar = voltar;
+    }
+
+    
 
     
     
@@ -49,7 +84,7 @@ public class GUsuario extends javax.swing.JPanel {
 
         Background = new javax.swing.JPanel();
         Top = new javax.swing.JPanel();
-        jLabelSalmxLogo = new javax.swing.JLabel();
+        voltar = new javax.swing.JLabel();
         TituloGestaoDeUsuario = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableUsersList = new javax.swing.JTable();
@@ -64,10 +99,11 @@ public class GUsuario extends javax.swing.JPanel {
 
         Top.setBackground(new java.awt.Color(255, 102, 102));
 
-        jLabelSalmxLogo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabelSalmxLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/SalmxLogoPequeno.png"))); // NOI18N
-        jLabelSalmxLogo.setText(" ");
-        jLabelSalmxLogo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 1));
+        voltar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        voltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/voltar2.png"))); // NOI18N
+        voltar.setText(" ");
+        voltar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 1));
+        voltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         TituloGestaoDeUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         TituloGestaoDeUsuario.setForeground(new java.awt.Color(255, 255, 255));
@@ -79,7 +115,7 @@ public class GUsuario extends javax.swing.JPanel {
         TopLayout.setHorizontalGroup(
             TopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TopLayout.createSequentialGroup()
-                .addComponent(jLabelSalmxLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TituloGestaoDeUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -88,7 +124,7 @@ public class GUsuario extends javax.swing.JPanel {
             .addGroup(TopLayout.createSequentialGroup()
                 .addGroup(TopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(TituloGestaoDeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelSalmxLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, 0))
         );
 
@@ -253,13 +289,11 @@ public class GUsuario extends javax.swing.JPanel {
     }//GEN-LAST:event_CaixaBuscarActionPerformed
 
     private void NovoUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NovoUsuarioMouseClicked
-        //Aciona a tela NovoUsuário
-        new NovoUsuario().setVisible(true);
+      
     }//GEN-LAST:event_NovoUsuarioMouseClicked
 
     private void EditarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditarUsuarioMouseClicked
-        //Aciona a tela de edição EditarUsuario
-        new EditarUsuario().setVisible(true);
+ 
     }//GEN-LAST:event_EditarUsuarioMouseClicked
 
 
@@ -273,8 +307,8 @@ public class GUsuario extends javax.swing.JPanel {
     private javax.swing.JLabel PesquisarUsuario;
     private javax.swing.JLabel TituloGestaoDeUsuario;
     private javax.swing.JPanel Top;
-    private javax.swing.JLabel jLabelSalmxLogo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableUsersList;
+    private javax.swing.JLabel voltar;
     // End of variables declaration//GEN-END:variables
 }

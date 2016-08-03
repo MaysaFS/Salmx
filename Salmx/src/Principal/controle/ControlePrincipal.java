@@ -55,6 +55,17 @@ public class ControlePrincipal implements ActionListener,MouseListener {
         pp.getRelatorios_Icone().addMouseListener(this);
     }
 
+    public PanelPrincipal getTela() {
+        return pp;
+    }
+
+    public TelaPrincipal getTelaPrincipal() {
+        return telaPrincipal;
+    }
+
+    
+   
+    
     @Override
     public void actionPerformed(ActionEvent e){}
 
