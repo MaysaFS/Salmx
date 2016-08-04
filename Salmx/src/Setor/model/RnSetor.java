@@ -6,70 +6,43 @@ package Setor.model;
 
 import Principal.view.TelaPrincipal;
 import Setor.controle.ControleSetor;
-import Setor.view.novo.GSetor;
+import Setor.view.GSetor;
 import Setor.view.TelaSetor;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author Maysa
  */
-public class RnSetor implements MouseListener {
-    TelaSetor ts;
-    TelaPrincipal tp;
-   
+public class RnSetor  {
+    private List<Setor> setores;    
     
-    
-      public RnSetor(TelaPrincipal tp) {
-        ts= new TelaSetor();
-        this.tp=tp;
-        addEvent();
-        
+      public RnSetor() {
+        setores= new ArrayList();
+    }    
+      
+    public  void salvarSetor(Setor s){
+               setores.add(s);
+         System.out.println("SALVO"+s.getNome());
+               
     }
-    public void addEvent(){
-       ts.getjLabelSalvar().addMouseListener(this);
-       ts.getjLabelCancelar().addMouseListener(this);
-       
-   }
-    public TelaSetor getTela(){
-       return ts;
-   }
-    
-    public void editarDados(){
-        
+    public void editarSetor(Setor s,int i ){
+        setores.get(i).setNome(s.getNome());
+        setores.get(i).setRamal(s.getRamal());
+        setores.get(i).setObservacao(s.getObservacao());
     }
-    public void gravaDados(){
-        
-    }
-    @Override
-    public void mouseClicked(MouseEvent e) {
-         if(e.getSource() == ts.getjLabelSalvar()){
-            
+    public List<Setor> listarSetor(){
+        for (int i = 0; i < setores.size(); i++) {
+            System.out.println(setores.get(i).getNome());            
         }
-        if(e.getSource() == ts.getjLabelCancelar()){
-            ts.show();  
-           ControleSetor controleSetor = new ControleSetor(tp);
-           tp.setContentPane(controleSetor.getTela());
-           tp.repaint();
-           tp.validate();
-        }
+        return setores;
     }
-
-    @Override
-    public void mousePressed(MouseEvent e) {}
-
-    @Override
-    public void mouseReleased(MouseEvent e) {}
-
-    @Override
-    public void mouseEntered(MouseEvent e) {}
-
-    @Override
-    public void mouseExited(MouseEvent e) {}
-
-  
-   
+    public void excluirSetor(Setor s){
+        setores.remove(s);
+    }
     
     
     

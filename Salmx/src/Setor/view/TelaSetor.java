@@ -20,15 +20,16 @@ private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
      * Creates new form TelaSetor
      */
     public TelaSetor() {
+        
         initComponents();
     }
 
     public JLabel getjLabelSalvar() {
-        return jLabelCancelar;
+        return jLabelSalvar;
     }
 
     public void setjLabelSalvar(JLabel jLabelSalvar) {
-        this.jLabelCancelar = jLabelSalvar;
+        this.jLabelSalvar = jLabelSalvar;
     }
 
     public JLabel getjLabelCancelar() {
@@ -244,7 +245,7 @@ private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
                 .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelBackLayout.createSequentialGroup()
                         .addComponent(jPanelTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 130, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanelBackLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -263,9 +264,7 @@ private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanelBack, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

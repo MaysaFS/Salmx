@@ -35,7 +35,8 @@ public class ControlePrincipal implements ActionListener,MouseListener {
     public ControlePrincipal() {
         carregaTelas();        
         escutaEventos();
-        controleLogin= new ControleLogin(telaPrincipal, telaLogin);       
+        controleLogin= new ControleLogin(telaPrincipal, telaLogin);        
+        
     }    
     public void carregaTelas(){
         pp= new PanelPrincipal();

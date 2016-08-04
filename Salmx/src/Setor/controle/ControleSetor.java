@@ -8,10 +8,15 @@ import Principal.controle.ControlePrincipal;
 import Principal.view.PanelPrincipal;
 import Principal.view.TelaPrincipal;
 import Setor.model.RnSetor;
-import Setor.view.novo.GSetor;
+import Setor.model.Setor;
+import Setor.view.JDTelaSetor;
+
+import Setor.view.TelaSetor;
+import Setor.view.GSetor;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.table.DefaultTableModel;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 /**
  *
@@ -19,53 +24,62 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ControleSetor implements MouseListener {
     GSetor gSetor;
-    TelaPrincipal principal;
-    ControlePrincipal cp;
+    TelaPrincipal principal;    
     RnSetor rn;
-     private DefaultTableModel modelo;
+    ControlePrincipal cp;
+    JDTelaSetor telasetor;
+    private DefaultTableModel modelo;
 
-    public ControleSetor( TelaPrincipal principal, ControlePrincipal cp) {
-        this.gSetor = new  GSetor();
-        this.cp=cp;
+      public ControleSetor( TelaPrincipal principal, ControlePrincipal cp) {
+          
         this.principal= principal;
+        
+        this.cp=cp;
+        
+        carregaTela();
+        
         modelo = (DefaultTableModel)gSetor.getjTableSetorList().getModel();
+        
+        rn= new RnSetor();
         escutaEventos();        
     }
-    public ControleSetor( TelaPrincipal principal) {
-        this.gSetor = new  GSetor();
-        this.cp=cp;
-        this.principal= principal;
-        modelo = (DefaultTableModel)gSetor.getjTableSetorList().getModel();
-        escutaEventos();        
-    }
+      public void carregaTela(){
+        
+          this.gSetor = new  GSetor();
+          
+          this.telasetor= new JDTelaSetor(principal,true);
+      }
     public void escutaEventos(){
         gSetor.getNovoSetor().addMouseListener(this);
         gSetor.getEditarSetor().addMouseListener(this);
         gSetor.getExcluirSetor().addMouseListener(this);  
         gSetor.getBtPesquisarSetor().addMouseListener(this);
-        gSetor.getRetornarPrincip().addMouseListener(this);
+        gSetor.getjLabelVoltar().addMouseListener(this);
+        telasetor.getjLabelSalvar().addMouseListener(this);
     }
     public GSetor getTela(){
+       
         return gSetor;
     }
     public DefaultTableModel getTableModel(){
+        
         return (DefaultTableModel) gSetor.getjTableSetorList().getModel();
+    }
+    public void eventosNovoSetor(){
+        
+        telasetor.getjLabelSalvar().addMouseListener(this);
     }
     @Override
     public void mouseClicked(MouseEvent e) {
         
         if(e.getSource() == gSetor.getNovoSetor()){
-           rn= new RnSetor(principal);
-           principal.setContentPane(rn.getTela());
-           principal.repaint();
-           principal.validate();
+                      telasetor.setVisible(true);
+                    //  eventosNovoSetor();
+           
         }
         
         if(e.getSource() == gSetor.getEditarSetor()){
-           rn= new RnSetor(principal);
-           principal.setContentPane(rn.getTela());
-           principal.repaint();
-           principal.validate();
+           
         }
         
         if(e.getSource() == gSetor.getExcluirSetor()){
@@ -74,12 +88,49 @@ public class ControleSetor implements MouseListener {
         if(e.getSource() == gSetor.getBtPesquisarSetor()){
             
         }
-        if(e.getSource() == gSetor.getRetornarPrincip()){
-            gSetor.show(true);       
+        if(e.getSource() == gSetor.getjLabelVoltar()){
+            gSetor.show();
+            principal.setContentPane(cp.getTela());
+            principal.repaint();
+            principal.validate();
             
-        }       
+        }  
+        if(e.getSource()==telasetor.getjLabelSalvar()){
+            System.out.println("funciona o botão salvar");
+            Setor setor= new Setor();
+            setor.setNome(telasetor.getTxtNomeSetor().getText());
+            setor.setRamal(telasetor.getTxtRamalSetor().getText());
+            setor.setObservacao(telasetor.getTxtObservSetor().getText());
+            try {
+              rn.salvarSetor(setor);  
+              telasetor.dispose();
+            } catch (Exception x) {
+                System.out.println(x);
+            }            
+            listaDados();
+            
+        }
     }
-       
+    public final void addTabela(Object... objects) {
+        modelo.addRow(objects);
+    }
+       private void listaDados() {
+        limpaTabela();        
+        for(int i=0;i<rn.listarSetor().size();i++){
+            addTabela(
+                    rn.listarSetor().get(i).getNome(),
+                    rn.listarSetor().get(i).getRamal(),
+                    rn.listarSetor().get(i).getObservacao()
+                    );
+        }
+    }
+    
+    private void limpaTabela(){
+        int linhas = modelo.getRowCount();
+        for(int i=0;i<linhas;i++){
+            modelo.removeRow(0);
+        }
+    }  
     @Override
     public void mousePressed(MouseEvent e) {}
 

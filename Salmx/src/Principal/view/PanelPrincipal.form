@@ -113,7 +113,7 @@
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="LOGOUT"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor Padr&#xe3;o"/>
+                  <Color id="Cursor padr&#xe3;o"/>
                 </Property>
               </Properties>
             </Component>
@@ -143,7 +143,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="2" attributes="0">
-                          <Component id="Fornecedores_Icone" alignment="2" pref="169" max="32767" attributes="0"/>
+                          <Component id="Fornecedores_Icone" alignment="2" max="32767" attributes="0"/>
                           <Component id="Fornecedores_Label" alignment="2" max="32767" attributes="0"/>
                           <Component id="Setores_Icone" alignment="2" pref="0" max="32767" attributes="0"/>
                           <Component id="Setores_Label" alignment="2" max="32767" attributes="0"/>
@@ -151,14 +151,14 @@
                       <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="2" attributes="0">
                           <Component id="Categorias_Icone" alignment="2" pref="0" max="32767" attributes="0"/>
-                          <Component id="Categorias_Label" alignment="2" pref="146" max="32767" attributes="0"/>
+                          <Component id="Categorias_Label" alignment="2" max="32767" attributes="0"/>
                           <Component id="Relatorios_Icone" alignment="2" pref="0" max="32767" attributes="0"/>
                           <Component id="Relatorios_Label" alignment="2" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="2" attributes="0">
                           <Component id="Materiais_Icone" alignment="2" pref="0" max="32767" attributes="0"/>
-                          <Component id="Materias_Label" alignment="2" pref="128" max="32767" attributes="0"/>
+                          <Component id="Materias_Label" alignment="2" max="32767" attributes="0"/>
                           <Component id="Usuarios_Icone" alignment="2" pref="0" max="32767" attributes="0"/>
                           <Component id="Usuarios_Label" alignment="2" max="32767" attributes="0"/>
                       </Group>
@@ -172,8 +172,8 @@
                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="2" attributes="0">
                           <Component id="Categorias_Icone" alignment="2" pref="125" max="32767" attributes="0"/>
-                          <Component id="Fornecedores_Icone" alignment="2" pref="125" max="32767" attributes="0"/>
-                          <Component id="Materiais_Icone" alignment="2" pref="125" max="32767" attributes="0"/>
+                          <Component id="Fornecedores_Icone" alignment="2" pref="0" max="32767" attributes="0"/>
+                          <Component id="Materiais_Icone" alignment="2" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -184,8 +184,8 @@
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="2" attributes="0">
                           <Component id="Setores_Icone" alignment="2" pref="125" max="32767" attributes="0"/>
-                          <Component id="Relatorios_Icone" alignment="2" pref="125" max="32767" attributes="0"/>
-                          <Component id="Usuarios_Icone" alignment="2" pref="125" max="32767" attributes="0"/>
+                          <Component id="Relatorios_Icone" alignment="2" pref="0" max="32767" attributes="0"/>
+                          <Component id="Usuarios_Icone" alignment="2" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -217,7 +217,7 @@
                   </Border>
                 </Property>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor Padr&#xe3;o"/>
+                  <Color id="Cursor padr&#xe3;o"/>
                 </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="null"/>
@@ -272,7 +272,7 @@
                   </Border>
                 </Property>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor Padr&#xe3;o"/>
+                  <Color id="Cursor padr&#xe3;o"/>
                 </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="null"/>
@@ -327,7 +327,7 @@
                   </Border>
                 </Property>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor Padr&#xe3;o"/>
+                  <Color id="Cursor padr&#xe3;o"/>
                 </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="null"/>
@@ -385,7 +385,7 @@
                   </Border>
                 </Property>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor Padr&#xe3;o"/>
+                  <Color id="Cursor padr&#xe3;o"/>
                 </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="null"/>
@@ -443,7 +443,7 @@
                   </Border>
                 </Property>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor Padr&#xe3;o"/>
+                  <Color id="Cursor padr&#xe3;o"/>
                 </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="null"/>
@@ -498,7 +498,7 @@
                   </Border>
                 </Property>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor Padr&#xe3;o"/>
+                  <Color id="Cursor padr&#xe3;o"/>
                 </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="null"/>
