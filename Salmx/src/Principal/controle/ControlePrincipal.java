@@ -7,7 +7,7 @@ package Principal.controle;
 import Principal.view.PanelPrincipal;
 import Principal.view.TelaPrincipal;
 import Setor.controle.ControleSetor;
-import Setor.view.TelaSetor;
+import Setor.view.JDTelaSetor;
 import Usuarios.controle.ControleLogin;
 import Usuarios.controle.ControleUsuario;
 import Usuarios.view.GUsuario;
@@ -26,7 +26,7 @@ public class ControlePrincipal implements ActionListener,MouseListener {
     
     TelaPrincipal telaPrincipal;
     LoginFrame telaLogin;
-    TelaSetor telaSetor;
+    JDTelaSetor telaSetor;
     ControleLogin controleLogin;
     ControleSetor controleSetor;
     ControleUsuario controleUsuario;
