@@ -5,6 +5,7 @@
 package Setor.view;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -28,6 +29,19 @@ private void iniciar() {
         });
         this.setLocationRelativeTo(null);
         //this.setBounds((screenSize.width-250)/2, (screenSize.height-250)/2, 250, 250);
+    }
+ public boolean validaCampos(){
+        if(txtNomeSetor.getText().isEmpty() || txtRamalSetor.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Preencha os campos nome e ramal");
+            return false;
+        } else{
+            return true;
+        }
+    }
+  public void limpaTela(){
+        txtNomeSetor.setText("");
+        txtRamalSetor.setText("");
+        txtObservSetor.setText("");
     }
 public JLabel getjLabelSalvar() {
         return jLabelSalvar;

@@ -10,8 +10,6 @@ import Principal.view.TelaPrincipal;
 import Setor.model.RnSetor;
 import Setor.model.Setor;
 import Setor.view.JDTelaSetor;
-
-import Setor.view.TelaSetor;
 import Setor.view.GSetor;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -29,6 +27,7 @@ public class ControleSetor implements MouseListener {
     ControlePrincipal cp;
     JDTelaSetor telasetor;
     private DefaultTableModel modelo;
+    private  boolean edit;
 
       public ControleSetor( TelaPrincipal principal, ControlePrincipal cp) {
           
@@ -41,7 +40,9 @@ public class ControleSetor implements MouseListener {
         modelo = (DefaultTableModel)gSetor.getjTableSetorList().getModel();
         
         rn= new RnSetor();
-        escutaEventos();        
+        
+        escutaEventos();  
+        edit=false;
     }
       public void carregaTela(){
         
@@ -73,13 +74,16 @@ public class ControleSetor implements MouseListener {
     public void mouseClicked(MouseEvent e) {
         
         if(e.getSource() == gSetor.getNovoSetor()){
-                      telasetor.setVisible(true);
+            telasetor.setVisible(true);
+                      
                     //  eventosNovoSetor();
            
         }
         
         if(e.getSource() == gSetor.getEditarSetor()){
-           
+            editaDados();            
+            edit=true;
+            telasetor.setVisible(true);
         }
         
         if(e.getSource() == gSetor.getExcluirSetor()){
@@ -94,27 +98,50 @@ public class ControleSetor implements MouseListener {
             principal.repaint();
             principal.validate();
             
-        }  
+        }
         if(e.getSource()==telasetor.getjLabelSalvar()){
-            System.out.println("funciona o botão salvar");
-            Setor setor= new Setor();
+            //System.out.println("funciona o botão salvar");
+           if(telasetor.validaCampos()==true){
+               salvarDados();
+           }
+            
+        }
+    }
+    public void salvarDados(){
+        Setor setor= new Setor();
             setor.setNome(telasetor.getTxtNomeSetor().getText());
             setor.setRamal(telasetor.getTxtRamalSetor().getText());
             setor.setObservacao(telasetor.getTxtObservSetor().getText());
-            try {
+            if(edit==false){
               rn.salvarSetor(setor);  
-              telasetor.dispose();
-            } catch (Exception x) {
-                System.out.println(x);
+              
+            }else{
+                rn.editarSetor(setor, gSetor.itemSelecionado());
             }            
             listaDados();
+            telasetor.limpaTela();
+            telasetor.dispose();
+            edit=false;
             
-        }
+    }
+    public void editaDados(){
+        int item = gSetor.itemSelecionado();
+        if(item >= 0){
+          telasetor.getTxtNomeSetor().setText(rn.listarSetor().get(item).getNome());
+          telasetor.getTxtRamalSetor().setText(rn.listarSetor().get(item).getRamal());
+          telasetor.getTxtObservSetor().setText(rn.listarSetor().get(item).getObservacao());
+        } 
     }
     public final void addTabela(Object... objects) {
         modelo.addRow(objects);
     }
+<<<<<<< HEAD
+    
+    
+    private void listaDados() {
+=======
        private void listaDados() {
+>>>>>>> origin/master
         limpaTabela();        
         for(int i=0;i<rn.listarSetor().size();i++){
             addTabela(
