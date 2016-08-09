@@ -135,9 +135,13 @@ public class ControleSetor implements MouseListener {
     public final void addTabela(Object... objects) {
         modelo.addRow(objects);
     }
+<<<<<<< HEAD
     
     
     private void listaDados() {
+=======
+       private void listaDados() {
+>>>>>>> origin/master
         limpaTabela();        
         for(int i=0;i<rn.listarSetor().size();i++){
             addTabela(
