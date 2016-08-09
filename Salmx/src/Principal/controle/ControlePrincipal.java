@@ -4,12 +4,17 @@
  */
 package Principal.controle;
 
+import Fornecedor.controle.ControleFornecedor;
+import Fornecedor.view.GestaoFornecedor;
+import Fornecedor.view.NovoFornecedor;
 import Principal.view.PanelPrincipal;
 import Principal.view.TelaPrincipal;
 import Setor.controle.ControleSetor;
-import Setor.view.TelaSetor;
+import Setor.view.JDTelaSetor;
 import Usuarios.controle.ControleLogin;
-import Usuarios.view.login.LoginFrame;
+import Usuarios.controle.ControleUsuario;
+import Usuarios.view.GUsuario;
+import Usuarios.view.LoginFrame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -24,20 +29,26 @@ public class ControlePrincipal implements ActionListener,MouseListener {
     
     TelaPrincipal telaPrincipal;
     LoginFrame telaLogin;
-    TelaSetor telaSetor;
+    JDTelaSetor telaSetor;
     ControleLogin controleLogin;
     ControleSetor controleSetor;
+    ControleUsuario controleUsuario;
     PanelPrincipal pp;
+    ControleFornecedor controleFornecedor;
+    GestaoFornecedor gFornecedor;
+    NovoFornecedor telaFornecedor;
+    
 
     public ControlePrincipal() {
         carregaTelas();        
         escutaEventos();
-        controleLogin= new ControleLogin(telaPrincipal, telaLogin);       
+        controleLogin= new ControleLogin(telaPrincipal, telaLogin);        
+        
     }    
     public void carregaTelas(){
         pp= new PanelPrincipal();
         telaPrincipal= new TelaPrincipal();
-        telaPrincipal.setContentPane(pp);
+        telaPrincipal.setContentPane(pp);      
         telaPrincipal.repaint();
         telaPrincipal.validate();
         telaLogin= new LoginFrame();
@@ -52,6 +63,17 @@ public class ControlePrincipal implements ActionListener,MouseListener {
         pp.getRelatorios_Icone().addMouseListener(this);
     }
 
+    public PanelPrincipal getTela() {
+        return pp;
+    }
+
+    public TelaPrincipal getTelaPrincipal() {
+        return telaPrincipal;
+    }
+
+    
+   
+    
     @Override
     public void actionPerformed(ActionEvent e){}
 
@@ -70,16 +92,16 @@ public class ControlePrincipal implements ActionListener,MouseListener {
           // telaPrincipal.validate();
         }
           if(e.getSource() == pp.getUsuarios_Icone()){
-          // controlePessoa =  new ControlePessoa();
-          // telaPrincipal.setContentPane(controlePessoa.getTela());
-          // telaPrincipal.repaint();
-          // telaPrincipal.validate();
+            controleUsuario =  new ControleUsuario(telaPrincipal, this);
+            telaPrincipal.setContentPane(controleUsuario.getTela());
+            telaPrincipal.repaint();
+            telaPrincipal.validate();
         }
            if(e.getSource() == pp.getFornecedores_Icone()){
-          // controlePessoa =  new ControlePessoa();
-          // telaPrincipal.setContentPane(controlePessoa.getTela());
-          // telaPrincipal.repaint();
-          // telaPrincipal.validate();
+             controleFornecedor =  new ControleFornecedor(telaPrincipal, this);
+             telaPrincipal.setContentPane(controleFornecedor.getGfornecedor());
+             telaPrincipal.repaint();
+             telaPrincipal.validate();
         }
             if(e.getSource() == pp.getRelatorios_Icone()){
           // controlePessoa =  new ControlePessoa();

@@ -55,8 +55,8 @@ public class PanelPrincipal extends javax.swing.JPanel {
         JPanelBackground = new javax.swing.JPanel();
         JPanelTop = new javax.swing.JPanel();
         Salmx_Logo = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jLabelLogout = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         JPanelBody = new javax.swing.JPanel();
         Fornecedores_Icone = new javax.swing.JLabel();
         Fornecedores_Label = new javax.swing.JLabel();
@@ -80,46 +80,37 @@ public class PanelPrincipal extends javax.swing.JPanel {
         Salmx_Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/SalmxLogo.png"))); // NOI18N
         Salmx_Logo.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/UserGrey.png"))); // NOI18N
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
-            }
-        });
-
-        jLabelLogout.setBackground(new java.awt.Color(102, 102, 102));
+        jLabelLogout.setBackground(new java.awt.Color(255, 255, 255));
         jLabelLogout.setForeground(new java.awt.Color(255, 255, 255));
         jLabelLogout.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelLogout.setText("LOGOUT");
         jLabelLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jLabelLogout.setOpaque(true);
+
+        jLabel2.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_sair.png"))); // NOI18N
 
         javax.swing.GroupLayout JPanelTopLayout = new javax.swing.GroupLayout(JPanelTop);
         JPanelTop.setLayout(JPanelTopLayout);
         JPanelTopLayout.setHorizontalGroup(
             JPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelTopLayout.createSequentialGroup()
-                .addComponent(Salmx_Logo, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)
-                .addGroup(JPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JPanelTopLayout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelTopLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelLogout, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addComponent(Salmx_Logo, javax.swing.GroupLayout.DEFAULT_SIZE, 587, Short.MAX_VALUE)
+                .addGap(39, 39, 39)
+                .addGroup(JPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabelLogout, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(50, 50, 50))
         );
         JPanelTopLayout.setVerticalGroup(
             JPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Salmx_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-            .addGroup(JPanelTopLayout.createSequentialGroup()
+            .addComponent(Salmx_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 86, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelTopLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addComponent(jLabelLogout)
+                .addContainerGap())
         );
 
         JPanelBody.setBackground(new java.awt.Color(255, 255, 255));
@@ -255,20 +246,20 @@ public class PanelPrincipal extends javax.swing.JPanel {
             .addGroup(JPanelBodyLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addGroup(JPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(Fornecedores_Icone, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                    .addComponent(Fornecedores_Icone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Fornecedores_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Setores_Icone, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(Setores_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(100, 100, 100)
                 .addGroup(JPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(Categorias_Icone, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(Categorias_Label, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                    .addComponent(Categorias_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Relatorios_Icone, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(Relatorios_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(100, 100, 100)
                 .addGroup(JPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(Materiais_Icone, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(Materias_Label, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                    .addComponent(Materias_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Usuarios_Icone, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(Usuarios_Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(50, 50, 50))
@@ -279,8 +270,8 @@ public class PanelPrincipal extends javax.swing.JPanel {
                 .addGap(44, 44, 44)
                 .addGroup(JPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(Categorias_Icone, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                    .addComponent(Fornecedores_Icone, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                    .addComponent(Materiais_Icone, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE))
+                    .addComponent(Fornecedores_Icone, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(Materiais_Icone, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Fornecedores_Label, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -289,8 +280,8 @@ public class PanelPrincipal extends javax.swing.JPanel {
                 .addGap(50, 50, 50)
                 .addGroup(JPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(Setores_Icone, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                    .addComponent(Relatorios_Icone, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                    .addComponent(Usuarios_Icone, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE))
+                    .addComponent(Relatorios_Icone, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(Usuarios_Icone, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Relatorios_Label, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -326,10 +317,6 @@ public class PanelPrincipal extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-
-    }//GEN-LAST:event_jLabel1MouseClicked
-
     private void Materiais_IconeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Materiais_IconeMouseClicked
 
         
@@ -356,7 +343,7 @@ public class PanelPrincipal extends javax.swing.JPanel {
     private javax.swing.JLabel Setores_Label;
     private javax.swing.JLabel Usuarios_Icone;
     private javax.swing.JLabel Usuarios_Label;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelLogout;
     // End of variables declaration//GEN-END:variables
 }

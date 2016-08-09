@@ -2,8 +2,8 @@ package Principal.view;
 
 import Materiais.view.MateriaisFrame;
 import Usuarios.controle.ControleLogin;
-import Usuarios.view.login.LoginFrame;
-import Usuarios.view.principal.UserFrame;
+import Usuarios.view.LoginFrame;
+import Usuarios.view.GUsuario;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -26,6 +26,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public TelaPrincipal() {
       
         initComponents(); 
+       
        this.setLocationRelativeTo(null);
        //login = new LoginFrame();
        //controleLogin = new ControleLogin(this, login);
@@ -44,9 +45,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setAlwaysOnTop(true);
         setMinimumSize(new java.awt.Dimension(800, 600));
-        setResizable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

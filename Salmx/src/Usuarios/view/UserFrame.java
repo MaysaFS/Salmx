@@ -3,21 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Usuarios.view.principal;
+package Usuarios.view;
 
-import Usuarios.view.editar.EditarUsuario;
-import Usuarios.view.novo.NovoUsuario;
+import Usuarios.view.EditarUsuario;
+import Usuarios.view.NovoUsuario;
 import java.awt.Frame;
 /**
  *
  * @author jimmy
  */
-public class UserFrame_1 extends javax.swing.JFrame {
+public class UserFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form MainLoginFrame
      */
-    public UserFrame_1() {
+    public UserFrame() {
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }

@@ -136,7 +136,7 @@ public class GestaoCatFrame extends javax.swing.JFrame {
         CadastrarCategoria.setBackground(new java.awt.Color(63, 63, 63));
         CadastrarCategoria.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         CadastrarCategoria.setForeground(new java.awt.Color(255, 255, 255));
-        CadastrarCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_New_Small..png"))); // NOI18N
+        CadastrarCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_New_Small.png"))); // NOI18N
         CadastrarCategoria.setText("ADICIONAR");
         CadastrarCategoria.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
         CadastrarCategoria.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -159,7 +159,7 @@ public class GestaoCatFrame extends javax.swing.JFrame {
         RemoverCategoria.setBackground(new java.awt.Color(63, 63, 63));
         RemoverCategoria.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         RemoverCategoria.setForeground(new java.awt.Color(255, 255, 255));
-        RemoverCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Delet_Small..png"))); // NOI18N
+        RemoverCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Delet_Small.png"))); // NOI18N
         RemoverCategoria.setText("EXCLUIR ");
         RemoverCategoria.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
         RemoverCategoria.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));

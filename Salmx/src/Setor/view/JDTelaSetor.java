@@ -4,9 +4,8 @@
  */
 package Setor.view;
 
-import java.awt.Dimension;
-import java.awt.Toolkit;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -14,26 +13,44 @@ import javax.swing.JTextField;
  *
  * @author Maysa
  */
-public class TelaSetor extends javax.swing.JPanel {
-private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    /**
-     * Creates new form TelaSetor
-     */
-    public TelaSetor() {
-        initComponents();
-    }
+public class JDTelaSetor extends javax.swing.JDialog {
 
-    public JLabel getjLabelSalvar() {
-        return jLabelCancelar;
+    /**
+     * Creates new form JDTelaSetor
+     */
+    public JDTelaSetor(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
+        initComponents();
+        iniciar();
+    }
+private void iniciar() {
+        this.addWindowListener(new java.awt.event.WindowAdapter() {        
+            
+        });
+        this.setLocationRelativeTo(null);
+        //this.setBounds((screenSize.width-250)/2, (screenSize.height-250)/2, 250, 250);
+    }
+ public boolean validaCampos(){
+        if(txtNomeSetor.getText().isEmpty() || txtRamalSetor.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Preencha os campos nome e ramal");
+            return false;
+        } else{
+            return true;
+        }
+    }
+  public void limpaTela(){
+        txtNomeSetor.setText("");
+        txtRamalSetor.setText("");
+        txtObservSetor.setText("");
+    }
+public JLabel getjLabelSalvar() {
+        return jLabelSalvar;
     }
 
     public void setjLabelSalvar(JLabel jLabelSalvar) {
-        this.jLabelCancelar = jLabelSalvar;
+        this.jLabelSalvar = jLabelSalvar;
     }
 
-    public JLabel getjLabelCancelar() {
-        return jLabelCancelar;
-    }
 
     public JTextField getTxtNomeSetor() {
         return txtNomeSetor;
@@ -51,14 +68,15 @@ private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         this.txtObservSetor = txtObservSetor;
     }
 
-    public JTextField getTxtSiglaSetor() {
-        return txtSiglaSetor;
+    public JTextField getTxtRamalSetor() {
+        return txtRamalSetor;
     }
 
-    public void setTxtSiglaSetor(JTextField txtSiglaSetor) {
-        this.txtSiglaSetor = txtSiglaSetor;
+    public void setTxtRamalSetor(JTextField txtRamalSetor) {
+        this.txtRamalSetor = txtRamalSetor;
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -73,18 +91,16 @@ private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         jLabelSalmxLogo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanelBody = new javax.swing.JPanel();
-        txtSiglaSetor = new javax.swing.JTextField();
-        jLabelSiglaSetor = new javax.swing.JLabel();
+        txtRamalSetor = new javax.swing.JTextField();
+        jLabelRamalSetor = new javax.swing.JLabel();
         jLabelObservSetor = new javax.swing.JLabel();
-        jLabelCancelar = new javax.swing.JLabel();
         txtNomeSetor = new javax.swing.JTextField();
         jLabelnomeSetor = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtObservSetor = new javax.swing.JTextArea();
         jLabelSalvar = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(242, 242, 242));
-        setPreferredSize(new java.awt.Dimension(361, 397));
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanelBack.setBackground(new java.awt.Color(247, 247, 247));
 
@@ -107,7 +123,7 @@ private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
             .addGroup(jPanelTopLayout.createSequentialGroup()
                 .addComponent(jLabelSalmxLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
                 .addGap(87, 87, 87))
         );
         jPanelTopLayout.setVerticalGroup(
@@ -123,36 +139,29 @@ private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
         jPanelBody.setBackground(new java.awt.Color(242, 242, 242));
 
-        txtSiglaSetor.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        txtSiglaSetor.setForeground(new java.awt.Color(153, 153, 153));
-        txtSiglaSetor.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtSiglaSetor.setText(" ");
-        txtSiglaSetor.setToolTipText("");
-        txtSiglaSetor.setAutoscrolls(false);
-        txtSiglaSetor.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtSiglaSetor.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        txtSiglaSetor.addActionListener(new java.awt.event.ActionListener() {
+        txtRamalSetor.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtRamalSetor.setForeground(new java.awt.Color(153, 153, 153));
+        txtRamalSetor.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtRamalSetor.setText(" ");
+        txtRamalSetor.setToolTipText("");
+        txtRamalSetor.setAutoscrolls(false);
+        txtRamalSetor.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtRamalSetor.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        txtRamalSetor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSiglaSetorActionPerformed(evt);
+                txtRamalSetorActionPerformed(evt);
             }
         });
 
-        jLabelSiglaSetor.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabelSiglaSetor.setForeground(new java.awt.Color(255, 102, 102));
-        jLabelSiglaSetor.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabelSiglaSetor.setText("Sigla: ");
+        jLabelRamalSetor.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelRamalSetor.setForeground(new java.awt.Color(255, 102, 102));
+        jLabelRamalSetor.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabelRamalSetor.setText("Ramal: ");
 
         jLabelObservSetor.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelObservSetor.setForeground(new java.awt.Color(255, 102, 102));
         jLabelObservSetor.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabelObservSetor.setText("Observação:  ");
-
-        jLabelCancelar.setBackground(new java.awt.Color(255, 102, 102));
-        jLabelCancelar.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabelCancelar.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelCancelar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelCancelar.setText("CANCELAR");
-        jLabelCancelar.setOpaque(true);
 
         txtNomeSetor.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtNomeSetor.setForeground(new java.awt.Color(153, 153, 153));
@@ -192,22 +201,20 @@ private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBodyLayout.createSequentialGroup()
                 .addGap(48, 48, 48)
-                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
-                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtNomeSetor)
-                                .addComponent(jLabelnomeSetor, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE))
-                            .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtSiglaSetor)
-                                .addComponent(jLabelSiglaSetor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabelObservSetor, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+                    .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtNomeSetor)
+                            .addComponent(jLabelnomeSetor, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE))
+                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtRamalSetor)
+                            .addComponent(jLabelRamalSetor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelObservSetor, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE))))
+                .addContainerGap(70, Short.MAX_VALUE))
             .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBodyLayout.createSequentialGroup()
-                    .addContainerGap(505, Short.MAX_VALUE)
+                    .addContainerGap(175, Short.MAX_VALUE)
                     .addComponent(jLabelSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(30, 30, 30)))
         );
@@ -219,19 +226,17 @@ private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNomeSetor, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabelSiglaSetor)
+                .addComponent(jLabelRamalSetor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtSiglaSetor, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtRamalSetor, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelObservSetor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addComponent(jLabelCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(91, Short.MAX_VALUE))
             .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBodyLayout.createSequentialGroup()
-                    .addContainerGap(349, Short.MAX_VALUE)
+                    .addContainerGap(280, Short.MAX_VALUE)
                     .addComponent(jLabelSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(13, 13, 13)))
         );
@@ -242,52 +247,51 @@ private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
             jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBackLayout.createSequentialGroup()
                 .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelBackLayout.createSequentialGroup()
-                        .addComponent(jPanelTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 130, Short.MAX_VALUE))
-                    .addGroup(jPanelBackLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addComponent(jPanelBody, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanelBackLayout.setVerticalGroup(
             jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBackLayout.createSequentialGroup()
                 .addComponent(jPanelTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanelBack, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtSiglaSetorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSiglaSetorActionPerformed
+    private void txtRamalSetorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRamalSetorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtSiglaSetorActionPerformed
+    }//GEN-LAST:event_txtRamalSetorActionPerformed
 
     private void txtNomeSetorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeSetorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeSetorActionPerformed
 
+    /**
+     * @param args the command line arguments
+     */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabelCancelar;
     private javax.swing.JLabel jLabelObservSetor;
+    private javax.swing.JLabel jLabelRamalSetor;
     private javax.swing.JLabel jLabelSalmxLogo;
     private javax.swing.JLabel jLabelSalvar;
-    private javax.swing.JLabel jLabelSiglaSetor;
     private javax.swing.JLabel jLabelnomeSetor;
     private javax.swing.JPanel jPanelBack;
     private javax.swing.JPanel jPanelBody;
@@ -295,6 +299,6 @@ private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtNomeSetor;
     private javax.swing.JTextArea txtObservSetor;
-    private javax.swing.JTextField txtSiglaSetor;
+    private javax.swing.JTextField txtRamalSetor;
     // End of variables declaration//GEN-END:variables
 }
