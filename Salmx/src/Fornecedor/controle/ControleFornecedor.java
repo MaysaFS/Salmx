@@ -65,7 +65,7 @@ public class ControleFornecedor implements MouseListener {
     public void eventosNovoFornecedor(){
         
         nfornecedor.getjLabelSalvarFornecedor().addMouseListener(this);
-        nfornecedor.getjLabelCancelarAddFornecedor().addMouseListener(this);
+       // nfornecedor.getjLabelCancelarAddFornecedor().addMouseListener(this);
     }
     public void mouseClicked(MouseEvent e) {
         
