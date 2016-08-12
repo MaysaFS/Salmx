@@ -13,6 +13,7 @@ import Setor.view.JDTelaSetor;
 import Setor.view.GSetor;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.Connection;
 import javax.swing.table.DefaultTableModel;
 import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
@@ -29,7 +30,7 @@ public class ControleSetor implements MouseListener {
     private DefaultTableModel modelo;
     private  boolean edit;
 
-      public ControleSetor( TelaPrincipal principal, ControlePrincipal cp) {
+      public ControleSetor( TelaPrincipal principal, ControlePrincipal cp, Connection conexao) {
           
         this.principal= principal;
         
@@ -42,6 +43,7 @@ public class ControleSetor implements MouseListener {
         rn= new RnSetor();
         
         escutaEventos();  
+        
         edit=false;
     }
       public void carregaTela(){
