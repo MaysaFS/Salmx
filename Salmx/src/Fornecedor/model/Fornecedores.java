@@ -4,17 +4,19 @@ package Fornecedor.model;
 
 public class Fornecedores {
     
-    String razaosocial;
-    String inscricaoestadual;
-    String cnpj;
-    String telefone;
-    String rua;
-    String numero;
-    String bairro;
-    String cidade;
-    String uf;
-    String categoria;
-    int codigo;
+    private String razaosocial;
+    private String inscricaoestadual;
+    private String cnpj;
+    private String telefone1;
+    private String telefone2;
+    private String email;
+    private String rua;
+    private String numero;
+    private String bairro;
+    private String cidade;
+    private String uf;
+    private String categoria;
+    private int codigo;
 
     public String getRazaosocial() {
         return razaosocial;
@@ -40,13 +42,23 @@ public class Fornecedores {
         this.cnpj = cnpj;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getTelefone1() {
+        return telefone1;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setTelefone1(String telefone) {
+        this.telefone1 = telefone1;
     }
+
+    public String getTelefone2() {
+        return telefone2;
+    }
+
+    public void setTelefone2(String telefone2) {
+        this.telefone2 = telefone2;
+    }
+    
+    
 
     public String getRua() {
         return rua;
@@ -103,6 +115,16 @@ public class Fornecedores {
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+    
 
     public Fornecedores() {
     }

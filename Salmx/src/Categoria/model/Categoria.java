@@ -12,6 +12,8 @@ public class Categoria {
     String nome;
     int  codigo;
 
+    
+
     public String getNome() {
         return nome;
     }
@@ -28,9 +30,6 @@ public class Categoria {
         this.codigo = codigo;
     }
 
-    public Categoria(String nome, int codigo) {
-        this.nome = nome;
-        this.codigo = codigo;
-    }
+   
     
 }

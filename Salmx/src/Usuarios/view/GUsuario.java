@@ -110,7 +110,7 @@ public class GUsuario extends javax.swing.JPanel {
         voltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Voltar.png"))); // NOI18N
         voltar.setText("Voltar");
         voltar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 1));
-        voltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        voltar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout TopLayout = new javax.swing.GroupLayout(Top);
         Top.setLayout(TopLayout);
@@ -176,7 +176,7 @@ public class GUsuario extends javax.swing.JPanel {
         PesquisarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Search_Small.png"))); // NOI18N
         PesquisarUsuario.setText("BUSCAR");
         PesquisarUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
-        PesquisarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        PesquisarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         Menu.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -186,7 +186,7 @@ public class GUsuario extends javax.swing.JPanel {
         NovoUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_New_Small.png"))); // NOI18N
         NovoUsuario.setText("ADICIONAR");
         NovoUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
-        NovoUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        NovoUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         NovoUsuario.setOpaque(true);
         NovoUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -200,7 +200,7 @@ public class GUsuario extends javax.swing.JPanel {
         EditarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Edit_Small.png"))); // NOI18N
         EditarUsuario.setText("EDITAR");
         EditarUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
-        EditarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        EditarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         EditarUsuario.setOpaque(true);
         EditarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -214,7 +214,7 @@ public class GUsuario extends javax.swing.JPanel {
         ExcluirUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Delet_Small.png"))); // NOI18N
         ExcluirUsuario.setText("EXCLUIR ");
         ExcluirUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
-        ExcluirUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ExcluirUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ExcluirUsuario.setOpaque(true);
 
         javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
