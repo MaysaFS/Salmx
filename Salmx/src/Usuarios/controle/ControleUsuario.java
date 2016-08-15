@@ -23,7 +23,6 @@ import javax.swing.table.DefaultTableModel;
 
 public class ControleUsuario implements MouseListener{
     GUsuario gUsuario;
-    PanelPrincipal pp;
     TelaPrincipal principal;
     ControlePrincipal cp;
      
@@ -49,8 +48,10 @@ public class ControleUsuario implements MouseListener{
     public void mouseClicked(MouseEvent e) {
         
         if(e.getSource() == gUsuario.getVoltar()){
-             cp.getTelaPrincipal().setContentPane(cp.getTela());            
-             gUsuario.show(false);  
+           principal.setContentPane(cp.getTela());
+           principal.repaint();
+           principal.validate();
+           
         }
         if(e.getSource() == gUsuario.getNovoUsuario()){
             NovoUsuario novo = new NovoUsuario();
