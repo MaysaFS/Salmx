@@ -74,7 +74,9 @@ public class SetorDAO {
                 System.out.println("lamento! não foi ossivel realizar a alteração");
             }
         }catch(SQLException e){
-            throw new RuntimeException(e);           
+            System.out.println("lamento! não foi ossivel realizar a alteração" + e);
+            throw new RuntimeException(e);  
+            
         }
     }
     public List<Setor> listarSetor(){

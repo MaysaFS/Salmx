@@ -9,6 +9,7 @@ import Principal.view.PanelPrincipal;
 import Principal.view.TelaPrincipal;
 import Setor.model.RnSetor;
 import Setor.model.Setor;
+import Setor.model.SetorDAO;
 import Setor.view.JDTelaSetor;
 import Setor.view.GSetor;
 import java.awt.event.MouseEvent;
@@ -24,10 +25,11 @@ import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 public class ControleSetor implements MouseListener {
     GSetor gSetor;
     TelaPrincipal principal;    
-    RnSetor rn;
+    SetorDAO rn;
     ControlePrincipal cp;
     JDTelaSetor telasetor;
     private DefaultTableModel modelo;
+    private int codigo;
     private  boolean edit;
 
       public ControleSetor( TelaPrincipal principal, ControlePrincipal cp, Connection conexao) {
@@ -40,11 +42,13 @@ public class ControleSetor implements MouseListener {
         
         modelo = (DefaultTableModel)gSetor.getjTableSetorList().getModel();
         
-        rn= new RnSetor();
+        rn= new SetorDAO(conexao);
         
         escutaEventos();  
         
         edit=false;
+        limpaTabela();
+        listaDados();
     }
       public void carregaTela(){
         
@@ -118,7 +122,8 @@ public class ControleSetor implements MouseListener {
               rn.salvarSetor(setor);  
               
             }else{
-                rn.editarSetor(setor, gSetor.itemSelecionado());
+                setor.setCodigo(codigo);
+                rn.editarSetor(setor);
             }            
             listaDados();
             telasetor.limpaTela();
@@ -132,6 +137,7 @@ public class ControleSetor implements MouseListener {
           telasetor.getTxtNomeSetor().setText(rn.listarSetor().get(item).getNome());
           telasetor.getTxtRamalSetor().setText(rn.listarSetor().get(item).getRamal());
           telasetor.getTxtObservSetor().setText(rn.listarSetor().get(item).getObservacao());
+          codigo=rn.listarSetor().get(item).getCodigo();
         } 
     }
     public final void addTabela(Object... objects) {
@@ -154,7 +160,7 @@ public class ControleSetor implements MouseListener {
     }
     
     private void limpaTabela(){
-        int linhas = modelo.getRowCount();
+       int linhas = modelo.getRowCount();
         for(int i=0;i<linhas;i++){
             modelo.removeRow(0);
         }
