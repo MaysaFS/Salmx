@@ -34,7 +34,9 @@ public class ControleLogin implements ActionListener,MouseListener{
 
     private void adicionaEventos() {
         login.getjLabelLogin().addMouseListener(this);
+        login.getjLabelErroOK().addMouseListener(this);
     }
+   
 
     private void validaAcesso() {
       if(login.validaCampos()==true){  
@@ -44,7 +46,8 @@ public class ControleLogin implements ActionListener,MouseListener{
                 principal.setVisible(true);
                 
         } else{
-            JOptionPane.showMessageDialog(null, "Acesso Negado");
+            login.exibeErro("Acesso Negado");
+            //JOptionPane.showMessageDialog(null, "Acesso Negado");
         }
       }
     }
@@ -53,6 +56,10 @@ public class ControleLogin implements ActionListener,MouseListener{
     public void mouseClicked(MouseEvent e) {
         if(e.getSource()==login.getjLabelLogin()){
             validaAcesso();
+        }
+        if(e.getSource() == login.getjLabelErroOK()){
+            login.getjLabelErro().setText("    ");
+            login.getjLabelErroOK().setVisible(false);
         }
         
     }
