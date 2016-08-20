@@ -153,6 +153,11 @@ private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
                 jPasswordFieldUserPassActionPerformed(evt);
             }
         });
+        jPasswordFieldUserPass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordFieldUserPassKeyPressed(evt);
+            }
+        });
 
         jLabelSenha.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelSenha.setForeground(new java.awt.Color(255, 102, 102));
@@ -274,6 +279,10 @@ private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     private void jPasswordFieldUserPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldUserPassActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordFieldUserPassActionPerformed
+
+    private void jPasswordFieldUserPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldUserPassKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordFieldUserPassKeyPressed
  
     /**
      * @param args the command line arguments
