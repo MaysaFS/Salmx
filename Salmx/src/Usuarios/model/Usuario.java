@@ -17,6 +17,10 @@ public class Usuario {
     private String confirmaSenha;
     private int codigo;
 
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
     public String getNome() {
         return nome;
     }

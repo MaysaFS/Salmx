@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[340, 414]"/>
+    </Property>
+    <Property name="resizable" type="boolean" value="false"/>
+    <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[340, 414]"/>
+    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -69,7 +76,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabelSalmxLogo" alignment="0" pref="337" max="32767" attributes="0"/>
+                  <Component id="jLabelSalmxLogo" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -106,56 +113,55 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <EmptySpace min="46" pref="46" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="JTextFieldNome" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="JLabelNome" alignment="1" min="-2" pref="237" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="JTextFieldLogin" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="JLabelLogin" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jPasswordFieldSenha" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="JLabelSenha" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jPasswordFieldConfirmaSenha" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="JLabelConfirmaSenha" alignment="0" min="-2" pref="237" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="JLabelSalvar" linkSize="1" alignment="0" pref="237" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="JLabelCancelar" min="-2" pref="108" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                              <Component id="JLabelSalvar" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="JLabelNome" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="JLabelLogin" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="JLabelSenha" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="JLabelConfirmaSenha" alignment="0" pref="148" max="32767" attributes="0"/>
+                                  <Component id="jLabelErro" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jLabelErroOK" min="-2" pref="39" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="JTextFieldNome" linkSize="1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="JTextFieldLogin" linkSize="1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jPasswordFieldSenha" linkSize="1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jPasswordFieldConfirmaSenha" linkSize="1" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="50" max="32767" attributes="0"/>
+                      <EmptySpace pref="57" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelErro" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelErroOK" alignment="3" min="-2" pref="18" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="JLabelNome" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JTextFieldNome" linkSize="3" min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="JTextFieldNome" linkSize="2" min="-2" pref="26" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="JLabelLogin" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="JTextFieldLogin" linkSize="3" min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="JTextFieldLogin" linkSize="2" min="-2" pref="26" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="JLabelSenha" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPasswordFieldSenha" linkSize="3" min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="jPasswordFieldSenha" linkSize="2" min="-2" pref="29" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="JLabelConfirmaSenha" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPasswordFieldConfirmaSenha" linkSize="3" min="-2" pref="29" max="-2" attributes="0"/>
-                      <EmptySpace pref="24" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="JLabelCancelar" linkSize="2" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                          <Component id="JLabelSalvar" linkSize="2" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jPasswordFieldConfirmaSenha" linkSize="2" min="-2" pref="29" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="32767" attributes="0"/>
+                      <Component id="JLabelSalvar" linkSize="2" min="-2" pref="27" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -171,7 +177,7 @@
                   <Color blue="66" green="66" red="ff" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="2"/>
-                <Property name="text" type="java.lang.String" value="Nome Completo: *"/>
+                <Property name="text" type="java.lang.String" value="Nome *"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="JTextFieldNome">
@@ -180,7 +186,6 @@
                   <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value=" "/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
                 <Property name="autoscrolls" type="boolean" value="false"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -205,7 +210,7 @@
                   <Color blue="66" green="66" red="ff" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="2"/>
-                <Property name="text" type="java.lang.String" value="Login: *"/>
+                <Property name="text" type="java.lang.String" value="Login *"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="JTextFieldLogin">
@@ -214,7 +219,6 @@
                   <Color blue="99" green="99" red="99" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value=" "/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
                 <Property name="autoscrolls" type="boolean" value="false"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -239,7 +243,7 @@
                   <Color blue="66" green="66" red="ff" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="2"/>
-                <Property name="text" type="java.lang.String" value="Senha:  *"/>
+                <Property name="text" type="java.lang.String" value="Senha  *"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JPasswordField" name="jPasswordFieldSenha">
@@ -267,7 +271,7 @@
                   <Color blue="66" green="66" red="ff" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="2"/>
-                <Property name="text" type="java.lang.String" value="Confirmar Senha: *"/>
+                <Property name="text" type="java.lang.String" value="Confirmar Senha *"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JPasswordField" name="jPasswordFieldConfirmaSenha">
@@ -286,22 +290,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jPasswordFieldConfirmaSenhaActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="JLabelCancelar">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="66" red="66" type="rgb"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="CANCELAR"/>
-                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor em Forma de M&#xe3;o"/>
-                </Property>
-                <Property name="opaque" type="boolean" value="true"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="JLabelSalvar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -312,6 +300,36 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="SALVAR"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Cursor Padr&#xe3;o"/>
+                </Property>
+                <Property name="opaque" type="boolean" value="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelErro">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="ff" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="CAIXA DE ERRO"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="LoginFrame_jLabelErro"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelErroOK">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="ff" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="OK"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Cursor em Forma de M&#xe3;o"/>
                 </Property>

@@ -96,7 +96,7 @@ public class ControlePrincipal implements ActionListener,MouseListener {
           // telaPrincipal.validate();
         }
           if(e.getSource() == pp.getUsuarios_Icone()){
-            controleUsuario =  new ControleUsuario(telaPrincipal, this);
+            controleUsuario =  new ControleUsuario(telaPrincipal, this, this.conexao);
             telaPrincipal.setContentPane(controleUsuario.getTela());
             telaPrincipal.repaint();
             telaPrincipal.validate();

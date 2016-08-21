@@ -69,12 +69,12 @@ private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         }
     }
     
-     public void exibeErro(String erro){
+    public void exibeErro(String erro){
         jLabelErroOK.setVisible(true);
         jLabelErro.setText(erro);
         
     }
-    private void ocultaErro(){
+    public void ocultaErro(){
         jLabelErro.setText("    ");
         jLabelErroOK.setVisible(false);  
     }
@@ -223,7 +223,7 @@ private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelErro)
                     .addComponent(jLabelErroOK, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelUserLogo)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelUserName)
@@ -235,7 +235,7 @@ private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
                 .addComponent(jPasswordFieldUserPass, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(jLabelLogin)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jPanelBodyLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabelLogin, jPasswordFieldUserPass, jTextFieldUser});

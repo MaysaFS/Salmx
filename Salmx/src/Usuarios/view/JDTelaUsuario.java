@@ -5,13 +5,108 @@
  */
 package Usuarios.view;
 
-public class EditarUsuario extends javax.swing.JFrame {
+import java.util.Arrays;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
-    public EditarUsuario() {
+/**
+ *
+ * @author jimmy
+ */
+public class JDTelaUsuario extends javax.swing.JDialog {
+
+    /**
+     * Creates new form JDTelaUsuario
+     */
+    public JDTelaUsuario(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        ocultaErro(); 
+        this.setLocationRelativeTo(null);
+    }
+    public void exibeErro(String erro){
+        jLabelErroOK.setVisible(true);
+        jLabelErro.setText(erro);
+        
+    }
+    public void ocultaErro(){
+        jLabelErro.setText("    ");
+        jLabelErroOK.setVisible(false);  
+    }
+    public void limpaTela(){
+        JTextFieldLogin.setText("");
+        JTextFieldNome.setText("");
+        jPasswordFieldConfirmaSenha.setText("");
+        jPasswordFieldSenha.setText("");
+    }
+    private void iniciar() {
+        this.addWindowListener(new java.awt.event.WindowAdapter() {        
+            
+        });
+        this.setLocationRelativeTo(null);
+        //this.setBounds((screenSize.width-250)/2, (screenSize.height-250)/2, 250, 250);
+    }
+    public boolean validaCampos(){
+        if(jPasswordFieldSenha.getText().isEmpty() ||
+                jPasswordFieldConfirmaSenha.getText().isEmpty() ||
+                JTextFieldLogin.getText().isEmpty() ||
+                JTextFieldNome.getText().isEmpty()){
+                
+                exibeErro("Preencha todos os campos");
+                //JOptionPane.showMessageDialog(this, "Preencha todos os campos");
+                return false;
+            } else{
+                System.out.println("Todos os cmpos preenchidos");
+                return true;
+            }
+    
     }
 
+    public JLabel getJLabelSalvar() {
+        return JLabelSalvar;
+    }
+
+    public JTextField getJTextFieldLogin() {
+        return JTextFieldLogin;
+    }
+
+    public void setJTextFieldLogin(JTextField JTextFieldLogin) {
+        this.JTextFieldLogin = JTextFieldLogin;
+    }
+
+    public JTextField getJTextFieldNome() {
+        return JTextFieldNome;
+    }
+
+    public void setJTextFieldNome(JTextField JTextFieldNome) {
+        this.JTextFieldNome = JTextFieldNome;
+    }
+
+    public JLabel getjLabelErroOK() {
+        return jLabelErroOK;
+    }
+
+    public void setjLabelErroOK(JLabel jLabelErroOK) {
+        this.jLabelErroOK = jLabelErroOK;
+    }
+
+    public JPasswordField getjPasswordFieldConfirmaSenha() {
+        return jPasswordFieldConfirmaSenha;
+    }
+
+    public void setjPasswordFieldConfirmaSenha(JPasswordField jPasswordFieldConfirmaSenha) {
+        this.jPasswordFieldConfirmaSenha = jPasswordFieldConfirmaSenha;
+    }
+
+    public JPasswordField getjPasswordFieldSenha() {
+        return jPasswordFieldSenha;
+    }
+
+    public void setjPasswordFieldSenha(JPasswordField jPasswordFieldSenha) {
+        this.jPasswordFieldSenha = jPasswordFieldSenha;
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -29,10 +124,14 @@ public class EditarUsuario extends javax.swing.JFrame {
         jPasswordFieldSenha = new javax.swing.JPasswordField();
         JLabelConfirmaSenha = new javax.swing.JLabel();
         jPasswordFieldConfirmaSenha = new javax.swing.JPasswordField();
-        JLabelCancelar = new javax.swing.JLabel();
         JLabelSalvar = new javax.swing.JLabel();
+        jLabelErro = new javax.swing.JLabel();
+        jLabelErroOK = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(340, 414));
+        setResizable(false);
+        setSize(new java.awt.Dimension(340, 414));
 
         jPanelBack.setBackground(new java.awt.Color(247, 247, 247));
 
@@ -47,7 +146,7 @@ public class EditarUsuario extends javax.swing.JFrame {
         jPanelTop.setLayout(jPanelTopLayout);
         jPanelTopLayout.setHorizontalGroup(
             jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelSalmxLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
+            .addComponent(jLabelSalmxLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanelTopLayout.setVerticalGroup(
             jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -59,11 +158,10 @@ public class EditarUsuario extends javax.swing.JFrame {
         JLabelNome.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         JLabelNome.setForeground(new java.awt.Color(255, 102, 102));
         JLabelNome.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        JLabelNome.setText("Nome Completo: *");
+        JLabelNome.setText("Nome *");
 
         JTextFieldNome.setForeground(new java.awt.Color(153, 153, 153));
         JTextFieldNome.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        JTextFieldNome.setText(" ");
         JTextFieldNome.setToolTipText("");
         JTextFieldNome.setAutoscrolls(false);
         JTextFieldNome.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -77,11 +175,10 @@ public class EditarUsuario extends javax.swing.JFrame {
         JLabelLogin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         JLabelLogin.setForeground(new java.awt.Color(255, 102, 102));
         JLabelLogin.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        JLabelLogin.setText("Login: *");
+        JLabelLogin.setText("Login *");
 
         JTextFieldLogin.setForeground(new java.awt.Color(153, 153, 153));
         JTextFieldLogin.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        JTextFieldLogin.setText(" ");
         JTextFieldLogin.setToolTipText("");
         JTextFieldLogin.setAutoscrolls(false);
         JTextFieldLogin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -95,7 +192,7 @@ public class EditarUsuario extends javax.swing.JFrame {
         JLabelSenha.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         JLabelSenha.setForeground(new java.awt.Color(255, 102, 102));
         JLabelSenha.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        JLabelSenha.setText("Senha:  *");
+        JLabelSenha.setText("Senha  *");
 
         jPasswordFieldSenha.setForeground(new java.awt.Color(153, 153, 153));
         jPasswordFieldSenha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -109,7 +206,7 @@ public class EditarUsuario extends javax.swing.JFrame {
         JLabelConfirmaSenha.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         JLabelConfirmaSenha.setForeground(new java.awt.Color(255, 102, 102));
         JLabelConfirmaSenha.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        JLabelConfirmaSenha.setText("Confirmar Senha: *");
+        JLabelConfirmaSenha.setText("Confirmar Senha *");
 
         jPasswordFieldConfirmaSenha.setForeground(new java.awt.Color(153, 153, 153));
         jPasswordFieldConfirmaSenha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -120,48 +217,58 @@ public class EditarUsuario extends javax.swing.JFrame {
             }
         });
 
-        JLabelCancelar.setBackground(new java.awt.Color(102, 102, 102));
-        JLabelCancelar.setForeground(new java.awt.Color(255, 255, 255));
-        JLabelCancelar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLabelCancelar.setText("CANCELAR");
-        JLabelCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        JLabelCancelar.setOpaque(true);
-
         JLabelSalvar.setBackground(new java.awt.Color(255, 102, 102));
         JLabelSalvar.setForeground(new java.awt.Color(255, 255, 255));
         JLabelSalvar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabelSalvar.setText("SALVAR");
-        JLabelSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JLabelSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         JLabelSalvar.setOpaque(true);
+
+        jLabelErro.setBackground(new java.awt.Color(255, 102, 102));
+        jLabelErro.setForeground(new java.awt.Color(255, 102, 102));
+        jLabelErro.setText("CAIXA DE ERRO");
+
+        jLabelErroOK.setBackground(new java.awt.Color(255, 102, 102));
+        jLabelErroOK.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelErroOK.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelErroOK.setText("OK");
+        jLabelErroOK.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelErroOK.setOpaque(true);
 
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
         jPanelBody.setLayout(jPanelBodyLayout);
         jPanelBodyLayout.setHorizontalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBodyLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(46, 46, 46)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(JTextFieldNome)
-                            .addComponent(JLabelNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(JTextFieldLogin)
-                            .addComponent(JLabelLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPasswordFieldSenha)
-                            .addComponent(JLabelSenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPasswordFieldConfirmaSenha)
-                            .addComponent(JLabelConfirmaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(JLabelSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
                     .addGroup(jPanelBodyLayout.createSequentialGroup()
-                        .addComponent(JLabelCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21)
-                        .addComponent(JLabelSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(JLabelNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(JLabelLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(JLabelSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(JLabelConfirmaSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+                            .addComponent(jLabelErro, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelErroOK, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JTextFieldNome)
+                    .addComponent(JTextFieldLogin)
+                    .addComponent(jPasswordFieldSenha)
+                    .addComponent(jPasswordFieldConfirmaSenha))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
+
+        jPanelBodyLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {JLabelSalvar, JTextFieldLogin, JTextFieldNome, jPasswordFieldConfirmaSenha, jPasswordFieldSenha});
+
         jPanelBodyLayout.setVerticalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBodyLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(1, 1, 1)
+                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelErro)
+                    .addComponent(jLabelErroOK, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(JLabelNome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -177,16 +284,12 @@ public class EditarUsuario extends javax.swing.JFrame {
                 .addComponent(JLabelConfirmaSenha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPasswordFieldConfirmaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JLabelCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JLabelSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(JLabelSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        jPanelBodyLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {JLabelCancelar, JLabelSalvar});
-
-        jPanelBodyLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {JTextFieldLogin, JTextFieldNome, jPasswordFieldConfirmaSenha, jPasswordFieldSenha});
+        jPanelBodyLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {JLabelSalvar, JTextFieldLogin, JTextFieldNome, jPasswordFieldConfirmaSenha, jPasswordFieldSenha});
 
         javax.swing.GroupLayout jPanelBackLayout = new javax.swing.GroupLayout(jPanelBack);
         jPanelBack.setLayout(jPanelBackLayout);
@@ -218,10 +321,6 @@ public class EditarUsuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTextFieldNomeActionPerformed
-
     private void JTextFieldLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldLoginActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTextFieldLoginActionPerformed
@@ -234,13 +333,12 @@ public class EditarUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordFieldConfirmaSenhaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    
+    private void JTextFieldNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTextFieldNomeActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel JLabelCancelar;
     private javax.swing.JLabel JLabelConfirmaSenha;
     private javax.swing.JLabel JLabelLogin;
     private javax.swing.JLabel JLabelNome;
@@ -248,6 +346,8 @@ public class EditarUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel JLabelSenha;
     private javax.swing.JTextField JTextFieldLogin;
     private javax.swing.JTextField JTextFieldNome;
+    private javax.swing.JLabel jLabelErro;
+    private javax.swing.JLabel jLabelErroOK;
     private javax.swing.JLabel jLabelSalmxLogo;
     private javax.swing.JPanel jPanelBack;
     private javax.swing.JPanel jPanelBody;
@@ -255,4 +355,5 @@ public class EditarUsuario extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordFieldConfirmaSenha;
     private javax.swing.JPasswordField jPasswordFieldSenha;
     // End of variables declaration//GEN-END:variables
+
 }
