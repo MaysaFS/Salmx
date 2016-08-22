@@ -6,6 +6,8 @@
 package Usuarios.view;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
@@ -21,6 +23,14 @@ public class GUsuario extends javax.swing.JPanel {
         initComponents();
     }
 
+    public JTable getjTableUsersList() {
+        return jTableUsersList;
+    }
+
+    public void setjTableUsersList(JTable jTableUsersList) {
+        this.jTableUsersList = jTableUsersList;
+    }
+    
     public JTextField getCaixaBuscar() {
         return CaixaBuscar;
     }
@@ -30,27 +40,27 @@ public class GUsuario extends javax.swing.JPanel {
     }
 
     public JLabel getEditarUsuario() {
-        return EditarUsuario;
+        return editarUsuario;
     }
 
     public void setEditarUsuario(JLabel EditarUsuario) {
-        this.EditarUsuario = EditarUsuario;
+        this.editarUsuario = EditarUsuario;
     }
 
     public JLabel getExcluirUsuario() {
-        return ExcluirUsuario;
+        return excluirUsuario;
     }
 
     public void setExcluirUsuario(JLabel ExcluirUsuario) {
-        this.ExcluirUsuario = ExcluirUsuario;
+        this.excluirUsuario = ExcluirUsuario;
     }
 
     public JLabel getNovoUsuario() {
-        return NovoUsuario;
+        return novoUsuario;
     }
 
     public void setNovoUsuario(JLabel NovoUsuario) {
-        this.NovoUsuario = NovoUsuario;
+        this.novoUsuario = NovoUsuario;
     }
 
     public JLabel getPesquisarUsuario() {
@@ -67,6 +77,12 @@ public class GUsuario extends javax.swing.JPanel {
 
     public void setVoltar(JLabel voltar) {
         this.voltar = voltar;
+    }
+    public int itemSelecionado(){
+        if(jTableUsersList.getSelectedRow()<0){
+            JOptionPane.showMessageDialog(this, "Selecione um item");
+        } 
+        return jTableUsersList.getSelectedRow();
     }
 
     
@@ -91,9 +107,9 @@ public class GUsuario extends javax.swing.JPanel {
         CaixaBuscar = new javax.swing.JTextField();
         PesquisarUsuario = new javax.swing.JLabel();
         Menu = new javax.swing.JPanel();
-        NovoUsuario = new javax.swing.JLabel();
-        EditarUsuario = new javax.swing.JLabel();
-        ExcluirUsuario = new javax.swing.JLabel();
+        novoUsuario = new javax.swing.JLabel();
+        editarUsuario = new javax.swing.JLabel();
+        excluirUsuario = new javax.swing.JLabel();
 
         Background.setBackground(new java.awt.Color(242, 242, 242));
 
@@ -133,34 +149,33 @@ public class GUsuario extends javax.swing.JPanel {
         jTableUsersList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTableUsersList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "ID", "Nome", "Tipo"
+                "Código", "Nome", "Login", "Tipo"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTableUsersList.setGridColor(new java.awt.Color(153, 153, 153));
+        jTableUsersList.setName("Usuarios Cadastrados"); // NOI18N
         jTableUsersList.setRowMargin(0);
-        jTableUsersList.setSelectionBackground(new java.awt.Color(51, 51, 51));
+        jTableUsersList.setSelectionBackground(new java.awt.Color(204, 204, 204));
         jScrollPane1.setViewportView(jTableUsersList);
+        if (jTableUsersList.getColumnModel().getColumnCount() > 0) {
+            jTableUsersList.getColumnModel().getColumn(0).setMinWidth(60);
+            jTableUsersList.getColumnModel().getColumn(0).setPreferredWidth(60);
+            jTableUsersList.getColumnModel().getColumn(0).setMaxWidth(80);
+        }
 
         CaixaBuscar.setForeground(new java.awt.Color(153, 153, 153));
         CaixaBuscar.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        CaixaBuscar.setText(" ");
         CaixaBuscar.setToolTipText("");
         CaixaBuscar.setAutoscrolls(false);
         CaixaBuscar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -180,60 +195,60 @@ public class GUsuario extends javax.swing.JPanel {
 
         Menu.setBackground(new java.awt.Color(51, 51, 51));
 
-        NovoUsuario.setBackground(new java.awt.Color(63, 63, 63));
-        NovoUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        NovoUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        NovoUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_New_Small.png"))); // NOI18N
-        NovoUsuario.setText("ADICIONAR");
-        NovoUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
-        NovoUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        NovoUsuario.setOpaque(true);
-        NovoUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+        novoUsuario.setBackground(new java.awt.Color(63, 63, 63));
+        novoUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        novoUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        novoUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_New_Small.png"))); // NOI18N
+        novoUsuario.setText("ADICIONAR");
+        novoUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
+        novoUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        novoUsuario.setOpaque(true);
+        novoUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                NovoUsuarioMouseClicked(evt);
+                novoUsuarioMouseClicked(evt);
             }
         });
 
-        EditarUsuario.setBackground(new java.awt.Color(63, 63, 63));
-        EditarUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        EditarUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        EditarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Edit_Small.png"))); // NOI18N
-        EditarUsuario.setText("EDITAR");
-        EditarUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
-        EditarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        EditarUsuario.setOpaque(true);
-        EditarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+        editarUsuario.setBackground(new java.awt.Color(63, 63, 63));
+        editarUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        editarUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        editarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Edit_Small.png"))); // NOI18N
+        editarUsuario.setText("EDITAR");
+        editarUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
+        editarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        editarUsuario.setOpaque(true);
+        editarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                EditarUsuarioMouseClicked(evt);
+                editarUsuarioMouseClicked(evt);
             }
         });
 
-        ExcluirUsuario.setBackground(new java.awt.Color(63, 63, 63));
-        ExcluirUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        ExcluirUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        ExcluirUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Delet_Small.png"))); // NOI18N
-        ExcluirUsuario.setText("EXCLUIR ");
-        ExcluirUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
-        ExcluirUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        ExcluirUsuario.setOpaque(true);
+        excluirUsuario.setBackground(new java.awt.Color(63, 63, 63));
+        excluirUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        excluirUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        excluirUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Delet_Small.png"))); // NOI18N
+        excluirUsuario.setText("EXCLUIR ");
+        excluirUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
+        excluirUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        excluirUsuario.setOpaque(true);
 
         javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
         Menu.setLayout(MenuLayout);
         MenuLayout.setHorizontalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(NovoUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
-            .addComponent(EditarUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(ExcluirUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(novoUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+            .addComponent(editarUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(excluirUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(NovoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(novoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
-                .addComponent(EditarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(editarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
-                .addComponent(ExcluirUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(excluirUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -272,6 +287,8 @@ public class GUsuario extends javax.swing.JPanel {
                         .addComponent(Menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
+        PesquisarUsuario.getAccessibleContext().setAccessibleDescription("Buscar por Login ou Nome");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -290,27 +307,27 @@ public class GUsuario extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_CaixaBuscarActionPerformed
 
-    private void NovoUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NovoUsuarioMouseClicked
+    private void novoUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_novoUsuarioMouseClicked
       
-    }//GEN-LAST:event_NovoUsuarioMouseClicked
+    }//GEN-LAST:event_novoUsuarioMouseClicked
 
-    private void EditarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditarUsuarioMouseClicked
+    private void editarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editarUsuarioMouseClicked
  
-    }//GEN-LAST:event_EditarUsuarioMouseClicked
+    }//GEN-LAST:event_editarUsuarioMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Background;
     private javax.swing.JTextField CaixaBuscar;
-    private javax.swing.JLabel EditarUsuario;
-    private javax.swing.JLabel ExcluirUsuario;
     private javax.swing.JPanel Menu;
-    private javax.swing.JLabel NovoUsuario;
     private javax.swing.JLabel PesquisarUsuario;
     private javax.swing.JLabel TituloGestaoDeUsuario;
     private javax.swing.JPanel Top;
+    private javax.swing.JLabel editarUsuario;
+    private javax.swing.JLabel excluirUsuario;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableUsersList;
+    private javax.swing.JLabel novoUsuario;
     private javax.swing.JLabel voltar;
     // End of variables declaration//GEN-END:variables
 }

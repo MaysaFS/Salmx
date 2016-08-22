@@ -45,14 +45,15 @@ public class ControlePrincipal implements ActionListener,MouseListener {
         this.conexao= Conexao.doConexao();
         carregaTelas();        
         escutaEventos();
-        
-        controleLogin= new ControleLogin(telaPrincipal, telaLogin);        
-        
-    }    
+        controleLogin= new ControleLogin(telaPrincipal, pp, telaLogin,conexao);        
+       
+    }
+
+   
     public void carregaTelas(){
         pp= new PanelPrincipal();
         telaPrincipal= new TelaPrincipal();
-        telaPrincipal.setContentPane(pp);      
+        telaPrincipal.setContentPane(pp); 
         telaPrincipal.repaint();
         telaPrincipal.validate();
         telaLogin= new LoginFrame();
@@ -96,7 +97,7 @@ public class ControlePrincipal implements ActionListener,MouseListener {
           // telaPrincipal.validate();
         }
           if(e.getSource() == pp.getUsuarios_Icone()){
-            controleUsuario =  new ControleUsuario(telaPrincipal, this);
+            controleUsuario =  new ControleUsuario(telaPrincipal, this, this.conexao);
             telaPrincipal.setContentPane(controleUsuario.getTela());
             telaPrincipal.repaint();
             telaPrincipal.validate();

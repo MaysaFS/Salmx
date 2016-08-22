@@ -26,8 +26,9 @@ private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
      */
     public LoginFrame() {
         initComponents();
-        iniciar();
-       setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE); 
+        iniciar();  
+        ocultaErro();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE); 
     }
 
     public JPasswordField getjPasswordFieldUserPass() {
@@ -37,9 +38,15 @@ private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     public JTextField getjTextFieldUser() {
         return jTextFieldUser;
     }
+
+    public JLabel getjLabelErro() {
+        return jLabelErro;
+    }
     
     
-    
+    public JLabel getjLabelErroOK() {
+        return jLabelErroOK;
+    }
     
      private void iniciar() {
         this.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -54,11 +61,21 @@ private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
      public boolean validaCampos(){
         if(jTextFieldUser.getText().isEmpty() || 
                 jPasswordFieldUserPass.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Preencha todos os campos");
+            //JOptionPane.showMessageDialog(this, "Preencha todos os campos");
             return false;
         } else{
             return true;
         }
+    }
+    
+    public void exibeErro(String erro){
+        jLabelErroOK.setVisible(true);
+        jLabelErro.setText(erro);
+        
+    }
+    public void ocultaErro(){
+        jLabelErro.setText("    ");
+        jLabelErroOK.setVisible(false);  
     }
 
     /**
@@ -80,6 +97,8 @@ private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         jLabelSenha = new javax.swing.JLabel();
         jLabelUserLogo = new javax.swing.JLabel();
         jLabelLogin = new javax.swing.JLabel();
+        jLabelErro = new javax.swing.JLabel();
+        jLabelErroOK = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("User Login");
@@ -99,7 +118,7 @@ private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         jPanelTop.setLayout(jPanelTopLayout);
         jPanelTopLayout.setHorizontalGroup(
             jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelSalmxLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
+            .addComponent(jLabelSalmxLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanelTopLayout.setVerticalGroup(
             jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,6 +152,11 @@ private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
                 jPasswordFieldUserPassActionPerformed(evt);
             }
         });
+        jPasswordFieldUserPass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordFieldUserPassKeyPressed(evt);
+            }
+        });
 
         jLabelSenha.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelSenha.setForeground(new java.awt.Color(255, 102, 102));
@@ -148,7 +172,19 @@ private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         jLabelLogin.setForeground(new java.awt.Color(255, 255, 255));
         jLabelLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelLogin.setText("LOGIN");
+        jLabelLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelLogin.setOpaque(true);
+
+        jLabelErro.setBackground(new java.awt.Color(255, 102, 102));
+        jLabelErro.setForeground(new java.awt.Color(255, 102, 102));
+        jLabelErro.setText("CAIXA DE ERRO");
+
+        jLabelErroOK.setBackground(new java.awt.Color(255, 102, 102));
+        jLabelErroOK.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelErroOK.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelErroOK.setText("OK");
+        jLabelErroOK.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelErroOK.setOpaque(true);
 
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
         jPanelBody.setLayout(jPanelBodyLayout);
@@ -157,21 +193,36 @@ private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
             .addComponent(jLabelUserLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanelBodyLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabelLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabelUserName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPasswordFieldUserPass, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
-                    .addComponent(jTextFieldUser, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
-                    .addComponent(jLabelSenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelBodyLayout.createSequentialGroup()
+                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelSenha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelUserName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(50, Short.MAX_VALUE))
+                    .addGroup(jPanelBodyLayout.createSequentialGroup()
+                        .addComponent(jLabelErro)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelErroOK, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBodyLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextFieldUser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+                    .addComponent(jLabelLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPasswordFieldUserPass, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE))
+                .addGap(50, 50, 50))
         );
 
-        jPanelBodyLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabelLogin, jPasswordFieldUserPass, jTextFieldUser});
+        jPanelBodyLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabelLogin, jLabelSenha, jLabelUserName, jPasswordFieldUserPass, jTextFieldUser});
 
         jPanelBodyLayout.setVerticalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBodyLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(6, 6, 6)
+                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelErro)
+                    .addComponent(jLabelErroOK, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelUserLogo)
                 .addGap(18, 18, 18)
                 .addComponent(jLabelUserName)
@@ -183,10 +234,12 @@ private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
                 .addComponent(jPasswordFieldUserPass, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(jLabelLogin)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jPanelBodyLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabelLogin, jPasswordFieldUserPass, jTextFieldUser});
+
+        jPanelBodyLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabelErro, jLabelErroOK});
 
         javax.swing.GroupLayout jPanelBackLayout = new javax.swing.GroupLayout(jPanelBack);
         jPanelBack.setLayout(jPanelBackLayout);
@@ -225,6 +278,10 @@ private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     private void jPasswordFieldUserPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldUserPassActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordFieldUserPassActionPerformed
+
+    private void jPasswordFieldUserPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldUserPassKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordFieldUserPassKeyPressed
  
     /**
      * @param args the command line arguments
@@ -265,6 +322,8 @@ private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
  }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabelErro;
+    private javax.swing.JLabel jLabelErroOK;
     private javax.swing.JLabel jLabelLogin;
     private javax.swing.JLabel jLabelSalmxLogo;
     private javax.swing.JLabel jLabelSenha;
