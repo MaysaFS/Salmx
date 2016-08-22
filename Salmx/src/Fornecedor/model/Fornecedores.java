@@ -7,21 +7,25 @@ public class Fornecedores {
     private String razaosocial;
     private String inscricaoestadual;
     private String cnpj;
-    private String telefone1;
-    private String telefone2;
+    private String telefoneI;
+    private String telefoneII;
     private String email;
-    private String rua;
-    private String numero;
-    private String bairro;
-    private String cidade;
+    private Endereço endereço =new Endereço();
     private String uf;
-    private String categoria;
     private int codigo;
 
     public String getRazaosocial() {
         return razaosocial;
     }
 
+    public Endereço getEndereço() {
+        return endereço;
+    }
+
+    public void setEndereço(Endereço endereço) {
+        this.endereço = endereço;
+    }
+     
     public void setRazaosocial(String razaosocial) {
         this.razaosocial = razaosocial;
     }
@@ -42,70 +46,20 @@ public class Fornecedores {
         this.cnpj = cnpj;
     }
 
-    public String getTelefone1() {
-        return telefone1;
+    public String getTelefoneI() {
+        return telefoneI;
     }
 
-    public void setTelefone1(String telefone) {
-        this.telefone1 = telefone1;
+    public void setTelefoneI(String telefone) {
+        this.telefoneI= telefoneI;
     }
 
-    public String getTelefone2() {
-        return telefone2;
+    public String getTelefoneII() {
+        return telefoneII;
     }
 
-    public void setTelefone2(String telefone2) {
-        this.telefone2 = telefone2;
-    }
-    
-    
-
-    public String getRua() {
-        return rua;
-    }
-
-    public void setRua(String rua) {
-        this.rua = rua;
-    }
-
-    public String getNumero() {
-        return numero;
-    }
-
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
-
-    public String getBairro() {
-        return bairro;
-    }
-
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public String getUf() {
-        return uf;
-    }
-
-    public void setUf(String uf) {
-        this.uf = uf;
-    }
-
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setTelefoneII(String telefoneII) {
+        this.telefoneII = telefoneII;
     }
 
     public int getCodigo() {
