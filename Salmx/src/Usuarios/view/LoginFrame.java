@@ -61,7 +61,6 @@ private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
      public boolean validaCampos(){
         if(jTextFieldUser.getText().isEmpty() || 
                 jPasswordFieldUserPass.getText().isEmpty()){
-                exibeErro("Preencha todos os campos");
             //JOptionPane.showMessageDialog(this, "Preencha todos os campos");
             return false;
         } else{

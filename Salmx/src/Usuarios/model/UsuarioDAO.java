@@ -26,8 +26,8 @@ public class UsuarioDAO {
         return erro;
     }  
      public  boolean salvarUsuario(Usuario u){
-        str= "insert into usuario(nome,login,senha)" 
-                + "values(?,?,?)";        
+        str= "insert into usuario(nome,login,senha,tipo)" 
+                + "values(?,?,?,?)";        
         try{
             Usuario usuario = buscarUsuario(u.getLogin());
             if(usuario.getCodigo() > 0){
@@ -41,6 +41,7 @@ public class UsuarioDAO {
                             pst.setString(1,u.getNome());
                             pst.setString(2,u.getLogin());
                             pst.setString(3,u.getSenha());
+                            pst.setBoolean(4,u.getTipo());
                             pst.execute();
                             pst.close();
                             return true;
@@ -68,6 +69,9 @@ public class UsuarioDAO {
             u.setCodigo(rst.getInt("codigo"));
             u.setNome(rst.getString("nome"));
             u.setLogin(rst.getString("login"));
+            u.setSenha(rst.getString("senha"));
+            u.setTipo(rst.getBoolean("tipo"));
+        
         }
         rst.close();
         pst.close();
@@ -76,7 +80,7 @@ public class UsuarioDAO {
     }
     
     public boolean editarUsuario(Usuario u){
-       String str= "update usuario set login = ?,nome = ?, senha = ? where codigo = ? ";
+       String str= "update usuario set login = ?,nome = ?,senha = ?,tipo = ? where codigo = ? ";
        try{
            Usuario usuario = buscarUsuario(u.getLogin());
             
@@ -86,7 +90,8 @@ public class UsuarioDAO {
                     pst.setString(1, u.getLogin());
                     pst.setString(2, u.getNome());
                     pst.setString(3, u.getSenha());
-                    pst.setInt(4, u.getCodigo());
+                    pst.setBoolean(4, u.getTipo());
+                    pst.setInt(5, u.getCodigo());
                     pst.execute();
                     pst.close();
                     return true;
@@ -95,7 +100,8 @@ public class UsuarioDAO {
                 }
                 
             }else{
-                System.out.println("Não foi possivel realizar a alteração");
+                
+                System.out.println("código < que 0 Não foi possivel realizar a alteração");
             }
         }catch(SQLException e){
             System.out.println("Não foi possivel realizar a alteração" + e);
@@ -115,7 +121,7 @@ public class UsuarioDAO {
                u.setCodigo(rst.getInt("codigo"));
                u.setNome(rst.getString("nome"));
                u.setLogin(rst.getString("login"));
-               
+               u.setTipo(rst.getBoolean("tipo"));
                usuarios.add(u);
            }           
            rst.close();

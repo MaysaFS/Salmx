@@ -45,14 +45,15 @@ public class ControlePrincipal implements ActionListener,MouseListener {
         this.conexao= Conexao.doConexao();
         carregaTelas();        
         escutaEventos();
-        
-        controleLogin= new ControleLogin(telaPrincipal, telaLogin);        
-        
-    }    
+        controleLogin= new ControleLogin(telaPrincipal, pp, telaLogin,conexao);        
+       
+    }
+
+   
     public void carregaTelas(){
         pp= new PanelPrincipal();
         telaPrincipal= new TelaPrincipal();
-        telaPrincipal.setContentPane(pp);      
+        telaPrincipal.setContentPane(pp); 
         telaPrincipal.repaint();
         telaPrincipal.validate();
         telaLogin= new LoginFrame();

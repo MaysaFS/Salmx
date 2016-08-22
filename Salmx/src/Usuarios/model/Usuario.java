@@ -12,7 +12,7 @@ package Usuarios.model;
 public class Usuario {
     private String nome;
     private String login;
-    private String tipo;
+    private boolean tipo; //True para admnistrador e False para usuario comum 
     private String senha;
     private String confirmaSenha;
     private int codigo;
@@ -29,7 +29,7 @@ public class Usuario {
         return login;
     }
 
-    public String getTipo() {
+    public boolean getTipo() {
         return tipo;
     }
 
@@ -45,7 +45,7 @@ public class Usuario {
         this.login = login;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(boolean tipo) {
         this.tipo = tipo;
     }
 

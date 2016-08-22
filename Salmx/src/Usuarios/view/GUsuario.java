@@ -152,22 +152,30 @@ public class GUsuario extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Nome", "Login", "Código"
+                "Código", "Nome", "Login", "Tipo"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTableUsersList.setGridColor(new java.awt.Color(153, 153, 153));
+        jTableUsersList.setName("Usuarios Cadastrados"); // NOI18N
         jTableUsersList.setRowMargin(0);
-        jTableUsersList.setSelectionBackground(new java.awt.Color(51, 51, 51));
+        jTableUsersList.setSelectionBackground(new java.awt.Color(204, 204, 204));
         jScrollPane1.setViewportView(jTableUsersList);
         if (jTableUsersList.getColumnModel().getColumnCount() > 0) {
-            jTableUsersList.getColumnModel().getColumn(2).setMinWidth(50);
-            jTableUsersList.getColumnModel().getColumn(2).setPreferredWidth(80);
-            jTableUsersList.getColumnModel().getColumn(2).setMaxWidth(50);
+            jTableUsersList.getColumnModel().getColumn(0).setMinWidth(60);
+            jTableUsersList.getColumnModel().getColumn(0).setPreferredWidth(60);
+            jTableUsersList.getColumnModel().getColumn(0).setMaxWidth(80);
         }
 
         CaixaBuscar.setForeground(new java.awt.Color(153, 153, 153));
         CaixaBuscar.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        CaixaBuscar.setText(" ");
         CaixaBuscar.setToolTipText("");
         CaixaBuscar.setAutoscrolls(false);
         CaixaBuscar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -278,6 +286,8 @@ public class GUsuario extends javax.swing.JPanel {
                         .addGap(1, 1, 1)
                         .addComponent(Menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
+
+        PesquisarUsuario.getAccessibleContext().setAccessibleDescription("Buscar por Login ou Nome");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

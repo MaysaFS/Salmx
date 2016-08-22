@@ -11,7 +11,6 @@ package Usuarios.controle;
  */
 import Principal.controle.ControlePrincipal;
 import Principal.view.TelaPrincipal;
-import Usuarios.model.RnUsuario;
 import Usuarios.model.Usuario;
 import Usuarios.model.UsuarioDAO;
 import Usuarios.view.GUsuario;
@@ -29,24 +28,26 @@ public class ControleUsuario implements MouseListener {
     TelaPrincipal principal;
     ControlePrincipal cp;
     JDTelaUsuario telaUsuario;
-    private RnUsuario rn;
     private UsuarioDAO usuarioDAO;
     private DefaultTableModel modelo;
     private int codigo;
     private boolean edit;
-    
-    public ControleUsuario(){
+
+    public ControleUsuario() {
     }
-    
+
     public ControleUsuario(TelaPrincipal principal, ControlePrincipal cp, Connection conexao) {
+        //Instancia de objetos
         this.gUsuario = new GUsuario();
-        this.rn = new RnUsuario();
         this.usuarioDAO = new UsuarioDAO(conexao);
         this.cp = cp;
         this.principal = principal;
+        //Instancia a tela gestão de usuario e Tela de usuarios
         carregaTela();
         escutaEventoGUsuario();
+        //Instancia Tabela para a tela de gestão
         modelo = (DefaultTableModel) gUsuario.getjTableUsersList().getModel();
+        //Limpa a tabela e exibe dados
         limpaTabela();
         listaDados();
     }
@@ -59,126 +60,177 @@ public class ControleUsuario implements MouseListener {
     }
 
     public void escutaEventoGUsuario() {
+        //Botoes da tela de Gestão de usuários
         gUsuario.getNovoUsuario().addMouseListener(this);
         gUsuario.getEditarUsuario().addMouseListener(this);
         gUsuario.getExcluirUsuario().addMouseListener(this);
         gUsuario.getPesquisarUsuario().addMouseListener(this);
         gUsuario.getVoltar().addMouseListener(this);
-
+      
+        //Botões da tela de Usuario
         telaUsuario.getJLabelSalvar().addMouseListener(this);
+        telaUsuario.getjLabelErroOK().addMouseListener(this);
 
     }
 
+    //Retorna tela de gestão (Usado no controle principal)
     public GUsuario getTela() {
         return gUsuario;
     }
 
-    public JDTelaUsuario getTelaUsuario() {
-        return telaUsuario;
-    }
-
-    public DefaultTableModel getTableModel() {
-        return (DefaultTableModel) gUsuario.getjTableUsersList().getModel();
-    }
-    
-    public UsuarioDAO getDAO(){
-        return usuarioDAO;
-    }
-
-   
-
     public void salvarDados() {
-        boolean a = false;
+        //Variavel "a" verifica se o objeto foi salvo no banco (Regra de negocio incluida na classe UsuarioDAO)
+        boolean salvo = false;
+        //Cria usuario á partir dos dados digitados na tela de usuarios
         Usuario usuario = new Usuario();
         usuario.setNome(telaUsuario.getJTextFieldNome().getText());
         usuario.setLogin(telaUsuario.getJTextFieldLogin().getText());
         usuario.setSenha(telaUsuario.getjPasswordFieldSenha().getText());
         usuario.setConfirmaSenha(telaUsuario.getjPasswordFieldConfirmaSenha().getText());
-
-            if(edit == false){
-                System.out.println("EDIT FALSE");
-                a = usuarioDAO.salvarUsuario(usuario);
-                telaUsuario.exibeErro(usuarioDAO.getErro());
-            }else{
-                System.out.println("EDIT TRUE");
-                usuario.setCodigo(codigo);
-                a = usuarioDAO.editarUsuario(usuario);
-                telaUsuario.exibeErro(usuarioDAO.getErro());
-            }
-            
-            if (a){
-                telaUsuario.ocultaErro();
-                listaDados();
-                telaUsuario.limpaTela();
-                telaUsuario.dispose(); 
-                edit=false;
-                
-            }
+        usuario.setTipo(telaUsuario.getjRadioButtonUsrAdm().isSelected());
+        //Edit é false quando o botão criar é assionado, se não for false, ele segue para a edição utilizando o código do objeto selecionado na tabela
+        if (edit == false) {
+            System.out.println("EDIT FALSE");
+            salvo = usuarioDAO.salvarUsuario(usuario);
+            telaUsuario.exibeErro(usuarioDAO.getErro());
+      
+        } else {
+            System.out.println("EDIT TRUE");
+            System.out.println("codigo: "+codigo);
+            usuario.setCodigo(codigo);
+            salvo = usuarioDAO.editarUsuario(usuario);
+            telaUsuario.exibeErro(usuarioDAO.getErro());
         }
-     public void editaDados(){
+
+        //se "a" for true, os erros da tela são ocultados, é exibida uma menssagem e a tela de usuarios é feixada
+        if (salvo) {
+            telaUsuario.ocultaErro();
+
+            JOptionPane.showMessageDialog(null, "Usuario " + usuario.getNome()
+                    + " salvo com sucesso");
+
+            listaDados();
+            telaUsuario.limpaTela();
+            telaUsuario.dispose();
+        }
+    }
+
+    //Quando o botão editar é assionado, editaDados() preenche os campos nome e login na Tela de Usuarios
+    public void editaDados() {
         int item = gUsuario.itemSelecionado();
-        if(item >= 0){
+        System.out.println("Item: "+item);
+        if (item >= 0) {
             telaUsuario.getJTextFieldNome().setText(usuarioDAO.listarUsuarios().get(item).getNome());
             telaUsuario.getJTextFieldLogin().setText(usuarioDAO.listarUsuarios().get(item).getLogin());
+            telaUsuario.setVisible(true);
             codigo = usuarioDAO.listarUsuarios().get(item).getCodigo();
-        } 
+            System.out.println("metodo edita codigo: "+codigo);
+            
+        }
     }
+    public void pesquisaUsuario(){
+        limpaTabela();
+        for(int i = 0; i < usuarioDAO.listarUsuarios().size(); i++){
+            if(gUsuario.getCaixaBuscar().getText().equalsIgnoreCase(usuarioDAO.listarUsuarios().get(i).getLogin()) ||
+                    gUsuario.getCaixaBuscar().getText().equalsIgnoreCase(usuarioDAO.listarUsuarios().get(i).getNome())){
+                        System.out.println("Usuário encontrado");
+                        addTabela(
+                            usuarioDAO.listarUsuarios().get(i).getCodigo(),
+                            usuarioDAO.listarUsuarios().get(i).getNome(),
+                            usuarioDAO.listarUsuarios().get(i).getLogin(),
+                            usrTipo(i)    
+                        );
+            }else{
+                System.out.println("Usuario não encontrado, verifiqar sintatse");
+            }
+        
+        }
+        
+    }
+    //adiciona elementos na tabela
     public final void addTabela(Object... objects) {
         modelo.addRow(objects);
     }
-    private void listaDados() {
-
-        limpaTabela();        
-        for(int i=0;i<usuarioDAO.listarUsuarios().size();i++){
-            addTabela(
-                    usuarioDAO.listarUsuarios().get(i).getNome(),
-                    usuarioDAO.listarUsuarios().get(i).getLogin(),
-                    usuarioDAO.listarUsuarios().get(i).getCodigo()
-                    
-                    );
+    //verifica tipo de usuario para busca e listagm
+    private String usrTipo(int i){
+        String tipo;
+        if(usuarioDAO.listarUsuarios().get(i).getTipo()){
+            tipo = "Administrador";
+        }else{
+            tipo = "Padrão";
         }
+        return tipo;
     }
     
-    private void limpaTabela(){
-       int linhas = modelo.getRowCount();
-        for(int i=0;i<linhas;i++){
+    //Lista elementos 
+    private void listaDados() {
+        limpaTabela();
+
+        for (int i = 0; i < usuarioDAO.listarUsuarios().size(); i++) {
+            
+            addTabela(
+                    usuarioDAO.listarUsuarios().get(i).getCodigo(),
+                    usuarioDAO.listarUsuarios().get(i).getNome(),
+                    usuarioDAO.listarUsuarios().get(i).getLogin(),
+                    usrTipo(i)
+                   
+            );
+        }
+    }
+
+    //limpa dados da tabela para que a mesma seja atualizada
+    private void limpaTabela() {
+        int linhas = modelo.getRowCount();
+        for (int i = 0; i < linhas; i++) {
             modelo.removeRow(0);
         }
-    }  
-
+    }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-       
 
+        //Botão voltar (Tela de Gestão)
+        //Função: "chama" a tela principal
         if (e.getSource() == gUsuario.getVoltar()) {
             principal.setContentPane(cp.getTela());
             principal.repaint();
             principal.validate();
 
         }
-        if (e.getSource() == gUsuario.getNovoUsuario()) {
-            telaUsuario.setVisible(true);
-
+        
+        if (e.getSource() == gUsuario.getPesquisarUsuario()) {
+            pesquisaUsuario();
         }
+        //Botao adicionar (Tela de Gestão)
+        if (e.getSource() == gUsuario.getNovoUsuario()) {
+            telaUsuario.limpaCampos();
+            edit = false;
+            telaUsuario.setVisible(true);
+        }
+        //Botão editar (Tela de gestão)
         if (e.getSource() == gUsuario.getEditarUsuario()) {
+            telaUsuario.limpaCampos();
             edit = true;
             editaDados();
-            telaUsuario.setVisible(true);
-           
-            }
+        }
+        //Botão excluir
+        //NÃO IMPLEMENTADO
+        if (e.getSource() == gUsuario.getExcluirUsuario()) {
+            JOptionPane.showMessageDialog(null, "Exclusão não implementada");
+        }
+        //Botão salvar (Tela de Usuarios)
+        //Função: Salva dados do usuario (Novo ou Editado)
         if (e.getSource() == telaUsuario.getJLabelSalvar()) {
-            System.out.println("CLCIADO SALVAR");
-            
             if (telaUsuario.validaCampos()) {
-                    System.out.println("CHAMA SALVAR");
-                    salvarDados();
+                salvarDados();
             }
 
         }
-        if(e.getSource() == telaUsuario.getjLabelErroOK()){
+
+        //Botão de ocultação de erros (Tela de Usuarios)
+        if (e.getSource() == telaUsuario.getjLabelErroOK()) {
             telaUsuario.ocultaErro();
-            System.out.println("OK CLIkCADO");
+
         }
 
     }

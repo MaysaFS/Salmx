@@ -5,10 +5,9 @@
  */
 package Usuarios.view;
 
-import java.util.Arrays;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 /**
@@ -63,6 +62,12 @@ public class JDTelaUsuario extends javax.swing.JDialog {
             }
     
     }
+    public void limpaCampos(){
+        this.JTextFieldLogin.setText("");
+        this.JTextFieldNome.setText("");
+        this.jPasswordFieldSenha.setText("");
+        this.jPasswordFieldConfirmaSenha.setText("");
+    }
 
     public JLabel getJLabelSalvar() {
         return JLabelSalvar;
@@ -107,11 +112,28 @@ public class JDTelaUsuario extends javax.swing.JDialog {
     public void setjPasswordFieldSenha(JPasswordField jPasswordFieldSenha) {
         this.jPasswordFieldSenha = jPasswordFieldSenha;
     }
+
+    public JRadioButton getjRadioButtonUsrAdm() {
+        return jRadioButtonUsrAdm;
+    }
+
+    public void setjRadioButtonUsrAdm(JRadioButton jRadioButtonUsrAdm) {
+        this.jRadioButtonUsrAdm = jRadioButtonUsrAdm;
+    }
+
+    public JRadioButton getjRadioButtonUsrPadrao() {
+        return jRadioButtonUsrPadrao;
+    }
+
+    public void setjRadioButtonUsrPadrao(JRadioButton jRadioButtonUsrPadrao) {
+        this.jRadioButtonUsrPadrao = jRadioButtonUsrPadrao;
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroupUsrTipo = new javax.swing.ButtonGroup();
         jPanelBack = new javax.swing.JPanel();
         jPanelTop = new javax.swing.JPanel();
         jLabelSalmxLogo = new javax.swing.JLabel();
@@ -127,6 +149,9 @@ public class JDTelaUsuario extends javax.swing.JDialog {
         JLabelSalvar = new javax.swing.JLabel();
         jLabelErro = new javax.swing.JLabel();
         jLabelErroOK = new javax.swing.JLabel();
+        jRadioButtonUsrPadrao = new javax.swing.JRadioButton();
+        jRadioButtonUsrAdm = new javax.swing.JRadioButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(340, 414));
@@ -235,27 +260,51 @@ public class JDTelaUsuario extends javax.swing.JDialog {
         jLabelErroOK.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelErroOK.setOpaque(true);
 
+        buttonGroupUsrTipo.add(jRadioButtonUsrPadrao);
+        jRadioButtonUsrPadrao.setForeground(new java.awt.Color(255, 102, 102));
+        jRadioButtonUsrPadrao.setSelected(true);
+        jRadioButtonUsrPadrao.setText("Padrão");
+        jRadioButtonUsrPadrao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonUsrPadraoActionPerformed(evt);
+            }
+        });
+
+        buttonGroupUsrTipo.add(jRadioButtonUsrAdm);
+        jRadioButtonUsrAdm.setForeground(new java.awt.Color(255, 102, 102));
+        jRadioButtonUsrAdm.setText("Administrador");
+
+        jLabel1.setForeground(new java.awt.Color(255, 102, 102));
+        jLabel1.setText("Tipo de usuario");
+
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
         jPanelBody.setLayout(jPanelBodyLayout);
         jPanelBodyLayout.setHorizontalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBodyLayout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(JLabelSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(JLabelSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+                        .addGroup(jPanelBodyLayout.createSequentialGroup()
+                            .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(JLabelNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(JLabelLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(JLabelSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(JLabelConfirmaSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+                                .addComponent(jLabelErro, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelErroOK, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(JTextFieldNome)
+                        .addComponent(JTextFieldLogin)
+                        .addComponent(jPasswordFieldSenha)
+                        .addComponent(jPasswordFieldConfirmaSenha))
                     .addGroup(jPanelBodyLayout.createSequentialGroup()
-                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(JLabelNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(JLabelLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(JLabelSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(JLabelConfirmaSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
-                            .addComponent(jLabelErro, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelErroOK, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(JTextFieldNome)
-                    .addComponent(JTextFieldLogin)
-                    .addComponent(jPasswordFieldSenha)
-                    .addComponent(jPasswordFieldConfirmaSenha))
+                        .addGap(12, 12, 12)
+                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButtonUsrAdm)
+                            .addComponent(jRadioButtonUsrPadrao))))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
 
@@ -284,7 +333,13 @@ public class JDTelaUsuario extends javax.swing.JDialog {
                 .addComponent(JLabelConfirmaSenha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPasswordFieldConfirmaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jRadioButtonUsrPadrao)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jRadioButtonUsrAdm)
+                .addGap(18, 18, 18)
                 .addComponent(JLabelSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -337,6 +392,10 @@ public class JDTelaUsuario extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_JTextFieldNomeActionPerformed
 
+    private void jRadioButtonUsrPadraoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonUsrPadraoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonUsrPadraoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JLabelConfirmaSenha;
@@ -346,6 +405,8 @@ public class JDTelaUsuario extends javax.swing.JDialog {
     private javax.swing.JLabel JLabelSenha;
     private javax.swing.JTextField JTextFieldLogin;
     private javax.swing.JTextField JTextFieldNome;
+    private javax.swing.ButtonGroup buttonGroupUsrTipo;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelErro;
     private javax.swing.JLabel jLabelErroOK;
     private javax.swing.JLabel jLabelSalmxLogo;
@@ -354,6 +415,8 @@ public class JDTelaUsuario extends javax.swing.JDialog {
     private javax.swing.JPanel jPanelTop;
     private javax.swing.JPasswordField jPasswordFieldConfirmaSenha;
     private javax.swing.JPasswordField jPasswordFieldSenha;
+    private javax.swing.JRadioButton jRadioButtonUsrAdm;
+    private javax.swing.JRadioButton jRadioButtonUsrPadrao;
     // End of variables declaration//GEN-END:variables
 
 }
