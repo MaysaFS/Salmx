@@ -99,13 +99,16 @@ public class ControleUsuario implements MouseListener {
             System.out.println("codigo: "+codigo);
             usuario.setCodigo(codigo);
             salvo = usuarioDAO.editarUsuario(usuario);
+            System.out.println("Exibe erro: "+usuarioDAO.getErro());
             telaUsuario.exibeErro(usuarioDAO.getErro());
+            System.out.println("Exibe erro: "+usuarioDAO.getErro());
+            
         }
 
         //se "a" for true, os erros da tela são ocultados, é exibida uma menssagem e a tela de usuarios é feixada
         if (salvo) {
             telaUsuario.ocultaErro();
-
+            telaUsuario.limpaCampos();
             JOptionPane.showMessageDialog(null, "Usuario " + usuario.getNome()
                     + " salvo com sucesso");
 
@@ -122,10 +125,9 @@ public class ControleUsuario implements MouseListener {
         if (item >= 0) {
             telaUsuario.getJTextFieldNome().setText(usuarioDAO.listarUsuarios().get(item).getNome());
             telaUsuario.getJTextFieldLogin().setText(usuarioDAO.listarUsuarios().get(item).getLogin());
-            telaUsuario.setVisible(true);
             codigo = usuarioDAO.listarUsuarios().get(item).getCodigo();
             System.out.println("metodo edita codigo: "+codigo);
-            
+            telaUsuario.setVisible(true);        
         }
     }
     public void pesquisaUsuario(){
@@ -173,7 +175,6 @@ public class ControleUsuario implements MouseListener {
                     usuarioDAO.listarUsuarios().get(i).getNome(),
                     usuarioDAO.listarUsuarios().get(i).getLogin(),
                     usrTipo(i)
-                   
             );
         }
     }
