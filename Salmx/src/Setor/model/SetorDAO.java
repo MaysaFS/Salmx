@@ -104,7 +104,7 @@ public class SetorDAO {
     }
     public boolean excluirSetor(int cod){
         boolean result= false;
-         String sql= "delete * from setor where codigo = ?";        
+         String sql= "delete from setor where codigo = ?";        
         try {
             Setor setor= buscarSetor(cod);
             if(setor.getCodigo()>0){

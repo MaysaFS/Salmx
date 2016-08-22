@@ -177,7 +177,6 @@ public class GSetor extends javax.swing.JPanel {
 
         jTextBuscaSetor.setForeground(new java.awt.Color(153, 153, 153));
         jTextBuscaSetor.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextBuscaSetor.setText(" insira nome do produto aqui ");
         jTextBuscaSetor.setToolTipText("");
         jTextBuscaSetor.setAutoscrolls(false);
         jTextBuscaSetor.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
