@@ -15,11 +15,13 @@ import Usuarios.controle.ControleLogin;
 import Usuarios.controle.ControleUsuario;
 import Usuarios.view.GUsuario;
 import Usuarios.view.LoginFrame;
+import conexao.Conexao;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.lang.management.GarbageCollectorMXBean;
+import java.sql.Connection;
 
 /**
  *
@@ -27,28 +29,31 @@ import java.lang.management.GarbageCollectorMXBean;
  */
 public class ControlePrincipal implements ActionListener,MouseListener {
     
-    TelaPrincipal telaPrincipal;
-    LoginFrame telaLogin;
-    JDTelaSetor telaSetor;
-    ControleLogin controleLogin;
-    ControleSetor controleSetor;
-    ControleUsuario controleUsuario;
-    PanelPrincipal pp;
-    ControleFornecedor controleFornecedor;
-    GestaoFornecedor gFornecedor;
-    NovoFornecedor telaFornecedor;
-    
+    private TelaPrincipal telaPrincipal;
+    private LoginFrame telaLogin;
+    private JDTelaSetor telaSetor;
+    private ControleLogin controleLogin;
+    private ControleSetor controleSetor;
+    private ControleUsuario controleUsuario;
+    private PanelPrincipal pp;
+    private ControleFornecedor controleFornecedor;
+    private GestaoFornecedor gFornecedor;
+    private NovoFornecedor telaFornecedor;
+    private Connection conexao;
 
     public ControlePrincipal() {
+        this.conexao= Conexao.doConexao();
         carregaTelas();        
         escutaEventos();
-        controleLogin= new ControleLogin(telaPrincipal, telaLogin);        
-        
-    }    
+        controleLogin= new ControleLogin(telaPrincipal, pp, telaLogin,conexao);        
+       
+    }
+
+   
     public void carregaTelas(){
         pp= new PanelPrincipal();
         telaPrincipal= new TelaPrincipal();
-        telaPrincipal.setContentPane(pp);      
+        telaPrincipal.setContentPane(pp); 
         telaPrincipal.repaint();
         telaPrincipal.validate();
         telaLogin= new LoginFrame();
@@ -80,7 +85,7 @@ public class ControlePrincipal implements ActionListener,MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         if(e.getSource() == pp.getSetores_Icone()){
-           controleSetor =  new ControleSetor(telaPrincipal,this);
+           controleSetor =  new ControleSetor(telaPrincipal,this, this.conexao);
            telaPrincipal.setContentPane(controleSetor.getTela());
            telaPrincipal.repaint();
            telaPrincipal.validate();
@@ -92,7 +97,7 @@ public class ControlePrincipal implements ActionListener,MouseListener {
           // telaPrincipal.validate();
         }
           if(e.getSource() == pp.getUsuarios_Icone()){
-            controleUsuario =  new ControleUsuario(telaPrincipal, this);
+            controleUsuario =  new ControleUsuario(telaPrincipal, this, this.conexao);
             telaPrincipal.setContentPane(controleUsuario.getTela());
             telaPrincipal.repaint();
             telaPrincipal.validate();

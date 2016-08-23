@@ -172,12 +172,11 @@ public class GSetor extends javax.swing.JPanel {
         ));
         jTableSetorList.setGridColor(new java.awt.Color(153, 153, 153));
         jTableSetorList.setRowMargin(0);
-        jTableSetorList.setSelectionBackground(new java.awt.Color(51, 51, 51));
+        jTableSetorList.setSelectionBackground(new java.awt.Color(204, 204, 204));
         jScrollPane1.setViewportView(jTableSetorList);
 
         jTextBuscaSetor.setForeground(new java.awt.Color(153, 153, 153));
         jTextBuscaSetor.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextBuscaSetor.setText(" insira nome do produto aqui ");
         jTextBuscaSetor.setToolTipText("");
         jTextBuscaSetor.setAutoscrolls(false);
         jTextBuscaSetor.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -201,7 +200,7 @@ public class GSetor extends javax.swing.JPanel {
         excluirSetor.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         excluirSetor.setForeground(new java.awt.Color(255, 255, 255));
         excluirSetor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Delet_Small.png"))); // NOI18N
-        excluirSetor.setText("RETIRAR");
+        excluirSetor.setText("EXCLUIR");
         excluirSetor.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
         excluirSetor.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         excluirSetor.setOpaque(true);

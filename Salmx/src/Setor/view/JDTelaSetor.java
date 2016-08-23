@@ -25,7 +25,7 @@ public class JDTelaSetor extends javax.swing.JDialog {
     }
 private void iniciar() {
         this.addWindowListener(new java.awt.event.WindowAdapter() {        
-            
+        
         });
         this.setLocationRelativeTo(null);
         //this.setBounds((screenSize.width-250)/2, (screenSize.height-250)/2, 250, 250);
@@ -76,6 +76,18 @@ public JLabel getjLabelSalvar() {
         this.txtRamalSetor = txtRamalSetor;
     }
 
+    public JLabel getjLabelExcluir() {
+        return jLabelExcluir;
+    }
+    
+    public void setjLabelExcluir(JLabel jLabelExcluir) {
+        this.jLabelExcluir = jLabelExcluir;
+    }
+       
+
+    public JLabel getjLabelSalmxLogo() {
+        return jLabelSalmxLogo;
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -99,6 +111,7 @@ public JLabel getjLabelSalvar() {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtObservSetor = new javax.swing.JTextArea();
         jLabelSalvar = new javax.swing.JLabel();
+        jLabelExcluir = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -195,22 +208,34 @@ public JLabel getjLabelSalvar() {
         jLabelSalvar.setText("SALVAR");
         jLabelSalvar.setOpaque(true);
 
+        jLabelExcluir.setBackground(new java.awt.Color(255, 102, 102));
+        jLabelExcluir.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabelExcluir.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelExcluir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelExcluir.setText("CONFIRMAR EXCLUSÃO");
+        jLabelExcluir.setOpaque(true);
+
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
         jPanelBody.setLayout(jPanelBodyLayout);
         jPanelBodyLayout.setHorizontalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBodyLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
-                    .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelBodyLayout.createSequentialGroup()
+                        .addGap(48, 48, 48)
                         .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNomeSetor)
-                            .addComponent(jLabelnomeSetor, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE))
-                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtRamalSetor)
-                            .addComponent(jLabelRamalSetor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabelObservSetor, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+                            .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtNomeSetor)
+                                    .addComponent(jLabelnomeSetor, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE))
+                                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtRamalSetor)
+                                    .addComponent(jLabelRamalSetor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabelObservSetor, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)))))
+                    .addGroup(jPanelBodyLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabelExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(70, Short.MAX_VALUE))
             .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBodyLayout.createSequentialGroup()
@@ -233,7 +258,9 @@ public JLabel getjLabelSalvar() {
                 .addComponent(jLabelObservSetor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addComponent(jLabelExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBodyLayout.createSequentialGroup()
                     .addContainerGap(280, Short.MAX_VALUE)
@@ -288,6 +315,7 @@ public JLabel getjLabelSalvar() {
      */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabelExcluir;
     private javax.swing.JLabel jLabelObservSetor;
     private javax.swing.JLabel jLabelRamalSetor;
     private javax.swing.JLabel jLabelSalmxLogo;
@@ -301,4 +329,5 @@ public JLabel getjLabelSalvar() {
     private javax.swing.JTextArea txtObservSetor;
     private javax.swing.JTextField txtRamalSetor;
     // End of variables declaration//GEN-END:variables
+
 }
