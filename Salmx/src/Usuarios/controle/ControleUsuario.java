@@ -35,16 +35,15 @@ public class ControleUsuario implements MouseListener {
     private boolean edit;
     private String erro;
 
-    public ControleUsuario() {
-    }
-
     public ControleUsuario(TelaPrincipal principal, ControlePrincipal cp, Connection conexao) {
         this.gUsuario = new GUsuario();
         this.usuarioDAO = new UsuarioDAO(conexao);
         this.cp = cp;
         this.principal = principal;
+       
         carregaTela();
         escutaEventoGUsuario();
+        
         modelo = (DefaultTableModel) gUsuario.getjTableUsersList().getModel();
         limpaTabela();
         listaDados();
@@ -104,8 +103,9 @@ public class ControleUsuario implements MouseListener {
             telaUsuario.ocultaErro();
             telaUsuario.limpaCampos();
             telaUsuario.dispose();           
+            
+            limpaTabela();
             listaDados();
-            telaUsuario.limpaTela();
             JOptionPane.showMessageDialog(null, "Usuario \"" + u.getNome()
                     + "\" salvo com sucesso");
            

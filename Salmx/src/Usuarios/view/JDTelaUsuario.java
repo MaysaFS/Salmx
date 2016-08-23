@@ -34,12 +34,7 @@ public class JDTelaUsuario extends javax.swing.JDialog {
         jLabelErro.setText("    ");
         jLabelErroOK.setVisible(false);  
     }
-    public void limpaTela(){
-        JTextFieldLogin.setText("");
-        JTextFieldNome.setText("");
-        jPasswordFieldConfirmaSenha.setText("");
-        jPasswordFieldSenha.setText("");
-    }
+
     private void iniciar() {
         this.addWindowListener(new java.awt.event.WindowAdapter() {        
             
