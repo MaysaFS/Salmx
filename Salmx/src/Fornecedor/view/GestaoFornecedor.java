@@ -173,6 +173,7 @@ public class GestaoFornecedor extends javax.swing.JPanel {
         btPesquisa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jTableFornecedor.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jTableFornecedor.setForeground(new java.awt.Color(153, 153, 153));
         jTableFornecedor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
@@ -194,7 +195,7 @@ public class GestaoFornecedor extends javax.swing.JPanel {
         ));
         jTableFornecedor.setGridColor(new java.awt.Color(153, 153, 153));
         jTableFornecedor.setRowMargin(0);
-        jTableFornecedor.setSelectionBackground(new java.awt.Color(51, 51, 51));
+        jTableFornecedor.setSelectionBackground(new java.awt.Color(204, 204, 255));
         jScrollPane.setViewportView(jTableFornecedor);
 
         jPanelTop.setBackground(new java.awt.Color(255, 102, 102));

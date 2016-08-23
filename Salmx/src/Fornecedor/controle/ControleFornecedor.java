@@ -112,7 +112,7 @@ public class ControleFornecedor implements MouseListener {
             forn.setCnpj(nfornecedor.getjTextFieldCnpj().getText());
             forn.setInscricaoestadual(nfornecedor.getjTextFieldInscriçãoEstadual().getText());
             forn.setTelefoneI(nfornecedor.getjTextFieldTelefoneI().getText());
-            forn.setTelefoneII(nfornecedor.getjLabelTelefoneII().getText());
+            forn.setTelefoneII(nfornecedor.getjTextFieldTelefoneII().getText());
             forn.setEmail(nfornecedor.getjTextFieldEmail().getText());
             forn.getEndereço().setRua(nfornecedor.getjTextFieldRua().getText());
             forn.getEndereço().setNumero(nfornecedor.getjTextFieldNumEnd().getText());
