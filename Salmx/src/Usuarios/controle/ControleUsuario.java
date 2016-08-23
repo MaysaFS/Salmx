@@ -11,14 +11,15 @@ package Usuarios.controle;
  */
 import Principal.controle.ControlePrincipal;
 import Principal.view.TelaPrincipal;
+
 import Usuarios.model.Usuario;
 import Usuarios.model.UsuarioDAO;
 import Usuarios.view.GUsuario;
 import Usuarios.view.JDTelaUsuario;
+import Usuarios.view.LoginFrame;
 import java.sql.Connection;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.Arrays;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -32,22 +33,19 @@ public class ControleUsuario implements MouseListener {
     private DefaultTableModel modelo;
     private int codigo;
     private boolean edit;
+    private String erro;
 
     public ControleUsuario() {
     }
 
     public ControleUsuario(TelaPrincipal principal, ControlePrincipal cp, Connection conexao) {
-        //Instancia de objetos
         this.gUsuario = new GUsuario();
         this.usuarioDAO = new UsuarioDAO(conexao);
         this.cp = cp;
         this.principal = principal;
-        //Instancia a tela gestão de usuario e Tela de usuarios
         carregaTela();
         escutaEventoGUsuario();
-        //Instancia Tabela para a tela de gestão
         modelo = (DefaultTableModel) gUsuario.getjTableUsersList().getModel();
-        //Limpa a tabela e exibe dados
         limpaTabela();
         listaDados();
     }
@@ -66,110 +64,138 @@ public class ControleUsuario implements MouseListener {
         gUsuario.getExcluirUsuario().addMouseListener(this);
         gUsuario.getPesquisarUsuario().addMouseListener(this);
         gUsuario.getVoltar().addMouseListener(this);
-      
+
         //Botões da tela de Usuario
         telaUsuario.getJLabelSalvar().addMouseListener(this);
         telaUsuario.getjLabelErroOK().addMouseListener(this);
 
     }
 
-    //Retorna tela de gestão (Usado no controle principal)
     public GUsuario getTela() {
         return gUsuario;
     }
 
     public void salvarDados() {
-        //Variavel "a" verifica se o objeto foi salvo no banco (Regra de negocio incluida na classe UsuarioDAO)
-        boolean salvo = false;
-        //Cria usuario á partir dos dados digitados na tela de usuarios
-        Usuario usuario = new Usuario();
-        usuario.setNome(telaUsuario.getJTextFieldNome().getText());
-        usuario.setLogin(telaUsuario.getJTextFieldLogin().getText());
-        usuario.setSenha(telaUsuario.getjPasswordFieldSenha().getText());
-        usuario.setConfirmaSenha(telaUsuario.getjPasswordFieldConfirmaSenha().getText());
-        usuario.setTipo(telaUsuario.getjRadioButtonUsrAdm().isSelected());
-        //Edit é false quando o botão criar é assionado, se não for false, ele segue para a edição utilizando o código do objeto selecionado na tabela
-        if (edit == false) {
-            System.out.println("EDIT FALSE");
-            salvo = usuarioDAO.salvarUsuario(usuario);
-            telaUsuario.exibeErro(usuarioDAO.getErro());
-      
-        } else {
-            System.out.println("EDIT TRUE");
-            System.out.println("codigo: "+codigo);
-            usuario.setCodigo(codigo);
-            salvo = usuarioDAO.editarUsuario(usuario);
-            System.out.println("Exibe erro: "+usuarioDAO.getErro());
-            telaUsuario.exibeErro(usuarioDAO.getErro());
-            System.out.println("Exibe erro: "+usuarioDAO.getErro());
-            
-        }
+        boolean uSalvo = false;
 
-        //se "a" for true, os erros da tela são ocultados, é exibida uma menssagem e a tela de usuarios é feixada
-        if (salvo) {
+        Usuario u = new Usuario();
+
+        u.setNome(telaUsuario.getJTextFieldNome().getText());
+        u.setLogin(telaUsuario.getJTextFieldLogin().getText());
+        u.setSenha(telaUsuario.getjPasswordFieldSenha().getText());
+        u.setConfirmaSenha(telaUsuario.getjPasswordFieldConfirmaSenha().getText());
+        u.setTipo(telaUsuario.getjRadioButtonUsrAdm().isSelected());
+
+        if (u.getSenha().equals(u.getConfirmaSenha())) {
+            if (!edit) {
+                uSalvo = usuarioDAO.salvarUsuario(u);
+
+            }else{
+                u.setCodigo(codigo);
+                uSalvo = usuarioDAO.editarUsuario(u);
+                telaUsuario.exibeErro(erro);
+            }
+        } else {
+            erro = "Senhas diferentes";
+            System.out.println("Senhas diferentes");
+            telaUsuario.exibeErro(erro);
+        }
+        if (uSalvo) {
             telaUsuario.ocultaErro();
             telaUsuario.limpaCampos();
-            JOptionPane.showMessageDialog(null, "Usuario " + usuario.getNome()
-                    + " salvo com sucesso");
-
+            telaUsuario.dispose();           
             listaDados();
             telaUsuario.limpaTela();
-            telaUsuario.dispose();
+            JOptionPane.showMessageDialog(null, "Usuario \"" + u.getNome()
+                    + "\" salvo com sucesso");
+           
         }
     }
 
-    //Quando o botão editar é assionado, editaDados() preenche os campos nome e login na Tela de Usuarios
     public void editaDados() {
         int item = gUsuario.itemSelecionado();
-        System.out.println("Item: "+item);
+        
+        System.out.println("Item: " + item);
+       
         if (item >= 0) {
+        
             telaUsuario.getJTextFieldNome().setText(usuarioDAO.listarUsuarios().get(item).getNome());
             telaUsuario.getJTextFieldLogin().setText(usuarioDAO.listarUsuarios().get(item).getLogin());
             codigo = usuarioDAO.listarUsuarios().get(item).getCodigo();
-            System.out.println("metodo edita codigo: "+codigo);
-            telaUsuario.setVisible(true);        
+            System.out.println("metodo edita codigo: " + codigo);
+            telaUsuario.setVisible(true);
         }
     }
-    public void pesquisaUsuario(){
-        limpaTabela();
-        for(int i = 0; i < usuarioDAO.listarUsuarios().size(); i++){
-            if(gUsuario.getCaixaBuscar().getText().equalsIgnoreCase(usuarioDAO.listarUsuarios().get(i).getLogin()) ||
-                    gUsuario.getCaixaBuscar().getText().equalsIgnoreCase(usuarioDAO.listarUsuarios().get(i).getNome())){
-                        System.out.println("Usuário encontrado");
-                        addTabela(
-                            usuarioDAO.listarUsuarios().get(i).getCodigo(),
-                            usuarioDAO.listarUsuarios().get(i).getNome(),
-                            usuarioDAO.listarUsuarios().get(i).getLogin(),
-                            usrTipo(i)    
-                        );
-            }else{
-                System.out.println("Usuario não encontrado, verifiqar sintatse");
+     public void exluiUsuario() {
+        int item = gUsuario.itemSelecionado();
+        
+        System.out.println("Item selecionado: " + item);
+       
+        if (item >= 0) {
+            int confirma;
+            confirma = JOptionPane.showConfirmDialog(null, "Tem certeza que dejeja excluir o usuario \""
+                    + usuarioDAO.listarUsuarios().get(item).getNome()+"\"?");
+            
+            if(confirma == 0){
+                usuarioDAO.excluirUsuario(usuarioDAO.listarUsuarios().get(item).getLogin(),
+                        usuarioDAO.listarUsuarios().get(item).getCodigo());
+                limpaTabela();
+                listaDados();
             }
-        
         }
-        
     }
-    //adiciona elementos na tabela
+    
+    
+    public void pesquisaUsuario() {
+        limpaTabela();
+        boolean busca = false;
+        for (int i = 0; i < usuarioDAO.listarUsuarios().size(); i++) {
+            if (gUsuario.getCaixaBuscar().getText().equalsIgnoreCase(usuarioDAO.listarUsuarios().get(i).getLogin())
+                    || gUsuario.getCaixaBuscar().getText().equalsIgnoreCase(usuarioDAO.listarUsuarios().get(i).getNome())) {
+                System.out.println("Usuário encontrado");
+                addTabela(
+                        usuarioDAO.listarUsuarios().get(i).getCodigo(),
+                        usuarioDAO.listarUsuarios().get(i).getNome(),
+                        usuarioDAO.listarUsuarios().get(i).getLogin(),
+                        usrTipo(i)
+                );
+                busca = true;
+            }
+        }
+        if (busca == false){
+            JOptionPane.showMessageDialog(null,"Usuario não encontrado!");
+            listaDados();
+        }
+
+    }
+    
+
     public final void addTabela(Object... objects) {
         modelo.addRow(objects);
     }
-    //verifica tipo de usuario para busca e listagm
-    private String usrTipo(int i){
+
+    private void limpaTabela() {
+        int linhas = modelo.getRowCount();
+        for (int i = 0; i < linhas; i++) {
+            modelo.removeRow(0);
+        }
+    }
+
+    private String usrTipo(int i) {
         String tipo;
-        if(usuarioDAO.listarUsuarios().get(i).getTipo()){
+        if (usuarioDAO.listarUsuarios().get(i).getTipo()) {
             tipo = "Administrador";
-        }else{
+        } else {
             tipo = "Padrão";
         }
         return tipo;
     }
-    
-    //Lista elementos 
+
     private void listaDados() {
         limpaTabela();
 
         for (int i = 0; i < usuarioDAO.listarUsuarios().size(); i++) {
-            
+
             addTabela(
                     usuarioDAO.listarUsuarios().get(i).getCodigo(),
                     usuarioDAO.listarUsuarios().get(i).getNome(),
@@ -179,48 +205,39 @@ public class ControleUsuario implements MouseListener {
         }
     }
 
-    //limpa dados da tabela para que a mesma seja atualizada
-    private void limpaTabela() {
-        int linhas = modelo.getRowCount();
-        for (int i = 0; i < linhas; i++) {
-            modelo.removeRow(0);
-        }
-    }
-
     @Override
     public void mouseClicked(MouseEvent e) {
 
-        //Botão voltar (Tela de Gestão)
-        //Função: "chama" a tela principal
         if (e.getSource() == gUsuario.getVoltar()) {
             principal.setContentPane(cp.getTela());
             principal.repaint();
             principal.validate();
 
         }
-        
+
         if (e.getSource() == gUsuario.getPesquisarUsuario()) {
             pesquisaUsuario();
         }
-        //Botao adicionar (Tela de Gestão)
+
         if (e.getSource() == gUsuario.getNovoUsuario()) {
             telaUsuario.limpaCampos();
+            telaUsuario.ocultaErro();
             edit = false;
             telaUsuario.setVisible(true);
         }
-        //Botão editar (Tela de gestão)
+
         if (e.getSource() == gUsuario.getEditarUsuario()) {
             telaUsuario.limpaCampos();
+            telaUsuario.ocultaErro();
             edit = true;
             editaDados();
         }
-        //Botão excluir
-        //NÃO IMPLEMENTADO
+
         if (e.getSource() == gUsuario.getExcluirUsuario()) {
-            JOptionPane.showMessageDialog(null, "Exclusão não implementada");
+            exluiUsuario();
+             
         }
-        //Botão salvar (Tela de Usuarios)
-        //Função: Salva dados do usuario (Novo ou Editado)
+
         if (e.getSource() == telaUsuario.getJLabelSalvar()) {
             if (telaUsuario.validaCampos()) {
                 salvarDados();
@@ -228,7 +245,6 @@ public class ControleUsuario implements MouseListener {
 
         }
 
-        //Botão de ocultação de erros (Tela de Usuarios)
         if (e.getSource() == telaUsuario.getjLabelErroOK()) {
             telaUsuario.ocultaErro();
 

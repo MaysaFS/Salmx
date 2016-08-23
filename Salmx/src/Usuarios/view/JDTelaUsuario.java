@@ -275,7 +275,7 @@ public class JDTelaUsuario extends javax.swing.JDialog {
         jRadioButtonUsrAdm.setText("Administrador");
 
         jLabel1.setForeground(new java.awt.Color(255, 102, 102));
-        jLabel1.setText("Tipo de usuario");
+        jLabel1.setText("Tipo de usuário");
 
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
         jPanelBody.setLayout(jPanelBodyLayout);

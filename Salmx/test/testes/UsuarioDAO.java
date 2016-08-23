@@ -15,7 +15,6 @@ public class UsuarioDAO {
     private String str;
     private boolean LoginEncontrado = false;
     String erro = "   ";
-    boolean verifica;
 
     public UsuarioDAO(Connection conexao) {
         erro = "   ";
@@ -30,6 +29,13 @@ public class UsuarioDAO {
         str = "insert into usuario(nome,login,senha,tipo)"
                 + "values(?,?,?,?)";
         try {
+            Usuario usuario = buscarUsuario(u.getLogin());
+            if (usuario.getCodigo() > 0) {
+                System.out.println("Login ja existe");
+                erro = "LOGIN já existe";
+
+            } else if (u.getSenha().equals(u.getConfirmaSenha())) {
+
                 PreparedStatement pst = conexao.prepareStatement(str);
                 pst.setString(1, u.getNome());
                 pst.setString(2, u.getLogin());
@@ -37,16 +43,19 @@ public class UsuarioDAO {
                 pst.setBoolean(4, u.getTipo());
                 pst.execute();
                 pst.close();
-                verifica = true;
-                
+                return true;
+            } else {
+                System.out.println("Senhas Diferentes");
+                erro = "Senhas diferentes";
+            }
         } catch (SQLException e) {
-            verifica = false;
-            JOptionPane.showMessageDialog(null,"Erro ao salvar!\nVerifique se o LOGIN já pertence a outro usuário.");
-            System.out.println("Nao foi possivel inserir!\n" + e);
+
+            System.out.println("Nao foi possivel inserir!" + e);
 
             throw new RuntimeException(e);
+
         }
-      return verifica;
+        return false;
     }
 
     public Usuario buscarUsuario(String login) throws SQLException {
@@ -75,7 +84,7 @@ public class UsuarioDAO {
             Usuario usuario = buscarUsuario(u.getLogin());
 
             if (u.getCodigo() > 0) {
-               
+                if (u.getSenha().equals(u.getConfirmaSenha())) {
                     PreparedStatement pst = conexao.prepareStatement(str);
                     pst.setString(1, u.getLogin());
                     pst.setString(2, u.getNome());
@@ -85,17 +94,20 @@ public class UsuarioDAO {
                     pst.execute();
                     pst.close();
                     return true;
-                }else {
-                    System.out.println("código < que 0 Não foi possivel realizar a alteração");
-                    return false;
+                } else {
+                    erro = "Senhas diferentes";
                 }
+
+            } else {
+                System.out.println("código < que 0 Não foi possivel realizar a alteração");
+            }
         } catch (SQLException e) {
-            
-            JOptionPane.showMessageDialog(null,"Erro ao salvar!\nVerifique se o LOGIN já pertence a outro usuário.");
+            JOptionPane.showMessageDialog(null, "Erro ao tentar salvar, tente modificar o campo LOGIN");
+            System.out.println("Não foi possivel realizar a alteração " + e);
             throw new RuntimeException(e);
            
         }
-
+        return false;
     }
 
     public List<Usuario> listarUsuarios() {
@@ -121,14 +133,14 @@ public class UsuarioDAO {
         }
     }
 
-    public boolean excluirUsuario(String login, int codigo) {
+    public boolean excluirUsuario(String login) {
         boolean result = false;
-        String sql = "delete from usuario where codigo = ?";
+        String sql = "delete * from usuario where login = ?";
         try {
             Usuario usuario = buscarUsuario(login);
             if (usuario.getCodigo() > 0) {
                 PreparedStatement pst = conexao.prepareStatement(sql);
-                pst.setInt(1, codigo);
+                pst.setString(1, login);
                 result = pst.execute();
                 pst.close();
             } else {
