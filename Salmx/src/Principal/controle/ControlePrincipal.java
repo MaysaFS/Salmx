@@ -4,6 +4,7 @@
  */
 package Principal.controle;
 
+import Categoria.controle.ControleCategoria;
 import Fornecedor.controle.ControleFornecedor;
 import Fornecedor.view.GestaoFornecedor;
 import Fornecedor.view.NovoFornecedor;
@@ -40,6 +41,7 @@ public class ControlePrincipal implements ActionListener,MouseListener {
     private GestaoFornecedor gFornecedor;
     private NovoFornecedor telaFornecedor;
     private Connection conexao;
+    private ControleCategoria controleCategoria;
 
     public ControlePrincipal() {
         this.conexao= Conexao.doConexao();
@@ -103,7 +105,7 @@ public class ControlePrincipal implements ActionListener,MouseListener {
             telaPrincipal.validate();
         }
            if(e.getSource() == pp.getFornecedores_Icone()){
-             controleFornecedor =  new ControleFornecedor(telaPrincipal, this);
+             controleFornecedor =  new ControleFornecedor(telaPrincipal, this,conexao);
              telaPrincipal.setContentPane(controleFornecedor.getGfornecedor());
              telaPrincipal.repaint();
              telaPrincipal.validate();
@@ -115,10 +117,10 @@ public class ControlePrincipal implements ActionListener,MouseListener {
           // telaPrincipal.validate();
         }
              if(e.getSource() == pp.getCategorias_Icone()){
-          // controlePessoa =  new ControlePessoa();
-          // telaPrincipal.setContentPane(controlePessoa.getTela());
-          // telaPrincipal.repaint();
-          // telaPrincipal.validate();
+             controleCategoria =  new ControleCategoria(telaPrincipal, this,conexao);
+             telaPrincipal.setContentPane(controleCategoria.getTela());
+             telaPrincipal.repaint();
+             telaPrincipal.validate();
         }
     
     }

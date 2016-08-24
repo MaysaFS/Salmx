@@ -1,30 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Categoria.view;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-/**
- *
- * @author Usuario
- */
 public class JDTelaCat extends javax.swing.JDialog {
 
-    /**
-     * Creates new form JDTelaCat
-     */
     public JDTelaCat(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-    }
-
-    JDTelaCat() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        iniciar();
     }
     
     private void iniciar() {
@@ -33,20 +19,58 @@ public class JDTelaCat extends javax.swing.JDialog {
         });
         this.setLocationRelativeTo(null);
     }
+    
     public boolean validaCampos(){
-        if(NomeCat.getText().isEmpty() ){
-            JOptionPane.showMessageDialog(this, "Preencha o campo nome");
+        if(NomeCat.getText().isEmpty() || jTextCodCat.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Preencha todos os campos");
             return false;
         } else{
             return true;
-        }
-        
+        }  
     }
-public void limpaTela(){
-        NomeCat.setText("");
-        
+    
+    public void limpaTela(){
+        NomeCat.setText(""); 
+        jTextCodCat.setText("");
     }
-public JLabel getjLabelSalvar() {
+
+    public JTextField getNomeCat() {
+        return NomeCat;
+    }
+
+    public void setNomeCat(JTextField NomeCat) {
+        this.NomeCat = NomeCat;
+    }
+
+    public JLabel getjLabelCodCat() {
+        return jLabelCodCat;
+    }
+
+    public void setjLabelCodCat(JLabel jLabelCodCat) {
+        this.jLabelCodCat = jLabelCodCat;
+    }
+
+    public JLabel getjLabelNomeCat() {
+        return jLabelNomeCat;
+    }
+
+    public void setjLabelNomeCat(JLabel jLabelNomeCat) {
+        this.jLabelNomeCat = jLabelNomeCat;
+    }
+
+    public JTextField getjTextCodCat() {
+        return jTextCodCat;
+    }
+
+    public void setjTextCodCat(JTextField jTextCodCat) {
+        this.jTextCodCat = jTextCodCat;
+    }
+    
+   
+    
+    
+    
+    public JLabel getjLabelSalvar() {
         return jLabelSalvar;
     }
 
@@ -56,6 +80,16 @@ public JLabel getjLabelSalvar() {
     public JTextField getTxtNomeCat() {
         return NomeCat;
     }
+
+    public JLabel getjLabelExcluir() {
+        return jLabelExcluir;
+    }
+
+    public void setjLabelExcluir(JLabel jLabelExcluir) {
+        this.jLabelExcluir = jLabelExcluir;
+    }
+    
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -71,11 +105,12 @@ public JLabel getjLabelSalvar() {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabelNomeCat = new javax.swing.JLabel();
         NomeCat = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
+        jLabelCodCat = new javax.swing.JLabel();
         jLabelSalvar = new javax.swing.JLabel();
-        jTextCode = new javax.swing.JTextField();
+        jTextCodCat = new javax.swing.JTextField();
+        jLabelExcluir = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -116,8 +151,8 @@ public JLabel getjLabelSalvar() {
                 .addContainerGap())
         );
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Nome da categoria: ");
+        jLabelNomeCat.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabelNomeCat.setText("Nome da categoria: ");
 
         NomeCat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,8 +160,8 @@ public JLabel getjLabelSalvar() {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel7.setText("Código- categoria:");
+        jLabelCodCat.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabelCodCat.setText("Código- categoria:");
 
         jLabelSalvar.setBackground(new java.awt.Color(255, 102, 102));
         jLabelSalvar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -135,46 +170,55 @@ public JLabel getjLabelSalvar() {
         jLabelSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelSalvar.setOpaque(true);
 
-        jTextCode.setEnabled(false);
+        jLabelExcluir.setBackground(new java.awt.Color(255, 102, 102));
+        jLabelExcluir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelExcluir.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelExcluir.setText("CONFIRMAR EXCLUSÃO");
+        jLabelExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelExcluir.setOpaque(true);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(249, 249, 249)
-                        .addComponent(jLabelSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextCode, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 40, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addComponent(jLabelNomeCat)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(NomeCat))
                 .addContainerGap())
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextCodCat, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelCodCat, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabelSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                        .addComponent(jLabelExcluir)
+                        .addContainerGap())))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
+                .addComponent(jLabelNomeCat)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(NomeCat, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
-                .addComponent(jLabel7)
+                .addComponent(jLabelCodCat)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextCode, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(jLabelSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(96, 96, 96))
+                .addComponent(jTextCodCat, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(75, 75, 75))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -248,12 +292,13 @@ public JLabel getjLabelSalvar() {
     private javax.swing.JTextField NomeCat;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabelCodCat;
+    private javax.swing.JLabel jLabelExcluir;
+    private javax.swing.JLabel jLabelNomeCat;
     private javax.swing.JLabel jLabelSalvar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextCode;
+    private javax.swing.JTextField jTextCodCat;
     // End of variables declaration//GEN-END:variables
 }

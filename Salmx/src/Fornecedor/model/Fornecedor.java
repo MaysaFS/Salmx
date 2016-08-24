@@ -2,15 +2,15 @@
 package Fornecedor.model;
 
 
-public class Fornecedores {
+public class Fornecedor {
     
     private String razaosocial;
     private String inscricaoestadual;
     private String cnpj;
-    private String telefoneI;
+    private String telefone1;
     private String telefoneII;
     private String email;
-    private Endereço endereço =new Endereço();
+    private Endereco endereço =new Endereco();
     private String uf;
     private int codigo;
 
@@ -18,11 +18,11 @@ public class Fornecedores {
         return razaosocial;
     }
 
-    public Endereço getEndereço() {
+    public Endereco getEndereço() {
         return endereço;
     }
 
-    public void setEndereço(Endereço endereço) {
+    public void setEndereço(Endereco endereço) {
         this.endereço = endereço;
     }
      
@@ -46,12 +46,12 @@ public class Fornecedores {
         this.cnpj = cnpj;
     }
 
-    public String getTelefoneI() {
-        return telefoneI;
+    public String getTelefone1() {
+        return telefone1;
     }
 
-    public void setTelefoneI(String telefone) {
-        this.telefoneI= telefoneI;
+    public void setTelefone1(String telefone) {
+        this.telefone1= telefone;
     }
 
     public String getTelefoneII() {
@@ -80,7 +80,7 @@ public class Fornecedores {
     
     
 
-    public Fornecedores() {
+    public Fornecedor() {
     }
     
     

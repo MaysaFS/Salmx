@@ -1,124 +1,214 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Categoria.controle;
 
+import Principal.controle.ControlePrincipal;
+import Principal.view.TelaPrincipal;
+import Principal.view.PanelPrincipal;
 import Categoria.model.Categoria;
-import Categoria.model.RnCategoria;
+import Categoria.model.CategoriaDAO;
 import Categoria.view.GestaoCat;
 import Categoria.view.JDTelaCat;
 import java.awt.event.MouseListener;
-import Principal.controle.ControlePrincipal;
-import Principal.view.PanelPrincipal;
-import Principal.view.TelaPrincipal;
 import java.awt.event.MouseEvent;
+import java.sql.Connection;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-/**
- *
- * @author Erick
- */
-public abstract  class  ControleCategoria implements MouseListener {
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
+
+
+public class  ControleCategoria implements MouseListener {
     TelaPrincipal principal;
     GestaoCat gtCat;
-    RnCategoria rn;
+    CategoriaDAO rn;
     ControlePrincipal cp;
     JDTelaCat telacat;
     private DefaultTableModel modelo;
     private boolean edit;
+    private String codigo;
+    private boolean delete;
+    private int id;
     
-     public ControleCategoria (TelaPrincipal principal, ControlePrincipal cp){
+     public ControleCategoria (TelaPrincipal principal, ControlePrincipal cp, Connection conexao){
       this.principal= principal;
       this.cp=cp;
       carregaTela();
-      rn= new RnCategoria();
+      modelo=(DefaultTableModel)gtCat.getjTablecatList().getModel();
+      rn= new CategoriaDAO(conexao);
       escutaEventos();
       edit=false;
+      delete=false;
+      limpaTabela();
+      listaDados();
      }
-           public void carregaTela(){
-            this.gtCat= new GestaoCat();
-            this.telacat= new JDTelaCat(principal, true);
-           }
+     
+     public void carregaTela(){
+        this.gtCat= new GestaoCat();
+        this.telacat= new JDTelaCat(principal, true);
+        telacat.getjLabelExcluir().setVisible(false);
+    }
     
-           public void escutaEventos(){
-           gtCat.getCadCategoria().addMouseListener(this);
-           gtCat.getEditCategoria().addMouseListener(this);
-           gtCat.getRemoCategoria().addMouseListener(this);
-           gtCat.getBotBuscar().addMouseListener(this);
-           gtCat.getjLabelVoltar().addMouseListener(this);
-           //telacat.getLabelSalvar().addMouseListener(this);
-           }
-           public GestaoCat getTela(){
-            return gtCat;
-           }
+    public void escutaEventos(){
+        gtCat.getCadCategoria().addMouseListener(this);
+        gtCat.getEditCategoria().addMouseListener(this);
+        gtCat.getRemoCategoria().addMouseListener(this);
+        gtCat.getBotBuscar().addMouseListener(this);
+        gtCat.getjLabelVoltar().addMouseListener(this);
+        telacat.getjLabelSalvar().addMouseListener(this);
+        telacat.getjLabelExcluir().addMouseListener(this);
+        
+    }
+
+    public GestaoCat getTela() {
+        return gtCat;
+    }    
            
-           public DefaultTableModel getTableModel(){
-               return (DefaultTableModel)gtCat.getjTablecatList().getModel();
-           }
+    public DefaultTableModel getTableModel(){
+        
+        return (DefaultTableModel)gtCat.getjTablecatList().getModel();
+    }           
            
-           
-           public void eventosNovoSetor(){
+    public void eventosNovaCategoria(){
         
             telacat.getjLabelSalvar().addMouseListener(this);
-           } 
-
-    /**
-     *
-     * @param e
-     */
+    } 
 
     @Override
-           public void mouseClicked(MouseEvent e){
-               if(e.getSource()==gtCat.getCadCategoria()){
-               telacat.setVisible(true);
-               }
+    public void mouseClicked(MouseEvent e){
+         
+        if(e.getSource()==gtCat.getCadCategoria()){
+            telacat.limpaTela();
+            this.mudaEstadoButton();
+            telacat.setVisible(true);
+        }
                
-               if(e.getSource()== gtCat.getEditCategoria()){
-                editaDados();
-                edit=true;
-                telacat.setVisible(true);
-               }
+        if(e.getSource()== gtCat.getEditCategoria()){
+            editaDados();
+            edit=true;
+            this.mudaEstadoButton();
+            telacat.setVisible(true);
+        }
                
-               if(e.getSource()==gtCat.getRemoCategoria()){
+        if(e.getSource()==gtCat.getRemoCategoria()){
+            exibeDados();
+            telacat.setVisible(true);  
+        }
                
-               }
-               if(e.getSource()==gtCat.getBotBuscar()){
-               
-               }
+        if(e.getSource()==gtCat.getBotBuscar()){
+            this.pesquisa(); 
+        }
               
-               if(e.getSource()==gtCat.getjLabelVoltar()){
-                 gtCat.show();
-                 principal.setContentPane(cp.getTela());
-                 principal.repaint();
-                 principal.validate();
-               }
-               if(e.getSource()==telacat.getjLabelSalvar()){
-                if(telacat.validaCampos()==true){
+        if(e.getSource()==gtCat.getjLabelVoltar()){
+            gtCat.show();
+            principal.setContentPane(cp.getTela());
+            principal.repaint();
+            principal.validate();
+        }
+        if(e.getSource()==telacat.getjLabelSalvar()){
+            if(telacat.validaCampos()==true){
                 salvarDados();
-                }
-            
-               }
-           }
-           public void salvarDados(){
-              Categoria categoria=new Categoria();
-                 categoria.setNome(telacat.getTxtNomeCat().getText());
-           }
-           public void editaDados(){
-              int item=gtCat.itemSelecionado();
-              if(item >=0){
-                telacat.getTxtNomeCat().setText(rn.listarCat().get(item).getNome());
-              }
-           }
-           public final void addTabela(Object... objects) {
-             modelo.addRow(objects);
-           }
+            }
+        }
+        if(e.getSource()==telacat.getjLabelExcluir()){
+             excluirCategoria();
+             telacat.getjLabelSalvar().setVisible(true);
+             telacat.getjLabelExcluir().setVisible(false);
+        }
+    }
+    
+    public void salvarDados(){
+        Categoria categoria=new Categoria();
+        categoria.setCodigo(telacat.getjTextCodCat().getText());
+        categoria.setNome(telacat.getTxtNomeCat().getText());
+        
+        if(edit==false){
+            rn.salvarCategoria(categoria);
+        }else{
+            categoria.setId(id);
+            rn.editarCategoria(categoria);
+        }
+        listaDados();
+        telacat.limpaTela();
+        telacat.dispose();
+        edit=false;
+    }
+          
+    public void editaDados(){
+        int item=gtCat.itemSelecionado();
+        if(item >=0){
+            telacat.getjTextCodCat().setText(rn.listarCategorias().get(item).getCodigo());
+            telacat.getTxtNomeCat().setText(rn.listarCategorias().get(item).getNome());
+            id=rn.listarCategorias().get(item).getId();
+        }
+    }
+    
+    private void exibeDados(){
+        int item = gtCat.itemSelecionado();
+        if(item >= 0){
+          telacat.getjTextCodCat().setText(rn.listarCategorias().get(item).getCodigo());  
+          telacat.getTxtNomeCat().setText(rn.listarCategorias().get(item).getNome()); 
+          
+          telacat.getTxtNomeCat().enable(false); 
+          telacat.getjTextCodCat().enable(false);
+          
+          telacat.getjLabelSalvar().setVisible(false);       
+          telacat.getjLabelExcluir().setVisible(true); 
+          
+          id=rn.listarCategorias().get(item).getId();
+          
+        } 
+        
+    }
+    
+     private void excluirCategoria(){
+       rn.excluirCategoria(id);
+       listaDados();
+       this.mudaEstadoButton();
+       telacat.getTxtNomeCat().enable();
+       telacat.getjTextCodCat().enable();
+       telacat.limpaTela();       
+       telacat.dispose();       
+       delete=false;       
+    }
+     
+      private void pesquisa(){
+      boolean buscar=false;
+      limpaTabela(); 
+      if(gtCat.getCxBuscar().getText().equals("")==false){
+         for(int i=0;i<rn.listarCategorias().size();i++){
+            if(rn.listarCategorias().get(i).getNome().equalsIgnoreCase(gtCat.getCxBuscar().getText())){
+                addTabela(
+                        rn.listarCategorias().get(i).getCodigo(),
+                        rn.listarCategorias().get(i).getNome()
+                        );
+                buscar=true;
+            }       
+         }
+         if(buscar==false){
+             JOptionPane.showMessageDialog(gtCat,"Categoria não encontrada!"); 
+             listaDados();
+         }
+      }else{
+          listaDados();
+       }
+    }
+      
+    private void mudaEstadoButton(){
+        telacat.getjLabelSalvar().setVisible(true);       
+        telacat.getjLabelExcluir().setVisible(false);
+    }
+     
+    
+    public final void addTabela(Object... objects) {
+        modelo.addRow(objects);
+    }
            
-            private void listaDados() {
+    private void listaDados() {
 
         limpaTabela();        
-        for(int i=0;i<rn.listarCat().size();i++){
-            addTabela(rn.listarCat().get(i).getNome());
+        for(int i=0;i<rn.listarCategorias().size();i++){
+            addTabela(
+                    rn.listarCategorias().get(i).getCodigo(),
+                    rn.listarCategorias().get(i).getNome());
         }
     }
     

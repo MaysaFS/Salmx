@@ -2,7 +2,8 @@
 package Fornecedor.model;
 
 
-public class Endereço {
+public class Endereco {
+    private int id;
     private String rua;
     private String numero;
     private String bairro;
@@ -10,6 +11,14 @@ public class Endereço {
     private String cep;
     private String complemento;
     private String uf;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
    
     

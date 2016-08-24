@@ -9,8 +9,17 @@ package Categoria.model;
  * @author Erick
  */
 public class Categoria {
-    String nome;
-    int  codigo;
+    private int id;
+    private String nome;
+    private String codigo;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     
 
@@ -22,11 +31,11 @@ public class Categoria {
         this.nome = nome;
     }
 
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 

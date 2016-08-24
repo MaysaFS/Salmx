@@ -34,7 +34,7 @@ public class NovoFornecedor extends javax.swing.JDialog {
     
     public boolean validaCampos(){
         if(jTextFieldRazaoSocial.getText().isEmpty() ||jTextFieldInscriçãoEstadual.getText().isEmpty() || jTextFieldCnpj.getText().isEmpty()
-                || jTextFieldTelefoneI.getText().isEmpty()||jTextFieldTelefoneII.getText().isEmpty()|| jTextFieldEmail.getText().isEmpty()|| 
+                || jTextFieldTelefone1.getText().isEmpty()||jTextFieldTelefoneII.getText().isEmpty()|| jTextFieldEmail.getText().isEmpty()|| 
                 jTextFieldRua.getText().isEmpty()||jTextFieldNumEnd.getText().isEmpty()|| jTextFieldBairro.getText().isEmpty()||jTextFieldCidade.getText().isEmpty()||
                 jTextFieldUf.getText().isEmpty()||jTextFieldCep.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Preencha todos  os campos.");
@@ -53,11 +53,19 @@ public class NovoFornecedor extends javax.swing.JDialog {
        jTextFieldInscriçãoEstadual.setText("");
        jTextFieldNumEnd.setText("");
        jTextFieldRua.setText("");
-       jTextFieldTelefoneI.setText("");
+       jTextFieldTelefone1.setText("");
        jTextFieldTelefoneII.setText("");
        jTextFieldComplemento.setText("");
        jTextFieldUf.setText("");
        jTextFieldCep.setText("");
+    }
+
+    public JLabel getjLabelExcluirFornecedor() {
+        return jLabelExcluirFornecedor;
+    }
+
+    public void setjLabelExcluirFornecedor(JLabel jLabelExcluirFornecedor) {
+        this.jLabelExcluirFornecedor = jLabelExcluirFornecedor;
     }
 
     
@@ -190,12 +198,12 @@ public class NovoFornecedor extends javax.swing.JDialog {
         this.jTextFieldComplemento = jTextFieldComplemento;
     }
 
-    public JTextField getjTextFieldTelefoneI() {
-        return jTextFieldTelefoneI;
+    public JTextField getjTextFieldTelefone1() {
+        return jTextFieldTelefone1;
     }
 
-    public void setjTextFieldTelefoneI(JTextField jTextFieldTelefoneI) {
-        this.jTextFieldTelefoneI = jTextFieldTelefoneI;
+    public void setjTextFieldTelefone1(JTextField jTextFieldTelefone1) {
+        this.jTextFieldTelefone1 = jTextFieldTelefone1;
     }
 
     public JTextField getjTextFieldTelefoneII() {
@@ -240,8 +248,9 @@ public class NovoFornecedor extends javax.swing.JDialog {
         jTextFieldComplemento = new javax.swing.JTextField();
         jLabelCep = new javax.swing.JLabel();
         jTextFieldCep = new javax.swing.JTextField();
-        jTextFieldTelefoneI = new javax.swing.JTextField();
+        jTextFieldTelefone1 = new javax.swing.JTextField();
         jTextFieldTelefoneII = new javax.swing.JTextField();
+        jLabelExcluirFornecedor = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -277,7 +286,7 @@ public class NovoFornecedor extends javax.swing.JDialog {
         jTextFieldRazaoSocial.setToolTipText("");
         jTextFieldRazaoSocial.setAutoscrolls(false);
         jTextFieldRazaoSocial.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTextFieldRazaoSocial.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextFieldRazaoSocial.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabelNumeroEnd.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelNumeroEnd.setForeground(new java.awt.Color(255, 102, 102));
@@ -295,7 +304,7 @@ public class NovoFornecedor extends javax.swing.JDialog {
         jTextFieldInscriçãoEstadual.setToolTipText("");
         jTextFieldInscriçãoEstadual.setAutoscrolls(false);
         jTextFieldInscriçãoEstadual.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTextFieldInscriçãoEstadual.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextFieldInscriçãoEstadual.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jTextFieldRua.setForeground(new java.awt.Color(153, 153, 153));
         jTextFieldRua.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -303,7 +312,7 @@ public class NovoFornecedor extends javax.swing.JDialog {
         jTextFieldRua.setToolTipText("");
         jTextFieldRua.setAutoscrolls(false);
         jTextFieldRua.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTextFieldRua.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextFieldRua.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jTextFieldNumEnd.setForeground(new java.awt.Color(153, 153, 153));
         jTextFieldNumEnd.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -311,7 +320,12 @@ public class NovoFornecedor extends javax.swing.JDialog {
         jTextFieldNumEnd.setToolTipText("");
         jTextFieldNumEnd.setAutoscrolls(false);
         jTextFieldNumEnd.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTextFieldNumEnd.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextFieldNumEnd.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jTextFieldNumEnd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNumEndActionPerformed(evt);
+            }
+        });
 
         jTextFieldUf.setForeground(new java.awt.Color(153, 153, 153));
         jTextFieldUf.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -319,7 +333,7 @@ public class NovoFornecedor extends javax.swing.JDialog {
         jTextFieldUf.setToolTipText("");
         jTextFieldUf.setAutoscrolls(false);
         jTextFieldUf.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTextFieldUf.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextFieldUf.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTextFieldUf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldUfActionPerformed(evt);
@@ -337,7 +351,7 @@ public class NovoFornecedor extends javax.swing.JDialog {
         jTextFieldBairro.setToolTipText("");
         jTextFieldBairro.setAutoscrolls(false);
         jTextFieldBairro.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTextFieldBairro.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextFieldBairro.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabelUf.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelUf.setForeground(new java.awt.Color(255, 102, 102));
@@ -350,7 +364,7 @@ public class NovoFornecedor extends javax.swing.JDialog {
         jTextFieldCidade.setToolTipText("");
         jTextFieldCidade.setAutoscrolls(false);
         jTextFieldCidade.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTextFieldCidade.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextFieldCidade.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabelRazaoSocial.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelRazaoSocial.setForeground(new java.awt.Color(255, 102, 102));
@@ -363,7 +377,12 @@ public class NovoFornecedor extends javax.swing.JDialog {
         jTextFieldCnpj.setToolTipText("");
         jTextFieldCnpj.setAutoscrolls(false);
         jTextFieldCnpj.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTextFieldCnpj.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextFieldCnpj.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jTextFieldCnpj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCnpjActionPerformed(evt);
+            }
+        });
 
         jLabelEmail.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelEmail.setForeground(new java.awt.Color(255, 102, 102));
@@ -381,7 +400,7 @@ public class NovoFornecedor extends javax.swing.JDialog {
         jTextFieldEmail.setToolTipText("");
         jTextFieldEmail.setAutoscrolls(false);
         jTextFieldEmail.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTextFieldEmail.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextFieldEmail.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabelComplemento.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelComplemento.setForeground(new java.awt.Color(255, 102, 102));
@@ -399,7 +418,7 @@ public class NovoFornecedor extends javax.swing.JDialog {
         jTextFieldComplemento.setToolTipText("");
         jTextFieldComplemento.setAutoscrolls(false);
         jTextFieldComplemento.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTextFieldComplemento.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextFieldComplemento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabelCep.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelCep.setForeground(new java.awt.Color(255, 102, 102));
@@ -412,18 +431,18 @@ public class NovoFornecedor extends javax.swing.JDialog {
         jTextFieldCep.setToolTipText("");
         jTextFieldCep.setAutoscrolls(false);
         jTextFieldCep.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTextFieldCep.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextFieldCep.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jTextFieldTelefoneI.setForeground(new java.awt.Color(153, 153, 153));
-        jTextFieldTelefoneI.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextFieldTelefoneI.setText(" ");
-        jTextFieldTelefoneI.setToolTipText("");
-        jTextFieldTelefoneI.setAutoscrolls(false);
-        jTextFieldTelefoneI.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTextFieldTelefoneI.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jTextFieldTelefoneI.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldTelefone1.setForeground(new java.awt.Color(153, 153, 153));
+        jTextFieldTelefone1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jTextFieldTelefone1.setText(" ");
+        jTextFieldTelefone1.setToolTipText("");
+        jTextFieldTelefone1.setAutoscrolls(false);
+        jTextFieldTelefone1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jTextFieldTelefone1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jTextFieldTelefone1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldTelefoneIActionPerformed(evt);
+                jTextFieldTelefone1ActionPerformed(evt);
             }
         });
 
@@ -433,12 +452,19 @@ public class NovoFornecedor extends javax.swing.JDialog {
         jTextFieldTelefoneII.setToolTipText("");
         jTextFieldTelefoneII.setAutoscrolls(false);
         jTextFieldTelefoneII.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTextFieldTelefoneII.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextFieldTelefoneII.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTextFieldTelefoneII.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldTelefoneIIActionPerformed(evt);
             }
         });
+
+        jLabelExcluirFornecedor.setBackground(new java.awt.Color(255, 102, 102));
+        jLabelExcluirFornecedor.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelExcluirFornecedor.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelExcluirFornecedor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelExcluirFornecedor.setText("CONFIRMAR EXCLUSÃO");
+        jLabelExcluirFornecedor.setOpaque(true);
 
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
         jPanelBody.setLayout(jPanelBodyLayout);
@@ -448,73 +474,71 @@ public class NovoFornecedor extends javax.swing.JDialog {
                 .addGap(19, 19, 19)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelBodyLayout.createSequentialGroup()
-                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelSalvarFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelRua, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanelBodyLayout.createSequentialGroup()
-                                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldRua, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                                    .addComponent(jLabelCep, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldCep))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanelBodyLayout.createSequentialGroup()
-                                        .addComponent(jTextFieldNumEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextFieldBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTextFieldComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanelBodyLayout.createSequentialGroup()
-                                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabelCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextFieldUf, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabelUf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldCep)
+                            .addComponent(jLabelCep, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanelBodyLayout.createSequentialGroup()
-                        .addComponent(jLabelTelefoneI, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelBodyLayout.createSequentialGroup()
-                                .addGap(108, 108, 108)
-                                .addComponent(jLabelNumeroEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabelBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabelComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBodyLayout.createSequentialGroup()
-                                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanelBodyLayout.createSequentialGroup()
-                                        .addComponent(jLabelCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(51, 51, 51)
-                                        .addComponent(jLabelInscriçãoEstadual, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(1223, 1223, 1223))
-                            .addGroup(jPanelBodyLayout.createSequentialGroup()
-                                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelBodyLayout.createSequentialGroup()
-                                        .addGap(408, 408, 408)
-                                        .addComponent(jTextFieldInscriçãoEstadual, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelBodyLayout.createSequentialGroup()
-                                        .addGap(26, 26, 26)
-                                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabelTelefoneII, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextFieldTelefoneII, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBodyLayout.createSequentialGroup()
                         .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelRazaoSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldRazaoSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldTelefoneI, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldTelefone1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanelBodyLayout.createSequentialGroup()
+                                .addComponent(jLabelTelefoneI, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jTextFieldTelefoneII, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabelTelefoneII, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabelNumeroEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextFieldNumEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(48, 48, 48)
+                                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanelBodyLayout.createSequentialGroup()
+                                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabelBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextFieldBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabelCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addGroup(jPanelBodyLayout.createSequentialGroup()
+                                                    .addComponent(jTextFieldComplemento)
+                                                    .addGap(79, 79, 79))
+                                                .addGroup(jPanelBodyLayout.createSequentialGroup()
+                                                    .addComponent(jLabelComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(152, 152, 152)))
+                                            .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addComponent(jLabelUf, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jTextFieldUf, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jLabelEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelBodyLayout.createSequentialGroup()
+                                            .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(jTextFieldCnpj)
+                                                .addComponent(jLabelCnpj, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
+                                            .addGap(18, 18, 18)
+                                            .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jTextFieldInscriçãoEstadual, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabelInscriçãoEstadual)))
+                                        .addComponent(jTextFieldEmail, javax.swing.GroupLayout.Alignment.LEADING))))
+                            .addComponent(jTextFieldRazaoSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabelRua, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                                .addComponent(jTextFieldRua, javax.swing.GroupLayout.Alignment.LEADING)))
+                        .addContainerGap())
+                    .addGroup(jPanelBodyLayout.createSequentialGroup()
+                        .addComponent(jLabelSalvarFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(1203, 1203, 1203))))
+                        .addComponent(jLabelExcluirFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(89, 89, 89))))
         );
+
+        jPanelBodyLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabelTelefoneI, jLabelTelefoneII, jTextFieldTelefone1, jTextFieldTelefoneII});
+
+        jPanelBodyLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabelInscriçãoEstadual, jTextFieldInscriçãoEstadual});
+
         jPanelBodyLayout.setVerticalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBodyLayout.createSequentialGroup()
@@ -536,14 +560,14 @@ public class NovoFornecedor extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldTelefoneI, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldTelefone1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldTelefoneII, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelRua)
-                    .addComponent(jLabelNumeroEnd)
                     .addComponent(jLabelBairro)
-                    .addComponent(jLabelComplemento))
+                    .addComponent(jLabelComplemento)
+                    .addComponent(jLabelNumeroEnd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldRua, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -551,18 +575,24 @@ public class NovoFornecedor extends javax.swing.JDialog {
                     .addComponent(jTextFieldBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelBodyLayout.createSequentialGroup()
+                        .addComponent(jLabelCep)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldCep, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelBodyLayout.createSequentialGroup()
+                        .addComponent(jLabelCidade)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelBodyLayout.createSequentialGroup()
+                        .addComponent(jLabelUf)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldUf, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(144, 144, 144)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelCidade)
-                    .addComponent(jLabelUf)
-                    .addComponent(jLabelCep))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldUf, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldCep, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addComponent(jLabelSalvarFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                    .addComponent(jLabelSalvarFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelExcluirFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30))
         );
 
         jPanel1.setBackground(new java.awt.Color(255, 102, 102));
@@ -573,13 +603,13 @@ public class NovoFornecedor extends javax.swing.JDialog {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 796, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -587,17 +617,15 @@ public class NovoFornecedor extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanelBody, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanelBody, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 754, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanelBody, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -607,13 +635,21 @@ public class NovoFornecedor extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldUfActionPerformed
 
-    private void jTextFieldTelefoneIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTelefoneIActionPerformed
+    private void jTextFieldTelefone1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTelefone1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldTelefoneIActionPerformed
+    }//GEN-LAST:event_jTextFieldTelefone1ActionPerformed
 
     private void jTextFieldTelefoneIIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTelefoneIIActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldTelefoneIIActionPerformed
+
+    private void jTextFieldCnpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCnpjActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCnpjActionPerformed
+
+    private void jTextFieldNumEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNumEndActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNumEndActionPerformed
 
    
 
@@ -625,6 +661,7 @@ public class NovoFornecedor extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelCnpj;
     private javax.swing.JLabel jLabelComplemento;
     private javax.swing.JLabel jLabelEmail;
+    private javax.swing.JLabel jLabelExcluirFornecedor;
     private javax.swing.JLabel jLabelInscriçãoEstadual;
     private javax.swing.JLabel jLabelNumeroEnd;
     private javax.swing.JLabel jLabelRazaoSocial;
@@ -645,7 +682,7 @@ public class NovoFornecedor extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldNumEnd;
     private javax.swing.JTextField jTextFieldRazaoSocial;
     private javax.swing.JTextField jTextFieldRua;
-    private javax.swing.JTextField jTextFieldTelefoneI;
+    private javax.swing.JTextField jTextFieldTelefone1;
     private javax.swing.JTextField jTextFieldTelefoneII;
     private javax.swing.JTextField jTextFieldUf;
     // End of variables declaration//GEN-END:variables
