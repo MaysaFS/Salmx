@@ -62,6 +62,7 @@ public class JDTelaUsuario extends javax.swing.JDialog {
         this.JTextFieldNome.setText("");
         this.jPasswordFieldSenha.setText("");
         this.jPasswordFieldConfirmaSenha.setText("");
+        this.jRadioButtonUsrAdm.setEnabled(true);
     }
 
     public JLabel getJLabelSalvar() {
@@ -277,7 +278,7 @@ public class JDTelaUsuario extends javax.swing.JDialog {
         jPanelBodyLayout.setHorizontalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBodyLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(50, 50, 50)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -300,7 +301,7 @@ public class JDTelaUsuario extends javax.swing.JDialog {
                         .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jRadioButtonUsrAdm)
                             .addComponent(jRadioButtonUsrPadrao))))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         jPanelBodyLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {JLabelSalvar, JTextFieldLogin, JTextFieldNome, jPasswordFieldConfirmaSenha, jPasswordFieldSenha});

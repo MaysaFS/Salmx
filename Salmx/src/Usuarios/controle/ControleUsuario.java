@@ -28,9 +28,10 @@ public class ControleUsuario implements MouseListener {
     GUsuario gUsuario;
     TelaPrincipal principal;
     ControlePrincipal cp;
-    JDTelaUsuario telaUsuario;
+    private JDTelaUsuario telaUsuario;
     private UsuarioDAO usuarioDAO;
     private DefaultTableModel modelo;
+    
     private int codigo;
     private boolean edit;
     private String erro;
@@ -102,8 +103,7 @@ public class ControleUsuario implements MouseListener {
         if (uSalvo) {
             telaUsuario.ocultaErro();
             telaUsuario.limpaCampos();
-            telaUsuario.dispose();           
-            
+            telaUsuario.dispose();            
             limpaTabela();
             listaDados();
             JOptionPane.showMessageDialog(null, "Usuario \"" + u.getNome()
@@ -122,18 +122,24 @@ public class ControleUsuario implements MouseListener {
             telaUsuario.getJTextFieldNome().setText(usuarioDAO.listarUsuarios().get(item).getNome());
             telaUsuario.getJTextFieldLogin().setText(usuarioDAO.listarUsuarios().get(item).getLogin());
             codigo = usuarioDAO.listarUsuarios().get(item).getCodigo();
-            System.out.println("metodo edita codigo: " + codigo);
+            if(usuarioDAO.listarUsuarios().get(item).getTipo() == false){
+                verificaUsrAdm();
+            }else{
+                telaUsuario.getjRadioButtonUsrAdm().setSelected(true);
+            }     
+            
+            System.out.println("editaDados() codigo do usuario: " + codigo);
             telaUsuario.setVisible(true);
         }
     }
-     public void exluiUsuario() {
+     
+    public void exluiUsuario() {
         int item = gUsuario.itemSelecionado();
         
         System.out.println("Item selecionado: " + item);
        
         if (item >= 0) {
-            int confirma;
-            confirma = JOptionPane.showConfirmDialog(null, "Tem certeza que dejeja excluir o usuario \""
+            int confirma = JOptionPane.showConfirmDialog(null, "Tem certeza que dejeja excluir o usuario \""
                     + usuarioDAO.listarUsuarios().get(item).getNome()+"\"?");
             
             if(confirma == 0){
@@ -149,6 +155,7 @@ public class ControleUsuario implements MouseListener {
     public void pesquisaUsuario() {
         limpaTabela();
         boolean busca = false;
+     
         for (int i = 0; i < usuarioDAO.listarUsuarios().size(); i++) {
             if (gUsuario.getCaixaBuscar().getText().equalsIgnoreCase(usuarioDAO.listarUsuarios().get(i).getLogin())
                     || gUsuario.getCaixaBuscar().getText().equalsIgnoreCase(usuarioDAO.listarUsuarios().get(i).getNome())) {
@@ -168,8 +175,21 @@ public class ControleUsuario implements MouseListener {
         }
 
     }
+    //Só é permitido um usuário administrador
+    public void verificaUsrAdm(){
+        for(int i = 0; i<usuarioDAO.listarUsuarios().size(); i++){
+            if(usuarioDAO.listarUsuarios().get(i).getTipo() == true){
+                telaUsuario.getjRadioButtonUsrAdm().setEnabled(false);
+                telaUsuario.getjRadioButtonUsrPadrao().setSelected(true);
+                System.out.println("Usuario administrador já cadastrado!");
+                break;
+            }else{
+                telaUsuario.getjRadioButtonUsrAdm().setEnabled(true);
+            }
+        
+        }
     
-
+    }
     public final void addTabela(Object... objects) {
         modelo.addRow(objects);
     }
@@ -181,6 +201,18 @@ public class ControleUsuario implements MouseListener {
         }
     }
 
+    private void listaDados() {
+        limpaTabela();
+        for (int i = 0; i < usuarioDAO.listarUsuarios().size(); i++) {
+            addTabela(
+                    usuarioDAO.listarUsuarios().get(i).getCodigo(),
+                    usuarioDAO.listarUsuarios().get(i).getNome(),
+                    usuarioDAO.listarUsuarios().get(i).getLogin(),
+                    usrTipo(i)
+            );
+        }
+    }
+    
     private String usrTipo(int i) {
         String tipo;
         if (usuarioDAO.listarUsuarios().get(i).getTipo()) {
@@ -191,60 +223,48 @@ public class ControleUsuario implements MouseListener {
         return tipo;
     }
 
-    private void listaDados() {
-        limpaTabela();
-
-        for (int i = 0; i < usuarioDAO.listarUsuarios().size(); i++) {
-
-            addTabela(
-                    usuarioDAO.listarUsuarios().get(i).getCodigo(),
-                    usuarioDAO.listarUsuarios().get(i).getNome(),
-                    usuarioDAO.listarUsuarios().get(i).getLogin(),
-                    usrTipo(i)
-            );
-        }
-    }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-
+        //BOTÃO VOLTAR
         if (e.getSource() == gUsuario.getVoltar()) {
             principal.setContentPane(cp.getTela());
             principal.repaint();
             principal.validate();
 
         }
-
+        //BOTÃO PESQUISAR
         if (e.getSource() == gUsuario.getPesquisarUsuario()) {
             pesquisaUsuario();
         }
-
+        //BOTÃO NOVO
         if (e.getSource() == gUsuario.getNovoUsuario()) {
             telaUsuario.limpaCampos();
             telaUsuario.ocultaErro();
+            verificaUsrAdm();
             edit = false;
             telaUsuario.setVisible(true);
         }
-
+        //BOTÃO EDITAR
         if (e.getSource() == gUsuario.getEditarUsuario()) {
             telaUsuario.limpaCampos();
             telaUsuario.ocultaErro();
             edit = true;
             editaDados();
         }
-
+        //BOTÃO EXCUIR
         if (e.getSource() == gUsuario.getExcluirUsuario()) {
             exluiUsuario();
              
         }
-
+        //BOTÃO SALVAR
         if (e.getSource() == telaUsuario.getJLabelSalvar()) {
             if (telaUsuario.validaCampos()) {
                 salvarDados();
             }
 
         }
-
+        //BOTÃO OK (OCULTA ERROS)
         if (e.getSource() == telaUsuario.getjLabelErroOK()) {
             telaUsuario.ocultaErro();
 
