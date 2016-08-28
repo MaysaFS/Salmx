@@ -144,7 +144,7 @@ public class ControleLogin implements ActionListener, MouseListener {
                 //System.out.println("ENTER PRESSIONADO");
 
                 validaAcesso();
-                //validaLogin();
+                validaLogin();
             }
 
         }

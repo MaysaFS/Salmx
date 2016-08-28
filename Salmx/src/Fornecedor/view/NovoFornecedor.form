@@ -203,7 +203,7 @@
                                   <Component id="jLabelRua" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabelNumeroEnd" alignment="3" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jTextFieldRua" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                                   <Component id="jTextFieldNumEnd" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
