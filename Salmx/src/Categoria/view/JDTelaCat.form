@@ -56,16 +56,15 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLabelCodCat" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jTextCodCat" alignment="0" max="32767" attributes="0"/>
-                          <Component id="NomeCat" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabelNomeCat" alignment="0" pref="253" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jLabelSalvar" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabelExcluir" alignment="0" pref="173" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jLabelCodCat" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jTextCodCat" alignment="0" max="32767" attributes="0"/>
+                      <Component id="NomeCat" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabelNomeCat" alignment="0" pref="253" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLabelSalvar" min="-2" pref="66" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jLabelExcluir" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="0" pref="30" max="32767" attributes="0"/>
@@ -83,10 +82,11 @@
                   <Component id="jLabelNomeCat" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="NomeCat" linkSize="4" min="-2" pref="28" max="-2" attributes="0"/>
-                  <EmptySpace pref="20" max="32767" attributes="0"/>
-                  <Component id="jLabelSalvar" linkSize="2" min="-2" pref="30" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                  <Component id="jLabelExcluir" linkSize="2" min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelSalvar" linkSize="2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="jLabelExcluir" linkSize="2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
           </Group>
