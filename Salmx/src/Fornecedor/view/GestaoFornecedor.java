@@ -111,7 +111,7 @@ public class GestaoFornecedor extends javax.swing.JPanel {
         btExcForn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Delet_Small.png"))); // NOI18N
         btExcForn.setText("EXCLUIR ");
         btExcForn.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
-        btExcForn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btExcForn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btExcForn.setOpaque(true);
 
         btEditForn.setBackground(new java.awt.Color(63, 63, 63));
@@ -120,7 +120,7 @@ public class GestaoFornecedor extends javax.swing.JPanel {
         btEditForn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Edit_Small.png"))); // NOI18N
         btEditForn.setText("EDITAR");
         btEditForn.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
-        btEditForn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btEditForn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btEditForn.setOpaque(true);
 
         btAddForn.setBackground(new java.awt.Color(63, 63, 63));
@@ -129,7 +129,7 @@ public class GestaoFornecedor extends javax.swing.JPanel {
         btAddForn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_New_Small.png"))); // NOI18N
         btAddForn.setText("ADICIONAR");
         btAddForn.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
-        btAddForn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btAddForn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btAddForn.setOpaque(true);
 
         javax.swing.GroupLayout jPanelMenuLayout = new javax.swing.GroupLayout(jPanelMenu);
@@ -163,7 +163,7 @@ public class GestaoFornecedor extends javax.swing.JPanel {
         jTextFieldPesquisa.setToolTipText("");
         jTextFieldPesquisa.setAutoscrolls(false);
         jTextFieldPesquisa.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
-        jTextFieldPesquisa.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextFieldPesquisa.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTextFieldPesquisa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTextFieldPesquisaMouseClicked(evt);
@@ -180,7 +180,7 @@ public class GestaoFornecedor extends javax.swing.JPanel {
         btPesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Search_Small.png"))); // NOI18N
         btPesquisa.setText("BUSCAR");
         btPesquisa.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
-        btPesquisa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btPesquisa.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jTableFornecedor.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTableFornecedor.setForeground(new java.awt.Color(153, 153, 153));
@@ -271,8 +271,8 @@ public class GestaoFornecedor extends javax.swing.JPanel {
                         .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addGap(29, 29, 29))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(jPanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
     }// </editor-fold>//GEN-END:initComponents
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+<Form version="1.5" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -49,8 +49,8 @@
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jPanelMenu" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jPanelMenu" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -109,7 +109,7 @@
               </Border>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Cursor em Forma de M&#xe3;o"/>
+              <Color id="Cursor padr&#xe3;o"/>
             </Property>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
@@ -135,7 +135,7 @@
               </Border>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Cursor em Forma de M&#xe3;o"/>
+              <Color id="Cursor padr&#xe3;o"/>
             </Property>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
@@ -161,7 +161,7 @@
               </Border>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Cursor em Forma de M&#xe3;o"/>
+              <Color id="Cursor padr&#xe3;o"/>
             </Property>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
@@ -183,7 +183,7 @@
           </Border>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Texto"/>
+          <Color id="Cursor padr&#xe3;o"/>
         </Property>
       </Properties>
       <Events>
@@ -209,7 +209,7 @@
           </Border>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor em Forma de M&#xe3;o"/>
+          <Color id="Cursor padr&#xe3;o"/>
         </Property>
       </Properties>
     </Component>
@@ -309,7 +309,7 @@
               </Border>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Cursor Padr&#xe3;o"/>
+              <Color id="Cursor padr&#xe3;o"/>
             </Property>
           </Properties>
         </Component>
