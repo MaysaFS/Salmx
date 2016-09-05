@@ -8,7 +8,7 @@ package Materiais.model;
  *
  * @author Maysa
  */
-public class Materiais {
+public class ItemMaterial {
     
     private String codigo;
     private String descricao;
@@ -18,7 +18,7 @@ public class Materiais {
     private double valor_total;
     private int estoq_min;
 
-    public Materiais() {
+    public ItemMaterial() {
     }
     
     
