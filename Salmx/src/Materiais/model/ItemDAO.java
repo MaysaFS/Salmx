@@ -60,18 +60,20 @@ public class ItemDAO {
     }
     
     public String buscarUltimoCod(String letra) throws SQLException{
-        ItemMaterial item=new ItemMaterial();
-        String sql= "select max(id)from item where codigo like '?%'";
+        System.out.println("letra no DAO"+letra);
+        String ultimo="";
+        String concatenada= letra+'%';
+        String sql= "select max(codigo) from item where codigo like ? and categoria =?";
         PreparedStatement pst= conexao.prepareStatement(sql);
-        pst.setString(1,letra);
+        pst.setString(1,concatenada);
         ResultSet rst= pst.executeQuery();
         while(rst.next()){
-            item.setUltimoCod(rst.getString("codigo"));
+            ultimo= rst.getString("max(codigo)");
             
         }
         rst.close();
         pst.close();
-        return item.getCodigo();
+        return ultimo;
     }
     
     public void editarItem(ItemMaterial item){

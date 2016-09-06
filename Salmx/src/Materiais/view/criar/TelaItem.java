@@ -63,9 +63,9 @@ public class TelaItem extends javax.swing.JDialog {
         jLabelUserName1 = new javax.swing.JLabel();
         jLabelUserName2 = new javax.swing.JLabel();
         jBoxLetra = new javax.swing.JComboBox();
-        jUltimoCodigo = new javax.swing.JLabel();
         jTextCod = new javax.swing.JTextField();
         salvar = new javax.swing.JLabel();
+        jUltimoCodigo = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -162,6 +162,12 @@ public class TelaItem extends javax.swing.JDialog {
         salvar.setText("SALVAR");
         salvar.setOpaque(true);
 
+        jUltimoCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jUltimoCodigoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
         jPanelBody.setLayout(jPanelBodyLayout);
         jPanelBodyLayout.setHorizontalGroup(
@@ -186,9 +192,10 @@ public class TelaItem extends javax.swing.JDialog {
                                         .addGap(0, 0, Short.MAX_VALUE))
                                     .addComponent(jBoxLetra, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jUltimoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelUserName1)))
+                                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabelUserName1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jUltimoCodigo))
+                                .addGap(16, 16, 16))
                             .addGroup(jPanelBodyLayout.createSequentialGroup()
                                 .addComponent(jTextCod, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(30, 30, 30)
@@ -214,8 +221,9 @@ public class TelaItem extends javax.swing.JDialog {
                             .addComponent(jLabelUserName1))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jUltimoCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jBoxLetra, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                    .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jBoxLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jUltimoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jBoxCategoria))
                 .addGap(37, 37, 37)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -231,6 +239,8 @@ public class TelaItem extends javax.swing.JDialog {
                     .addComponent(salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
+
+        jPanelBodyLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jBoxLetra, jUltimoCodigo});
 
         javax.swing.GroupLayout jPanelBackLayout = new javax.swing.GroupLayout(jPanelBack);
         jPanelBack.setLayout(jPanelBackLayout);
@@ -318,11 +328,11 @@ public int itemSelecionado(){
         this.jTextDescr = jTextDescr;
     }
 
-    public JLabel getjUltimoCodigo() {
+    public JTextField getjUltimoCodigo() {
         return jUltimoCodigo;
     }
 
-    public void setjUltimoCodigo(JLabel jUltimoCodigo) {
+    public void setjUltimoCodigo(JTextField jUltimoCodigo) {
         this.jUltimoCodigo = jUltimoCodigo;
     }
 
@@ -333,6 +343,10 @@ public int itemSelecionado(){
     public void setSalvar(JLabel salvar) {
         this.salvar = salvar;
     }//GEN-LAST:event_jTextCodActionPerformed
+
+    private void jUltimoCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUltimoCodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jUltimoCodigoActionPerformed
 
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -350,7 +364,7 @@ public int itemSelecionado(){
     private javax.swing.JPanel jPanelTop;
     private javax.swing.JTextField jTextCod;
     private javax.swing.JTextField jTextDescr;
-    private javax.swing.JLabel jUltimoCodigo;
+    private javax.swing.JTextField jUltimoCodigo;
     private javax.swing.JLabel salvar;
     // End of variables declaration//GEN-END:variables
 }

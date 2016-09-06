@@ -11,6 +11,8 @@ import Materiais.view.GestaoItem;
 import Materiais.view.criar.TelaItem;
 import Principal.controle.ControlePrincipal;
 import Principal.view.TelaPrincipal;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.Connection;
@@ -25,7 +27,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Maysa
  */
-public class ControleItem implements MouseListener {
+public class ControleItem implements MouseListener, ActionListener {
      GestaoItem gItem;
     TelaPrincipal principal;    
     ItemDAO rn;
@@ -73,6 +75,8 @@ public class ControleItem implements MouseListener {
         gItem.getjLabelVoltar().addMouseListener(this);
         telaItem.getSalvar().addMouseListener(this);
         telaItem.getExcluir().addMouseListener(this);
+        telaItem.getjBoxLetra().addActionListener(this);
+       
     }
     
     public GestaoItem getTela(){       
@@ -92,20 +96,15 @@ public class ControleItem implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         
+       
+        
         if(e.getSource() == gItem.getNovoMaterial()){
             telaItem.limpaTela();
             this.mudaEstadoBotton();
             limpaComboBox();
             listaCategorias();
             telaItem.setVisible(true); 
-            if(e.getSource()==telaItem.getjBoxLetra()){
-                pegaInicialCod();
-                try {
-                    rn.buscarUltimoCod(pegaInicialCod());
-                } catch (SQLException ex) {
-                    Logger.getLogger(ControleItem.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
+            
                               
         }        
         if(e.getSource() == gItem.getEditarMaterial()){
@@ -144,6 +143,7 @@ public class ControleItem implements MouseListener {
              telaItem.getSalvar().setVisible(true);
              telaItem.getExcluir().setVisible(false);
         }
+        
     }
     
     public void salvarDados(){
@@ -189,7 +189,7 @@ public class ControleItem implements MouseListener {
         if(item >= 0){
           telaItem.getjTextDescr().setText(rn.listarItem().get(item).getDescricao());         
           telaItem.getjTextCod().setText(rn.listarItem().get(item).getCodigo());
-          pegaInicialCod();
+          
             try {
                 i=cat.buscarCategoriaIndex(rn.listarItem().get(item).getCategoria().getId());
                 telaItem.getjBoxCategoria().setSelectedIndex(i); 
@@ -247,9 +247,7 @@ public class ControleItem implements MouseListener {
  public final void addTabela(Object... objects) {
         modelo.addRow(objects);
     }
- public final void addComboBox(Object... objects) {
-        combo.addElement(objects);
-    }
+
 
    private void listaDados() {
 
@@ -268,6 +266,7 @@ public class ControleItem implements MouseListener {
         for(int i=0;i<cat.listarCategorias().size();i++){
             combo.addElement(cat.listarCategorias().get(i).getNome());
         }
+        
     }
     
 private void limpaTabela(){
@@ -281,10 +280,7 @@ private void limpaComboBox(){
         combo.removeAllElements();
 } 
 
-private String pegaInicialCod(){
-    System.out.println("mostra letra selecionada "+letra.getSelectedItem());
-    return letra.getSelectedItem().toString();
-}
+
 
     @Override
     public void mousePressed(MouseEvent e) {}
@@ -297,6 +293,18 @@ private String pegaInicialCod(){
 
     @Override
     public void mouseExited(MouseEvent e) {}
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+         if(e.getSource()==telaItem.getjBoxLetra()){  
+            System.out.println("selecionou a letra:  "+ telaItem.getjBoxLetra().getSelectedItem().toString());
+                try {
+                    telaItem.getjUltimoCodigo().setText(rn.buscarUltimoCod(telaItem.getjBoxLetra().getSelectedItem().toString()));
+                } catch (SQLException ex) {
+                    Logger.getLogger(ControleItem.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+    }
     
     
     
