@@ -47,6 +47,17 @@ public class CategoriaDAO {
         pst.close();
         return s;
     }
+    public int buscarCategoriaIndex(int id) throws SQLException{
+        int index=-1;
+        for (int i = 0; i < categorias.size(); i++) {
+            if(categorias.get(i).getId()==id){                
+              index=i;  
+            }
+            
+        }
+        return index;
+        
+    }
     public void editarCategoria(Categoria c){
        String str= "update categoria set nome = ?, codigo=? where id = ?";
        try{

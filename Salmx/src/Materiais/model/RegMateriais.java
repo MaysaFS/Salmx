@@ -6,7 +6,7 @@ import java.util.Date;
         
 public class RegMateriais {
     private int codigoEnt;
-    private Materiais material;
+    private ItemMaterial material;
     private Fornecedor fornecedor;
     private String notaFisc;
     private String numEmpenho;
@@ -25,11 +25,11 @@ public class RegMateriais {
         this.codigoEnt = codigoEnt;
     }
 
-    public Materiais getMaterial() {
+    public ItemMaterial getMaterial() {
         return material;
     }
 
-    public void setMaterial(Materiais material) {
+    public void setMaterial(ItemMaterial material) {
         this.material = material;
     }
 

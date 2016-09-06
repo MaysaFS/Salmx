@@ -1,6 +1,6 @@
 package Principal.view;
 
-import Materiais.view.MateriaisFrame;
+import Materiais.view.GestaoItem;
 import Usuarios.controle.ControleLogin;
 import Usuarios.view.LoginFrame;
 import Usuarios.view.GUsuario;

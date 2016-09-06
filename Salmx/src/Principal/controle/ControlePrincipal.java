@@ -8,6 +8,7 @@ import Categoria.controle.ControleCategoria;
 import Fornecedor.controle.ControleFornecedor;
 import Fornecedor.view.GestaoFornecedor;
 import Fornecedor.view.NovoFornecedor;
+import Materiais.controle.ControleItem;
 import Principal.view.PanelPrincipal;
 import Principal.view.TelaPrincipal;
 import Setor.controle.ControleSetor;
@@ -42,6 +43,7 @@ public class ControlePrincipal implements ActionListener,MouseListener {
     private NovoFornecedor telaFornecedor;
     private Connection conexao;
     private ControleCategoria controleCategoria;
+    private ControleItem controleItemMaterial;
 
     public ControlePrincipal() {
         this.conexao= Conexao.doConexao();
@@ -93,10 +95,10 @@ public class ControlePrincipal implements ActionListener,MouseListener {
            telaPrincipal.validate();
         }
          if(e.getSource() == pp.getMateriais_Icone()){
-          // controlePessoa =  new ControlePessoa();
-          // telaPrincipal.setContentPane(controlePessoa.getTela());
-          // telaPrincipal.repaint();
-          // telaPrincipal.validate();
+           controleItemMaterial =  new ControleItem(telaPrincipal,this, this.conexao);
+           telaPrincipal.setContentPane(controleItemMaterial.getTela());
+           telaPrincipal.repaint();
+           telaPrincipal.validate();
         }
           if(e.getSource() == pp.getUsuarios_Icone()){
             controleUsuario =  new ControleUsuario(telaPrincipal, this, this.conexao);

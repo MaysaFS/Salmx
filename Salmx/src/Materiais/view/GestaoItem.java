@@ -4,20 +4,83 @@
  */
 package Materiais.view;
 
-import Materiais.view.criar.NovoMaterialFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 
 /**
  *
  * @author Maysa
  */
-public class MateriaisFrame extends javax.swing.JFrame {
+public class GestaoItem extends javax.swing.JPanel {
 
     /**
-     * Creates new form MateriaisFrame
+     * Creates new form GestaoItem
      */
-    public MateriaisFrame() {
+    public GestaoItem() {
         initComponents();
-         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+    }
+    public int itemSelecionado(){
+        if(jTableMaterialList.getSelectedRow()<0){
+            JOptionPane.showMessageDialog(this, "Selecione um item");
+        } 
+        return jTableMaterialList.getSelectedRow();
+    }
+    public JLabel getEditarMaterial() {
+        return editarMaterial;
+    }
+
+    public void setEditarMaterial(JLabel editarMaterial) {
+        this.editarMaterial = editarMaterial;
+    }
+
+    public JLabel getjLabelVoltar() {
+        return jLabelVoltar;
+    }
+
+    public void setjLabelVoltar(JLabel jLabelVoltar) {
+        this.jLabelVoltar = jLabelVoltar;
+    }
+
+    public JTable getjTableMaterialList() {
+        return jTableMaterialList;
+    }
+
+    public void setjTableMaterialList(JTable jTableMaterialList) {
+        this.jTableMaterialList = jTableMaterialList;
+    }
+
+    public JTextField getjTextBuscaMaterial() {
+        return jTextBuscaMaterial;
+    }
+
+    public void setjTextBuscaMaterial(JTextField jTextBuscaMaterial) {
+        this.jTextBuscaMaterial = jTextBuscaMaterial;
+    }
+
+    public JLabel getLabelPesquisarMaterial() {
+        return labelPesquisarMaterial;
+    }
+
+    public void setLabelPesquisarMaterial(JLabel labelPesquisarMaterial) {
+        this.labelPesquisarMaterial = labelPesquisarMaterial;
+    }
+
+    public JLabel getNovoMaterial() {
+        return novoMaterial;
+    }
+
+    public void setNovoMaterial(JLabel novoMaterial) {
+        this.novoMaterial = novoMaterial;
+    }
+
+    public JLabel getRetirarMaterial() {
+        return retirarMaterial;
+    }
+
+    public void setRetirarMaterial(JLabel retirarMaterial) {
+        this.retirarMaterial = retirarMaterial;
     }
 
     /**
@@ -42,10 +105,6 @@ public class MateriaisFrame extends javax.swing.JFrame {
         editarMaterial = new javax.swing.JLabel();
         novoMaterial = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("GESTÃO DE MATERIAIS");
-        setMinimumSize(new java.awt.Dimension(800, 600));
-
         jPanel1.setBackground(new java.awt.Color(242, 242, 242));
 
         jPanelTop.setBackground(new java.awt.Color(255, 102, 102));
@@ -53,7 +112,7 @@ public class MateriaisFrame extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("GESTÃO DE MATERIAIS");
+        jLabel1.setText("GESTÃO DE ITENS");
 
         jLabelVoltar.setBackground(new java.awt.Color(255, 0, 0));
         jLabelVoltar.setForeground(new java.awt.Color(255, 255, 255));
@@ -69,7 +128,7 @@ public class MateriaisFrame extends javax.swing.JFrame {
             jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelTopLayout.createSequentialGroup()
                 .addComponent(jLabelVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanelTopLayout.setVerticalGroup(
@@ -81,24 +140,24 @@ public class MateriaisFrame extends javax.swing.JFrame {
         jTableMaterialList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTableMaterialList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Codigo", "Nome", "Categoria", "Quantidade Total", "Valor total do item"
+                "Codigo", "Nome", "Categoria"
             }
         ));
         jTableMaterialList.setGridColor(new java.awt.Color(153, 153, 153));
@@ -132,7 +191,7 @@ public class MateriaisFrame extends javax.swing.JFrame {
         retirarMaterial.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         retirarMaterial.setForeground(new java.awt.Color(255, 255, 255));
         retirarMaterial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Delet_Small.png"))); // NOI18N
-        retirarMaterial.setText("RETIRAR");
+        retirarMaterial.setText("EXCLUIR");
         retirarMaterial.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
         retirarMaterial.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         retirarMaterial.setOpaque(true);
@@ -216,8 +275,8 @@ public class MateriaisFrame extends javax.swing.JFrame {
                 .addGap(0, 0, 0))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -228,8 +287,6 @@ public class MateriaisFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextBuscaMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextBuscaMaterialActionPerformed
@@ -237,10 +294,9 @@ public class MateriaisFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextBuscaMaterialActionPerformed
 
     private void novoMaterialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_novoMaterialMouseClicked
-        new NovoMaterialFrame().setVisible(true);
+        
     }//GEN-LAST:event_novoMaterialMouseClicked
 
-   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel editarMaterial;
     private javax.swing.JLabel jLabel1;
