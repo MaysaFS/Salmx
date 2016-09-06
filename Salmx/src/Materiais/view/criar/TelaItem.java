@@ -127,7 +127,6 @@ public class TelaItem extends javax.swing.JDialog {
 
         jBoxCategoria.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jBoxCategoria.setForeground(new java.awt.Color(102, 102, 102));
-        jBoxCategoria.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jBoxCategoria.setBorder(null);
 
         jLabelUserName1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N

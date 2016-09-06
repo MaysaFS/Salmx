@@ -59,11 +59,13 @@ public class ControleItem implements MouseListener {
         listaDados();
         listaCategorias();
     }
+      
       public void carregaTela(){        
           this.gItem = new  GestaoItem();          
           this.telaItem= new TelaItem(principal,true);
           telaItem.getExcluir().setVisible(false);
       }
+      
     public void escutaEventos(){
         gItem.getNovoMaterial().addMouseListener(this);
         gItem.getEditarMaterial().addMouseListener(this);
@@ -73,13 +75,16 @@ public class ControleItem implements MouseListener {
         telaItem.getSalvar().addMouseListener(this);
         telaItem.getExcluir().addMouseListener(this);
     }
+    
     public GestaoItem getTela(){       
         return gItem;
     }
+    
     public DefaultTableModel getTableModel(){
         
         return (DefaultTableModel) gItem.getjTableMaterialList().getModel();
     }
+    
     public DefaultComboBoxModel getComboBoxModel(){
         
         return (DefaultComboBoxModel) telaItem.getjBoxCategoria().getModel();
@@ -94,7 +99,7 @@ public class ControleItem implements MouseListener {
             limpaComboBox();
             listaCategorias();
             telaItem.setVisible(true);                      
-                    //  eventosNovoSetor();          
+                              
         }        
         if(e.getSource() == gItem.getEditarMaterial()){
             limpaComboBox();
@@ -133,6 +138,7 @@ public class ControleItem implements MouseListener {
              telaItem.getExcluir().setVisible(false);
         }
     }
+    
     public void salvarDados(){
         int item = telaItem.itemSelecionado();
         if(item >= 0){
@@ -160,6 +166,7 @@ public class ControleItem implements MouseListener {
                 i = cat.buscarCategoriaIndex(rn.listarItem().get(item).getCategoria().getId());
                 telaItem.getjBoxCategoria().setSelectedIndex(i);
             } catch (SQLException ex) {
+                System.out.println("erro aki no edita");
                 Logger.getLogger(ControleItem.class.getName()).log(Level.SEVERE, null, ex);
             }
           telaItem.getjTextDescr().setText(rn.listarItem().get(item).getDescricao());
@@ -178,6 +185,7 @@ public class ControleItem implements MouseListener {
                 i=cat.buscarCategoriaIndex(rn.listarItem().get(item).getCategoria().getId());
                 telaItem.getjBoxCategoria().setSelectedIndex(i); 
             } catch (SQLException ex) {
+                System.out.println("erro aki no exibe");
                 Logger.getLogger(ControleItem.class.getName()).log(Level.SEVERE, null, ex);
             }
           
@@ -216,7 +224,7 @@ public class ControleItem implements MouseListener {
             }       
          }
          if(buscar==false){
-             JOptionPane.showMessageDialog(gItem,"Setor não encontrado!"); 
+             JOptionPane.showMessageDialog(gItem,"item não encontrado!"); 
              listaDados();
          }
       }else{
@@ -249,9 +257,7 @@ public class ControleItem implements MouseListener {
 
         limpaComboBox();        
         for(int i=0;i<cat.listarCategorias().size();i++){
-            addComboBox(
-                    cat.listarCategorias().get(i).getNome()
-                    );
+            combo.addElement(cat.listarCategorias().get(i).getNome());
         }
     }
     
@@ -262,10 +268,8 @@ private void limpaTabela(){
         }
  } 
 private void limpaComboBox(){
-       int linhas = combo.getSize();
-        for(int i=0;i<linhas;i++){
-            combo.removeElementAt(i);
-        }
+        combo.removeAllElements();
+
  } 
     @Override
     public void mousePressed(MouseEvent e) {}
