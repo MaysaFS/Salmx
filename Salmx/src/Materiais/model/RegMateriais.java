@@ -2,15 +2,16 @@
 package Materiais.model;
 
 import Fornecedor.model.Fornecedor;
+import java.util.Date;
         
 public class RegMateriais {
     private int codigoEnt;
-    private Materiais material;
+    private ItemMaterial material;
     private Fornecedor fornecedor;
     private String notaFisc;
     private String numEmpenho;
-    private String dtCompra;
-    private String dtValidade;
+    private Date dtCompra;
+    private Date dtValidade;
     private double precUnit;
     private int quantidade;
     private double valor_total;
@@ -24,11 +25,11 @@ public class RegMateriais {
         this.codigoEnt = codigoEnt;
     }
 
-    public Materiais getMaterial() {
+    public ItemMaterial getMaterial() {
         return material;
     }
 
-    public void setMaterial(Materiais material) {
+    public void setMaterial(ItemMaterial material) {
         this.material = material;
     }
 
@@ -56,19 +57,19 @@ public class RegMateriais {
         this.numEmpenho = numEmpenho;
     }
 
-    public String getDtCompra() {
+    public Date getDtCompra() {
         return dtCompra;
     }
 
-    public void setDtCompra(String dtCompra) {
+    public void setDtCompra(Date dtCompra) {
         this.dtCompra = dtCompra;
     }
 
-    public String getDtValidade() {
+    public Date getDtValidade() {
         return dtValidade;
     }
 
-    public void setDtValidade(String dtValidade) {
+    public void setDtValidade(Date dtValidade) {
         this.dtValidade = dtValidade;
     }
 

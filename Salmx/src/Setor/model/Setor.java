@@ -9,10 +9,19 @@ package Setor.model;
  * @author Maysa
  */
 public class Setor {
+    private int id;
     private String nome;
     private String ramal;
     private String observacao;
     private int codigo;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getCodigo() {
         return codigo;
