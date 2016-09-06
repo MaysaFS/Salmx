@@ -14,6 +14,7 @@ public class ItemMaterial {
     private String descricao;
     private Categoria categoria= new Categoria();    
     private int estoq_min;
+    private String ultimoCod;
     private String localizacao;
      
     private int id;
@@ -70,6 +71,14 @@ public class ItemMaterial {
 
     public void setEstoq_min(int estoq_min) {
         this.estoq_min = estoq_min;
+    }
+
+    public String getUltimoCod() {
+        return ultimoCod;
+    }
+
+    public void setUltimoCod(String ultimoCod) {
+        this.ultimoCod = ultimoCod;
     }
     
     

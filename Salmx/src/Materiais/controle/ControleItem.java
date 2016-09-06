@@ -11,10 +11,6 @@ import Materiais.view.GestaoItem;
 import Materiais.view.criar.TelaItem;
 import Principal.controle.ControlePrincipal;
 import Principal.view.TelaPrincipal;
-import Setor.model.Setor;
-import Setor.model.SetorDAO;
-import Setor.view.GSetor;
-import Setor.view.JDTelaSetor;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.Connection;
@@ -38,9 +34,11 @@ public class ControleItem implements MouseListener {
     TelaItem telaItem;
     private DefaultTableModel modelo;
     private DefaultComboBoxModel combo;
+    private DefaultComboBoxModel letra;
     private int id;
     private  boolean edit;
     private  boolean delete;
+    
 
       public ControleItem( TelaPrincipal principal, ControlePrincipal cp, Connection conexao) {
           
@@ -49,6 +47,7 @@ public class ControleItem implements MouseListener {
         carregaTela();        
         modelo = (DefaultTableModel)gItem.getjTableMaterialList().getModel();  
         combo=(DefaultComboBoxModel)telaItem.getjBoxCategoria().getModel();
+        letra=(DefaultComboBoxModel)telaItem.getjBoxLetra().getModel();
         rn= new ItemDAO(conexao);
         cat=new CategoriaDAO(conexao);
         escutaEventos();          
@@ -98,7 +97,15 @@ public class ControleItem implements MouseListener {
             this.mudaEstadoBotton();
             limpaComboBox();
             listaCategorias();
-            telaItem.setVisible(true);                      
+            telaItem.setVisible(true); 
+            if(e.getSource()==telaItem.getjBoxLetra()){
+                pegaInicialCod();
+                try {
+                    rn.buscarUltimoCod(pegaInicialCod());
+                } catch (SQLException ex) {
+                    Logger.getLogger(ControleItem.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
                               
         }        
         if(e.getSource() == gItem.getEditarMaterial()){
@@ -169,6 +176,7 @@ public class ControleItem implements MouseListener {
                 System.out.println("erro aki no edita");
                 Logger.getLogger(ControleItem.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
           telaItem.getjTextDescr().setText(rn.listarItem().get(item).getDescricao());
           telaItem.getjTextCod().setText(rn.listarItem().get(item).getCodigo());          
           id=rn.listarItem().get(item).getId();
@@ -180,7 +188,8 @@ public class ControleItem implements MouseListener {
         int i;
         if(item >= 0){
           telaItem.getjTextDescr().setText(rn.listarItem().get(item).getDescricao());         
-          telaItem.getjTextCod().setText(rn.listarItem().get(item).getCodigo());          
+          telaItem.getjTextCod().setText(rn.listarItem().get(item).getCodigo());
+          pegaInicialCod();
             try {
                 i=cat.buscarCategoriaIndex(rn.listarItem().get(item).getCategoria().getId());
                 telaItem.getjBoxCategoria().setSelectedIndex(i); 
@@ -188,7 +197,6 @@ public class ControleItem implements MouseListener {
                 System.out.println("erro aki no exibe");
                 Logger.getLogger(ControleItem.class.getName()).log(Level.SEVERE, null, ex);
             }
-          
           
           telaItem.getjTextDescr().enable(false);
           telaItem.getjTextCod().enable(false);
@@ -198,6 +206,7 @@ public class ControleItem implements MouseListener {
           id=rn.listarItem().get(item).getId();
         } 
     }
+    
     private void excluirItem(){
        rn.excluirItem(id);
        listaDados();
@@ -267,10 +276,16 @@ private void limpaTabela(){
             modelo.removeRow(0);
         }
  } 
+
 private void limpaComboBox(){
         combo.removeAllElements();
+} 
 
- } 
+private String pegaInicialCod(){
+    System.out.println("mostra letra selecionada "+letra.getSelectedItem());
+    return letra.getSelectedItem().toString();
+}
+
     @Override
     public void mousePressed(MouseEvent e) {}
 

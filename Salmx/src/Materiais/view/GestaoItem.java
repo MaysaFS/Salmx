@@ -162,7 +162,7 @@ public class GestaoItem extends javax.swing.JPanel {
         ));
         jTableMaterialList.setGridColor(new java.awt.Color(153, 153, 153));
         jTableMaterialList.setRowMargin(0);
-        jTableMaterialList.setSelectionBackground(new java.awt.Color(51, 51, 51));
+        jTableMaterialList.setSelectionBackground(new java.awt.Color(204, 204, 255));
         jScrollPane1.setViewportView(jTableMaterialList);
 
         jTextBuscaMaterial.setForeground(new java.awt.Color(153, 153, 153));

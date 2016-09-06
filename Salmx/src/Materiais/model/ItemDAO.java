@@ -58,6 +58,22 @@ public class ItemDAO {
         pst.close();
         return item;
     }
+    
+    public String buscarUltimoCod(String letra) throws SQLException{
+        ItemMaterial item=new ItemMaterial();
+        String sql= "select max(id)from item where codigo like '?%'";
+        PreparedStatement pst= conexao.prepareStatement(sql);
+        pst.setString(1,letra);
+        ResultSet rst= pst.executeQuery();
+        while(rst.next()){
+            item.setUltimoCod(rst.getString("codigo"));
+            
+        }
+        rst.close();
+        pst.close();
+        return item.getCodigo();
+    }
+    
     public void editarItem(ItemMaterial item){
        String str= "update item set codigo = ?, descricao = ?, categoria = ? where id = ? ";
        try{
