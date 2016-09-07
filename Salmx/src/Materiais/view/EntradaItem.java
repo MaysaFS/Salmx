@@ -32,9 +32,9 @@ public class EntradaItem extends javax.swing.JDialog {
         jPanelTop = new javax.swing.JPanel();
         jLabelSalmxLogo = new javax.swing.JLabel();
         jPanelBody = new javax.swing.JPanel();
-        jComboCategoria = new javax.swing.JComboBox<>();
-        jComboItem = new javax.swing.JComboBox<>();
-        jComboFornecedor = new javax.swing.JComboBox<>();
+        jComboCategoria = new javax.swing.JComboBox();
+        jComboItem = new javax.swing.JComboBox();
+        jComboFornecedor = new javax.swing.JComboBox();
         JTextFieldEmpenho = new javax.swing.JTextField();
         JLabelEmpenho = new javax.swing.JLabel();
         JLabelFornecedor = new javax.swing.JLabel();
@@ -47,8 +47,8 @@ public class EntradaItem extends javax.swing.JDialog {
         JLabel2 = new javax.swing.JLabel();
         JTextField2 = new javax.swing.JTextField();
         JLabel3 = new javax.swing.JLabel();
-        JLabel4 = new javax.swing.JLabel();
         JLabel5 = new javax.swing.JLabel();
+        jFormattedTextField2 = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -74,7 +74,7 @@ public class EntradaItem extends javax.swing.JDialog {
 
         jPanelBody.setBackground(new java.awt.Color(242, 242, 242));
 
-        jComboCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboCategoria.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboCategoria.setOpaque(false);
         jComboCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,7 +82,7 @@ public class EntradaItem extends javax.swing.JDialog {
             }
         });
 
-        jComboItem.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboItem.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboItem.setOpaque(false);
         jComboItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,7 +90,7 @@ public class EntradaItem extends javax.swing.JDialog {
             }
         });
 
-        jComboFornecedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboFornecedor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboFornecedor.setOpaque(false);
         jComboFornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,7 +155,7 @@ public class EntradaItem extends javax.swing.JDialog {
         });
 
         jFormattedTextField1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        jFormattedTextField1.setText("DATA");
+        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.MEDIUM))));
         jFormattedTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFormattedTextField1ActionPerformed(evt);
@@ -184,18 +184,13 @@ public class EntradaItem extends javax.swing.JDialog {
         JLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel3.setText("Preço total");
 
-        JLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        JLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        JLabel4.setForeground(new java.awt.Color(255, 102, 102));
-        JLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        JLabel4.setText("R$ 00,00");
-        JLabel4.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        JLabel4.setOpaque(true);
-
         JLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         JLabel5.setForeground(new java.awt.Color(255, 102, 102));
         JLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel5.setText("Data*");
+
+        jFormattedTextField2.setBorder(null);
+        jFormattedTextField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
 
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
         jPanelBody.setLayout(jPanelBodyLayout);
@@ -215,19 +210,6 @@ public class EntradaItem extends javax.swing.JDialog {
                                     .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jComboItem, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(JLabelItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBodyLayout.createSequentialGroup()
-                                    .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(JTextField1, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(JLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(JTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(20, 20, 20)
-                                    .addComponent(JLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBodyLayout.createSequentialGroup()
-                                    .addGap(98, 98, 98)
-                                    .addComponent(JLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                                    .addComponent(JLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanelBodyLayout.createSequentialGroup()
                                     .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(jComboFornecedor, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -235,9 +217,24 @@ public class EntradaItem extends javax.swing.JDialog {
                                     .addGap(20, 20, 20)
                                     .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(JLabelEmpenho)
-                                        .addComponent(JTextFieldEmpenho, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(JTextFieldEmpenho, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBodyLayout.createSequentialGroup()
+                                    .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanelBodyLayout.createSequentialGroup()
+                                            .addGap(98, 98, 98)
+                                            .addComponent(JLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanelBodyLayout.createSequentialGroup()
+                                            .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addComponent(JTextField1, javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(JLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(JTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                                    .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(JLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(JLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
                     .addGroup(jPanelBodyLayout.createSequentialGroup()
                         .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -277,7 +274,7 @@ public class EntradaItem extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(JTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
-                            .addComponent(JLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jFormattedTextField2))))
                 .addGap(18, 18, 18)
                 .addComponent(JLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -287,7 +284,7 @@ public class EntradaItem extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanelBodyLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {JLabel4, JTextField1, JTextField2, JTextFieldEmpenho, jComboCategoria, jComboFornecedor, jComboItem});
+        jPanelBodyLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {JTextField1, JTextField2, JTextFieldEmpenho, jComboCategoria, jComboFornecedor, jComboItem});
 
         javax.swing.GroupLayout jPanelBackLayout = new javax.swing.GroupLayout(jPanelBack);
         jPanelBack.setLayout(jPanelBackLayout);
@@ -352,50 +349,12 @@ public class EntradaItem extends javax.swing.JDialog {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EntradaItem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EntradaItem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EntradaItem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EntradaItem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                EntradaItem dialog = new EntradaItem(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JLabel1;
     private javax.swing.JLabel JLabel2;
     private javax.swing.JLabel JLabel3;
-    private javax.swing.JLabel JLabel4;
     private javax.swing.JLabel JLabel5;
     private javax.swing.JLabel JLabelCategoria;
     private javax.swing.JLabel JLabelEmpenho;
@@ -405,10 +364,11 @@ public class EntradaItem extends javax.swing.JDialog {
     private javax.swing.JTextField JTextField1;
     private javax.swing.JTextField JTextField2;
     private javax.swing.JTextField JTextFieldEmpenho;
-    private javax.swing.JComboBox<String> jComboCategoria;
-    private javax.swing.JComboBox<String> jComboFornecedor;
-    private javax.swing.JComboBox<String> jComboItem;
+    private javax.swing.JComboBox jComboCategoria;
+    private javax.swing.JComboBox jComboFornecedor;
+    private javax.swing.JComboBox jComboItem;
     private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JFormattedTextField jFormattedTextField2;
     private javax.swing.JLabel jLabelSalmxLogo;
     private javax.swing.JPanel jPanelBack;
     private javax.swing.JPanel jPanelBody;
