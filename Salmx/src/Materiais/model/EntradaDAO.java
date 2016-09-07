@@ -5,6 +5,7 @@
 package Materiais.model;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,7 +22,7 @@ public class EntradaDAO {
  * and open the template in the editor.
  */
      private Connection conexao;
-    private List<ItemMaterial> itens;
+    private List<Entrada> entradas;
    
     
     public EntradaDAO(Connection conexao) {
@@ -29,13 +30,25 @@ public class EntradaDAO {
     }
     
     public  void salvarEntrada(Entrada ent){
-        String str= "insert into entrada(codigo,descricao,categoria)" 
-                + "values(?,?,?)";        
+            String str= "insert into entrada(id,codigo,nota_fiscal,num_empenho,preco_unit,quantidade,"
+                    + "valor_total,estoque,saldo_atual,dt_compra,dt_validade,item,fornecedor,observacao)" 
+                    + "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";        
         try{
            PreparedStatement pst= conexao.prepareStatement(str);
-           pst.setString(1,i.getCodigo());
-           pst.setString(2,i.getDescricao());
-           pst.setInt(3,i.getCategoria().getId());
+           pst.setInt(1,ent.getId());
+           pst.setString(2,ent.getCodigo());
+           pst.setString(3,ent.getNotaFiscal());
+           pst.setString(4,ent.getEmpenho());
+           pst.setDouble(5,ent.getPr_unit());
+           pst.setInt(6,ent.getQuantidade());
+           pst.setDouble(7,ent.getValor_total());
+           pst.setInt(8,ent.getEstoque());
+           pst.setDouble(9,ent.getSaldo_atual());
+           pst.setDate(10, (Date) ent.getDt_compra());
+           pst.setDate(11, (Date) ent.getDt_validade());
+           pst.setInt(12,ent.getItem().getId());
+           pst.setInt(13,ent.getFornecedor().getCodigo());
+           pst.setString(14,ent.getObservacao());
            pst.execute();
            pst.close();
         }catch(SQLException e){
@@ -44,115 +57,71 @@ public class EntradaDAO {
         }
          
     }
-    public ItemMaterial buscarItem(int cod) throws SQLException{
-        ItemMaterial item = new ItemMaterial();
-        String sql= "select * from item where id= ?";
+    public Entrada buscarEntrada(int cod) throws SQLException{
+        Entrada ent=new Entrada();
+            
+        String sql= "select * from entrada where id= ?";
         PreparedStatement pst= conexao.prepareStatement(sql);
         pst.setInt(1,cod);
         ResultSet rst= pst.executeQuery();
         while(rst.next()){
-            item.setId(rst.getInt("id"));
-            item.setCodigo(rst.getString("codigo"));
-            item.setDescricao(rst.getString("descricao"));
-            item.getCategoria().setId(rst.getInt("categoria"));
+            ent.setId(rst.getInt("id"));
+            ent.setCodigo(rst.getString("codigo"));
+            ent.setNotaFiscal(rst.getString("nota_fiscal"));
+            ent.setEmpenho(rst.getString("num_empenho"));
+            ent.setPr_unit(rst.getDouble("preco_unit"));
+            ent.setQuantidade(rst.getInt("quantidade"));
+            ent.setValor_total(rst.getDouble("valor_total"));
+            ent.setEstoque(rst.getInt("estoque"));
+            ent.setSaldo_atual(rst.getDouble("saldo_atual"));
+            ent.setDt_compra(rst.getDate("dt_compra"));
+            ent.setDt_validade(rst.getDate("dt_validade"));
+            ent.getItem().setId(rst.getInt("item"));
+            ent.getFornecedor().setCodigo(rst.getInt("fornecedor"));
+            ent.setObservacao(rst.getString("observacao"));
             
         }
         rst.close();
         pst.close();
-        return item;
+        return ent;
     }
     
-    public String buscarUltimoCod(String letra, int id_cat) throws SQLException{
-        System.out.println("letra no DAO"+letra);
-        String ultimo="";
-        String concatenada= letra+'%';
-        String sql= "select max(codigo) from item where codigo like ? and categoria = ? ";
-        PreparedStatement pst= conexao.prepareStatement(sql);
-        pst.setString(1,concatenada);
-        pst.setInt(2,id_cat);
-        ResultSet rst= pst.executeQuery();
-        while(rst.next()){
-            ultimo= rst.getString("max(codigo)");
-            
-        }
-        rst.close();
-        pst.close();
-        return ultimo;
-    }
-    
-    public void editarItem(ItemMaterial item){
-       String str= "update item set codigo = ?, descricao = ?, categoria = ? where id = ? ";
-       try{
-            ItemMaterial it = buscarItem(item.getId());
-            
-            if(it.getCodigo()!=null){
-                PreparedStatement pst = conexao.prepareStatement(str);
-                pst.setString(1, item.getCodigo());
-                pst.setString(2, item.getDescricao());
-                pst.setInt(3, item.getCategoria().getId());
-                pst.setInt(4, item.getId());
-                
-                pst.execute();
-                pst.close();
-                
-            }else{
-                System.out.println("lamento! não foi possivel realizar a alteração");
-            }
-        }catch(SQLException e){
-            System.out.println("lamento! não foi ossivel realizar a alteração" + e);
-            throw new RuntimeException(e);  
-            
-        }
-    }
-    public List<ItemMaterial> listarItem(){
-        String str= "select * from item  as i inner join categoria as c on i.categoria = c.id order by descricao";
-        itens = new ArrayList <ItemMaterial>();
+
+    public List<Entrada> listarEntradas(){
+        String str= "select * from entrada  as e inner join item as i inner join fornecedor as f on e.item = i.id and e.fornecedor=f.codigo order by id";
+        entradas = new ArrayList <Entrada>();
         try {
            PreparedStatement pst= conexao.prepareStatement(str);
            ResultSet rst= pst.executeQuery();
            while(rst.next()){
-               ItemMaterial item= new ItemMaterial();
-               item.setId(rst.getInt("i.id"));
-               item.setCodigo(rst.getString("i.codigo"));
-               item.setDescricao(rst.getString("i.descricao"));
-               item.getCategoria().setId(rst.getInt("i.categoria"));
-               item.getCategoria().setCodigo(rst.getString("c.codigo"));
-               item.getCategoria().setNome(rst.getString("c.nome"));
-               itens.add(item);
+               Entrada ent= new Entrada();
+               ent.setId(rst.getInt("e.id"));
+               ent.setCodigo(rst.getString("e.codigo"));
+               ent.setNotaFiscal(rst.getString("e.nota_fiscal"));
+               ent.setEmpenho(rst.getString("e.num_empenho"));
+               ent.setPr_unit(rst.getDouble("e.preco_unit"));
+               ent.setQuantidade(rst.getInt("e.quantidade"));
+               ent.setValor_total(rst.getDouble("e.valor_total"));
+               ent.setEstoque(rst.getInt("e.estoque"));
+               ent.getItem().setId(rst.getInt("e.item"));
+               ent.getItem().setDescricao(rst.getString("e.descricao"));
+               ent.getFornecedor().setCodigo(rst.getInt("e.fornecedor"));  
+               ent.getFornecedor().setRazaosocial(rst.getString("f.razaosocial"));
+               ent.getFornecedor().setCnpj(rst.getString("f.cnpj"));
+               ent.setSaldo_atual(rst.getDouble("e.saldo_atual"));
+               
+               entradas.add(ent);
            }           
            rst.close();
            pst.close();
-        return itens;
+        return entradas;
         } catch (Exception e) {
             System.out.println("erro ao buscar!\n"+e);
             throw new RuntimeException(e);
         }
         
     }
-    public boolean excluirItem(int cod){
-        boolean result= false;
-         String sql= "delete from item where id = ?";        
-        try {
-            ItemMaterial item= buscarItem(cod);
-            if(item.getCodigo()!=null){
-                PreparedStatement pst= conexao.prepareStatement(sql);
-                 pst.setInt(1,cod);
-                 result= pst.execute();
-                pst.close();
-            }else{
-                System.out.println("nao foi possivel excluir");
-            }
-        return result;
-        } catch (Exception e) {
-            System.out.println("nao foi possivel excluir\n"+e);
-            throw new RuntimeException(e);
-        }
-       
-        
-        
-        
-    }
+    
     
 }
 
-}
