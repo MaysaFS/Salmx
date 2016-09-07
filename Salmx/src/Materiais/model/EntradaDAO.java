@@ -57,6 +57,35 @@ public class EntradaDAO {
         }
          
     }
+    
+     public  void editarEntrada(Entrada ent){
+            String str= "update entrada set id= ?, codigo=?,nota_fiscal=?,num_empenho=?,preco_unit=?,quantidade=?,"
+                    + "valor_total=?,estoque=?,saldo_atual=?,dt_compra=?,dt_validade=?,item=?,fornecedor=?,observacao=?)" ;
+                           
+        try{
+           PreparedStatement pst= conexao.prepareStatement(str);
+           pst.setInt(1,ent.getId());
+           pst.setString(2,ent.getCodigo());
+           pst.setString(3,ent.getNotaFiscal());
+           pst.setString(4,ent.getEmpenho());
+           pst.setDouble(5,ent.getPr_unit());
+           pst.setInt(6,ent.getQuantidade());
+           pst.setDouble(7,ent.getSubtotal());
+           pst.setInt(8,ent.getEstoque());
+           pst.setDouble(9,ent.getSaldo_atual());
+           pst.setDate(10, (Date) ent.getDt_compra());
+           pst.setDate(11, (Date) ent.getDt_validade());
+           pst.setInt(12,ent.getItem().getId());
+           pst.setInt(13,ent.getFornecedor().getCodigo());
+           pst.setString(14,ent.getObservacao());
+           pst.execute();
+           pst.close();
+        }catch(SQLException e){
+           System.out.println("Nao foi possivel inserir!"+ e);
+           throw new RuntimeException(e); 
+        }
+         
+    }
     public Entrada buscarEntrada(int cod) throws SQLException{
         Entrada ent=new Entrada();
             
@@ -85,6 +114,8 @@ public class EntradaDAO {
         pst.close();
         return ent;
     }
+    
+    
     
 
     public List<Entrada> listarEntradas(){
