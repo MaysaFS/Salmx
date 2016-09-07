@@ -100,26 +100,38 @@ public class ControleItem implements MouseListener, ActionListener {
         
         if(e.getSource() == gItem.getNovoMaterial()){
             telaItem.limpaTela();
-            this.mudaEstadoBotton();
+            telaItem.mudaEstadoBotton();
+            telaItem.habilitaCampos();
             limpaComboBox();
             listaCategorias();
+            telaItem.getjBoxLetra().list();
             telaItem.setVisible(true); 
             
                               
         }        
         if(e.getSource() == gItem.getEditarMaterial()){
+           telaItem.limpaTela();
             limpaComboBox();
             listaCategorias();
-            editaDados();            
+            telaItem.habilitaCampos();
+            try {
+                editaDados();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControleItem.class.getName()).log(Level.SEVERE, null, ex);
+            }
             edit=true;
-            this.mudaEstadoBotton();
+            telaItem.mudaEstadoBotton();
             telaItem.setVisible(true);
         }        
         if(e.getSource() == gItem.getRetirarMaterial()){
+            telaItem.limpaTela();
             limpaComboBox();
             listaCategorias();
+            try {
                 exibeDados();
-            
+            } catch (SQLException ex) {
+                Logger.getLogger(ControleItem.class.getName()).log(Level.SEVERE, null, ex);
+            }
             telaItem.setVisible(true);   
             
         }
@@ -139,20 +151,18 @@ public class ControleItem implements MouseListener, ActionListener {
            }                      
         }
         if(e.getSource()==telaItem.getExcluir()){
-             excluirItem();
-             telaItem.getSalvar().setVisible(true);
-             telaItem.getExcluir().setVisible(false);
+             excluirItem();             
         }
         
     }
     
     public void salvarDados(){
         int item = telaItem.itemSelecionado();
-        if(item >= 0){
+        if(item > 0){
             ItemMaterial itemMat= new ItemMaterial();
             itemMat.setDescricao(telaItem.getjTextDescr().getText());
             itemMat.setCodigo(telaItem.getjTextCod().getText());
-            itemMat.getCategoria().setId(cat.listarCategorias().get(item).getId());
+            itemMat.getCategoria().setId(cat.listarCategorias().get(item-1).getId());
             if(edit==false){
               rn.salvarItem(itemMat);                
             }else{
@@ -165,44 +175,39 @@ public class ControleItem implements MouseListener, ActionListener {
             edit=false; 
         } 
     }
-    public void editaDados(){
+    public void editaDados() throws SQLException{
         int item = gItem.itemSelecionado();
-        if(item >= 0){
-           int i;
-            try {
-                i = cat.buscarCategoriaIndex(rn.listarItem().get(item).getCategoria().getId());
-                telaItem.getjBoxCategoria().setSelectedIndex(i);
-            } catch (SQLException ex) {
-                System.out.println("erro aki no edita");
-                Logger.getLogger(ControleItem.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
+        if(item >=0){
+           int i,id_cat;  
+           id_cat=rn.listarItem().get(item).getCategoria().getId();
+           i = cat.buscarCategoriaIndex(id_cat);
+           telaItem.getjBoxCategoria().setSelectedIndex(i+1);  
+           
+           //telaItem.getjUltimoCodigo().setText(rn.buscarUltimoCod(
+            //                    telaItem.getjBoxLetra().getSelectedItem().toString(),id_cat));
+           
           telaItem.getjTextDescr().setText(rn.listarItem().get(item).getDescricao());
           telaItem.getjTextCod().setText(rn.listarItem().get(item).getCodigo());          
           id=rn.listarItem().get(item).getId();
+          
         } 
     }
     
-    private void exibeDados(){
+    private void exibeDados()throws SQLException{
         int item = gItem.itemSelecionado();
-        int i;
+        int i,id_cat;
         if(item >= 0){
           telaItem.getjTextDescr().setText(rn.listarItem().get(item).getDescricao());         
           telaItem.getjTextCod().setText(rn.listarItem().get(item).getCodigo());
+          id_cat=rn.listarItem().get(item).getCategoria().getId();
+          i=cat.buscarCategoriaIndex(id_cat);    
           
-            try {
-                i=cat.buscarCategoriaIndex(rn.listarItem().get(item).getCategoria().getId());
-                telaItem.getjBoxCategoria().setSelectedIndex(i); 
-            } catch (SQLException ex) {
-                System.out.println("erro aki no exibe");
-                Logger.getLogger(ControleItem.class.getName()).log(Level.SEVERE, null, ex);
-            }
+          //telaItem.getjUltimoCodigo().setText(rn.buscarUltimoCod(
+          //                      telaItem.getjBoxLetra().getSelectedItem().toString(),id_cat));
           
-          telaItem.getjTextDescr().enable(false);
-          telaItem.getjTextCod().enable(false);
-          telaItem.getjBoxCategoria().enable(false);  
-          telaItem.getSalvar().setVisible(false);       
-          telaItem.getExcluir().setVisible(true);           
+          telaItem.getjBoxCategoria().setSelectedIndex(i+1); 
+          telaItem.desabilitaCampos();
+          telaItem.abilitaBotConfExc();
           id=rn.listarItem().get(item).getId();
         } 
     }
@@ -210,10 +215,8 @@ public class ControleItem implements MouseListener, ActionListener {
     private void excluirItem(){
        rn.excluirItem(id);
        listaDados();
-       this.mudaEstadoBotton();
-       telaItem.getjTextDescr().enable();
-       telaItem.getjTextCod().enable();
-       telaItem.getjBoxCategoria().enable();
+       telaItem.mudaEstadoBotton();
+       telaItem.habilitaCampos();
        telaItem.limpaTela();       
        telaItem.dispose();       
        delete=false;       
@@ -240,14 +243,10 @@ public class ControleItem implements MouseListener, ActionListener {
           listaDados();
        }
   }
- private void mudaEstadoBotton(){
-     telaItem.getSalvar().setVisible(true);       
-     telaItem.getExcluir().setVisible(false);
- }
+  
  public final void addTabela(Object... objects) {
         modelo.addRow(objects);
-    }
-
+  }
 
    private void listaDados() {
 
@@ -262,9 +261,11 @@ public class ControleItem implements MouseListener, ActionListener {
     }
    private void listaCategorias() {
 
-        limpaComboBox();        
-        for(int i=0;i<cat.listarCategorias().size();i++){
-            combo.addElement(cat.listarCategorias().get(i).getNome());
+        limpaComboBox();   
+        combo.insertElementAt("", 0);
+        for(int i=1;i<cat.listarCategorias().size()+1;i++){
+            combo.insertElementAt(cat.listarCategorias().get(i-1).getNome(), i);
+            
         }
         
     }
@@ -278,6 +279,7 @@ private void limpaTabela(){
 
 private void limpaComboBox(){
         combo.removeAllElements();
+        
 } 
 
 
@@ -299,7 +301,13 @@ private void limpaComboBox(){
          if(e.getSource()==telaItem.getjBoxLetra()){  
             System.out.println("selecionou a letra:  "+ telaItem.getjBoxLetra().getSelectedItem().toString());
                 try {
-                    telaItem.getjUltimoCodigo().setText(rn.buscarUltimoCod(telaItem.getjBoxLetra().getSelectedItem().toString()));
+                    int item = telaItem.itemSelecionado();
+                    if(item > 0){
+                        int id_cat=cat.listarCategorias().get(item-1).getId();
+                        telaItem.getjUltimoCodigo().setText(rn.buscarUltimoCod(
+                                telaItem.getjBoxLetra().getSelectedItem().toString(),
+                                id_cat));
+                    }
                 } catch (SQLException ex) {
                     Logger.getLogger(ControleItem.class.getName()).log(Level.SEVERE, null, ex);
                 }

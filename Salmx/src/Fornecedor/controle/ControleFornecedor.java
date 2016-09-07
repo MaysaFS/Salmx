@@ -61,8 +61,7 @@ public class ControleFornecedor implements MouseListener {
     
     public GestaoFornecedor getGfornecedor(){
        return gfornecedor ;
-    }
-    
+    }   
     
     public DefaultTableModel getTableModel(){
         
@@ -73,44 +72,39 @@ public class ControleFornecedor implements MouseListener {
         
         if(e.getSource() == gfornecedor.getBtAddForn()){
             nfornecedor.limpaTela();
-            this.mudaEstadoBotton();
-            nfornecedor.setVisible(true);
-                       
-        }
-        
-        if(e.getSource() == gfornecedor.getBtEditForn()){
-            
+            nfornecedor.mudaEstadoBotton();
+            nfornecedor.habilitaCampos();
+            nfornecedor.setVisible(true);                       
+        }        
+        if(e.getSource() == gfornecedor.getBtEditForn()){            
             editaDados();
             edit=true;
-            this.mudaEstadoBotton();
+            nfornecedor.mudaEstadoBotton();
+            nfornecedor.habilitaCampos();
             nfornecedor.setVisible(true);
-        }
-        
+        }        
         if(e.getSource() == gfornecedor.getBtExcForn()){
             exibeDados();
             nfornecedor.setVisible(true);
-        }
-        
+        }        
         if(e.getSource() == gfornecedor.getBtPesquisa()){
             this.pesquisa();
-        }
-        
+        }        
         if(e.getSource() == gfornecedor.getjLabelVoltar()){
             gfornecedor.show();
             principal.setContentPane(cp.getTela());
             principal.repaint();
-            principal.validate();
-            
+            principal.validate();            
         }
-        if(e.getSource()==nfornecedor.getjLabelSalvarFornecedor()){
-            
+        if(e.getSource()==nfornecedor.getjLabelSalvarFornecedor()){            
            if(nfornecedor.validaCampos()==true){
                salvarDados();
            }            
         }
         if(e.getSource()==nfornecedor.getjLabelExcluirFornecedor()){
              excluiFornecedor();
-             this.mudaEstadoBotton();
+             nfornecedor.mudaEstadoBotton();
+             nfornecedor.habilitaCampos();
         }
     }
     public void salvarDados(){
@@ -187,42 +181,17 @@ public class ControleFornecedor implements MouseListener {
           nfornecedor.getjTextFieldCep().setText(rn.listarFornecedor().get(item).getEndereço().getCep());
           nfornecedor.getjTextFieldUf().setText(rn.listarFornecedor().get(item).getEndereço().getUf());
            
-          nfornecedor.getjTextFieldRazaoSocial().enable(false);
-          nfornecedor.getjTextFieldInscriçãoEstadual().enable(false);
-          nfornecedor.getjTextFieldCnpj().enable(false);
-          nfornecedor.getjTextFieldTelefone1().enable(false);
-          nfornecedor.getjTextFieldTelefoneII().enable(false);
-          nfornecedor.getjTextFieldEmail().enable(false);
-          nfornecedor.getjTextFieldRua().enable(false);
-          nfornecedor.getjTextFieldNumEnd().enable(false);
-          nfornecedor.getjTextFieldBairro().enable(false);
-          nfornecedor.getjTextFieldComplemento().enable(false);
-          nfornecedor.getjTextFieldCidade().enable(false);
-          nfornecedor.getjTextFieldCep().enable(false);
-          nfornecedor.getjTextFieldUf().enable(false);
-          nfornecedor.getjLabelSalvarFornecedor().setVisible(false);       
-          nfornecedor.getjLabelExcluirFornecedor().setVisible(true);          
+          nfornecedor.desabilitaCampos();
+          nfornecedor.abilitaBotConfirmExc();         
           codigo=rn.listarFornecedor().get(item).getCodigo();
           codE= rn.listarFornecedor().get(item).getEndereço().getId();
         } 
     }
     private void excluiFornecedor(){
-        rn.excluiFornecedor(codigo);
-        listaDados();
-        this.mudaEstadoBotton();
-          nfornecedor.getjTextFieldRazaoSocial().enable();
-          nfornecedor.getjTextFieldInscriçãoEstadual().enable();
-          nfornecedor.getjTextFieldCnpj().enable();
-          nfornecedor.getjTextFieldTelefone1().enable();
-          nfornecedor.getjTextFieldTelefoneII().enable();
-          nfornecedor.getjTextFieldEmail().enable();
-          nfornecedor.getjTextFieldRua().enable();
-          nfornecedor.getjTextFieldNumEnd().enable();
-          nfornecedor.getjTextFieldBairro().enable();
-          nfornecedor.getjTextFieldComplemento().enable();
-          nfornecedor.getjTextFieldCidade().enable();
-          nfornecedor.getjTextFieldCep().enable();
-          nfornecedor.getjTextFieldUf().enable();
+          rn.excluiFornecedor(codigo);
+          listaDados();
+          nfornecedor.mudaEstadoBotton();
+          nfornecedor.habilitaCampos();
           nfornecedor.limpaTela();       
           nfornecedor.dispose();       
           delete=false;       
@@ -254,10 +223,7 @@ public class ControleFornecedor implements MouseListener {
           listaDados();
        }
   }
-    private void mudaEstadoBotton(){
-     nfornecedor.getjLabelSalvarFornecedor().setVisible(true);       
-     nfornecedor.getjLabelExcluirFornecedor().setVisible(false);
- }
+    
     
     public final void addTabela(Object... objects) {
         modelo.addRow(objects);

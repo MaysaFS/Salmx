@@ -77,14 +77,16 @@ public class  ControleCategoria implements MouseListener {
          
         if(e.getSource()==gtCat.getCadCategoria()){
             telacat.limpaTela();
-            this.mudaEstadoButton();
+            telacat.mudaEstadoButton();
+            telacat.habilitaCampos();
             telacat.setVisible(true);
         }
                
         if(e.getSource()== gtCat.getEditCategoria()){
             editaDados();
             edit=true;
-            this.mudaEstadoButton();
+            telacat.mudaEstadoButton();
+            telacat.habilitaCampos();
             telacat.setVisible(true);
         }
                
@@ -109,9 +111,7 @@ public class  ControleCategoria implements MouseListener {
             }
         }
         if(e.getSource()==telacat.getjLabelExcluir()){
-             excluirCategoria();
-             telacat.getjLabelSalvar().setVisible(true);
-             telacat.getjLabelExcluir().setVisible(false);
+             excluirCategoria();             
         }
     }
     
@@ -139,32 +139,22 @@ public class  ControleCategoria implements MouseListener {
             telacat.getTxtNomeCat().setText(rn.listarCategorias().get(item).getNome());
             id=rn.listarCategorias().get(item).getId();
         }
-    }
-    
+    }    
     private void exibeDados(){
         int item = gtCat.itemSelecionado();
         if(item >= 0){
           telacat.getjTextCodCat().setText(rn.listarCategorias().get(item).getCodigo());  
-          telacat.getTxtNomeCat().setText(rn.listarCategorias().get(item).getNome()); 
-          
-          telacat.getTxtNomeCat().enable(false); 
-          telacat.getjTextCodCat().enable(false);
-          
-          telacat.getjLabelSalvar().setVisible(false);       
-          telacat.getjLabelExcluir().setVisible(true); 
-          
-          id=rn.listarCategorias().get(item).getId();
-          
-        } 
-        
-    }
-    
+          telacat.getTxtNomeCat().setText(rn.listarCategorias().get(item).getNome());           
+          telacat.dasabilitaCampos();          
+          telacat.abilitaBotConfirExc();           
+          id=rn.listarCategorias().get(item).getId();          
+        }         
+    }    
      private void excluirCategoria(){
        rn.excluirCategoria(id);
        listaDados();
-       this.mudaEstadoButton();
-       telacat.getTxtNomeCat().enable();
-       telacat.getjTextCodCat().enable();
+       telacat.mudaEstadoButton();
+       telacat.habilitaCampos();
        telacat.limpaTela();       
        telacat.dispose();       
        delete=false;       
@@ -191,11 +181,7 @@ public class  ControleCategoria implements MouseListener {
           listaDados();
        }
     }
-      
-    private void mudaEstadoButton(){
-        telacat.getjLabelSalvar().setVisible(true);       
-        telacat.getjLabelExcluir().setVisible(false);
-    }
+    
      
     
     public final void addTabela(Object... objects) {

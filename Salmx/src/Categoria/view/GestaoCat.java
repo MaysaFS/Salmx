@@ -92,6 +92,8 @@ public class GestaoCat extends javax.swing.JPanel {
         EditarCategoria = new javax.swing.JLabel();
         RemoverCategoria = new javax.swing.JLabel();
 
+        setForeground(new java.awt.Color(153, 153, 153));
+
         Top.setBackground(new java.awt.Color(255, 102, 102));
 
         TituloGestaoDeUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -102,7 +104,7 @@ public class GestaoCat extends javax.swing.JPanel {
         jLabelVoltar.setForeground(new java.awt.Color(255, 255, 255));
         jLabelVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Voltar.png"))); // NOI18N
         jLabelVoltar.setText("Voltar");
-        jLabelVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout TopLayout = new javax.swing.GroupLayout(Top);
         Top.setLayout(TopLayout);
@@ -124,6 +126,7 @@ public class GestaoCat extends javax.swing.JPanel {
         );
 
         jTablecatList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jTablecatList.setForeground(new java.awt.Color(153, 153, 153));
         jTablecatList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -153,11 +156,16 @@ public class GestaoCat extends javax.swing.JPanel {
 
         CaixaBuscar.setForeground(new java.awt.Color(153, 153, 153));
         CaixaBuscar.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        CaixaBuscar.setText(" ");
+        CaixaBuscar.setText(" insira o nome da categoria aqui");
         CaixaBuscar.setToolTipText("");
         CaixaBuscar.setAutoscrolls(false);
         CaixaBuscar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         CaixaBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        CaixaBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CaixaBuscarMouseClicked(evt);
+            }
+        });
         CaixaBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CaixaBuscarActionPerformed(evt);
@@ -169,7 +177,7 @@ public class GestaoCat extends javax.swing.JPanel {
         BotaoBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Search_Small.png"))); // NOI18N
         BotaoBuscar.setText("BUSCAR");
         BotaoBuscar.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
-        BotaoBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BotaoBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         Menu.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -179,7 +187,7 @@ public class GestaoCat extends javax.swing.JPanel {
         CadastrarCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_New_Small.png"))); // NOI18N
         CadastrarCategoria.setText("ADICIONAR");
         CadastrarCategoria.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
-        CadastrarCategoria.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CadastrarCategoria.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         CadastrarCategoria.setOpaque(true);
 
         EditarCategoria.setBackground(new java.awt.Color(63, 63, 63));
@@ -188,7 +196,7 @@ public class GestaoCat extends javax.swing.JPanel {
         EditarCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Edit_Small.png"))); // NOI18N
         EditarCategoria.setText("EDITAR");
         EditarCategoria.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
-        EditarCategoria.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        EditarCategoria.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         EditarCategoria.setOpaque(true);
 
         RemoverCategoria.setBackground(new java.awt.Color(63, 63, 63));
@@ -197,7 +205,7 @@ public class GestaoCat extends javax.swing.JPanel {
         RemoverCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Icon_Delet_Small.png"))); // NOI18N
         RemoverCategoria.setText("EXCLUIR ");
         RemoverCategoria.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
-        RemoverCategoria.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        RemoverCategoria.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         RemoverCategoria.setOpaque(true);
 
         javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
@@ -258,7 +266,13 @@ public class GestaoCat extends javax.swing.JPanel {
 
     private void CaixaBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CaixaBuscarActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_CaixaBuscarActionPerformed
+
+    private void CaixaBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CaixaBuscarMouseClicked
+        // TODO add your handling code here:
+        CaixaBuscar.setText("");
+    }//GEN-LAST:event_CaixaBuscarMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
