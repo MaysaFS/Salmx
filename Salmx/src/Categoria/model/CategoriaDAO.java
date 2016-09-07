@@ -49,6 +49,7 @@ public class CategoriaDAO {
     }
     public int buscarCategoriaIndex(int id) throws SQLException{
         int index=-1;
+        listarCategorias();
         for (int i = 0; i < categorias.size(); i++) {
             if(categorias.get(i).getId()==id){                
               index=i;  

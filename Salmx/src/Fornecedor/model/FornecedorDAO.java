@@ -121,6 +121,18 @@ public class FornecedorDAO {
          
         
     } 
+    public int buscarFornecedorIndex(int id) throws SQLException{
+        int index=-1;
+        listarFornecedor();
+        for (int i = 0; i < fornecedor.size(); i++) {
+            if(fornecedor.get(i).getCodigo()==id){                
+              index=i;  
+            }
+            
+        }
+        return index;
+        
+    }
     public void editarEndereco(Endereco e){
         String str="update endereco set rua=?,numero=?,bairro=?,cidade=?,cep=?,uf=?,complemento=?";
         try{

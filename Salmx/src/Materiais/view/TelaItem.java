@@ -308,7 +308,7 @@ public class TelaItem extends javax.swing.JDialog {
         // TODO add your handling code here:
     }
 public int itemSelecionado(){
-        if(jBoxCategoria.getSelectedIndex()<0){
+        if(jBoxCategoria.getSelectedIndex()<1){
             JOptionPane.showMessageDialog(this, "Selecione um item");
         } 
         return jBoxCategoria.getSelectedIndex();
