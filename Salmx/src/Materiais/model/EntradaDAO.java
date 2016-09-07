@@ -41,7 +41,7 @@ public class EntradaDAO {
            pst.setString(4,ent.getEmpenho());
            pst.setDouble(5,ent.getPr_unit());
            pst.setInt(6,ent.getQuantidade());
-           pst.setDouble(7,ent.getValor_total());
+           pst.setDouble(7,ent.getSubtotal());
            pst.setInt(8,ent.getEstoque());
            pst.setDouble(9,ent.getSaldo_atual());
            pst.setDate(10, (Date) ent.getDt_compra());
@@ -71,7 +71,7 @@ public class EntradaDAO {
             ent.setEmpenho(rst.getString("num_empenho"));
             ent.setPr_unit(rst.getDouble("preco_unit"));
             ent.setQuantidade(rst.getInt("quantidade"));
-            ent.setValor_total(rst.getDouble("valor_total"));
+            ent.setSubtotal(rst.getDouble("valor_total"));
             ent.setEstoque(rst.getInt("estoque"));
             ent.setSaldo_atual(rst.getDouble("saldo_atual"));
             ent.setDt_compra(rst.getDate("dt_compra"));
@@ -101,7 +101,7 @@ public class EntradaDAO {
                ent.setEmpenho(rst.getString("e.num_empenho"));
                ent.setPr_unit(rst.getDouble("e.preco_unit"));
                ent.setQuantidade(rst.getInt("e.quantidade"));
-               ent.setValor_total(rst.getDouble("e.valor_total"));
+               ent.setSubtotal(rst.getDouble("e.valor_total"));
                ent.setEstoque(rst.getInt("e.estoque"));
                ent.getItem().setId(rst.getInt("e.item"));
                ent.getItem().setDescricao(rst.getString("e.descricao"));
