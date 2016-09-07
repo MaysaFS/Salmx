@@ -8,7 +8,7 @@ import Categoria.model.CategoriaDAO;
 import Materiais.model.ItemDAO;
 import Materiais.model.ItemMaterial;
 import Materiais.view.GestaoItem;
-import Materiais.view.criar.TelaItem;
+import Materiais.view.TelaItem;
 import Principal.controle.ControlePrincipal;
 import Principal.view.TelaPrincipal;
 import java.awt.event.ActionEvent;

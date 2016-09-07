@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Materiais.view.criar;
+package Materiais.view;
 
 import Categoria.model.Categoria;
 import javax.swing.*;

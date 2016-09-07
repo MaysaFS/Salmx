@@ -22,7 +22,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanelBack" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPanelBack" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -43,10 +43,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jPanelTop" max="32767" attributes="0"/>
-              <Group type="102" attributes="0">
-                  <Component id="jPanelBody" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              </Group>
+              <Component id="jPanelBody" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -55,7 +52,6 @@
                   <Component id="jPanelTop" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPanelBody" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -107,122 +103,148 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="JLabelCategoria" pref="178" max="32767" attributes="0"/>
-                                              <Component id="jComboCategoria" max="32767" attributes="0"/>
+                          <Component id="JLabelSalvar" min="-2" pref="160" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
+                                  <Component id="JLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jObservacao" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="JLabelEmpenho" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="JTextFieldPrec_Unit" min="-2" pref="64" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="JTextFieldQuantid" max="32767" attributes="0"/>
                                           </Group>
-                                          <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jComboItem" max="32767" attributes="0"/>
-                                              <Component id="JLabelItem" max="32767" attributes="0"/>
+                                          <Component id="JLabelCategoria" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="jComboCategoria" alignment="1" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="JLabel1" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="JLabel2" pref="96" max="32767" attributes="0"/>
                                           </Group>
+                                          <Component id="JTextFieldEmpenho" alignment="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="jComboFornecedor" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="JLabelFornecedor" alignment="0" pref="178" max="32767" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="JLabelEmpenho" min="-2" max="-2" attributes="0"/>
-                                              <Component id="JTextFieldEmpenho" min="-2" pref="145" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
-                                                  <Component id="JLabel2" min="-2" pref="77" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                      <Component id="JTextField1" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="JLabel1" alignment="0" max="32767" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="JTextField2" min="-2" pref="77" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="JTextFieldNotaFiscal" max="32767" attributes="0"/>
+                                                  <Component id="jComboItem" max="32767" attributes="0"/>
+                                                  <Component id="JLabelItem" max="32767" attributes="0"/>
+                                                  <Component id="JLabelNF" alignment="0" pref="145" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <EmptySpace pref="23" max="32767" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="JLabel3" min="-2" pref="145" max="-2" attributes="0"/>
-                                              <Component id="jFormattedTextField2" min="-2" pref="100" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="JLabel3" min="-2" pref="159" max="-2" attributes="0"/>
+                                                  <Component id="jTextFieldPrc_Total" min="-2" pref="147" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <Component id="JLabel5" alignment="0" min="-2" pref="178" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jFormattedTextField1" min="-2" pref="178" max="-2" attributes="0"/>
-                                  <Component id="JLabelSalvar" min="-2" pref="343" max="-2" attributes="0"/>
+                                  <Component id="JLabelEdit" min="-2" pref="76" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                          <Component id="jTextFieldDt_compra" alignment="1" min="-2" pref="139" max="-2" attributes="0"/>
+                                          <Component id="JLabel6" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="JLabelFornecedor" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jComboFornecedor" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="JTextFieldcodigo" alignment="0" min="-2" pref="77" max="-2" attributes="0"/>
+                                      <Component id="JLabel5" alignment="0" pref="144" max="32767" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="JLabel4" alignment="0" pref="142" max="32767" attributes="0"/>
+                                          <Component id="jTextFieldDt_Validade" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Component id="JLabelAdd1" min="-2" pref="76" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="JLabelDel" min="-2" pref="76" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="0" pref="30" max="32767" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace min="0" pref="42" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="JLabelItem" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="JLabelCategoria" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jComboCategoria" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jComboItem" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="JLabelFornecedor" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jComboFornecedor" linkSize="1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="JLabelEmpenho" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="JTextFieldEmpenho" linkSize="1" min="-2" pref="26" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="JLabelItem" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JLabelCategoria" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
+                          <Component id="JLabelFornecedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jComboCategoria" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboItem" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboFornecedor" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="JLabelEmpenho" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JLabelNF" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="JTextFieldNotaFiscal" linkSize="1" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="JTextFieldEmpenho" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="jTextFieldDt_compra" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="JLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="JTextFieldPrec_Unit" linkSize="1" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="jTextFieldPrc_Total" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="JTextFieldQuantid" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="jTextFieldDt_Validade" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="JLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="JLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="JTextField1" linkSize="1" min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="JTextFieldcodigo" linkSize="1" min="-2" pref="26" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                              <Component id="JLabelAdd1" pref="23" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="JLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="JLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="JTextField2" linkSize="1" pref="26" max="32767" attributes="0"/>
-                                  <Component id="jFormattedTextField2" max="32767" attributes="0"/>
-                              </Group>
+                          <Component id="jObservacao" min="-2" pref="64" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="11" pref="51" max="32767" attributes="0"/>
+                              <Component id="jScrollPane1" min="-2" pref="144" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                              <Component id="JLabelSalvar" min="-2" pref="32" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                              <Component id="JLabelEdit" min="-2" pref="20" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                              <Component id="JLabelDel" min="-2" pref="20" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="JLabel5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jFormattedTextField1" min="-2" pref="26" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="JLabelSalvar" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -285,7 +307,7 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value=""/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JTextField" name="JTextFieldEmpenho">
+            <Component class="javax.swing.JTextField" name="JTextFieldNotaFiscal">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="99" type="rgb"/>
@@ -303,7 +325,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTextFieldEmpenhoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTextFieldNotaFiscalActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="JLabelEmpenho">
@@ -382,7 +404,7 @@
                 <Property name="text" type="java.lang.String" value="Pre&#xe7;o Unt.*"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="JTextField1">
+            <Component class="javax.swing.JTextField" name="JTextFieldPrec_Unit">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="99" type="rgb"/>
@@ -400,10 +422,10 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTextField1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTextFieldPrec_UnitActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField1">
+            <Component class="javax.swing.JFormattedTextField" name="jTextFieldDt_compra">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
@@ -415,7 +437,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextField1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldDt_compraActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="JLabel2">
@@ -430,7 +452,7 @@
                 <Property name="text" type="java.lang.String" value="Quantidade"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="JTextField2">
+            <Component class="javax.swing.JTextField" name="JTextFieldcodigo">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="99" type="rgb"/>
@@ -448,7 +470,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTextField2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTextFieldcodigoActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="JLabel3">
@@ -472,10 +494,10 @@
                   <Color blue="66" green="66" red="ff" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="2"/>
-                <Property name="text" type="java.lang.String" value="Data*"/>
+                <Property name="text" type="java.lang.String" value="Data de compra *"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField2">
+            <Component class="javax.swing.JFormattedTextField" name="jTextFieldPrc_Total">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
@@ -483,6 +505,225 @@
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
                   <Format subtype="0" type="4"/>
                 </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="JLabelNF">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="12" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="2"/>
+                <Property name="text" type="java.lang.String" value="N&#xba; da Nota Fiscal*"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="JTextFieldEmpenho">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="99" green="99" red="99" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
+                <Property name="autoscrolls" type="boolean" value="false"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                    <EmptyBorder/>
+                  </Border>
+                </Property>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Cursor padr&#xe3;o"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTextFieldEmpenhoActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="JLabel6">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="12" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="2"/>
+                <Property name="text" type="java.lang.String" value="Data de validade *"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="jTextFieldDt_Validade">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                    <EmptyBorder bottom="5" left="5" right="5" top="5"/>
+                  </Border>
+                </Property>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format subtype="2" type="1"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldDt_ValidadeActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="JLabel4">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="12" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="2"/>
+                <Property name="text" type="java.lang.String" value="codigo-entrada"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="JTextFieldQuantid">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="99" green="99" red="99" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
+                <Property name="autoscrolls" type="boolean" value="false"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                    <EmptyBorder/>
+                  </Border>
+                </Property>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Cursor padr&#xe3;o"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTextFieldQuantidActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="JLabel7">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="12" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="2"/>
+                <Property name="text" type="java.lang.String" value="Observacao"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jObservacao">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="jTextArea1">
+                  <Properties>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="rows" type="int" value="5"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="null"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="jTableEntradas">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                      <Table columnCount="4" rowCount="4">
+                        <Column editable="true" title="descricao" type="java.lang.Object"/>
+                        <Column editable="true" title="quantidade" type="java.lang.Object"/>
+                        <Column editable="true" title="preco_unitario" type="java.lang.Object"/>
+                        <Column editable="true" title="observacao" type="java.lang.Object"/>
+                      </Table>
+                    </Property>
+                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                      <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                      </TableColumnModel>
+                    </Property>
+                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="JLabelEdit">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="ff" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="Editar"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Cursor padr&#xe3;o"/>
+                </Property>
+                <Property name="opaque" type="boolean" value="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="JLabelAdd1">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="ff" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="Adicionar"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Cursor padr&#xe3;o"/>
+                </Property>
+                <Property name="opaque" type="boolean" value="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="JLabelDel">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="66" red="ff" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="Remover"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Cursor padr&#xe3;o"/>
+                </Property>
+                <Property name="opaque" type="boolean" value="true"/>
               </Properties>
             </Component>
           </SubComponents>

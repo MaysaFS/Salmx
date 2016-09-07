@@ -4,7 +4,7 @@
  */
 package Setor.view;
 
-import Materiais.view.criar.NovoMaterialFrame;
+
 
 /**
  *
@@ -233,7 +233,7 @@ public class SetorFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextBuscaMaterialActionPerformed
 
     private void novoMaterialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_novoMaterialMouseClicked
-        new NovoMaterialFrame().setVisible(true);
+        
     }//GEN-LAST:event_novoMaterialMouseClicked
 
    
