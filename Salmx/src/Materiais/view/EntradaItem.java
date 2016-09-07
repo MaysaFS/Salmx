@@ -28,10 +28,10 @@ public class EntradaItem extends javax.swing.JDialog {
         //this.setBounds((screenSize.width-250)/2, (screenSize.height-250)/2, 250, 250);
     }
  public boolean validaCampos(){
-        if(JTextFieldEmpenho.getText().isEmpty() || JTextFieldNotaFiscal.getText().isEmpty()
+        if(JTextFieldEmpenho.getText().isEmpty() || JTextFieldDt_Validade.getText().isEmpty()
                 || JTextFieldPrec_Unit.getText().isEmpty()|| JTextFieldQuantid.getText().isEmpty()
-                || JTextFieldcodigo.getText().isEmpty()|| jTextFieldDt_Validade.getText().isEmpty()
-                || jTextFieldDt_compra.getText().isEmpty()){
+                || JTextFieldcodigo.getText().isEmpty()|| JTextFieldDt_Validade.getText().isEmpty()
+                || JTextFieldDt_compra.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Preencha os campos codigo e descricao");
             return false;
         } else{
@@ -46,13 +46,13 @@ public class EntradaItem extends javax.swing.JDialog {
     }
   public void limpaTela(){
         JTextFieldEmpenho.setText("");
-        JTextFieldNotaFiscal.setText("");
+        JTextFieldDt_Validade.setText("");
         JTextFieldPrec_Unit.setText("");
         JTextFieldQuantid.setText("");
         JTextFieldcodigo.setText("");
         jTextArea1.setText("");
-        jTextFieldDt_Validade.setText("");
-        jTextFieldDt_compra.setText("");
+        JTextFieldDt_Validade.setText("");
+        JTextFieldDt_compra.setText("");
         
         getjComboCategoria().setSelectedIndex(0);
         getjComboFornecedor().setSelectedIndex(0);
@@ -61,13 +61,13 @@ public class EntradaItem extends javax.swing.JDialog {
     }
   public void habilitaCampos(){
         JTextFieldEmpenho.enable();
-        JTextFieldNotaFiscal.enable();
+        JTextFieldDt_Validade.enable();
         JTextFieldPrec_Unit.enable();
         JTextFieldQuantid.enable();
         JTextFieldcodigo.enable();
         jTextArea1.enable();
-        jTextFieldDt_Validade.enable();
-        jTextFieldDt_compra.enable();
+        JTextFieldDt_Validade.enable();
+        JTextFieldDt_compra.enable();
        
         getjComboCategoria().enable();
         getjComboFornecedor().enable();
@@ -76,13 +76,13 @@ public class EntradaItem extends javax.swing.JDialog {
   }
   public void desabilitaCampos(){
       JTextFieldEmpenho.enable(false);
-        JTextFieldNotaFiscal.enable(false);
+        JTextFieldDt_Validade.enable(false);
         JTextFieldPrec_Unit.enable(false);
         JTextFieldQuantid.enable(false);
         JTextFieldcodigo.enable(false);
         jTextArea1.enable(false);
-        jTextFieldDt_Validade.enable(false);
-        jTextFieldDt_compra.enable(false);
+        JTextFieldDt_Validade.enable(false);
+        JTextFieldDt_compra.enable(false);
         getjComboCategoria().enable(false);
         getjComboFornecedor().enable(false);
         getjComboItem().enable(false);
@@ -128,11 +128,11 @@ public class EntradaItem extends javax.swing.JDialog {
     }
 
     public JTextField getJTextFieldNotaFiscal() {
-        return JTextFieldNotaFiscal;
+        return JTextFieldDt_Validade;
     }
 
     public void setJTextFieldNotaFiscal(JTextField JTextFieldNotaFiscal) {
-        this.JTextFieldNotaFiscal = JTextFieldNotaFiscal;
+        this.JTextFieldDt_Validade = JTextFieldNotaFiscal;
     }
 
     public JTextField getJTextFieldPrec_Unit() {
@@ -191,21 +191,25 @@ public class EntradaItem extends javax.swing.JDialog {
         this.jTextArea1 = jObservacao;
     }
 
-    public JFormattedTextField getjTextFieldDt_Validade() {
-        return jTextFieldDt_Validade;
+    public JTextField getJTextFieldDt_Validade() {
+        return JTextFieldDt_Validade;
     }
 
-    public void setjTextFieldDt_Validade(JFormattedTextField jTextFieldDt_Validade) {
-        this.jTextFieldDt_Validade = jTextFieldDt_Validade;
+    public void setJTextFieldDt_Validade(JTextField JTextFieldDt_Validade) {
+        this.JTextFieldDt_Validade = JTextFieldDt_Validade;
     }
 
-    public JFormattedTextField getjTextFieldDt_compra() {
-        return jTextFieldDt_compra;
+    public JTextField getJTextFieldDt_compra() {
+        return JTextFieldDt_compra;
     }
 
-    public void setjTextFieldDt_compra(JFormattedTextField jTextFieldDt_compra) {
-        this.jTextFieldDt_compra = jTextFieldDt_compra;
+    public void setJTextFieldDt_compra(JTextField JTextFieldDt_compra) {
+        this.JTextFieldDt_compra = JTextFieldDt_compra;
     }
+
+    
+
+    
 
    
 
@@ -250,22 +254,7 @@ public class EntradaItem extends javax.swing.JDialog {
          * default look and feel. For details see
          * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+     
         //</editor-fold>
 
         /*
@@ -302,7 +291,13 @@ public class EntradaItem extends javax.swing.JDialog {
         jComboCategoria = new javax.swing.JComboBox();
         jComboItem = new javax.swing.JComboBox();
         jComboFornecedor = new javax.swing.JComboBox();
-        JTextFieldNotaFiscal = new javax.swing.JTextField();
+        JTextFieldDt_Validade = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter data = new javax.swing.text.MaskFormatter("##/##/####");
+
+            JTextFieldDt_Validade = new javax.swing.JFormattedTextField(data);
+        }catch(Exception e){
+        }
         JLabelEmpenho = new javax.swing.JLabel();
         JLabelFornecedor = new javax.swing.JLabel();
         JLabelCategoria = new javax.swing.JLabel();
@@ -310,14 +305,12 @@ public class EntradaItem extends javax.swing.JDialog {
         JLabelSalvar = new javax.swing.JLabel();
         JLabel1 = new javax.swing.JLabel();
         JTextFieldPrec_Unit = new javax.swing.JTextField();
-        jTextFieldDt_compra = new javax.swing.JFormattedTextField();
         JLabel2 = new javax.swing.JLabel();
         JTextFieldcodigo = new javax.swing.JTextField();
         JLabel5 = new javax.swing.JLabel();
         JLabelNF = new javax.swing.JLabel();
         JTextFieldEmpenho = new javax.swing.JTextField();
         JLabel6 = new javax.swing.JLabel();
-        jTextFieldDt_Validade = new javax.swing.JFormattedTextField();
         JLabel4 = new javax.swing.JLabel();
         JTextFieldQuantid = new javax.swing.JTextField();
         JLabel7 = new javax.swing.JLabel();
@@ -328,6 +321,14 @@ public class EntradaItem extends javax.swing.JDialog {
         JLabelEdit = new javax.swing.JLabel();
         JLabelAdd1 = new javax.swing.JLabel();
         JLabelDel = new javax.swing.JLabel();
+        JTextFieldNotaFiscal1 = new javax.swing.JTextField();
+        JTextFieldDt_compra = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter data = new javax.swing.text.MaskFormatter("##/##/####");
+
+            JTextFieldDt_compra = new javax.swing.JFormattedTextField(data);
+        }catch(Exception e){
+        }
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -377,15 +378,15 @@ public class EntradaItem extends javax.swing.JDialog {
             }
         });
 
-        JTextFieldNotaFiscal.setForeground(new java.awt.Color(153, 153, 153));
-        JTextFieldNotaFiscal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        JTextFieldNotaFiscal.setToolTipText("");
-        JTextFieldNotaFiscal.setAutoscrolls(false);
-        JTextFieldNotaFiscal.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        JTextFieldNotaFiscal.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        JTextFieldNotaFiscal.addActionListener(new java.awt.event.ActionListener() {
+        JTextFieldDt_Validade.setForeground(new java.awt.Color(153, 153, 153));
+        JTextFieldDt_Validade.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        JTextFieldDt_Validade.setToolTipText("");
+        JTextFieldDt_Validade.setAutoscrolls(false);
+        JTextFieldDt_Validade.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        JTextFieldDt_Validade.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        JTextFieldDt_Validade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTextFieldNotaFiscalActionPerformed(evt);
+                JTextFieldDt_ValidadeActionPerformed(evt);
             }
         });
 
@@ -433,14 +434,6 @@ public class EntradaItem extends javax.swing.JDialog {
             }
         });
 
-        jTextFieldDt_compra.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        jTextFieldDt_compra.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.MEDIUM))));
-        jTextFieldDt_compra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldDt_compraActionPerformed(evt);
-            }
-        });
-
         JLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         JLabel2.setForeground(new java.awt.Color(255, 102, 102));
         JLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -485,14 +478,6 @@ public class EntradaItem extends javax.swing.JDialog {
         JLabel6.setForeground(new java.awt.Color(255, 102, 102));
         JLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel6.setText("Data de validade *");
-
-        jTextFieldDt_Validade.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        jTextFieldDt_Validade.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/mm/yyyy"))));
-        jTextFieldDt_Validade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldDt_ValidadeActionPerformed(evt);
-            }
-        });
 
         JLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         JLabel4.setForeground(new java.awt.Color(255, 102, 102));
@@ -560,6 +545,25 @@ public class EntradaItem extends javax.swing.JDialog {
         JLabelDel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         JLabelDel.setOpaque(true);
 
+        JTextFieldNotaFiscal1.setForeground(new java.awt.Color(153, 153, 153));
+        JTextFieldNotaFiscal1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        JTextFieldNotaFiscal1.setToolTipText("");
+        JTextFieldNotaFiscal1.setAutoscrolls(false);
+        JTextFieldNotaFiscal1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        JTextFieldNotaFiscal1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        JTextFieldNotaFiscal1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTextFieldNotaFiscal1ActionPerformed(evt);
+            }
+        });
+
+        JTextFieldDt_compra.setForeground(new java.awt.Color(153, 153, 153));
+        JTextFieldDt_compra.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        JTextFieldDt_compra.setToolTipText("");
+        JTextFieldDt_compra.setAutoscrolls(false);
+        JTextFieldDt_compra.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        JTextFieldDt_compra.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
         jPanelBody.setLayout(jPanelBodyLayout);
         jPanelBodyLayout.setHorizontalGroup(
@@ -591,17 +595,22 @@ public class EntradaItem extends javax.swing.JDialog {
                                                 .addComponent(JTextFieldEmpenho, javax.swing.GroupLayout.Alignment.LEADING))
                                             .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(jPanelBodyLayout.createSequentialGroup()
-                                                    .addGap(20, 20, 20)
-                                                    .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(JTextFieldNotaFiscal)
-                                                        .addComponent(jComboItem, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(JLabelItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(JLabelNF, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)))
-                                                .addGroup(jPanelBodyLayout.createSequentialGroup()
                                                     .addGap(18, 18, 18)
+                                                    .addComponent(JTextFieldNotaFiscal1))
+                                                .addGroup(jPanelBodyLayout.createSequentialGroup()
                                                     .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jTextFieldDt_Validade, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(JLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                                        .addGroup(jPanelBodyLayout.createSequentialGroup()
+                                                            .addGap(20, 20, 20)
+                                                            .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                .addComponent(jComboItem, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(JLabelItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(JLabelNF, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)))
+                                                        .addGroup(jPanelBodyLayout.createSequentialGroup()
+                                                            .addGap(18, 18, 18)
+                                                            .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addComponent(JTextFieldDt_Validade, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(JLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                    .addGap(0, 0, Short.MAX_VALUE))))
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelBodyLayout.createSequentialGroup()
                                             .addGap(21, 21, 21)
                                             .addComponent(JLabelEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -615,10 +624,9 @@ public class EntradaItem extends javax.swing.JDialog {
                                 .addComponent(JLabelFornecedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jComboFornecedor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(JLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(JLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldDt_compra, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(JTextFieldcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(JLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(JTextFieldcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(JTextFieldDt_compra)))))
                 .addGap(0, 42, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBodyLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -644,9 +652,9 @@ public class EntradaItem extends javax.swing.JDialog {
                     .addComponent(JLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JTextFieldNotaFiscal, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JTextFieldEmpenho, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldDt_compra, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JTextFieldNotaFiscal1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JTextFieldDt_compra, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JLabel1)
@@ -657,17 +665,16 @@ public class EntradaItem extends javax.swing.JDialog {
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JTextFieldPrec_Unit, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JTextFieldQuantid, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldDt_Validade, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JTextFieldcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JTextFieldcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JTextFieldDt_Validade, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19)
                 .addComponent(JLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(JLabelAdd1, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addComponent(JLabelAdd1, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                 .addGap(19, 19, 19)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelBodyLayout.createSequentialGroup()
                         .addGap(70, 70, 70)
@@ -678,7 +685,7 @@ public class EntradaItem extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        jPanelBodyLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {JTextFieldNotaFiscal, JTextFieldPrec_Unit, JTextFieldcodigo, jComboCategoria, jComboFornecedor, jComboItem});
+        jPanelBodyLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {JTextFieldDt_Validade, JTextFieldPrec_Unit, JTextFieldcodigo, jComboCategoria, jComboFornecedor, jComboItem});
 
         javax.swing.GroupLayout jPanelBackLayout = new javax.swing.GroupLayout(jPanelBack);
         jPanelBack.setLayout(jPanelBackLayout);
@@ -721,17 +728,13 @@ public class EntradaItem extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboFornecedorActionPerformed
 
-    private void JTextFieldNotaFiscalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldNotaFiscalActionPerformed
+    private void JTextFieldDt_ValidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldDt_ValidadeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JTextFieldNotaFiscalActionPerformed
+    }//GEN-LAST:event_JTextFieldDt_ValidadeActionPerformed
 
     private void JTextFieldPrec_UnitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldPrec_UnitActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTextFieldPrec_UnitActionPerformed
-
-    private void jTextFieldDt_compraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDt_compraActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldDt_compraActionPerformed
 
     private void JTextFieldcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldcodigoActionPerformed
         // TODO add your handling code here:
@@ -741,10 +744,6 @@ public class EntradaItem extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_JTextFieldEmpenhoActionPerformed
 
-    private void jTextFieldDt_ValidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDt_ValidadeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldDt_ValidadeActionPerformed
-
     private void JTextFieldQuantidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldQuantidActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTextFieldQuantidActionPerformed
@@ -753,6 +752,10 @@ public class EntradaItem extends javax.swing.JDialog {
         // TODO add your handling code here:
       
     }//GEN-LAST:event_JTextFieldQuantidMouseClicked
+
+    private void JTextFieldNotaFiscal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldNotaFiscal1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTextFieldNotaFiscal1ActionPerformed
    
     /**
      * @param args the command line arguments
@@ -775,8 +778,10 @@ public class EntradaItem extends javax.swing.JDialog {
     private javax.swing.JLabel JLabelItem;
     private javax.swing.JLabel JLabelNF;
     private javax.swing.JLabel JLabelSalvar;
+    private javax.swing.JTextField JTextFieldDt_Validade;
+    private javax.swing.JTextField JTextFieldDt_compra;
     private javax.swing.JTextField JTextFieldEmpenho;
-    private javax.swing.JTextField JTextFieldNotaFiscal;
+    private javax.swing.JTextField JTextFieldNotaFiscal1;
     private javax.swing.JTextField JTextFieldPrec_Unit;
     private javax.swing.JTextField JTextFieldQuantid;
     private javax.swing.JTextField JTextFieldcodigo;
@@ -791,7 +796,5 @@ public class EntradaItem extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableEntradas;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JFormattedTextField jTextFieldDt_Validade;
-    private javax.swing.JFormattedTextField jTextFieldDt_compra;
     // End of variables declaration//GEN-END:variables
 }
