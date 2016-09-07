@@ -40,16 +40,23 @@ public class TelaItem extends javax.swing.JDialog {
         jTextCod.setText("");
         jTextDescr.setText("");
         jUltimoCodigo.setText("");
+        getjBoxCategoria().setSelectedIndex(0);
+        getjBoxLetra().setSelectedIndex(0);
+        
     }
   public void habilitaCampos(){
       getjTextDescr().enable();
       getjTextCod().enable();
       getjBoxCategoria().enable();
+      getjBoxLetra().enable();
+      getjUltimoCodigo().enable();
   }
   public void desabilitaCampos(){
       getjTextDescr().enable(false);
       getjTextCod().enable(false);
-      getjBoxCategoria().enable(false);  
+      getjBoxCategoria().enable(false); 
+      getjBoxLetra().enable(false);
+      getjUltimoCodigo().enable(false);
   }
   public void abilitaBotConfExc(){
       getSalvar().setVisible(false);       
@@ -145,6 +152,7 @@ public class TelaItem extends javax.swing.JDialog {
 
         jBoxCategoria.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jBoxCategoria.setForeground(new java.awt.Color(102, 102, 102));
+        jBoxCategoria.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "" }));
         jBoxCategoria.setBorder(null);
 
         jLabelUserName1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -159,7 +167,7 @@ public class TelaItem extends javax.swing.JDialog {
 
         jBoxLetra.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jBoxLetra.setForeground(new java.awt.Color(102, 102, 102));
-        jBoxLetra.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" }));
+        jBoxLetra.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" }));
 
         jTextCod.setForeground(new java.awt.Color(153, 153, 153));
         jTextCod.setHorizontalAlignment(javax.swing.JTextField.CENTER);
