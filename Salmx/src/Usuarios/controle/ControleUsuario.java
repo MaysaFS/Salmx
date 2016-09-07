@@ -16,7 +16,6 @@ import Usuarios.model.Usuario;
 import Usuarios.model.UsuarioDAO;
 import Usuarios.view.GUsuario;
 import Usuarios.view.JDTelaUsuario;
-import Usuarios.view.LoginFrame;
 import java.sql.Connection;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -134,13 +133,20 @@ public class ControleUsuario implements MouseListener {
     }
      
     public void exluiUsuario() {
-        int item = gUsuario.itemSelecionado();
+        int confirma = -1, item = gUsuario.itemSelecionado();
         
         System.out.println("Item selecionado: " + item);
        
         if (item >= 0) {
-            int confirma = JOptionPane.showConfirmDialog(null, "Tem certeza que dejeja excluir o usuario \""
-                    + usuarioDAO.listarUsuarios().get(item).getNome()+"\"?");
+            if(usuarioDAO.listarUsuarios().get(item).getTipo()){
+                JOptionPane.showMessageDialog(null, "Acesso negado!\nA Exclusão do administrador pode provocar erros no sistema!");
+            }else{
+                confirma = JOptionPane.showConfirmDialog(null, "\nDESEJA CONFIRMAR A EXCLUSÃO?\n"+"\nNome: "+usuarioDAO.listarUsuarios().get(item).getNome()
+                +"\nLogin: "+usuarioDAO.listarUsuarios().get(item).getLogin()
+                +"\nTipo: "+usrTipo(item)
+                    );
+            
+            }
             
             if(confirma == 0){
                 usuarioDAO.excluirUsuario(usuarioDAO.listarUsuarios().get(item).getLogin(),

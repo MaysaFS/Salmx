@@ -6,6 +6,7 @@
 package Usuarios.view;
 
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -42,6 +43,7 @@ public class JDTelaUsuario extends javax.swing.JDialog {
         this.setLocationRelativeTo(null);
         //this.setBounds((screenSize.width-250)/2, (screenSize.height-250)/2, 250, 250);
     }
+    
     public boolean validaCampos(){
         if(jPasswordFieldSenha.getText().isEmpty() ||
                 jPasswordFieldConfirmaSenha.getText().isEmpty() ||
@@ -65,6 +67,14 @@ public class JDTelaUsuario extends javax.swing.JDialog {
         this.jRadioButtonUsrAdm.setEnabled(true);
     }
 
+    public JPanel getjPanelBody() {
+        return jPanelBody;
+    }
+
+    public void setjPanelBody(JPanel jPanelBody) {
+        this.jPanelBody = jPanelBody;
+    }
+    
     public JLabel getJLabelSalvar() {
         return JLabelSalvar;
     }
