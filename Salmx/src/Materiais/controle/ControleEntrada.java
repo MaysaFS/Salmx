@@ -4,6 +4,9 @@
  */
 package Materiais.controle;
 
+import Materiais.model.EntradaDAO;
+import Materiais.view.EntradaItem;
+import Principal.view.TelaPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -19,11 +22,11 @@ public class ControleEntrada {
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-      private TelaPessoa tela;
+     private EntradaItem tela;
     
     private TelaPrincipal principal;
     
-    private PessoaDao dao;
+    private EntradaDAO dao;
     
     private DefaultTableModel modelo;
     
@@ -33,15 +36,15 @@ public class ControleEntrada {
     
     private int id;
 
-    public ControlePessoa(TelaPrincipal principal,Connection conexao) {
+    public ControleEntrada(TelaPrincipal principal,Connection conexao) {
         
-        tela = new TelaPessoa();
+        tela = new EntradaItem();
         
         this.principal = principal;
         
         this.conexao = conexao;
         
-        dao = new PessoaDao(this.conexao);
+        dao = new EntradaDAO(this.conexao);
         
         modelo = (DefaultTableModel)tela.getjTablePessoa().getModel();
         

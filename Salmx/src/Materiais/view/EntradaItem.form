@@ -482,7 +482,7 @@
                   <Color blue="66" green="66" red="ff" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="2"/>
-                <Property name="text" type="java.lang.String" value="Pre&#xe7;o total"/>
+                <Property name="text" type="java.lang.String" value=" Subtotal"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="JLabel5">
