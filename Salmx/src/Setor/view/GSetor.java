@@ -117,8 +117,14 @@ public class GSetor extends javax.swing.JPanel {
 
         Background.setBackground(new java.awt.Color(242, 242, 242));
         Background.setMinimumSize(new java.awt.Dimension(800, 600));
+        Background.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BackgroundMouseClicked(evt);
+            }
+        });
 
         jTableSetorList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jTableSetorList.setForeground(new java.awt.Color(153, 153, 153));
         jTableSetorList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -148,10 +154,16 @@ public class GSetor extends javax.swing.JPanel {
 
         jTextBuscaSetor.setForeground(new java.awt.Color(153, 153, 153));
         jTextBuscaSetor.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jTextBuscaSetor.setText("insira o nome do setor aqui");
         jTextBuscaSetor.setToolTipText("");
         jTextBuscaSetor.setAutoscrolls(false);
         jTextBuscaSetor.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jTextBuscaSetor.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jTextBuscaSetor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextBuscaSetorMouseClicked(evt);
+            }
+        });
         jTextBuscaSetor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextBuscaSetorActionPerformed(evt);
@@ -300,11 +312,21 @@ public class GSetor extends javax.swing.JPanel {
 
     private void jTextBuscaSetorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextBuscaSetorActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTextBuscaSetorActionPerformed
 
     private void novoSetorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_novoSetorMouseClicked
         
     }//GEN-LAST:event_novoSetorMouseClicked
+
+    private void BackgroundMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackgroundMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BackgroundMouseClicked
+
+    private void jTextBuscaSetorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextBuscaSetorMouseClicked
+        // TODO add your handling code here:
+        jTextBuscaSetor.setText("");
+    }//GEN-LAST:event_jTextBuscaSetorMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Background;

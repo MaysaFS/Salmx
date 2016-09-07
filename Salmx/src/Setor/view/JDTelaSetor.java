@@ -43,6 +43,24 @@ private void iniciar() {
         txtRamalSetor.setText("");
         txtObservSetor.setText("");
     }
+  public void habilitaCampos(){
+      getTxtNomeSetor().enable();
+       getTxtRamalSetor().enable();
+      getTxtObservSetor().enable();
+  }
+  public void desabilitaCampos(){
+          getTxtNomeSetor().enable(false);
+          getTxtRamalSetor().enable(false);
+          getTxtObservSetor().enable(false);
+  }
+ public void habilitaBotConfirmaExc(){
+            getjLabelSalvar().setVisible(false);       
+            getjLabelExcluir().setVisible(true);           
+ }
+ public void mudaEstadoBotton(){
+     getjLabelSalvar().setVisible(true);       
+     getjLabelExcluir().setVisible(false);
+ }
 public JLabel getjLabelSalvar() {
         return jLabelSalvar;
     }

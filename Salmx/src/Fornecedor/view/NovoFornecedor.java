@@ -55,7 +55,44 @@ public class NovoFornecedor extends javax.swing.JDialog {
        jTextFieldUf.setText("");
        jTextFieldCep.setText("");
     }
-
+    public void habilitaCampos(){
+          getjTextFieldRazaoSocial().enable();
+          getjTextFieldInscriçãoEstadual().enable();
+          getjTextFieldCnpj().enable();
+          getjTextFieldTelefone1().enable();
+          getjTextFieldTelefoneII().enable();
+          getjTextFieldEmail().enable();
+          getjTextFieldRua().enable();
+          getjTextFieldNumEnd().enable();
+          getjTextFieldBairro().enable();
+          getjTextFieldComplemento().enable();
+          getjTextFieldCidade().enable();
+          getjTextFieldCep().enable();
+          getjTextFieldUf().enable();
+   }
+    public void desabilitaCampos(){
+       getjTextFieldRazaoSocial().enable(false);
+       getjTextFieldInscriçãoEstadual().enable(false);
+       getjTextFieldCnpj().enable(false);
+       getjTextFieldTelefone1().enable(false);
+       getjTextFieldTelefoneII().enable(false);
+       getjTextFieldEmail().enable(false);
+       getjTextFieldRua().enable(false);
+       getjTextFieldNumEnd().enable(false);
+       getjTextFieldBairro().enable(false);
+       getjTextFieldComplemento().enable(false);
+       getjTextFieldCidade().enable(false);
+       getjTextFieldCep().enable(false);
+       getjTextFieldUf().enable(false);
+    }
+    public void abilitaBotConfirmExc(){
+            getjLabelSalvarFornecedor().setVisible(false);       
+            getjLabelExcluirFornecedor().setVisible(true); 
+    }
+    public void mudaEstadoBotton(){
+     getjLabelSalvarFornecedor().setVisible(true);       
+     getjLabelExcluirFornecedor().setVisible(false);
+ }
 
     public JLabel getjLabel2() {
         return jLabel2;

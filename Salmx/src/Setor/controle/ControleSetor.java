@@ -77,14 +77,16 @@ public class ControleSetor implements MouseListener {
         
         if(e.getSource() == gSetor.getNovoSetor()){
             telasetor.limpaTela();
-            this.mudaEstadoBotton();
+            telasetor.mudaEstadoBotton();
+            telasetor.habilitaCampos();
             telasetor.setVisible(true);                      
                     //  eventosNovoSetor();          
         }        
         if(e.getSource() == gSetor.getEditarSetor()){
             editaDados();            
             edit=true;
-            this.mudaEstadoBotton();
+            telasetor.habilitaCampos();
+            telasetor.mudaEstadoBotton();
             telasetor.setVisible(true);
         }        
         if(e.getSource() == gSetor.getExcluirSetor()){
@@ -109,8 +111,7 @@ public class ControleSetor implements MouseListener {
         }
         if(e.getSource()==telasetor.getjLabelExcluir()){
              excluirSetor();
-             telasetor.getjLabelSalvar().setVisible(true);
-             telasetor.getjLabelExcluir().setVisible(false);
+             telasetor.mudaEstadoBotton();
         }
     }
     public void salvarDados(){
@@ -145,21 +146,16 @@ public class ControleSetor implements MouseListener {
           telasetor.getTxtNomeSetor().setText(rn.listarSetor().get(item).getNome());         
           telasetor.getTxtRamalSetor().setText(rn.listarSetor().get(item).getRamal());          
           telasetor.getTxtObservSetor().setText(rn.listarSetor().get(item).getObservacao());              
-          telasetor.getTxtNomeSetor().enable(false);
-          telasetor.getTxtRamalSetor().enable(false);
-          telasetor.getTxtObservSetor().enable(false);  
-          telasetor.getjLabelSalvar().setVisible(false);       
-          telasetor.getjLabelExcluir().setVisible(true);           
+          telasetor.desabilitaCampos();  
+          telasetor.habilitaBotConfirmaExc();          
           codigo=rn.listarSetor().get(item).getCodigo();
         } 
     }
     private void excluirSetor(){
        rn.excluirSetor(codigo);
        listaDados();
-       this.mudaEstadoBotton();
-       telasetor.getTxtNomeSetor().enable();
-       telasetor.getTxtRamalSetor().enable();
-       telasetor.getTxtObservSetor().enable();
+       telasetor.mudaEstadoBotton();
+       telasetor.habilitaCampos();
        telasetor.limpaTela();       
        telasetor.dispose();       
        delete=false;       
@@ -186,10 +182,7 @@ public class ControleSetor implements MouseListener {
           listaDados();
        }
   }
- private void mudaEstadoBotton(){
-     telasetor.getjLabelSalvar().setVisible(true);       
-     telasetor.getjLabelExcluir().setVisible(false);
- }
+  
  public final void addTabela(Object... objects) {
         modelo.addRow(objects);
     }

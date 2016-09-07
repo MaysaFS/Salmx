@@ -41,6 +41,24 @@ public class TelaItem extends javax.swing.JDialog {
         jTextDescr.setText("");
         jUltimoCodigo.setText("");
     }
+  public void habilitaCampos(){
+      getjTextDescr().enable();
+      getjTextCod().enable();
+      getjBoxCategoria().enable();
+  }
+  public void desabilitaCampos(){
+      getjTextDescr().enable(false);
+      getjTextCod().enable(false);
+      getjBoxCategoria().enable(false);  
+  }
+  public void abilitaBotConfExc(){
+      getSalvar().setVisible(false);       
+      getExcluir().setVisible(true); 
+  }
+ public void mudaEstadoBotton(){
+     getSalvar().setVisible(true);       
+     getExcluir().setVisible(false);
+ }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

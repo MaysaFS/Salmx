@@ -138,6 +138,7 @@ public class GestaoItem extends javax.swing.JPanel {
         );
 
         jTableMaterialList.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jTableMaterialList.setForeground(new java.awt.Color(153, 153, 153));
         jTableMaterialList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -167,11 +168,16 @@ public class GestaoItem extends javax.swing.JPanel {
 
         jTextBuscaMaterial.setForeground(new java.awt.Color(153, 153, 153));
         jTextBuscaMaterial.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextBuscaMaterial.setText(" insira nome do produto aqui ");
+        jTextBuscaMaterial.setText(" insira nome do item aqui ");
         jTextBuscaMaterial.setToolTipText("");
         jTextBuscaMaterial.setAutoscrolls(false);
         jTextBuscaMaterial.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jTextBuscaMaterial.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jTextBuscaMaterial.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextBuscaMaterialMouseClicked(evt);
+            }
+        });
         jTextBuscaMaterial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextBuscaMaterialActionPerformed(evt);
@@ -291,11 +297,17 @@ public class GestaoItem extends javax.swing.JPanel {
 
     private void jTextBuscaMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextBuscaMaterialActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTextBuscaMaterialActionPerformed
 
     private void novoMaterialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_novoMaterialMouseClicked
         
     }//GEN-LAST:event_novoMaterialMouseClicked
+
+    private void jTextBuscaMaterialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextBuscaMaterialMouseClicked
+        // TODO add your handling code here:
+        jTextBuscaMaterial.setText("");
+    }//GEN-LAST:event_jTextBuscaMaterialMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel editarMaterial;

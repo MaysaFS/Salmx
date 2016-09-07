@@ -28,7 +28,22 @@ public class JDTelaCat extends javax.swing.JDialog {
             return true;
         }  
     }
-    
+    public void habilitaCampos(){
+       getTxtNomeCat().enable();
+       getjTextCodCat().enable();
+    } 
+    public void dasabilitaCampos(){
+      getTxtNomeCat().enable(false); 
+      getjTextCodCat().enable(false);
+    }
+    public void abilitaBotConfirExc(){
+            getjLabelSalvar().setVisible(false);       
+            getjLabelExcluir().setVisible(true);
+    }
+    public void mudaEstadoButton(){
+        getjLabelSalvar().setVisible(true);       
+        getjLabelExcluir().setVisible(false);
+    }
     public void limpaTela(){
         NomeCat.setText(""); 
         jTextCodCat.setText("");

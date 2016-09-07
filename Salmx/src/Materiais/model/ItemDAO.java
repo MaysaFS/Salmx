@@ -59,13 +59,14 @@ public class ItemDAO {
         return item;
     }
     
-    public String buscarUltimoCod(String letra) throws SQLException{
+    public String buscarUltimoCod(String letra, int id_cat) throws SQLException{
         System.out.println("letra no DAO"+letra);
         String ultimo="";
         String concatenada= letra+'%';
-        String sql= "select max(codigo) from item where codigo like ? and categoria =?";
+        String sql= "select max(codigo) from item where codigo like ? and categoria = ? ";
         PreparedStatement pst= conexao.prepareStatement(sql);
         pst.setString(1,concatenada);
+        pst.setInt(2,id_cat);
         ResultSet rst= pst.executeQuery();
         while(rst.next()){
             ultimo= rst.getString("max(codigo)");
@@ -92,7 +93,7 @@ public class ItemDAO {
                 pst.close();
                 
             }else{
-                System.out.println("lamento! não foi ossivel realizar a alteração");
+                System.out.println("lamento! não foi possivel realizar a alteração");
             }
         }catch(SQLException e){
             System.out.println("lamento! não foi ossivel realizar a alteração" + e);
