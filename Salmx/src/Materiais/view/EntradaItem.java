@@ -20,7 +20,54 @@ public class EntradaItem extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
-
+  private void iniciar() {
+        this.addWindowListener(new java.awt.event.WindowAdapter() {        
+        
+        });
+        this.setLocationRelativeTo(null);
+        //this.setBounds((screenSize.width-250)/2, (screenSize.height-250)/2, 250, 250);
+    }
+ public boolean validaCampos(){
+        if(JTextFieldEmpenho.getText().isEmpty() || JTextFieldNotaFiscal.getText().isEmpty()
+                || JTextFieldPrec_Unit.getText().isEmpty()|| JTextFieldQuantid.getText().isEmpty()
+                || JTextFieldcodigo.getText().isEmpty()|| jTextFieldDt_Validade.getText().isEmpty()
+                || jTextFieldDt_compra.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Preencha os campos codigo e descricao");
+            return false;
+        } else{
+            return true;
+        }
+    }
+  public void limpaTela(){
+        jTextCod.setText("");
+        jTextDescr.setText("");
+        jUltimoCodigo.setText("");
+        getjBoxCategoria().setSelectedIndex(0);
+        getjBoxLetra().setSelectedIndex(0);
+        
+    }
+  public void habilitaCampos(){
+      getjTextDescr().enable();
+      getjTextCod().enable();
+      getjBoxCategoria().enable();
+      getjBoxLetra().enable();
+      getjUltimoCodigo().enable();
+  }
+  public void desabilitaCampos(){
+      getjTextDescr().enable(false);
+      getjTextCod().enable(false);
+      getjBoxCategoria().enable(false); 
+      getjBoxLetra().enable(false);
+      getjUltimoCodigo().enable(false);
+  }
+  public void abilitaBotConfExc(){
+      getSalvar().setVisible(false);       
+      getExcluir().setVisible(true); 
+  }
+ public void mudaEstadoBotton(){
+     getSalvar().setVisible(true);       
+     getExcluir().setVisible(false);
+ }
     public JLabel getJLabelSalvar() {
         return JLabelSalvar;
     }
@@ -123,6 +170,38 @@ public class EntradaItem extends javax.swing.JDialog {
 
     public void setjTextFieldPrc_Total(JFormattedTextField jTextFieldPrc_Total) {
         this.jTextFieldPrc_Total = jTextFieldPrc_Total;
+    }
+
+    public JLabel getJLabelAdd1() {
+        return JLabelAdd1;
+    }
+
+    public void setJLabelAdd1(JLabel JLabelAdd1) {
+        this.JLabelAdd1 = JLabelAdd1;
+    }
+
+    public JLabel getJLabelDel() {
+        return JLabelDel;
+    }
+
+    public void setJLabelDel(JLabel JLabelDel) {
+        this.JLabelDel = JLabelDel;
+    }
+
+    public JLabel getJLabelEdit() {
+        return JLabelEdit;
+    }
+
+    public void setJLabelEdit(JLabel JLabelEdit) {
+        this.JLabelEdit = JLabelEdit;
+    }
+
+    public JTable getjTableEntradas() {
+        return jTableEntradas;
+    }
+
+    public void setjTableEntradas(JTable jTableEntradas) {
+        this.jTableEntradas = jTableEntradas;
     }
 
     /**
@@ -302,7 +381,7 @@ public class EntradaItem extends javax.swing.JDialog {
         JLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         JLabel3.setForeground(new java.awt.Color(255, 102, 102));
         JLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        JLabel3.setText("Preço total");
+        JLabel3.setText(" Subtotal");
 
         JLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         JLabel5.setForeground(new java.awt.Color(255, 102, 102));

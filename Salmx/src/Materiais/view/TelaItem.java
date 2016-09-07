@@ -21,7 +21,7 @@ public class TelaItem extends javax.swing.JDialog {
         initComponents();
         iniciar();
     }
-    private void iniciar() {
+  private void iniciar() {
         this.addWindowListener(new java.awt.event.WindowAdapter() {        
         
         });

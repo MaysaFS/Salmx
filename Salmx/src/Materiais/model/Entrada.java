@@ -21,7 +21,7 @@ public class Entrada {
     private Date dt_validade;
     private double pr_unit;
     private int quantidade;
-    private double valor_total;
+    private double subtotal;
     private String observacao;
     private int estoque;
     private double saldo_atual;    
@@ -134,12 +134,12 @@ public class Entrada {
         this.quantidade = quantidade;
     }
 
-    public double getValor_total() {
-        return valor_total;
+    public double getSubtotal() {
+        return subtotal;
     }
 
-    public void setValor_total(double valor_total) {
-        this.valor_total = valor_total;
+    public void setSubtotal(double subtotal) {
+        this.subtotal = subtotal;
     }
     
     
