@@ -19,6 +19,7 @@ public class EntradaItem extends javax.swing.JDialog {
     public EntradaItem(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        iniciar();
     }
   private void iniciar() {
         this.addWindowListener(new java.awt.event.WindowAdapter() {        

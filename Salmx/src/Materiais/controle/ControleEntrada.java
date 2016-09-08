@@ -85,7 +85,7 @@ public class ControleEntrada implements MouseListener,ActionListener{
         id = 0;
         
         listaCategorias();
-        
+        tela.setVisible(true);
     }
 
     public EntradaItem getTela() {
