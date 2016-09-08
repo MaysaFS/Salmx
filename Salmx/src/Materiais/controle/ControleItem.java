@@ -34,6 +34,8 @@ public class ControleItem implements MouseListener, ActionListener {
     CategoriaDAO cat;
     ControlePrincipal cp;
     TelaItem telaItem;
+    private Connection conexao;
+    ControleTelaEstoque contTest;
     private DefaultTableModel modelo;
     private DefaultComboBoxModel combo;
     private DefaultComboBoxModel letra;
@@ -43,7 +45,7 @@ public class ControleItem implements MouseListener, ActionListener {
     
 
       public ControleItem( TelaPrincipal principal, ControlePrincipal cp, Connection conexao) {
-          
+        this.conexao=conexao;
         this.principal= principal;        
         this.cp=cp;        
         carregaTela();        
@@ -140,7 +142,8 @@ public class ControleItem implements MouseListener, ActionListener {
         }
         if(e.getSource() == gItem.getjLabelVoltar()){
             gItem.show();
-            principal.setContentPane(cp.getTela());
+            contTest= new ControleTelaEstoque(principal, cp, conexao);
+            principal.setContentPane(contTest.getTela());
             principal.repaint();
             principal.validate();            
         }

@@ -62,7 +62,7 @@ public class ControleEntrada implements MouseListener,ActionListener{
 
     public ControleEntrada(TelaPrincipal principal,Connection conexao) {
         
-        tela = new EntradaItem(principal, true);
+        tela = new EntradaItem(principal,true);
         
         this.principal = principal;
         
@@ -85,7 +85,6 @@ public class ControleEntrada implements MouseListener,ActionListener{
         id = 0;
         
         listaCategorias();
-        tela.setVisible(true);
         
     }
 
@@ -264,7 +263,7 @@ public class ControleEntrada implements MouseListener,ActionListener{
         limpaComboBox();   
         comboCategoria.insertElementAt("", 0);
         comboFornecedor.insertElementAt("", 0);
-        comboItem.insertElementAt("", 0);
+        
         for(int i=1;i<cat.listarCategorias().size()+1;i++){
             comboCategoria.insertElementAt(cat.listarCategorias().get(i-1).getNome(), i);            
         }
@@ -305,15 +304,18 @@ private void limpaComboBox(){
 
     @Override
     public void actionPerformed(ActionEvent e) {
-         if(e.getSource()==tela.getjComboCategoria()){  
-             System.out.println("escutou ação");
+         if(e.getSource()==tela.getjComboCategoria()){ 
+             comboItem.removeAllElements();
                     int item = tela.itemCategoriaSelecionado();
+                    int j=0;
                     if(item > 0){
+                        comboItem.insertElementAt("", j);
                         List<ItemMaterial> itens= new ArrayList <ItemMaterial>();
                         int id_cat=cat.listarCategorias().get(item-1).getId();
                         itens=it.buscaPorCategoria(id_cat);
-                         for(int i=1;i<itens.size()+1;i++){
-                           comboItem.insertElementAt(itens.get(i).getDescricao(), i);            
+                         for(int i=0;i<itens.size();i++){
+                             j++;
+                           comboItem.insertElementAt(itens.get(i).getDescricao(), j);            
                           }                        
                     }              
             }
