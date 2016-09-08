@@ -20,7 +20,11 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.peer.MouseInfoPeer;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,7 +38,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Maysa
  */
-public class ControleEntrada implements MouseListener{
+public class ControleEntrada implements MouseListener,ActionListener{
     /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -80,7 +84,8 @@ public class ControleEntrada implements MouseListener{
         
         id = 0;
         
-        listaDados();
+        listaCategorias();
+        tela.setVisible(true);
         
     }
 
@@ -98,27 +103,32 @@ public class ControleEntrada implements MouseListener{
         tela.getJLabelEdit().addMouseListener(this);
         tela.getJLabelDel().addMouseListener(this);
         tela.getJLabelSalvar().addMouseListener(this);
+        tela.getjComboCategoria().addActionListener(this);
     }
 @Override
     public void mouseClicked(MouseEvent e) {
          if(e.getSource() == tela.getJLabelAdd1()){
-            if(tela.validaCampos()== true){
                 gravaDados();
-            }
-        }
-        
-        if(e.getSource() == tela.getJLabelDel()){
-            removeDados();
-        }
-        
+                              
+        }        
         if(e.getSource() == tela.getJLabelEdit()){
-            edit = true;
-            editaDados();
-        }
-        
+           
+            listaCategorias();
+            tela.habilitaCampos();
+            try {
+                editaDados();
+            } catch (SQLException ex) {
+                Logger.getLogger(ControleItem.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            edit=true;
+        }        
+        if(e.getSource() == tela.getJLabelDel()){
+             excluirItem();
+        } 
         if(e.getSource() == tela.getJLabelSalvar()){
-            tela.dispose();   
+            tela.dispose();
         }
+          
     }
 
     private void gravaDados() {
@@ -132,9 +142,20 @@ public class ControleEntrada implements MouseListener{
             entrada.setNotaFiscal(tela.getJTextFieldNotaFiscal().getText());
             entrada.setQuantidade(Integer.parseInt(tela.getJTextFieldQuantid().getText()));
             entrada.setObservacao(tela.getjObservacao().getText());
-            entrada.setDt_compra(tela.getJTextFieldcodigo().getText());
-            entrada.setDt_validade(tela.getJTextFieldcodigo().getText());
-            entrada.setPr_unit(Double.parseDouble(tela.getJTextFieldcodigo().getText()));
+            // transforma de String para Date
+            SimpleDateFormat df = new SimpleDateFormat("DD/mm/yyyy");
+            try {
+                 entrada.setDt_compra(df.parse(tela.getJTextFieldDt_compra().getText()));
+                 entrada.setDt_validade(df.parse(tela.getJTextFieldDt_Validade().getText()));
+            } catch (ParseException ex) {
+                ex.printStackTrace();            
+            }
+             System.out.println( df.format(tela.getJTextFieldDt_compra().getText()));
+             System.out.println( df.format(tela.getJTextFieldDt_compra().getText()));
+             
+            entrada.setDt_compra(Date.valueOf(tela.getJTextFieldDt_compra().getText()));
+            entrada.setDt_validade(Date.valueOf(tela.getJTextFieldDt_Validade().getText()));
+            entrada.setPr_unit(Double.parseDouble(tela.getJTextFieldPrec_Unit().getText()));
             double subtotal= Double.parseDouble(tela.getJTextFieldPrec_Unit().getText())* Integer.parseInt(tela.getJTextFieldQuantid().getText());
             entrada.setSubtotal(subtotal);
             entrada.setSaldo_atual(subtotal);
@@ -143,21 +164,29 @@ public class ControleEntrada implements MouseListener{
             entrada.getFornecedor().setCodigo(forn.listarFornecedor().get(itemF-1).getCodigo());
             
             if(edit==false){
-              dao.salvarEntrada(entrada);                
+              dao.salvarEntrada(entrada); 
+              SimpleDateFormat iso = new SimpleDateFormat("dd/MM/yyyy"); 
+              addTabela(
+                    entrada.getItem().getDescricao(),
+                    entrada.getEmpenho(),
+                    entrada.getNotaFiscal(),
+                    iso.format(entrada.getDt_compra()),
+                    entrada.getQuantidade(),
+                    entrada.getPr_unit(),
+                    entrada.getSubtotal()
+                    );
+              
             }else{
                 entrada.setId(id);
                 dao.editarEntrada(entrada);
             }            
             listaDados();
             tela.limpaTela();
-            tela.dispose();
             edit=false; 
         } 
     }
 
-    public void editaDados() throws SQLException{
-        
-                   
+    public void editaDados() throws SQLException{             
             
         
         int item = tela.itemSelecionado();
@@ -174,65 +203,40 @@ public class ControleEntrada implements MouseListener{
             tela.getjComboFornecedor().setSelectedIndex(indexF+1);  
             tela.getjComboItem().setSelectedIndex(indexI+1);  
            
-           
-           
-          telaItem.getjTextDescr().setText(rn.listarItem().get(item).getDescricao());
-          telaItem.getjTextCod().setText(rn.listarItem().get(item).getCodigo());          
-          id=rn.listarItem().get(item).getId();
+            tela.getJTextFieldcodigo().setText(dao.listarEntradas().get(item).getCodigo());
+            tela.getJTextFieldEmpenho().setText(dao.listarEntradas().get(item).getEmpenho());
+            tela.getJTextFieldNotaFiscal().setText(dao.listarEntradas().get(item).getNotaFiscal());
+            tela.getJTextFieldQuantid().setText(String.valueOf(dao.listarEntradas().get(item).getQuantidade()));
+            tela.getjObservacao().setText(dao.listarEntradas().get(item).getObservacao());
+            //transforma data de date para string
+            SimpleDateFormat iso = new SimpleDateFormat("dd/MM/yyyy");  
+            
+            tela.getJTextFieldDt_compra().setText(iso.format(dao.listarEntradas().get(item).getDt_compra()));
+            tela.getJTextFieldDt_Validade().setText(iso.format(dao.listarEntradas().get(item).getDt_validade()));
+            tela.getJTextFieldPrec_Unit().setText(String.valueOf(dao.listarEntradas().get(item).getPr_unit()));
+            
+            tela.getjComboCategoria().setSelectedIndex(indexC+1);
+            tela.getjComboFornecedor().setSelectedIndex(indexF+1);
+            tela.getjComboItem().setSelectedIndex(indexI+1);
+            
+                    
+          id=dao.listarEntradas().get(item).getId();
           
         } 
-    }
-    
-    private void exibeDados()throws SQLException{
-        int item = gItem.itemSelecionado();
-        int i,id_cat;
-        if(item >= 0){
-          telaItem.getjTextDescr().setText(rn.listarItem().get(item).getDescricao());         
-          telaItem.getjTextCod().setText(rn.listarItem().get(item).getCodigo());
-          id_cat=rn.listarItem().get(item).getCategoria().getId();
-          i=cat.buscarCategoriaIndex(id_cat);    
-          
-          //telaItem.getjUltimoCodigo().setText(rn.buscarUltimoCod(
-          //                      telaItem.getjBoxLetra().getSelectedItem().toString(),id_cat));
-          
-          telaItem.getjBoxCategoria().setSelectedIndex(i+1); 
-          telaItem.desabilitaCampos();
-          telaItem.abilitaBotConfExc();
-          id=rn.listarItem().get(item).getId();
-        } 
-    }
+    } 
     
     private void excluirItem(){
-       rn.excluirItem(id);
-       listaDados();
-       telaItem.mudaEstadoBotton();
-       telaItem.habilitaCampos();
-       telaItem.limpaTela();       
-       telaItem.dispose();       
-       delete=false;       
+        int item = tela.itemSelecionado();
+        if(item >= 0){
+              id=dao.listarEntradas().get(item).getId();
+              dao.excluirEntrada(id);
+              listaDados();
+              tela.limpaTela();       
+              
+        }
+            
     }
-  private void pesquisa(){
-      boolean buscar=false;
-      limpaTabela(); 
-      if(gItem.getjTextBuscaMaterial().getText().equals("")==false){
-         for(int i=0;i<rn.listarItem().size();i++){
-            if(rn.listarItem().get(i).getDescricao().equalsIgnoreCase(gItem.getjTextBuscaMaterial().getText())){
-                addTabela(
-                        rn.listarItem().get(i).getCodigo(),
-                        rn.listarItem().get(i).getDescricao(),
-                        rn.listarItem().get(i).getCategoria().getNome()
-                        );
-                buscar=true;
-            }       
-         }
-         if(buscar==false){
-             JOptionPane.showMessageDialog(gItem,"item não encontrado!"); 
-             listaDados();
-         }
-      }else{
-          listaDados();
-       }
-  }
+   
   
  public final void addTabela(Object... objects) {
         modelo.addRow(objects);
@@ -240,21 +244,32 @@ public class ControleEntrada implements MouseListener{
 
    private void listaDados() {
 
-        limpaTabela();        
-        for(int i=0;i<rn.listarItem().size();i++){
+        limpaTabela(); 
+        SimpleDateFormat iso = new SimpleDateFormat("dd/MM/yyyy"); 
+     
+        for(int i=0;i<dao.listarEntradas().size();i++){
             addTabela(
-                    rn.listarItem().get(i).getCodigo(),
-                    rn.listarItem().get(i).getDescricao(),
-                    rn.listarItem().get(i).getCategoria().getNome()
+                    dao.listarEntradas().get(i).getItem().getDescricao(),
+                    dao.listarEntradas().get(i).getEmpenho(),
+                    dao.listarEntradas().get(i).getNotaFiscal(),
+                    iso.format(dao.listarEntradas().get(i).getDt_compra()),
+                    dao.listarEntradas().get(i).getQuantidade(),
+                    dao.listarEntradas().get(i).getPr_unit(),
+                    dao.listarEntradas().get(i).getSubtotal()
                     );
         }
     }
    private void listaCategorias() {
 
         limpaComboBox();   
-        combo.insertElementAt("", 0);
+        comboCategoria.insertElementAt("", 0);
+        comboFornecedor.insertElementAt("", 0);
+        comboItem.insertElementAt("", 0);
         for(int i=1;i<cat.listarCategorias().size()+1;i++){
-            combo.insertElementAt(cat.listarCategorias().get(i-1).getNome(), i);
+            comboCategoria.insertElementAt(cat.listarCategorias().get(i-1).getNome(), i);            
+        }
+        for(int i=1;i<forn.listarFornecedor().size()+1;i++){
+            comboFornecedor.insertElementAt(forn.listarFornecedor().get(i-1).getRazaosocial(), i);
             
         }
         
@@ -268,7 +283,9 @@ private void limpaTabela(){
  } 
 
 private void limpaComboBox(){
-        combo.removeAllElements();
+        comboCategoria.removeAllElements();
+        comboFornecedor.removeAllElements();
+        comboItem.removeAllElements();
         
 } 
 
@@ -288,22 +305,19 @@ private void limpaComboBox(){
 
     @Override
     public void actionPerformed(ActionEvent e) {
-         if(e.getSource()==telaItem.getjBoxLetra()){  
-            System.out.println("selecionou a letra:  "+ telaItem.getjBoxLetra().getSelectedItem().toString());
-                try {
-                    int item = telaItem.itemSelecionado();
+         if(e.getSource()==tela.getjComboCategoria()){  
+             System.out.println("escutou ação");
+                    int item = tela.itemCategoriaSelecionado();
                     if(item > 0){
+                        List<ItemMaterial> itens= new ArrayList <ItemMaterial>();
                         int id_cat=cat.listarCategorias().get(item-1).getId();
-                        telaItem.getjUltimoCodigo().setText(rn.buscarUltimoCod(
-                                telaItem.getjBoxLetra().getSelectedItem().toString(),
-                                id_cat));
-                    }
-                } catch (SQLException ex) {
-                    Logger.getLogger(ControleItem.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                        itens=it.buscaPorCategoria(id_cat);
+                         for(int i=1;i<itens.size()+1;i++){
+                           comboItem.insertElementAt(itens.get(i).getDescricao(), i);            
+                          }                        
+                    }              
             }
     }
-    
-    
-    
+
+  
 }

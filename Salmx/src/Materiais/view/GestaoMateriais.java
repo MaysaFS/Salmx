@@ -7,10 +7,10 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 
 
-public class TelaEstoque extends javax.swing.JPanel {
+public class GestaoMateriais extends javax.swing.JPanel {
 
  
-    public TelaEstoque() {
+    public GestaoMateriais() {
         initComponents();
     }
 
@@ -20,6 +20,14 @@ public class TelaEstoque extends javax.swing.JPanel {
 
     public void setjLabelCadEntrada(JLabel jLabelCadEntrada) {
         this.jLabelCadEntrada = jLabelCadEntrada;
+    }
+
+    public JLabel getJLabelTextValor() {
+        return JLabelTextValor;
+    }
+
+    public void setJLabelTextValor(JLabel JLabelTextValor) {
+        this.JLabelTextValor = JLabelTextValor;
     }
 
     public JLabel getjLabelMostraValorTotalEstoque() {
@@ -147,24 +155,24 @@ public class TelaEstoque extends javax.swing.JPanel {
         jTableEstoqueList.setForeground(new java.awt.Color(153, 153, 153));
         jTableEstoqueList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Codigo", "Descrição", "Quantidade", "Subtotal"
+                "Codigo", "Descrição", "Quantidade", "Subtotal", "Categoria"
             }
         ));
         jTableEstoqueList.setGridColor(new java.awt.Color(153, 153, 153));

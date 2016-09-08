@@ -9,6 +9,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,7 +45,7 @@ public class EntradaDAO {
            pst.setDouble(7,ent.getSubtotal());
            pst.setInt(8,ent.getEstoque());
            pst.setDouble(9,ent.getSaldo_atual());
-           pst.setDate(10, (Date) ent.getDt_compra());
+           pst.setDate(10, (Date)ent.getDt_compra());
            pst.setDate(11, (Date) ent.getDt_validade());
            pst.setInt(12,ent.getItem().getId());
            pst.setInt(13,ent.getFornecedor().getCodigo());
@@ -114,12 +115,8 @@ public class EntradaDAO {
         pst.close();
         return ent;
     }
-    
-    
-    
-
     public List<Entrada> listarEntradas(){
-        String str= "select * from entrada  as e inner join item as i inner join fornecedor as f on e.item = i.id and e.fornecedor=f.codigo order by id";
+        String str= "select * from entrada  as e inner join item as i inner join fornecedor as f on e.item = i.id and e.fornecedor=f.codigo order by e.id";
         entradas = new ArrayList <Entrada>();
         try {
            PreparedStatement pst= conexao.prepareStatement(str);
@@ -134,12 +131,14 @@ public class EntradaDAO {
                ent.setQuantidade(rst.getInt("e.quantidade"));
                ent.setSubtotal(rst.getDouble("e.valor_total"));
                ent.setEstoque(rst.getInt("e.estoque"));
+               ent.setSaldo_atual(rst.getDouble("e.saldo_atual"));
+               ent.setObservacao(rst.getString("e.observacao"));
                ent.getItem().setId(rst.getInt("e.item"));
-               ent.getItem().setDescricao(rst.getString("e.descricao"));
+               ent.getItem().setDescricao(rst.getString("i.descricao"));
                ent.getFornecedor().setCodigo(rst.getInt("e.fornecedor"));  
                ent.getFornecedor().setRazaosocial(rst.getString("f.razaosocial"));
                ent.getFornecedor().setCnpj(rst.getString("f.cnpj"));
-               ent.setSaldo_atual(rst.getDouble("e.saldo_atual"));
+               
                
                entradas.add(ent);
            }           
@@ -152,6 +151,25 @@ public class EntradaDAO {
         }
         
     }
+     public boolean excluirEntrada(int cod){
+        boolean result= false;
+         String sql= "delete from entrada where id = ?";        
+        try {
+            Entrada entrada= buscarEntrada(cod);
+            if(entrada.getId()>0){
+                PreparedStatement pst= conexao.prepareStatement(sql);
+                 pst.setInt(1,cod);
+                 result= pst.execute();
+                pst.close();
+            }else{
+                System.out.println("nao foi possivel excluir");
+            }
+        return result;
+        } catch (Exception e) {
+            System.out.println("nao foi possivel excluir\n"+e);
+            throw new RuntimeException(e);
+        }
+     }
     
     
 }

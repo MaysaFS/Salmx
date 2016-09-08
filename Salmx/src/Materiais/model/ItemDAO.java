@@ -154,11 +154,32 @@ public class ItemDAO {
         } catch (Exception e) {
             System.out.println("nao foi possivel excluir\n"+e);
             throw new RuntimeException(e);
+        }       
+    }
+    public List<ItemMaterial> buscaPorCategoria(int id_cat){
+        String str= "select * from item  as i inner join categoria as c on i.categoria = c.id where categoria = ? order by descricao";
+        itens = new ArrayList <ItemMaterial>();
+        try {
+           PreparedStatement pst= conexao.prepareStatement(str);
+            pst.setInt(1,id_cat);
+           ResultSet rst= pst.executeQuery();
+           while(rst.next()){
+               ItemMaterial item= new ItemMaterial();
+               item.setId(rst.getInt("i.id"));
+               item.setCodigo(rst.getString("i.codigo"));
+               item.setDescricao(rst.getString("i.descricao"));
+               item.getCategoria().setId(rst.getInt("i.categoria"));
+               item.getCategoria().setCodigo(rst.getString("c.codigo"));
+               item.getCategoria().setNome(rst.getString("c.nome"));
+               itens.add(item);
+           }           
+           rst.close();
+           pst.close();
+        return itens;
+        } catch (Exception e) {
+            System.out.println("erro ao buscar!\n"+e);
+            throw new RuntimeException(e);
         }
-       
-        
-        
-        
     }
     
-}
+  }

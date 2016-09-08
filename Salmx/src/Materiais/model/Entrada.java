@@ -17,8 +17,8 @@ public class Entrada {
     private String codigo;
     private String notaFiscal;
     private String empenho;
-    private Date dt_compra;
-    private Date dt_validade;
+    private Date dt_compra= new Date();
+    private Date dt_validade= new Date();
     private double pr_unit;
     private int quantidade;
     private double subtotal;
