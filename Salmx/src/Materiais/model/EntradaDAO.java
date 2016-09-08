@@ -87,6 +87,23 @@ public class EntradaDAO {
         }
          
     }
+    
+     public int  buscarUltimoIdEntrada(String codItem) throws SQLException{
+        int ultimoid = 0;
+        System.out.println("codigo item"+codItem);
+        String sql= "select max(e.id) from entrada as e inner join item as i on e.item=i.id where i.codigo=?";
+        PreparedStatement pst= conexao.prepareStatement(sql);
+        pst.setString(1,codItem);
+        ResultSet rst= pst.executeQuery();
+        while(rst.next()){
+            ultimoid=rst.getInt("max(e.id)");
+            
+        }
+        rst.close();
+        pst.close();
+        return ultimoid;
+    }
+    
     public Entrada buscarEntrada(int cod) throws SQLException{
         Entrada ent=new Entrada();
             
