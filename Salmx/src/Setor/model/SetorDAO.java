@@ -56,6 +56,32 @@ public class SetorDAO {
         pst.close();
         return s;
     }
+    
+    public List<Setor> buscarSetor(String nome){
+        String concatena='%'+nome+'%';
+        List<Setor> setores=new ArrayList<Setor>();
+        Setor s = new Setor();
+        String sql= "select * from setor where nome like ?";
+        try{   
+            PreparedStatement pst= conexao.prepareStatement(sql);
+            pst.setString(1,concatena);
+            ResultSet rst= pst.executeQuery();
+            while(rst.next()){
+                s.setCodigo(rst.getInt("codigo"));
+                s.setNome(rst.getString("nome"));
+                s.setRamal(rst.getString("ramal"));
+                s.setObservacao(rst.getString("observacao"));
+                
+                setores.add(s);
+            }
+            rst.close();
+            pst.close();
+            return setores;
+        }catch(SQLException e){
+            System.out.println("erro ao buscar!\n"+e);
+            throw new RuntimeException(e); 
+        }
+    }
     public void editarSetor(Setor s){
        String str= "update setor set nome = ?,ramal = ?, observacao = ? where codigo = ? ";
        try{

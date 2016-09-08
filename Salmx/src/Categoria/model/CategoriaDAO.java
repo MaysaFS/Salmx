@@ -47,6 +47,30 @@ public class CategoriaDAO {
         pst.close();
         return s;
     }
+    
+    public List<Categoria> buscarCategoria(String nome){
+        String concatena='%'+nome+'%';
+        List<Categoria> cats=new ArrayList<Categoria>();
+        Categoria c = new Categoria();
+        String sql= "select * from categoria where nome like ?";
+        try{   
+            PreparedStatement pst= conexao.prepareStatement(sql);
+            pst.setString(1,concatena);
+            ResultSet rst= pst.executeQuery();
+            while(rst.next()){
+                c.setId(rst.getInt("id"));
+                c.setCodigo(rst.getString("codigo"));
+                c.setNome(rst.getString("nome"));
+                cats.add(c);
+            }
+            rst.close();
+            pst.close();
+            return cats;
+        }catch(SQLException e){
+            System.out.println("erro ao buscar!\n"+e);
+            throw new RuntimeException(e); 
+        }
+    }
     public int buscarCategoriaIndex(int id) throws SQLException{
         int index=-1;
         listarCategorias();

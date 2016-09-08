@@ -17,6 +17,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
@@ -228,20 +230,36 @@ public class ControleItem implements MouseListener, ActionListener {
       boolean buscar=false;
       limpaTabela(); 
       if(gItem.getjTextBuscaMaterial().getText().equals("")==false){
-         for(int i=0;i<rn.listarItem().size();i++){
-            if(rn.listarItem().get(i).getDescricao().equalsIgnoreCase(gItem.getjTextBuscaMaterial().getText())){
+          List<ItemMaterial> item=new ArrayList <ItemMaterial>();
+         if(rn.buscaPorDescricao(gItem.getjTextBuscaMaterial().getText())!=null){
+             item=rn.buscaPorDescricao(gItem.getjTextBuscaMaterial().getText());
+             for(int i=0;i<item.size();i++){
+            
                 addTabela(
-                        rn.listarItem().get(i).getCodigo(),
-                        rn.listarItem().get(i).getDescricao(),
-                        rn.listarItem().get(i).getCategoria().getNome()
+                        item.get(i).getCodigo(),
+                        item.get(i).getDescricao(),
+                        item.get(i).getCategoria().getNome()
                         );
                 buscar=true;
             }       
-         }
-         if(buscar==false){
-             JOptionPane.showMessageDialog(gItem,"item não encontrado!"); 
-             listaDados();
-         }
+         }else{
+            if(rn.buscaPorCategoria(gItem.getjTextBuscaMaterial().getText())!=null){
+                        item=rn.buscaPorCategoria(gItem.getjTextBuscaMaterial().getText());
+                        for(int i=0;i<item.size();i++){            
+                                addTabela(
+                                    item.get(i).getCodigo(),
+                                    item.get(i).getDescricao(),
+                                    item.get(i).getCategoria().getNome());
+                                buscar=true;
+                        }
+                                
+            }else{
+                if(buscar==false){
+                JOptionPane.showMessageDialog(gItem,"item não encontrado!"); 
+                listaDados();
+                }
+            }
+        }
       }else{
           listaDados();
        }

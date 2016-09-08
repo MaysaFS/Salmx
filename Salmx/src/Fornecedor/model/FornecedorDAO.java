@@ -73,6 +73,36 @@ public class FornecedorDAO {
          }
     }
     
+    public List<Fornecedor>  buscarFornecedor(String nome){
+        String concatenada='%'+nome+'%';
+        List<Fornecedor> fornecedor= new  ArrayList<Fornecedor>();
+        Fornecedor f= new Fornecedor();
+        String sql="select * from fornecedor where razaosocial like ?";
+        try{
+            
+            PreparedStatement pst=conexao.prepareStatement(sql);
+            pst.setString(1,concatenada);
+            ResultSet rst= pst.executeQuery();
+
+            while(rst.next()){
+                f.setCodigo(rst.getInt("codigo"));
+                f.setRazaosocial(rst.getString("razaosocial"));
+                f.setCnpj(rst.getString("cnpj"));
+                f.setInscricaoestadual(rst.getString("inscr_estad"));
+                f.setTelefone1(rst.getString("telefoneI"));
+                f.setTelefoneII(rst.getString("telefoneII"));
+                f.getEndereço().setId(rst.getInt("endereco"));
+                f.setEndereço(buscarEndereco(f.getEndereço().getId()));
+                fornecedor.add(f);
+            }
+             rst.close();
+             pst.close();
+             return fornecedor;
+        }catch(Exception e){
+            System.out.println("erro ao buscar!\n"+e);
+            throw new RuntimeException(e);
+        }
+    } 
     public Fornecedor buscarFornecedor(int codigo)throws SQLException{
         Fornecedor f= new Fornecedor();
         String sql="select * from fornecedor where codigo= ?";

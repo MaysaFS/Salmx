@@ -15,6 +15,8 @@ import Setor.view.GSetor;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
@@ -164,15 +166,18 @@ public class ControleSetor implements MouseListener {
       boolean buscar=false;
       limpaTabela(); 
       if(gSetor.getjTextBuscaSetor().getText().equals("")==false){
-         for(int i=0;i<rn.listarSetor().size();i++){
-            if(rn.listarSetor().get(i).getNome().equalsIgnoreCase(gSetor.getjTextBuscaSetor().getText())){
-                addTabela(
-                        rn.listarSetor().get(i).getNome(),
-                        rn.listarSetor().get(i).getRamal(),
-                        rn.listarSetor().get(i).getObservacao()
-                        );
-                buscar=true;
-            }       
+          List<Setor> set=new ArrayList<Setor>();
+         if(rn.buscarSetor(gSetor.getjTextBuscaSetor().getText())!=null){
+            set=rn.buscarSetor(gSetor.getjTextBuscaSetor().getText());
+             for(int i=0;i<set.size();i++){
+
+                  addTabela(
+                          set.get(i).getNome(),
+                          set.get(i).getRamal(),
+                          set.get(i).getObservacao()
+                          );
+                  buscar=true;
+              }       
          }
          if(buscar==false){
              JOptionPane.showMessageDialog(gSetor,"Setor não encontrado!"); 

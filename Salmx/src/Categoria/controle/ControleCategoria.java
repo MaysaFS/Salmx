@@ -11,6 +11,8 @@ import Categoria.view.JDTelaCat;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
 import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
@@ -164,14 +166,17 @@ public class  ControleCategoria implements MouseListener {
       boolean buscar=false;
       limpaTabela(); 
       if(gtCat.getCxBuscar().getText().equals("")==false){
-         for(int i=0;i<rn.listarCategorias().size();i++){
-            if(rn.listarCategorias().get(i).getNome().equalsIgnoreCase(gtCat.getCxBuscar().getText())){
-                addTabela(
-                        rn.listarCategorias().get(i).getCodigo(),
-                        rn.listarCategorias().get(i).getNome()
-                        );
-                buscar=true;
-            }       
+         List<Categoria> cat=new ArrayList<Categoria>();
+          if(rn.buscarCategoria(gtCat.getCxBuscar().getText())!=null){
+              cat=rn.buscarCategoria(gtCat.getCxBuscar().getText());
+              for(int i=0;i<cat.size();i++){
+
+                  addTabela(
+                          cat.get(i).getCodigo(),
+                          cat.get(i).getNome()
+                          );
+                  buscar=true;
+              }       
          }
          if(buscar==false){
              JOptionPane.showMessageDialog(gtCat,"Categoria não encontrada!"); 

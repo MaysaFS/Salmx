@@ -10,6 +10,8 @@ import Fornecedor.view.NovoFornecedor;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
@@ -200,16 +202,19 @@ public class ControleFornecedor implements MouseListener {
       boolean buscar=false;
       limpaTabela(); 
       if(gfornecedor.getjTextFieldPesquisa().getText().equals("")==false){
-         for(int i=0;i<rn.listarFornecedor().size();i++){
-            if(rn.listarFornecedor().get(i).getRazaosocial().equalsIgnoreCase(gfornecedor.getjTextFieldPesquisa().getText())){
+          List<Fornecedor> forn=new ArrayList <Fornecedor>();
+          if(rn.buscarFornecedor(gfornecedor.getjTextFieldPesquisa().getText())!=null){ 
+              forn=rn.buscarFornecedor(gfornecedor.getjTextFieldPesquisa().getText());
+              for(int i=0;i<forn.size();i++){
+            
                 addTabela(
-                    rn.listarFornecedor().get(i).getCodigo(),
-                    rn.listarFornecedor().get(i).getRazaosocial(),
-                    rn.listarFornecedor().get(i).getCnpj(),
-                    rn.listarFornecedor().get(i).getInscricaoestadual(),
-                    rn.listarFornecedor().get(i).getEmail(),
-                    rn.listarFornecedor().get(i).getTelefone1(),
-                    rn.listarFornecedor().get(i).getTelefoneII()
+                    forn.get(i).getCodigo(),
+                    forn.get(i).getRazaosocial(),
+                    forn.get(i).getCnpj(),
+                    forn.get(i).getInscricaoestadual(),
+                    forn.get(i).getEmail(),
+                    forn.get(i).getTelefone1(),
+                    forn.get(i).getTelefoneII()
                     
                     );
                 buscar=true;
