@@ -369,8 +369,20 @@ public class NovoFornecedor extends javax.swing.JDialog {
         jTextFieldEmail = new javax.swing.JTextField();
         jLabelTelefoneI = new javax.swing.JLabel();
         jTextFieldTelefone1 = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter tel = new javax.swing.text.MaskFormatter("(##) #####-####");
+
+            jTextFieldTelefone1 = new javax.swing.JFormattedTextField(tel);
+        }catch(Exception e){
+        }
         jLabelTelefoneII = new javax.swing.JLabel();
         jTextFieldTelefoneII = new javax.swing.JTextField();
+        try{
+            javax.swing.text.MaskFormatter tel = new javax.swing.text.MaskFormatter("(##) #####-####");
+
+            jTextFieldTelefoneII = new javax.swing.JFormattedTextField(tel);
+        }catch(Exception e){
+        }
         jLabelRua = new javax.swing.JLabel();
         jLabelNumeroEnd = new javax.swing.JLabel();
         jTextFieldRua = new javax.swing.JTextField();
