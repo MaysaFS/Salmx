@@ -163,6 +163,7 @@ public class ControleTelaEstoque implements MouseListener{
             );
                                 
           }
+        
     }
     
 private void limpaTabela(){

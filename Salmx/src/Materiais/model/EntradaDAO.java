@@ -9,6 +9,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +32,7 @@ public class EntradaDAO {
     }
     
     public  void salvarEntrada(Entrada ent){
+        
             String str= "insert into entrada(id,codigo,nota_fiscal,num_empenho,preco_unit,quantidade,"
                     + "valor_total,estoque,saldo_atual,dt_compra,dt_validade,item,fornecedor,observacao)" 
                     + "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";        
@@ -45,8 +47,10 @@ public class EntradaDAO {
            pst.setDouble(7,ent.getSubtotal());
            pst.setInt(8,ent.getEstoque());
            pst.setDouble(9,ent.getSaldo_atual());
-           pst.setDate(10, (Date)ent.getDt_compra());
-           pst.setDate(11, (Date) ent.getDt_validade());
+           SimpleDateFormat iso = new SimpleDateFormat("yyyy-mm-DD");
+           System.out.println(iso.format(ent.getDt_compra()));
+           pst.setString(10,iso.format(ent.getDt_compra()));
+           pst.setString(11,iso.format(ent.getDt_validade()));
            pst.setInt(12,ent.getItem().getId());
            pst.setInt(13,ent.getFornecedor().getCodigo());
            pst.setString(14,ent.getObservacao());
@@ -74,8 +78,9 @@ public class EntradaDAO {
            pst.setDouble(7,ent.getSubtotal());
            pst.setInt(8,ent.getEstoque());
            pst.setDouble(9,ent.getSaldo_atual());
-           pst.setDate(10, (Date) ent.getDt_compra());
-           pst.setDate(11, (Date) ent.getDt_validade());
+           SimpleDateFormat iso = new SimpleDateFormat("yyyy-mm-DD");
+           pst.setString(10, iso.format(ent.getDt_compra()));
+           pst.setString(11,iso.format(ent.getDt_validade()));
            pst.setInt(12,ent.getItem().getId());
            pst.setInt(13,ent.getFornecedor().getCodigo());
            pst.setString(14,ent.getObservacao());
@@ -104,7 +109,7 @@ public class EntradaDAO {
         return ultimoid;
     }
     
-    public Entrada buscarEntrada(int cod) throws SQLException{
+    public Entrada buscarEntrada(int cod) throws SQLException, ParseException{
         Entrada ent=new Entrada();
             
         String sql= "select * from entrada where id= ?";
@@ -121,8 +126,9 @@ public class EntradaDAO {
             ent.setSubtotal(rst.getDouble("valor_total"));
             ent.setEstoque(rst.getInt("estoque"));
             ent.setSaldo_atual(rst.getDouble("saldo_atual"));
-            ent.setDt_compra(rst.getDate("dt_compra"));
-            ent.setDt_validade(rst.getDate("dt_validade"));
+            SimpleDateFormat iso = new SimpleDateFormat("yyyy-mm-DD");
+            ent.setDt_compra(iso.parse(rst.getString("dt_compra")));
+            ent.setDt_validade(iso.parse(rst.getString("dt_validade")));
             ent.getItem().setId(rst.getInt("item"));
             ent.getFornecedor().setCodigo(rst.getInt("fornecedor"));
             ent.setObservacao(rst.getString("observacao"));

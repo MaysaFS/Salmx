@@ -309,7 +309,7 @@ public class TelaItem extends javax.swing.JDialog {
     }
 public int itemSelecionado(){
         if(jBoxCategoria.getSelectedIndex()<1){
-            JOptionPane.showMessageDialog(this, "Selecione um item");
+            //JOptionPane.showMessageDialog(this, "Selecione um item");
         } 
         return jBoxCategoria.getSelectedIndex();
     }

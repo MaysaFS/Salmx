@@ -108,6 +108,7 @@ public class ControleLogin implements ActionListener, MouseListener {
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == login.getjLabelLogin()) {
             validaAcesso();
+            validaLogin();
 
         }
         if (e.getSource() == login.getjLabelErroOK()) {

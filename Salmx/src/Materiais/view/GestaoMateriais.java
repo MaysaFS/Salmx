@@ -126,7 +126,7 @@ public class GestaoMateriais extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("CONTROLE ESTOQUE");
+        jLabel1.setText("GESTAO DE MATERIAIS");
 
         jLabelVoltar.setBackground(new java.awt.Color(255, 0, 0));
         jLabelVoltar.setForeground(new java.awt.Color(255, 255, 255));
@@ -250,11 +250,11 @@ public class GestaoMateriais extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabelCadEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jlabelSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jlabelItens, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         JLabelTextValor.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N

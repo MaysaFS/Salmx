@@ -47,6 +47,7 @@ public class EntradaItem extends javax.swing.JDialog {
     }
   public void limpaTela(){
         JTextFieldEmpenho.setText("");
+        JTextFieldNotaFiscal1.setText("");
         JTextFieldDt_Validade.setText("");
         JTextFieldPrec_Unit.setText("");
         JTextFieldQuantid.setText("");
@@ -90,25 +91,25 @@ public class EntradaItem extends javax.swing.JDialog {
   }
   public int itemCategoriaSelecionado(){
         if(jComboCategoria.getSelectedIndex()<1){
-            JOptionPane.showMessageDialog(this, "Selecione um item");
+         //   JOptionPane.showMessageDialog(this, "Selecione um item de categoria");
         } 
         return jComboCategoria.getSelectedIndex();
     }
   public int itemSelecionado(){
         if(jTableEntradas.getSelectedRow()<0){
-            JOptionPane.showMessageDialog(this, "Selecione um item");
+            JOptionPane.showMessageDialog(this, "Selecione um item na tabela");
         } 
         return jTableEntradas.getSelectedRow();
     }
   public int itemFornecedorSelecionado(){
         if( jComboFornecedor.getSelectedIndex()<1 ){
-            JOptionPane.showMessageDialog(this, "Selecione um item");
+            JOptionPane.showMessageDialog(this, "Selecione um item de fornecedor");
         } 
         return jComboFornecedor.getSelectedIndex();
     }
   public int itemMaterialSelecionado(){
         if( jComboItem.getSelectedIndex()<1){
-            JOptionPane.showMessageDialog(this, "Selecione um item");
+          //  JOptionPane.showMessageDialog(this, "Selecione um item de material");
         } 
         return jComboItem.getSelectedIndex();
     }
@@ -128,13 +129,7 @@ public class EntradaItem extends javax.swing.JDialog {
         this.JTextFieldEmpenho = JTextFieldEmpenho;
     }
 
-    public JTextField getJTextFieldNotaFiscal() {
-        return JTextFieldDt_Validade;
-    }
-
-    public void setJTextFieldNotaFiscal(JTextField JTextFieldNotaFiscal) {
-        this.JTextFieldDt_Validade = JTextFieldNotaFiscal;
-    }
+    
 
     public JTextField getJTextFieldPrec_Unit() {
         return JTextFieldPrec_Unit;
@@ -214,12 +209,12 @@ public class EntradaItem extends javax.swing.JDialog {
 
    
 
-    public JLabel getJLabelAdd1() {
-        return JLabelAdd1;
+    public JLabel getJLabelAdd() {
+        return JLabelAdd;
     }
 
-    public void setJLabelAdd1(JLabel JLabelAdd1) {
-        this.JLabelAdd1 = JLabelAdd1;
+    public void setJLabelAdd(JLabel JLabelAdd) {
+        this.JLabelAdd = JLabelAdd;
     }
 
     public JLabel getJLabelDel() {
@@ -245,6 +240,15 @@ public class EntradaItem extends javax.swing.JDialog {
     public void setjTableEntradas(JTable jTableEntradas) {
         this.jTableEntradas = jTableEntradas;
     }
+
+    public JTextField getJTextFieldNotaFiscal1() {
+        return JTextFieldNotaFiscal1;
+    }
+
+    public void setJTextFieldNotaFiscal1(JTextField JTextFieldNotaFiscal1) {
+        this.JTextFieldNotaFiscal1 = JTextFieldNotaFiscal1;
+    }
+    
  public static void main(String args[]) {
         /*
          * Set the Nimbus look and feel
@@ -320,7 +324,7 @@ public class EntradaItem extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableEntradas = new javax.swing.JTable();
         JLabelEdit = new javax.swing.JLabel();
-        JLabelAdd1 = new javax.swing.JLabel();
+        JLabelAdd = new javax.swing.JLabel();
         JLabelDel = new javax.swing.JLabel();
         JTextFieldNotaFiscal1 = new javax.swing.JTextField();
         JTextFieldDt_compra = new javax.swing.JTextField();
@@ -532,12 +536,12 @@ public class EntradaItem extends javax.swing.JDialog {
         JLabelEdit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         JLabelEdit.setOpaque(true);
 
-        JLabelAdd1.setBackground(new java.awt.Color(255, 102, 102));
-        JLabelAdd1.setForeground(new java.awt.Color(255, 255, 255));
-        JLabelAdd1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JLabelAdd1.setText("Adicionar");
-        JLabelAdd1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        JLabelAdd1.setOpaque(true);
+        JLabelAdd.setBackground(new java.awt.Color(255, 102, 102));
+        JLabelAdd.setForeground(new java.awt.Color(255, 255, 255));
+        JLabelAdd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JLabelAdd.setText("Adicionar");
+        JLabelAdd.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        JLabelAdd.setOpaque(true);
 
         JLabelDel.setBackground(new java.awt.Color(255, 102, 102));
         JLabelDel.setForeground(new java.awt.Color(255, 255, 255));
@@ -576,14 +580,13 @@ public class EntradaItem extends javax.swing.JDialog {
             .addGroup(jPanelBodyLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JLabelAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JLabelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jScrollPane1)
                         .addGroup(jPanelBodyLayout.createSequentialGroup()
                             .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanelBodyLayout.createSequentialGroup()
                                     .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(JLabel7, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelBodyLayout.createSequentialGroup()
                                             .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                 .addComponent(JLabelEmpenho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -617,10 +620,13 @@ public class EntradaItem extends javax.swing.JDialog {
                                                                 .addComponent(JLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                                     .addGap(0, 0, Short.MAX_VALUE))))
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelBodyLayout.createSequentialGroup()
-                                            .addGap(21, 21, 21)
-                                            .addComponent(JLabelEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(78, 78, 78)
-                                            .addComponent(JLabelDel, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(JLabel7, javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelBodyLayout.createSequentialGroup()
+                                                    .addComponent(JLabelEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(71, 71, 71)
+                                                    .addComponent(JLabelDel, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGap(0, 0, Short.MAX_VALUE)))
                                     .addGap(30, 30, 30))
                                 .addGroup(jPanelBodyLayout.createSequentialGroup()
                                     .addComponent(jObservacao)
@@ -673,16 +679,15 @@ public class EntradaItem extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(JLabelAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JLabelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelBodyLayout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(JLabelSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(JLabelEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(JLabelDel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JLabelEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JLabelDel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addComponent(JLabelSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -770,7 +775,7 @@ public class EntradaItem extends javax.swing.JDialog {
     private javax.swing.JLabel JLabel5;
     private javax.swing.JLabel JLabel6;
     private javax.swing.JLabel JLabel7;
-    private javax.swing.JLabel JLabelAdd1;
+    private javax.swing.JLabel JLabelAdd;
     private javax.swing.JLabel JLabelCategoria;
     private javax.swing.JLabel JLabelDel;
     private javax.swing.JLabel JLabelEdit;
