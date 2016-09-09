@@ -61,20 +61,7 @@ public class ItemDAO {
         rst.close();
         pst.close();
         return item;
-    }
-    public int buscarItemIndex(int id) throws SQLException{
-        int index=-1;
-        
-        listarItem();
-        for (int i = 0; i < itens_cat.size(); i++) {
-            if(itens_cat.get(i).getId()==id){                
-              index=i;  
-            }
-            
-        }
-        return index;
-        
-    }
+    }  
    
     public String buscarUltimoCod(String letra, int id_cat) throws SQLException{
         System.out.println("letra no DAO"+letra);

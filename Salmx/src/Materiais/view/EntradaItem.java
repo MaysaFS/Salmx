@@ -33,12 +33,12 @@ public class EntradaItem extends javax.swing.JDialog {
                 || JTextFieldPrec_Unit.getText().isEmpty()|| JTextFieldQuantid.getText().isEmpty()
                 || JTextFieldcodigo.getText().isEmpty()|| JTextFieldDt_Validade.getText().isEmpty()
                 || JTextFieldDt_compra.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Preencha os campos codigo e descricao");
+            JOptionPane.showMessageDialog(this, "Preencha todos os campos");
             return false;
         } else{
             if((jComboCategoria.getSelectedIndex()== 0) || (jComboFornecedor.getSelectedIndex()==0)
                 || jComboItem.getSelectedIndex()== 0){
-                 JOptionPane.showMessageDialog(this, "Preencha os campos codigo e descricao");
+                 JOptionPane.showMessageDialog(this, "Preencha todos os campos ");
              return false;
             }else{
             return true;

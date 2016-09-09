@@ -47,7 +47,8 @@ public class ControleEntrada implements MouseListener,ActionListener{
     private TelaPrincipal principal;    
     private EntradaDAO dao;    
     private boolean edit;    
-    private Connection conexao;    
+    private Connection conexao; 
+    private ControleTelaEstoque ce;
     private int id;
     CategoriaDAO cat;
     FornecedorDAO forn;
@@ -62,10 +63,10 @@ public class ControleEntrada implements MouseListener,ActionListener{
      List<ItemMaterial> itens= new ArrayList <ItemMaterial>();
      List<Entrada> entradas= new ArrayList <Entrada>();
 
-    public ControleEntrada(TelaPrincipal principal,Connection conexao) {
+    public ControleEntrada(TelaPrincipal principal,ControleTelaEstoque ce,Connection conexao) {
         
         tela = new EntradaItem(principal,true);
-        
+        this.ce=ce;
         this.principal = principal;
         
         this.conexao = conexao;
@@ -111,14 +112,17 @@ public class ControleEntrada implements MouseListener,ActionListener{
 @Override
     public void mouseClicked(MouseEvent e) {
          if(e.getSource() == tela.getJLabelAdd()){
-            try {
-                gravaDados();
-            } catch (SQLException ex) {
-                Logger.getLogger(ControleEntrada.class.getName()).log(Level.SEVERE, null, ex);
-            }
-             tela.limpaTela();
-             listaCategorias();
-             listaDados();   
+             if(tela.validaCampos()==true){
+                try {
+
+                    gravaDados();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ControleEntrada.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                tela.limpaTela();
+                listaCategorias();
+                listaDados(); 
+             }
                 
                               
         }        
@@ -140,6 +144,7 @@ public class ControleEntrada implements MouseListener,ActionListener{
              listaDados();
         } 
         if(e.getSource() == tela.getJLabelSalvar()){
+            ce.listaDados();
             tela.dispose();
             
         }

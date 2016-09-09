@@ -40,7 +40,7 @@ public class ControleTelaEstoque implements MouseListener{
     private int codigo;
     private  boolean edit;
     private  boolean delete;
-
+    double valorTotE;
 
     public ControleTelaEstoque(TelaPrincipal principal, ControlePrincipal cp, Connection conexao) {
         this.conexao = conexao;  
@@ -81,7 +81,7 @@ public class ControleTelaEstoque implements MouseListener{
     @Override
     public void mouseClicked(MouseEvent e) {
         if(e.getSource() == gmat.getjLabelCadEntrada()){
-            ControleEntrada ce= new ControleEntrada(principal, this.conexao); 
+            ControleEntrada ce= new ControleEntrada(principal,this,this.conexao); 
              
                     //  eventosNovoSetor();          
         }        
@@ -151,9 +151,11 @@ public class ControleTelaEstoque implements MouseListener{
         modelo.addRow(objects);
     }
 
-   private void listaDados() {
+protected void listaDados() {
+    valorTotE=0;
         limpaTabela();        
-        for(int i=0;i<dao.listarItensEstoque().size();i++){            
+        for(int i=0;i<dao.listarItensEstoque().size();i++){ 
+            this.valorTotE+=dao.listarItensEstoque().get(i).getSaldo_atual();
             addTabela(
                       dao.listarItensEstoque().get(i).getItem().getCodigo(),
                       dao.listarItensEstoque().get(i).getItem().getDescricao(),
@@ -163,7 +165,7 @@ public class ControleTelaEstoque implements MouseListener{
             );
                                 
           }
-        
+        gmat.getjLabelMostraValorTotalEstoque().setText(String.valueOf(valorTotE));
     }
     
 private void limpaTabela(){
