@@ -31,8 +31,8 @@ public class EntradaDAO {
        this.conexao=conexao;      
     }
     
-    public  void salvarEntrada(Entrada ent){
-        
+    public  int salvarEntrada(Entrada ent){
+        int id=0;
             String str= "insert into entrada(id,codigo,nota_fiscal,num_empenho,preco_unit,quantidade,"
                     + "valor_total,estoque,saldo_atual,dt_compra,dt_validade,item,fornecedor,observacao)" 
                     + "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";        
@@ -55,7 +55,15 @@ public class EntradaDAO {
            pst.setInt(13,ent.getFornecedor().getCodigo());
            pst.setString(14,ent.getObservacao());
            pst.execute();
+           ResultSet rsID = pst.getGeneratedKeys();
+             
+             if (rsID.next()) {
+                   id = rsID.getInt(1);            
+                    System.out.println("Id gerado pelo insert foi " + id);	                  
+              }
+           
            pst.close();
+           return id;
         }catch(SQLException e){
            System.out.println("Nao foi possivel inserir!"+ e);
            throw new RuntimeException(e); 
@@ -64,30 +72,30 @@ public class EntradaDAO {
     }
     
      public  void editarEntrada(Entrada ent){
-            String str= "update entrada set id= ?, codigo=?,nota_fiscal=?,num_empenho=?,preco_unit=?,quantidade=?,"
-                    + "valor_total=?,estoque=?,saldo_atual=?,dt_compra=?,dt_validade=?,item=?,fornecedor=?,observacao=?)" ;
+            String str= "update entrada set codigo = ?,nota_fiscal=?,num_empenho=?,preco_unit=?,quantidade=?,"
+                    + "valor_total=?,estoque=?,saldo_atual=?,dt_compra=?,dt_validade=?,item=?,fornecedor=?,observacao=? where id = ? " ;
                            
         try{
            PreparedStatement pst= conexao.prepareStatement(str);
-           pst.setInt(1,ent.getId());
-           pst.setString(2,ent.getCodigo());
-           pst.setString(3,ent.getNotaFiscal());
-           pst.setString(4,ent.getEmpenho());
-           pst.setDouble(5,ent.getPr_unit());
-           pst.setInt(6,ent.getQuantidade());
-           pst.setDouble(7,ent.getSubtotal());
-           pst.setInt(8,ent.getEstoque());
-           pst.setDouble(9,ent.getSaldo_atual());
+           pst.setString(1,ent.getCodigo());
+           pst.setString(2,ent.getNotaFiscal());
+           pst.setString(3,ent.getEmpenho());
+           pst.setDouble(4,ent.getPr_unit());
+           pst.setInt(5,ent.getQuantidade());
+           pst.setDouble(6,ent.getSubtotal());
+           pst.setInt(7,ent.getEstoque());
+           pst.setDouble(8,ent.getSaldo_atual());
            SimpleDateFormat iso = new SimpleDateFormat("yyyy-mm-DD");
-           pst.setString(10, iso.format(ent.getDt_compra()));
-           pst.setString(11,iso.format(ent.getDt_validade()));
-           pst.setInt(12,ent.getItem().getId());
-           pst.setInt(13,ent.getFornecedor().getCodigo());
-           pst.setString(14,ent.getObservacao());
+           pst.setString(9, iso.format(ent.getDt_compra()));
+           pst.setString(10,iso.format(ent.getDt_validade()));
+           pst.setInt(11,ent.getItem().getId());
+           pst.setInt(12,ent.getFornecedor().getCodigo());
+           pst.setString(13,ent.getObservacao());
+           pst.setInt(14,ent.getId());
            pst.execute();
            pst.close();
         }catch(SQLException e){
-           System.out.println("Nao foi possivel inserir!"+ e);
+           System.out.println("Nao foi possivel editar!"+ e);
            throw new RuntimeException(e); 
         }
          

@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,10 +20,13 @@ import java.util.List;
 public class ItemDAO {
      private Connection conexao;
     private List<ItemMaterial> itens;
-   
+   private List<ItemMaterial> itens_cat;
     
     public ItemDAO(Connection conexao) {
-       this.conexao=conexao;      
+       this.conexao=conexao; 
+       
+       itens_cat= new ArrayList<ItemMaterial>();
+
     }
     
     public  void salvarItem(ItemMaterial i){
@@ -60,9 +64,10 @@ public class ItemDAO {
     }
     public int buscarItemIndex(int id) throws SQLException{
         int index=-1;
+        
         listarItem();
-        for (int i = 0; i < itens.size(); i++) {
-            if(itens.get(i).getId()==id){                
+        for (int i = 0; i < itens_cat.size(); i++) {
+            if(itens_cat.get(i).getId()==id){                
               index=i;  
             }
             
@@ -70,6 +75,7 @@ public class ItemDAO {
         return index;
         
     }
+   
     public String buscarUltimoCod(String letra, int id_cat) throws SQLException{
         System.out.println("letra no DAO"+letra);
         String ultimo="";
@@ -187,7 +193,7 @@ public class ItemDAO {
         String concatena='%'+nome+'%';
         
         String str= "select * from item  as i inner join categoria as c on i.categoria = c.id where c.nome like ?";
-        itens = new ArrayList <ItemMaterial>();
+        itens_cat.clear();
         try {
            PreparedStatement pst= conexao.prepareStatement(str);
             pst.setString(1,concatena);
@@ -200,11 +206,11 @@ public class ItemDAO {
                item.getCategoria().setId(rst.getInt("i.categoria"));
                item.getCategoria().setCodigo(rst.getString("c.codigo"));
                item.getCategoria().setNome(rst.getString("c.nome"));
-               itens.add(item);
+               itens_cat.add(item);
            }           
            rst.close();
            pst.close();
-        return itens;
+        return itens_cat;
         } catch (Exception e) {
             System.out.println("erro ao buscar!\n"+e);
             throw new RuntimeException(e);

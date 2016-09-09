@@ -105,7 +105,7 @@ public class FornecedorDAO {
     } 
     public Fornecedor buscarFornecedor(int codigo)throws SQLException{
         Fornecedor f= new Fornecedor();
-        String sql="select * from fornecedor where codigo= ?";
+        String sql="select * from fornecedor where codigo = ?";
         PreparedStatement pst=conexao.prepareStatement(sql);
         pst.setInt(1,codigo);
         ResultSet rst= pst.executeQuery();

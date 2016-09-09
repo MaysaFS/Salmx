@@ -116,7 +116,9 @@ public class ControleEntrada implements MouseListener,ActionListener{
             } catch (SQLException ex) {
                 Logger.getLogger(ControleEntrada.class.getName()).log(Level.SEVERE, null, ex);
             }
-                
+             tela.limpaTela();
+             listaCategorias();
+             listaDados();   
                 
                               
         }        
@@ -133,10 +135,13 @@ public class ControleEntrada implements MouseListener,ActionListener{
         }        
         if(e.getSource() == tela.getJLabelDel()){
              excluirItem();
+             tela.limpaTela();
              listaCategorias();
+             listaDados();
         } 
         if(e.getSource() == tela.getJLabelSalvar()){
             tela.dispose();
+            
         }
           
     }
@@ -169,18 +174,20 @@ public class ControleEntrada implements MouseListener,ActionListener{
             entrada.getFornecedor().setCodigo(forn.listarFornecedor().get(itemF-1).getCodigo());
             
             if(edit!=true){
-              dao.salvarEntrada(entrada); 
+              this.id=dao.salvarEntrada(entrada); 
               String d=it.buscarItem(entrada.getItem().getId()).getDescricao();
-              entrada.getItem().setDescricao(d);             
+              entrada.getItem().setDescricao(d);  
+              entrada.setId(id);
               entradas.add(entrada);
               
             }else{
-                entrada.setId(id);
+                entrada.setId(entradas.get(tela.itemSelecionado()).getId());
+                String d=it.buscarItem(entrada.getItem().getId()).getDescricao();                
                 dao.editarEntrada(entrada);
-                entradas.set(tela.itemMaterialSelecionado(),entrada);
+                entrada.getItem().setDescricao(d);
+                entradas.set(tela.itemSelecionado(),entrada);
             }            
-            listaDados();
-            tela.limpaTela();
+            
             edit=false; 
         } 
     }
@@ -192,15 +199,16 @@ public class ControleEntrada implements MouseListener,ActionListener{
         if(item >=0){
            int id_cat= it.buscarItem(entradas.get(item).getItem().getId()).getCategoria().getId();
             int id_forn= entradas.get(item).getFornecedor().getCodigo();
-            int id_item= entradas.get(item).getId();
-            
+            int id_item= entradas.get(item).getItem().getId();
+            System.out.println("id"+id_item);
             int indexC = cat.buscarCategoriaIndex(id_cat);
             int indexF = forn.buscarFornecedorIndex(id_forn);
-            int indexI=it.buscarItemIndex(id_item);
+            
             
             tela.getjComboCategoria().setSelectedIndex(indexC+1); 
             tela.getjComboFornecedor().setSelectedIndex(indexF+1);  
             
+            tela.getjComboItem().setSelectedIndex(indexItem(id_item)+1); 
             
            
             tela.getJTextFieldcodigo().setText(entradas.get(item).getCodigo());
@@ -215,12 +223,6 @@ public class ControleEntrada implements MouseListener,ActionListener{
             tela.getJTextFieldDt_Validade().setText(iso.format(entradas.get(item).getDt_validade()));
             tela.getJTextFieldPrec_Unit().setText(String.valueOf(entradas.get(item).getPr_unit()));
             
-            tela.getjComboCategoria().setSelectedIndex(indexC+1);
-            tela.getjComboFornecedor().setSelectedIndex(indexF+1);
-            tela.getjComboItem().setSelectedIndex(indexI+1);
-            
-                    
-          id=entradas.get(item).getId();
           
         } 
     } 
@@ -230,13 +232,23 @@ public class ControleEntrada implements MouseListener,ActionListener{
         if(item >= 0){
               id=entradas.get(item).getId();
               dao.excluirEntrada(id);
-              entradas.remove(tela.itemMaterialSelecionado());
+              entradas.remove(tela.itemSelecionado());
               tela.limpaTela();       
               
         }
             
     }
-   
+   private int indexItem(int id_it){
+       int index=0;
+       System.out.println("o id do item"+id_it);
+       for (int i = 0; i < itens.size(); i++) {
+           if(itens.get(i).getId()== id_it){
+               System.out.println("encontrou"+itens.get(i).getId()+"  "+i);
+               index=i;
+           }
+       }
+       return index;
+   }
   
  public final void addTabela(Object... objects) {
         modelo.addRow(objects);

@@ -58,7 +58,7 @@ public class EntradaItem extends javax.swing.JDialog {
         
         getjComboCategoria().setSelectedIndex(0);
         getjComboFornecedor().setSelectedIndex(0);
-        getjComboItem().setSelectedIndex(0);
+        
         
     }
   public void habilitaCampos(){
