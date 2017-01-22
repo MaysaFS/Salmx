@@ -64,8 +64,7 @@ public class ControleLogin implements ActionListener, MouseListener {
             if (usuario.getCodigo() > 0) {
                 if (usuario.getSenha().equals(strPass)) {
                     login.dispose();
-                    if (!usuario.getTipo()) {
-                        System.out.println("usuario padrao");
+                    if (usuario.getTipo() == false) {
                         pp.getUsuarios_Icone().setVisible(false);
                         pp.getUsuarios_Label().setVisible(false);
                     }
