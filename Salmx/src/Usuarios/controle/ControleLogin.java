@@ -16,9 +16,8 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.Arrays;
+
 
 public class ControleLogin implements ActionListener, MouseListener {
 
@@ -57,41 +56,41 @@ public class ControleLogin implements ActionListener, MouseListener {
     private void validaLogin() {
         Usuario usuario = new Usuario();
         boolean valida = login.validaCampos();
-        try {
-            usuario = usuarioDAO.buscarUsuario(login.getjTextFieldUser().getText());
-            if (valida) {
-                if (usuario.getCodigo() > 0) {
-                    if (usuario.getSenha().equals(login.getjPasswordFieldUserPass().getText())) {
-                        login.dispose();
-                        if (!usuario.getTipo()) {
-                            System.out.println("usuario padrao");
-                            pp.getUsuarios_Icone().setVisible(false);
-                            pp.getUsuarios_Label().setVisible(false);
-                        }
-                        principal.setVisible(true);
-
-                    } else {
-                        erro = "Senha incorreta";
+        usuario = usuarioDAO.buscarLogin(login.getjTextFieldUser().getText());
+        
+        String strPass = new String(login.getjPasswordFieldUserPass().getPassword()).trim();
+       
+        if (valida) {
+            if (usuario.getCodigo() > 0) {
+                if (usuario.getSenha().equals(strPass)) {
+                    login.dispose();
+                    if (!usuario.getTipo()) {
+                        System.out.println("usuario padrao");
+                        pp.getUsuarios_Icone().setVisible(false);
+                        pp.getUsuarios_Label().setVisible(false);
                     }
-
+                    principal.setVisible(true);
+                    
                 } else {
-                    erro = "Usuario não encontrado";
+                    erro = "Senha incorreta";
                 }
 
             } else {
-                erro = "Preencha todos os campos";
-            }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(ControleLogin.class.getName()).log(Level.SEVERE, null, ex);
+                erro = "Usuario não encontrado";
+           }
+            
+        } else {
+            erro = "Preencha todos os campos";
         }
+        
+        System.err.println(" ** "+erro);
         login.exibeErro(erro);
     }
 
     private void validaAcesso() {
         if (login.validaCampos() == true) {
             if (login.getjTextFieldUser().getText().equalsIgnoreCase("admin")
-                    && login.getjPasswordFieldUserPass().getText().equalsIgnoreCase("admin")) {
+                    && login.getjPasswordFieldUserPass().getText().equals("admin")) {
                 login.dispose();
                 principal.setVisible(true);
 

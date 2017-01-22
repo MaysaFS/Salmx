@@ -14,7 +14,6 @@ public class Usuario {
     private String login;
     private boolean tipo; //True para admnistrador e False para usuario comum 
     private String senha;
-    private String confirmaSenha;
     private int codigo;
 
     public void setCodigo(int codigo) {
@@ -53,18 +52,9 @@ public class Usuario {
         return senha;
     }
 
-    public String getConfirmaSenha() {
-        return confirmaSenha;
-    }
-
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
-    public void setConfirmaSenha(String confirmaSenha) {
-        this.confirmaSenha = confirmaSenha;
-    }
-    
-    
+   
     
 }

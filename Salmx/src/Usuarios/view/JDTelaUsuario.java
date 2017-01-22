@@ -23,48 +23,54 @@ public class JDTelaUsuario extends javax.swing.JDialog {
     public JDTelaUsuario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        ocultaErro(); 
+        ocultaErro();
         this.setLocationRelativeTo(null);
     }
-    public void exibeErro(String erro){
+
+    public void exibeErro(String erro) {
         jLabelErroOK.setVisible(true);
         jLabelErro.setText(erro);
-        
+
     }
-    public void ocultaErro(){
+
+    public void ocultaErro() {
         jLabelErro.setText("    ");
-        jLabelErroOK.setVisible(false);  
+        jLabelErroOK.setVisible(false);
     }
 
     private void iniciar() {
-        this.addWindowListener(new java.awt.event.WindowAdapter() {        
-            
+        this.addWindowListener(new java.awt.event.WindowAdapter() {
+
         });
         this.setLocationRelativeTo(null);
         //this.setBounds((screenSize.width-250)/2, (screenSize.height-250)/2, 250, 250);
     }
-    
-    public boolean validaCampos(){
-        if(jPasswordFieldSenha.getText().isEmpty() ||
-                jPasswordFieldConfirmaSenha.getText().isEmpty() ||
-                JTextFieldLogin.getText().isEmpty() ||
-                JTextFieldNome.getText().isEmpty()){
-                
-                exibeErro("Preencha todos os campos");
-                //JOptionPane.showMessageDialog(this, "Preencha todos os campos");
-                return false;
-            } else{
-                System.out.println("Todos os cmpos preenchidos");
-                return true;
-            }
-    
+
+    public boolean validaCampos() {
+        if (jPasswordFieldSenha.getPassword().length <= 0
+                || jPasswordFieldConfirmaSenha.getPassword().length <= 0
+                || JTextFieldLogin.getText().isEmpty()
+                || JTextFieldNome.getText().isEmpty()) {
+
+            System.err.println("\n ** Preencha todos os campos");
+            exibeErro("Preencha todos os campos");
+            //JOptionPane.showMessageDialog(this, "Preencha todos os campos");
+            return false;
+        } else {
+            System.out.println("\n ** Todos os campos preenchidos");
+            return true;
+        }
+
     }
-    public void limpaCampos(){
+
+    public void limpaCampos() {
         this.JTextFieldLogin.setText("");
         this.JTextFieldNome.setText("");
         this.jPasswordFieldSenha.setText("");
         this.jPasswordFieldConfirmaSenha.setText("");
         this.jRadioButtonUsrAdm.setEnabled(true);
+        this.jRadioButtonUsrPadrao.setEnabled(true);
+
     }
 
     public JPanel getjPanelBody() {
@@ -74,7 +80,7 @@ public class JDTelaUsuario extends javax.swing.JDialog {
     public void setjPanelBody(JPanel jPanelBody) {
         this.jPanelBody = jPanelBody;
     }
-    
+
     public JLabel getJLabelSalvar() {
         return JLabelSalvar;
     }
@@ -134,7 +140,7 @@ public class JDTelaUsuario extends javax.swing.JDialog {
     public void setjRadioButtonUsrPadrao(JRadioButton jRadioButtonUsrPadrao) {
         this.jRadioButtonUsrPadrao = jRadioButtonUsrPadrao;
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

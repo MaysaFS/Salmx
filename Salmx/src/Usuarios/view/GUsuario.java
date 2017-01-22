@@ -84,10 +84,6 @@ public class GUsuario extends javax.swing.JPanel {
         } 
         return jTableUsersList.getSelectedRow();
     }
-
-    
-
-    
     
     /**
      * This method is called from within the constructor to initialize the form.
