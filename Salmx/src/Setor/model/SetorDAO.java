@@ -34,8 +34,10 @@ public class SetorDAO {
            pst.setString(3,s.getObservacao());
            pst.execute();
            pst.close();
+           
         }catch(SQLException e){
            System.out.println("Nao foi possivel inserir!"+ e);
+           JOptionPane.showMessageDialog(null, "Nao foi possivel inserir! Por favor preencha os campos obrigatório");
            throw new RuntimeException(e); 
         }
          
@@ -58,25 +60,27 @@ public class SetorDAO {
     }
     
     public List<Setor> buscarSetor(String nome){
-        String concatena='%'+nome+'%';
-        List<Setor> setores=new ArrayList<Setor>();
-        Setor s = new Setor();
-        String sql= "select * from setor where nome like ?";
+        String concatena1='%'+nome+'%';
+        
+        setores=new ArrayList<Setor>();
+        
+        String sql= "select * from setor where nome like ? ";
         try{   
             PreparedStatement pst= conexao.prepareStatement(sql);
-            pst.setString(1,concatena);
+            pst.setString(1,concatena1);              
             ResultSet rst= pst.executeQuery();
+            
             while(rst.next()){
+                Setor s= new Setor();// essa linha tava ausente
                 s.setCodigo(rst.getInt("codigo"));
                 s.setNome(rst.getString("nome"));
                 s.setRamal(rst.getString("ramal"));
-                s.setObservacao(rst.getString("observacao"));
-                
-                setores.add(s);
+                s.setObservacao(rst.getString("observacao"));                
+                setores.add(s);               
             }
             rst.close();
             pst.close();
-            return setores;
+         return setores;
         }catch(SQLException e){
             System.out.println("erro ao buscar!\n"+e);
             throw new RuntimeException(e); 
@@ -97,10 +101,14 @@ public class SetorDAO {
                 pst.close();
                 
             }else{
-                System.out.println("lamento! não foi ossivel realizar a alteração");
+                System.out.println("lamento! não foi possivel realizar a alteração");
+                JOptionPane.showMessageDialog(null, "lamento! não foi Possivel realizar a alteração"+"Setor \"" + s.getNome()
+                    + "\" não encontrado");
             }
         }catch(SQLException e){
             System.out.println("lamento! não foi ossivel realizar a alteração" + e);
+            JOptionPane.showMessageDialog(null, "lamento! não foi Possivel realizar a alteração"+"Setor \"" + s.getNome()
+                    + "\" não encontrado");
             throw new RuntimeException(e);  
             
         }
@@ -138,12 +146,16 @@ public class SetorDAO {
                  pst.setInt(1, cod);
                  result= pst.execute();
                 pst.close();
+                
             }else{
+                JOptionPane.showMessageDialog(null, "Setor não encontrado!");
                 System.out.println("nao foi possivel excluir");
             }
         return result;
         } catch (Exception e) {
             System.out.println("nao foi possivel excluir\n"+e);
+            JOptionPane.showMessageDialog(null, "Impossível realizar exclusão!"
+                    + " Existem vínculos com o setor selecionado!");
             throw new RuntimeException(e);
         }
        

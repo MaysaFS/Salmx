@@ -76,6 +76,9 @@ public class GestaoCat extends javax.swing.JPanel {
         } 
         return jTablecatList.getSelectedRow();
     }
+    public void limpaCampo(){
+       CaixaBuscar.setText("");
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -151,7 +154,7 @@ public class GestaoCat extends javax.swing.JPanel {
         ));
         jTablecatList.setGridColor(new java.awt.Color(153, 153, 153));
         jTablecatList.setRowMargin(0);
-        jTablecatList.setSelectionBackground(new java.awt.Color(51, 51, 51));
+        jTablecatList.setSelectionBackground(new java.awt.Color(204, 204, 204));
         jScrollPane1.setViewportView(jTablecatList);
 
         CaixaBuscar.setForeground(new java.awt.Color(153, 153, 153));

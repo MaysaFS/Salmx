@@ -19,7 +19,6 @@ import Usuarios.view.JDTelaUsuario;
 import java.sql.Connection;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.Arrays;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -83,12 +82,12 @@ public class ControleUsuario implements MouseListener {
 
         if (strPass.equals(charComfirmaPass)) {
             Usuario u = new Usuario();
-            
+
             u.setNome(telaUsuario.getJTextFieldNome().getText());
             u.setLogin(telaUsuario.getJTextFieldLogin().getText());
-            u.setTipo(telaUsuario.getjRadioButtonUsrAdm().isSelected());
+            u.setTipo(telaUsuario.getjCheckBoxUsrAdm().isSelected());
             u.setSenha(strPass);
-            
+
             if (edit == false) {
                 uSalvo = usuarioDAO.salvarUsuario(u);
 
@@ -120,8 +119,11 @@ public class ControleUsuario implements MouseListener {
             telaUsuario.getJTextFieldNome().setText(usrLista.get(item).getNome());
             telaUsuario.getJTextFieldLogin().setText(usrLista.get(item).getLogin());
 
+            if (usrLista.get(item).getTipo() == true) {;
+                telaUsuario.getjCheckBoxUsrAdm().setSelected(true);
+            }
+
             //OPÇÃO 2: EDICAÇÃO USUARIO
-            verificaUsrAdm(2, item);
             telaUsuario.setVisible(true);
         }
     }
@@ -153,7 +155,6 @@ public class ControleUsuario implements MouseListener {
 
     private void pesquisaUsuario() {
         limpaTabela();
-        boolean busca = false;
 
         List<Usuario> usuarios = usuarioDAO.buscarUsuario(gUsuario.getCaixaBuscar().getText());
 
@@ -167,29 +168,12 @@ public class ControleUsuario implements MouseListener {
     }
 
     //Só é permitido um usuário administrador
-    private void verificaUsrAdm(int op, int item) {
-        // OP == 1 : Salvar usuario
-        // OP == 2 : Editar usuario
-        //ADICIONAR USUARIO
-        if (op == 1 && item == 0) {
-            for (int i = 0; i < usuarioDAO.listarUsuarios().size(); i++) {
-                if (usuarioDAO.listarUsuarios().get(i).getTipo() == true) {
-                    telaUsuario.getjRadioButtonUsrAdm().setEnabled(false);
-                    telaUsuario.getjRadioButtonUsrPadrao().setSelected(true);
-                    break;
-                }
-            }
-
-        }
-
-        //EDITAR USUARIO
-        if (op == 2) {
-            if (usrLista.get(item).getTipo() == false) {
-                telaUsuario.getjRadioButtonUsrAdm().setEnabled(false);
-                telaUsuario.getjRadioButtonUsrPadrao().setSelected(true);
-            } else {
-                telaUsuario.getjRadioButtonUsrPadrao().setEnabled(false);
-                telaUsuario.getjRadioButtonUsrAdm().setSelected(true);
+    private void verificaUsrAdm() {
+        for (int i = 0; i < usuarioDAO.listarUsuarios().size(); i++) {
+            if (usuarioDAO.listarUsuarios().get(i).getTipo() == true) {
+                telaUsuario.getjCheckBoxUsrAdm().setEnabled(false);
+                telaUsuario.getjCheckBoxUsrAdm().setSelected(false);
+                break;
             }
         }
     }
@@ -219,13 +203,13 @@ public class ControleUsuario implements MouseListener {
     }
 
     private String usrTipo(boolean tipo) {
-        String stringTipo;
+        String strTipo;
         if (tipo == true) {
-            stringTipo = "Administrador";
+            strTipo = "Administrador";
         } else {
-            stringTipo = "Padrão";
+            strTipo = "Padrão";
         }
-        return stringTipo;
+        return strTipo;
     }
 
     @Override
@@ -249,9 +233,9 @@ public class ControleUsuario implements MouseListener {
         if (e.getSource() == gUsuario.getNovoUsuario()) {
             telaUsuario.limpaCampos();
             telaUsuario.ocultaErro();
-            //ITEM 0 não altera nada na função
-            verificaUsrAdm(1, 0);
             edit = false;
+            
+            verificaUsrAdm();
             telaUsuario.setVisible(true);
         }
         //BOTÃO EDITAR
@@ -259,6 +243,8 @@ public class ControleUsuario implements MouseListener {
             telaUsuario.limpaCampos();
             telaUsuario.ocultaErro();
             edit = true;
+            
+            verificaUsrAdm();
             editaDados();
         }
         //BOTÃO EXCUIR

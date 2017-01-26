@@ -29,8 +29,11 @@ public class  ControleCategoria implements MouseListener {
     private String codigo;
     private boolean delete;
     private int id;
+    private boolean situacao;
+    private List<Categoria> manipulavel;
     
      public ControleCategoria (TelaPrincipal principal, ControlePrincipal cp, Connection conexao){
+       manipulavel= new ArrayList<Categoria> ();
       this.principal= principal;
       this.cp=cp;
       carregaTela();
@@ -39,6 +42,7 @@ public class  ControleCategoria implements MouseListener {
       escutaEventos();
       edit=false;
       delete=false;
+      telacat.mudaEstadoButton();
       limpaTabela();
       listaDados();
      }
@@ -79,22 +83,20 @@ public class  ControleCategoria implements MouseListener {
          
         if(e.getSource()==gtCat.getCadCategoria()){
             telacat.limpaTela();
-            telacat.mudaEstadoButton();
             telacat.habilitaCampos();
             telacat.setVisible(true);
         }
                
-        if(e.getSource()== gtCat.getEditCategoria()){
-            editaDados();
+        if(e.getSource()== gtCat.getEditCategoria()){            
             edit=true;
-            telacat.mudaEstadoButton();
+            editaDados();              
             telacat.habilitaCampos();
-            telacat.setVisible(true);
+            
         }
                
         if(e.getSource()==gtCat.getRemoCategoria()){
             exibeDados();
-            telacat.setVisible(true);  
+              
         }
                
         if(e.getSource()==gtCat.getBotBuscar()){
@@ -121,35 +123,53 @@ public class  ControleCategoria implements MouseListener {
         Categoria categoria=new Categoria();
         categoria.setCodigo(telacat.getjTextCodCat().getText());
         categoria.setNome(telacat.getTxtNomeCat().getText());
-        
+         
         if(edit==false){
             rn.salvarCategoria(categoria);
+            listaDados(); 
+            telacat.limpaTela();
+            telacat.dispose();
+            JOptionPane.showMessageDialog(gtCat,"Cadastro realizado com sucesso!");
         }else{
             categoria.setId(id);
             rn.editarCategoria(categoria);
+            listaDados(); 
+            telacat.limpaTela();
+            telacat.dispose();
+            JOptionPane.showMessageDialog(gtCat,"Edição realizado com sucesso!"); 
+            edit=false;
         }
-        listaDados();
-        telacat.limpaTela();
-        telacat.dispose();
+        
+                       
         edit=false;
+        
     }
           
     public void editaDados(){
+        
         int item=gtCat.itemSelecionado();
         if(item >=0){
-            telacat.getjTextCodCat().setText(rn.listarCategorias().get(item).getCodigo());
-            telacat.getTxtNomeCat().setText(rn.listarCategorias().get(item).getNome());
-            id=rn.listarCategorias().get(item).getId();
+            
+            telacat.getjTextCodCat().setText(manipulavel.get(item).getCodigo());
+            telacat.getTxtNomeCat().setText(manipulavel.get(item).getNome());
+            id=manipulavel.get(item).getId();
+            telacat.mudaEstadoButton();
+            telacat.habilitaCampos();
+            telacat.setVisible(true);
+            
         }
+      
+                
     }    
     private void exibeDados(){
         int item = gtCat.itemSelecionado();
         if(item >= 0){
-          telacat.getjTextCodCat().setText(rn.listarCategorias().get(item).getCodigo());  
-          telacat.getTxtNomeCat().setText(rn.listarCategorias().get(item).getNome());           
+          telacat.getjTextCodCat().setText(manipulavel.get(item).getCodigo());  
+          telacat.getTxtNomeCat().setText(manipulavel.get(item).getNome());
+          id=manipulavel.get(item).getId();           
           telacat.dasabilitaCampos();          
-          telacat.abilitaBotConfirExc();           
-          id=rn.listarCategorias().get(item).getId();          
+          telacat.abilitaBotConfirExc();          
+          telacat.setVisible(true);
         }         
     }    
      private void excluirCategoria(){
@@ -158,22 +178,24 @@ public class  ControleCategoria implements MouseListener {
        telacat.mudaEstadoButton();
        telacat.habilitaCampos();
        telacat.limpaTela();       
-       telacat.dispose();       
-       delete=false;       
+       telacat.dispose(); 
+       delete=false;  
+       JOptionPane.showMessageDialog(gtCat,"Exclusão realizada com sucesso!"); 
+       listaDados();
     }
      
       private void pesquisa(){
       boolean buscar=false;
-      limpaTabela(); 
+      limpaTabela();
+      
       if(gtCat.getCxBuscar().getText().equals("")==false){
-         List<Categoria> cat=new ArrayList<Categoria>();
-          if(rn.buscarCategoria(gtCat.getCxBuscar().getText())!=null){
-              cat=rn.buscarCategoria(gtCat.getCxBuscar().getText());
-              for(int i=0;i<cat.size();i++){
-
+          manipulavel.clear();
+          manipulavel.addAll(rn.buscarCategoria(gtCat.getCxBuscar().getText()));
+          if(manipulavel.size()>0){              
+              for(int i=0;i<manipulavel.size();i++){
                   addTabela(
-                          cat.get(i).getCodigo(),
-                          cat.get(i).getNome()
+                          manipulavel.get(i).getCodigo(),
+                          manipulavel.get(i).getNome()
                           );
                   buscar=true;
               }       
@@ -185,6 +207,7 @@ public class  ControleCategoria implements MouseListener {
       }else{
           listaDados();
        }
+      gtCat.limpaCampo();
     }
     
      
@@ -195,11 +218,13 @@ public class  ControleCategoria implements MouseListener {
            
     private void listaDados() {
 
-        limpaTabela();        
-        for(int i=0;i<rn.listarCategorias().size();i++){
+        limpaTabela(); 
+        manipulavel.clear();
+        manipulavel.addAll(rn.listarCategorias());
+        for(int i=0;i<manipulavel.size();i++){
             addTabela(
-                    rn.listarCategorias().get(i).getCodigo(),
-                    rn.listarCategorias().get(i).getNome());
+                    manipulavel.get(i).getCodigo(),
+                    manipulavel.get(i).getNome());
         }
     }
     

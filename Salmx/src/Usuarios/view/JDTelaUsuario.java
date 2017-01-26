@@ -5,6 +5,7 @@
  */
 package Usuarios.view;
 
+import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
@@ -68,9 +69,8 @@ public class JDTelaUsuario extends javax.swing.JDialog {
         this.JTextFieldNome.setText("");
         this.jPasswordFieldSenha.setText("");
         this.jPasswordFieldConfirmaSenha.setText("");
-        this.jRadioButtonUsrAdm.setEnabled(true);
-        this.jRadioButtonUsrPadrao.setEnabled(true);
-
+        this.jCheckBoxUsrAdm.setEnabled(true);
+        this.jCheckBoxUsrAdm.setSelected(true);
     }
 
     public JPanel getjPanelBody() {
@@ -125,21 +125,15 @@ public class JDTelaUsuario extends javax.swing.JDialog {
         this.jPasswordFieldSenha = jPasswordFieldSenha;
     }
 
-    public JRadioButton getjRadioButtonUsrAdm() {
-        return jRadioButtonUsrAdm;
+    public JCheckBox getjCheckBoxUsrAdm() {
+        return jCheckBoxUsrAdm;
     }
 
-    public void setjRadioButtonUsrAdm(JRadioButton jRadioButtonUsrAdm) {
-        this.jRadioButtonUsrAdm = jRadioButtonUsrAdm;
+    public void setjCheckBoxUsrAdm(JCheckBox jCheckBoxUsrAdm) {
+        this.jCheckBoxUsrAdm = jCheckBoxUsrAdm;
     }
 
-    public JRadioButton getjRadioButtonUsrPadrao() {
-        return jRadioButtonUsrPadrao;
-    }
-
-    public void setjRadioButtonUsrPadrao(JRadioButton jRadioButtonUsrPadrao) {
-        this.jRadioButtonUsrPadrao = jRadioButtonUsrPadrao;
-    }
+        
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -161,9 +155,8 @@ public class JDTelaUsuario extends javax.swing.JDialog {
         JLabelSalvar = new javax.swing.JLabel();
         jLabelErro = new javax.swing.JLabel();
         jLabelErroOK = new javax.swing.JLabel();
-        jRadioButtonUsrPadrao = new javax.swing.JRadioButton();
-        jRadioButtonUsrAdm = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
+        jCheckBoxUsrAdm = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(340, 414));
@@ -272,22 +265,16 @@ public class JDTelaUsuario extends javax.swing.JDialog {
         jLabelErroOK.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelErroOK.setOpaque(true);
 
-        buttonGroupUsrTipo.add(jRadioButtonUsrPadrao);
-        jRadioButtonUsrPadrao.setForeground(new java.awt.Color(255, 102, 102));
-        jRadioButtonUsrPadrao.setSelected(true);
-        jRadioButtonUsrPadrao.setText("Padrão");
-        jRadioButtonUsrPadrao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonUsrPadraoActionPerformed(evt);
-            }
-        });
-
-        buttonGroupUsrTipo.add(jRadioButtonUsrAdm);
-        jRadioButtonUsrAdm.setForeground(new java.awt.Color(255, 102, 102));
-        jRadioButtonUsrAdm.setText("Administrador");
-
         jLabel1.setForeground(new java.awt.Color(255, 102, 102));
         jLabel1.setText("Tipo de usuário");
+
+        jCheckBoxUsrAdm.setForeground(new java.awt.Color(87, 87, 87));
+        jCheckBoxUsrAdm.setText("Administrador");
+        jCheckBoxUsrAdm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxUsrAdmActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
         jPanelBody.setLayout(jPanelBodyLayout);
@@ -296,6 +283,7 @@ public class JDTelaUsuario extends javax.swing.JDialog {
             .addGroup(jPanelBodyLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jCheckBoxUsrAdm)
                     .addComponent(jLabel1)
                     .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(JLabelSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
@@ -311,12 +299,7 @@ public class JDTelaUsuario extends javax.swing.JDialog {
                         .addComponent(JTextFieldNome)
                         .addComponent(JTextFieldLogin)
                         .addComponent(jPasswordFieldSenha)
-                        .addComponent(jPasswordFieldConfirmaSenha))
-                    .addGroup(jPanelBodyLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButtonUsrAdm)
-                            .addComponent(jRadioButtonUsrPadrao))))
+                        .addComponent(jPasswordFieldConfirmaSenha)))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
 
@@ -348,9 +331,7 @@ public class JDTelaUsuario extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jRadioButtonUsrPadrao)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButtonUsrAdm)
+                .addComponent(jCheckBoxUsrAdm)
                 .addGap(18, 18, 18)
                 .addComponent(JLabelSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -404,9 +385,9 @@ public class JDTelaUsuario extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_JTextFieldNomeActionPerformed
 
-    private void jRadioButtonUsrPadraoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonUsrPadraoActionPerformed
+    private void jCheckBoxUsrAdmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxUsrAdmActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonUsrPadraoActionPerformed
+    }//GEN-LAST:event_jCheckBoxUsrAdmActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -418,6 +399,7 @@ public class JDTelaUsuario extends javax.swing.JDialog {
     private javax.swing.JTextField JTextFieldLogin;
     private javax.swing.JTextField JTextFieldNome;
     private javax.swing.ButtonGroup buttonGroupUsrTipo;
+    private javax.swing.JCheckBox jCheckBoxUsrAdm;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelErro;
     private javax.swing.JLabel jLabelErroOK;
@@ -427,8 +409,6 @@ public class JDTelaUsuario extends javax.swing.JDialog {
     private javax.swing.JPanel jPanelTop;
     private javax.swing.JPasswordField jPasswordFieldConfirmaSenha;
     private javax.swing.JPasswordField jPasswordFieldSenha;
-    private javax.swing.JRadioButton jRadioButtonUsrAdm;
-    private javax.swing.JRadioButton jRadioButtonUsrPadrao;
     // End of variables declaration//GEN-END:variables
 
 }

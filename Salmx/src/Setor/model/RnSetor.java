@@ -11,6 +11,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -25,13 +26,16 @@ public class RnSetor  {
       
     public  void salvarSetor(Setor s){
                setores.add(s);
-         System.out.println("SALVO NOVO"+s.getNome());               
+         System.out.println("SALVO NOVO"+s.getNome());
+         JOptionPane.showMessageDialog(null, "Setor \"" + s.getNome()
+                    + "\" salvo com sucesso");
     }
     public void editarSetor(Setor s,int i ){
         setores.get(i).setNome(s.getNome());
         setores.get(i).setRamal(s.getRamal());
         setores.get(i).setObservacao(s.getObservacao());
         System.out.println("SALVO NOVO"+s.getNome());
+        
     }
     public List<Setor> listarSetor(){
         System.out.println(setores.size()); 
@@ -43,6 +47,7 @@ public class RnSetor  {
     }
     public void excluirSetor(Setor s){
         setores.remove(s);
+        
     }
     
     

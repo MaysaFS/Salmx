@@ -50,22 +50,23 @@ public class CategoriaDAO {
     
     public List<Categoria> buscarCategoria(String nome){
         String concatena='%'+nome+'%';
-        List<Categoria> cats=new ArrayList<Categoria>();
-        Categoria c = new Categoria();
+        categorias=new ArrayList<Categoria>();
+        
         String sql= "select * from categoria where nome like ?";
         try{   
             PreparedStatement pst= conexao.prepareStatement(sql);
             pst.setString(1,concatena);
             ResultSet rst= pst.executeQuery();
             while(rst.next()){
+                Categoria c = new Categoria();
                 c.setId(rst.getInt("id"));
                 c.setCodigo(rst.getString("codigo"));
                 c.setNome(rst.getString("nome"));
-                cats.add(c);
+                categorias.add(c);
             }
             rst.close();
             pst.close();
-            return cats;
+            return categorias;
         }catch(SQLException e){
             System.out.println("erro ao buscar!\n"+e);
             throw new RuntimeException(e); 
@@ -93,12 +94,13 @@ public class CategoriaDAO {
                 pst.setString(2,c.getCodigo());
                 pst.setInt(3,c.getId());
                 pst.execute();
-                pst.close();                
+                pst.close(); 
+                
             }else{
-                System.out.println("lamento! não foi possivel realizar a alteração"+cat.getCodigo());
+                System.out.println("Lamento! não foi possivel realizar a alteração"+cat.getCodigo());
             }
         }catch(SQLException e){
-            System.out.println("lamento! não foi ossivel realizar a alteração" + e);
+            System.out.println("Lamento! não foi ossivel realizar a alteração" + e);
             throw new RuntimeException(e);          
         }
     }
@@ -139,6 +141,8 @@ public class CategoriaDAO {
         return result;
         } catch (Exception e) {
             System.out.println("nao foi possivel excluir\n"+e);
+            JOptionPane.showMessageDialog(null,"Impossivel realizar a exclusão!"
+                    + "Existem vinculos com a categoria selecionada!");
             throw new RuntimeException(e);
         }       
         

@@ -91,7 +91,9 @@ public class GSetor extends javax.swing.JPanel {
         } 
         return jTableSetorList.getSelectedRow();
     }
-   
+   public void limparBusca(){
+       getjTextBuscaSetor().setText("");
+   }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -127,24 +129,24 @@ public class GSetor extends javax.swing.JPanel {
         jTableSetorList.setForeground(new java.awt.Color(153, 153, 153));
         jTableSetorList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Nome", "Ramal", "Observacao"
+                "codigo", "Nome", "Ramal", "Observacao"
             }
         ));
         jTableSetorList.setGridColor(new java.awt.Color(153, 153, 153));

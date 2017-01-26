@@ -50,7 +50,7 @@ public class UsuarioDAO {
     }
 
     public List<Usuario> buscarUsuario(String login) {
-        login = login+'%';
+        login = '%'+login+'%';
         List<Usuario> usuario = new ArrayList<Usuario>();
         String sql = "select * from usuario where nome like ?";
         
@@ -69,14 +69,6 @@ public class UsuarioDAO {
             }
             rst.close();
             pst.close();
-            /*for(int i = 0; i<usuario.size(); i++){
-                System.out.printf("\n\nCodigo: %d, \nNome: %s, \nLogin: %s, \nSenha: %s, \nTipo: %b ",
-                        usuario.get(i).getCodigo(), 
-                        usuario.get(i).getNome(),
-                        usuario.get(i).getLogin(),
-                        usuario.get(i).getSenha(), 
-                        usuario.get(i).getTipo());
-            }*/
             return usuario;
         } catch (Exception e) {
             throw new RuntimeException(e);

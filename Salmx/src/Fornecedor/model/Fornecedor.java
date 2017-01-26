@@ -11,7 +11,6 @@ public class Fornecedor {
     private String telefoneII;
     private String email;
     private Endereco endereço =new Endereco();
-    private String uf;
     private int codigo;
 
     public String getRazaosocial() {

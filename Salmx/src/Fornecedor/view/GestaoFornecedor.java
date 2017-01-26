@@ -86,6 +86,10 @@ public class GestaoFornecedor extends javax.swing.JPanel {
         } 
         return jTableFornecedor.getSelectedRow();
     }
+     
+    public void limpaCampoBusca(){
+        jTextFieldPesquisa.setText("");
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -200,7 +204,7 @@ public class GestaoFornecedor extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Razao Social", "CNPJ", "Inscrição Estadual", "Email", "Telefone 1", "Telefone 2"
+                "Codigo", "Razao Social", "CNPJ", "Inscrição Estadual", "Email", "Telefone 1", "Telefone 2"
             }
         ));
         jTableFornecedor.setGridColor(new java.awt.Color(153, 153, 153));
@@ -298,4 +302,5 @@ public class GestaoFornecedor extends javax.swing.JPanel {
     private javax.swing.JTable jTableFornecedor;
     private javax.swing.JTextField jTextFieldPesquisa;
     // End of variables declaration//GEN-END:variables
+
 }

@@ -42,6 +42,7 @@ private void iniciar() {
         txtNomeSetor.setText("");
         txtRamalSetor.setText("");
         txtObservSetor.setText("");
+        txtCodSetor.setText("");
     }
   public void habilitaCampos(){
       getTxtNomeSetor().enable();
@@ -52,15 +53,26 @@ private void iniciar() {
           getTxtNomeSetor().enable(false);
           getTxtRamalSetor().enable(false);
           getTxtObservSetor().enable(false);
+         
   }
  public void habilitaBotConfirmaExc(){
             getjLabelSalvar().setVisible(false);       
             getjLabelExcluir().setVisible(true);           
  }
  public void mudaEstadoBotton(){
-     getjLabelSalvar().setVisible(true);       
+     getjLabelSalvar().setVisible(true); 
+     getTxtCodSetor().enable(false);
      getjLabelExcluir().setVisible(false);
  }
+
+    public JTextField getTxtCodSetor() {
+        return txtCodSetor;
+    }
+
+    public void setTxtCodSetor(JTextField txtCodSetor) {
+        this.txtCodSetor = txtCodSetor;
+    }
+ 
 public JLabel getjLabelSalvar() {
         return jLabelSalvar;
     }
@@ -129,6 +141,8 @@ public JLabel getjLabelSalvar() {
         txtObservSetor = new javax.swing.JTextArea();
         jLabelSalvar = new javax.swing.JLabel();
         jLabelExcluir = new javax.swing.JLabel();
+        jLabelCodSetor = new javax.swing.JLabel();
+        txtCodSetor = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMaximumSize(null);
@@ -148,7 +162,7 @@ public JLabel getjLabelSalvar() {
         jPanelTopLayout.setHorizontalGroup(
             jPanelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelTopLayout.createSequentialGroup()
-                .addComponent(jLabelSalmxLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelSalmxLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanelTopLayout.setVerticalGroup(
@@ -223,6 +237,26 @@ public JLabel getjLabelSalvar() {
         jLabelExcluir.setText("CONFIRMAR EXCLUSÃO");
         jLabelExcluir.setOpaque(true);
 
+        jLabelCodSetor.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelCodSetor.setForeground(new java.awt.Color(255, 102, 102));
+        jLabelCodSetor.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabelCodSetor.setText("Codigo:");
+
+        txtCodSetor.setEditable(false);
+        txtCodSetor.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtCodSetor.setForeground(new java.awt.Color(153, 153, 153));
+        txtCodSetor.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtCodSetor.setText(" ");
+        txtCodSetor.setToolTipText("");
+        txtCodSetor.setAutoscrolls(false);
+        txtCodSetor.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtCodSetor.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        txtCodSetor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodSetorActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
         jPanelBody.setLayout(jPanelBodyLayout);
         jPanelBodyLayout.setHorizontalGroup(
@@ -230,7 +264,7 @@ public JLabel getjLabelSalvar() {
             .addGroup(jPanelBodyLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
                     .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtNomeSetor)
@@ -238,12 +272,14 @@ public JLabel getjLabelSalvar() {
                         .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtRamalSetor)
                             .addComponent(jLabelRamalSetor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabelObservSetor, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)))
+                            .addComponent(jLabelObservSetor, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
+                            .addComponent(jLabelCodSetor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(txtCodSetor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBodyLayout.createSequentialGroup()
-                        .addComponent(jLabelSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                        .addComponent(jLabelSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelBodyLayout.setVerticalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,7 +292,11 @@ public JLabel getjLabelSalvar() {
                 .addComponent(jLabelRamalSetor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtRamalSetor, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addComponent(jLabelCodSetor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtCodSetor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
                 .addComponent(jLabelObservSetor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -264,7 +304,7 @@ public JLabel getjLabelSalvar() {
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jPanelBodyLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabelExcluir, jLabelSalvar});
@@ -275,7 +315,7 @@ public JLabel getjLabelSalvar() {
             jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBackLayout.createSequentialGroup()
                 .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanelBody, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanelTop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, 0))
         );
@@ -283,8 +323,8 @@ public JLabel getjLabelSalvar() {
             jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBackLayout.createSequentialGroup()
                 .addComponent(jPanelTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanelBody, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -311,10 +351,15 @@ public JLabel getjLabelSalvar() {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRamalSetorActionPerformed
 
+    private void txtCodSetorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodSetorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodSetorActionPerformed
+
     /**
      * @param args the command line arguments
      */
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabelCodSetor;
     private javax.swing.JLabel jLabelExcluir;
     private javax.swing.JLabel jLabelObservSetor;
     private javax.swing.JLabel jLabelRamalSetor;
@@ -325,6 +370,7 @@ public JLabel getjLabelSalvar() {
     private javax.swing.JPanel jPanelBody;
     private javax.swing.JPanel jPanelTop;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtCodSetor;
     private javax.swing.JTextField txtNomeSetor;
     private javax.swing.JTextArea txtObservSetor;
     private javax.swing.JTextField txtRamalSetor;

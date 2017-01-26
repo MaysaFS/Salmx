@@ -53,6 +53,7 @@ public class JDTelaCat extends javax.swing.JDialog {
         return NomeCat;
     }
 
+    
     public void setNomeCat(JTextField NomeCat) {
         this.NomeCat = NomeCat;
     }

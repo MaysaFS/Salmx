@@ -76,7 +76,7 @@ public class FornecedorDAO {
     public List<Fornecedor>  buscarFornecedor(String nome){
         String concatenada='%'+nome+'%';
         List<Fornecedor> fornecedor= new  ArrayList<Fornecedor>();
-        Fornecedor f= new Fornecedor();
+        
         String sql="select * from fornecedor where razaosocial like ?";
         try{
             
@@ -85,6 +85,7 @@ public class FornecedorDAO {
             ResultSet rst= pst.executeQuery();
 
             while(rst.next()){
+                Fornecedor f= new Fornecedor();
                 f.setCodigo(rst.getInt("codigo"));
                 f.setRazaosocial(rst.getString("razaosocial"));
                 f.setCnpj(rst.getString("cnpj"));
@@ -92,6 +93,7 @@ public class FornecedorDAO {
                 f.setTelefone1(rst.getString("telefoneI"));
                 f.setTelefoneII(rst.getString("telefoneII"));
                 f.getEndereço().setId(rst.getInt("endereco"));
+                f.setEmail(rst.getString("email"));
                 f.setEndereço(buscarEndereco(f.getEndereço().getId()));
                 fornecedor.add(f);
             }
@@ -164,7 +166,7 @@ public class FornecedorDAO {
         
     }
     public void editarEndereco(Endereco e){
-        String str="update endereco set rua=?,numero=?,bairro=?,cidade=?,cep=?,uf=?,complemento=?";
+        String str="update endereco set rua=?,numero=?,bairro=?,cidade=?,cep=?,uf=?,complemento=? where id = ? ";
         try{
             Endereco end = buscarEndereco(e.getId());
             System.out.println("editar end: "+end.getId());
@@ -176,7 +178,8 @@ public class FornecedorDAO {
                 pst.setString(4,e.getCidade());
                 pst.setString(5,e.getCep());
                 pst.setString(6,e.getUf());
-                pst.setString(7,e.getComplemento());               
+                pst.setString(7,e.getComplemento());  
+                pst.setInt(8,end.getId());
                 pst.execute();
                 pst.close();
                 
@@ -190,7 +193,7 @@ public class FornecedorDAO {
     }
     
     public void editarFornecedor(Fornecedor f){
-        String str="update fornecedor set razaosocial= ?,cnpj=?,inscr_estad=?,telefoneI=?,telefoneII=?,email=?";
+        String str="update fornecedor set razaosocial= ?,cnpj=?,inscr_estad=?,telefoneI=?,telefoneII=?,email=? where codigo = ?";
         try{
             Fornecedor fornecedor= buscarFornecedor(f.getCodigo());
             
@@ -204,6 +207,7 @@ public class FornecedorDAO {
                 pst.setString(5,f.getTelefoneII());
                 pst.setString(6,f.getEmail());
                 editarEndereco(f.getEndereço());
+                pst.setInt(7,f.getCodigo());
                 pst.execute();
                 
                 pst.close();
@@ -267,6 +271,7 @@ public class FornecedorDAO {
         return result;
         }catch(Exception e){
             System.out.println("não foi possivel excluir\n"+e);
+            JOptionPane.showMessageDialog(null, "Não foi possivel excluir o Fornecedor pois existe vínculos\n");
             throw new RuntimeException (e);
         }
     } 

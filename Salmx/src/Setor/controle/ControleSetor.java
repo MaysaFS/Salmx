@@ -16,6 +16,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -35,9 +36,10 @@ public class ControleSetor implements MouseListener {
     private int codigo;
     private  boolean edit;
     private  boolean delete;
+    private List<Setor> setores;
 
       public ControleSetor( TelaPrincipal principal, ControlePrincipal cp, Connection conexao) {
-          
+        setores=new ArrayList<Setor>();
         this.principal= principal;        
         this.cp=cp;        
         carregaTela();        
@@ -85,15 +87,12 @@ public class ControleSetor implements MouseListener {
                     //  eventosNovoSetor();          
         }        
         if(e.getSource() == gSetor.getEditarSetor()){
-            editaDados();            
-            edit=true;
-            telasetor.habilitaCampos();
-            telasetor.mudaEstadoBotton();
-            telasetor.setVisible(true);
+            edit=true;             
+            editaDados();             
         }        
         if(e.getSource() == gSetor.getExcluirSetor()){
             exibeDados();
-            telasetor.setVisible(true);   
+               
             
         }
         if(e.getSource() == gSetor.getBtPesquisarSetor()){
@@ -109,6 +108,7 @@ public class ControleSetor implements MouseListener {
             //System.out.println("funciona o botão salvar");
            if(telasetor.validaCampos()==true){
                  salvarDados();
+                 
            }                      
         }
         if(e.getSource()==telasetor.getjLabelExcluir()){
@@ -121,36 +121,50 @@ public class ControleSetor implements MouseListener {
             setor.setNome(telasetor.getTxtNomeSetor().getText());
             setor.setRamal(telasetor.getTxtRamalSetor().getText());
             setor.setObservacao(telasetor.getTxtObservSetor().getText());
-            if(edit==false){
-              rn.salvarSetor(setor);                
-            }else{
-                setor.setCodigo(codigo);
+            
+            if((telasetor.getTxtCodSetor().getText().equalsIgnoreCase(""))|| edit==false){
+              rn.salvarSetor(setor);              
+              telasetor.dispose();
+              JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!");
+            }else{    
+                setor.setCodigo(Integer.parseInt(telasetor.getTxtCodSetor().getText()));
                 rn.editarSetor(setor);
+                telasetor.dispose();
+                JOptionPane.showMessageDialog(null, "Edição realizada com sucesso!");
+                edit=false;  
             }            
             listaDados();
             telasetor.limpaTela();
-            telasetor.dispose();
-            edit=false;            
+            
+                      
     }
     public void editaDados(){
         int item = gSetor.itemSelecionado();
         if(item >= 0){
-          telasetor.getTxtNomeSetor().setText(rn.listarSetor().get(item).getNome());
-          telasetor.getTxtRamalSetor().setText(rn.listarSetor().get(item).getRamal());
-          telasetor.getTxtObservSetor().setText(rn.listarSetor().get(item).getObservacao());
-          codigo=rn.listarSetor().get(item).getCodigo();
+          telasetor.getTxtNomeSetor().setText(setores.get(item).getNome());
+          telasetor.getTxtRamalSetor().setText(setores.get(item).getRamal());
+          telasetor.getTxtObservSetor().setText(setores.get(item).getObservacao());
+          telasetor.getTxtCodSetor().setText(String.valueOf(setores.get(item).getCodigo()));
+          codigo=setores.get(item).getCodigo();
+          telasetor.mudaEstadoBotton();
+          telasetor.habilitaCampos();
+          telasetor.setVisible(true);
         } 
     }
     
     private void exibeDados(){
         int item = gSetor.itemSelecionado();
         if(item >= 0){
-          telasetor.getTxtNomeSetor().setText(rn.listarSetor().get(item).getNome());         
-          telasetor.getTxtRamalSetor().setText(rn.listarSetor().get(item).getRamal());          
-          telasetor.getTxtObservSetor().setText(rn.listarSetor().get(item).getObservacao());              
+            
+         
+          telasetor.getTxtNomeSetor().setText(setores.get(item).getNome());         
+          telasetor.getTxtRamalSetor().setText(setores.get(item).getRamal());          
+          telasetor.getTxtObservSetor().setText(setores.get(item).getObservacao());
+          telasetor.getTxtCodSetor().setText(String.valueOf(setores.get(item).getCodigo()));
           telasetor.desabilitaCampos();  
           telasetor.habilitaBotConfirmaExc();          
-          codigo=rn.listarSetor().get(item).getCodigo();
+          codigo=setores.get(item).getCodigo();
+          telasetor.setVisible(true);
         } 
     }
     private void excluirSetor(){
@@ -159,33 +173,40 @@ public class ControleSetor implements MouseListener {
        telasetor.mudaEstadoBotton();
        telasetor.habilitaCampos();
        telasetor.limpaTela();       
-       telasetor.dispose();       
+       telasetor.dispose(); 
+       JOptionPane.showMessageDialog(null, "Exclusão realizado com sucesso!");
        delete=false;       
     }
   private void pesquisa(){
       boolean buscar=false;
       limpaTabela(); 
       if(gSetor.getjTextBuscaSetor().getText().equals("")==false){
-          List<Setor> set=new ArrayList<Setor>();
-         if(rn.buscarSetor(gSetor.getjTextBuscaSetor().getText())!=null){
-            set=rn.buscarSetor(gSetor.getjTextBuscaSetor().getText());
-             for(int i=0;i<set.size();i++){
-
+          setores.clear();
+          setores.addAll(rn.buscarSetor(gSetor.getjTextBuscaSetor().getText()));
+          
+         if(setores.size()>0){              
+             for(int i=0;i<setores.size();i++){
+                    
                   addTabela(
-                          set.get(i).getNome(),
-                          set.get(i).getRamal(),
-                          set.get(i).getObservacao()
+                          setores.get(i).getCodigo(),
+                          setores.get(i).getNome(),
+                          setores.get(i).getRamal(),
+                          setores.get(i).getObservacao()
                           );
                   buscar=true;
-              }       
+              }  
+             
          }
          if(buscar==false){
              JOptionPane.showMessageDialog(gSetor,"Setor não encontrado!"); 
+            
              listaDados();
          }
       }else{
+          
           listaDados();
        }
+      gSetor.limparBusca();
   }
   
  public final void addTabela(Object... objects) {
@@ -194,12 +215,15 @@ public class ControleSetor implements MouseListener {
 
    private void listaDados() {
 
-        limpaTabela();        
-        for(int i=0;i<rn.listarSetor().size();i++){
+        limpaTabela(); 
+        setores.clear();
+        setores.addAll(rn.listarSetor());
+        for(int i=0;i<setores.size();i++){
             addTabela(
-                    rn.listarSetor().get(i).getNome(),
-                    rn.listarSetor().get(i).getRamal(),
-                    rn.listarSetor().get(i).getObservacao()
+                    setores.get(i).getCodigo(),
+                    setores.get(i).getNome(),
+                    setores.get(i).getRamal(),
+                    setores.get(i).getObservacao()
                     );
         }
     }

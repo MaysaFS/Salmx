@@ -31,18 +31,21 @@ public class ControleFornecedor implements MouseListener {
     private  boolean delete;
     private int codigo;
     private int codE;
-      public ControleFornecedor( TelaPrincipal principal, ControlePrincipal cp, Connection conexao) {
-          
+    private List<Fornecedor> listfornecedores;
+   
+      
+    public ControleFornecedor( TelaPrincipal principal, ControlePrincipal cp, Connection conexao) {
+        listfornecedores=new ArrayList<Fornecedor>();  
         this.principal= principal;
         this.cp=cp;
         carregaTela();
         modelo = (DefaultTableModel)gfornecedor.getjTableFornecedor().getModel();
         rn= new FornecedorDAO(conexao);
         escutaEventos();  
-        edit=false;
         delete=false;
         limpaTabela();
         listaDados();
+        
     }
       
       
@@ -73,21 +76,21 @@ public class ControleFornecedor implements MouseListener {
     public void mouseClicked(MouseEvent e) {
         
         if(e.getSource() == gfornecedor.getBtAddForn()){
+            edit=false;
             nfornecedor.limpaTela();
             nfornecedor.mudaEstadoBotton();
             nfornecedor.habilitaCampos();
             nfornecedor.setVisible(true);                       
         }        
         if(e.getSource() == gfornecedor.getBtEditForn()){            
-            editaDados();
             edit=true;
-            nfornecedor.mudaEstadoBotton();
+            editaDados();            
             nfornecedor.habilitaCampos();
-            nfornecedor.setVisible(true);
+            
         }        
         if(e.getSource() == gfornecedor.getBtExcForn()){
             exibeDados();
-            nfornecedor.setVisible(true);
+            
         }        
         if(e.getSource() == gfornecedor.getBtPesquisa()){
             this.pesquisa();
@@ -105,8 +108,7 @@ public class ControleFornecedor implements MouseListener {
         }
         if(e.getSource()==nfornecedor.getjLabelExcluirFornecedor()){
              excluiFornecedor();
-             nfornecedor.mudaEstadoBotton();
-             nfornecedor.habilitaCampos();
+             
         }
     }
     public void salvarDados(){
@@ -125,96 +127,104 @@ public class ControleFornecedor implements MouseListener {
             forn.getEndereço().setComplemento(nfornecedor.getjTextFieldComplemento().getText());
             forn.getEndereço().setCidade(nfornecedor.getjTextFieldCidade().getText());
             forn.getEndereço().setCep(nfornecedor.getjTextFieldCep().getText());
-            forn.getEndereço().setUf(nfornecedor.getjTextFieldUf().getText());
+            forn.getEndereço().setUf(nfornecedor.getjTextFieldUf().getText());           
             
-            
-            
-            if(edit==false){
-              rn.salvarFornecedor(forn);  
-              
-            }else{
+            if(edit==true){
                 forn.setCodigo(codigo);
                 forn.getEndereço().setId(codE);
                 rn.editarFornecedor(forn);
-            }            
+                nfornecedor.dispose();
+                JOptionPane.showMessageDialog(null, "Edição realizada com sucesso!");
+            }else{            
+                rn.salvarFornecedor(forn);
+                nfornecedor.dispose();
+                JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!");
+                
+            }
             listaDados();
             nfornecedor.limpaTela();
-            nfornecedor.dispose();
-            edit=false;
             
     }
     
     
     public void editaDados(){
+       
         int item = gfornecedor.itemSelecionado();
         if(item >= 0){
-           nfornecedor.getjTextFieldRazaoSocial().setText(rn.listarFornecedor().get(item).getRazaosocial());
-          nfornecedor.getjTextFieldInscriçãoEstadual().setText(rn.listarFornecedor().get(item).getInscricaoestadual());
-          nfornecedor.getjTextFieldCnpj().setText(rn.listarFornecedor().get(item).getCnpj());
-          nfornecedor.getjTextFieldTelefone1().setText(rn.listarFornecedor().get(item).getTelefone1());
-          nfornecedor.getjTextFieldTelefoneII().setText(rn.listarFornecedor().get(item).getTelefoneII());
-          nfornecedor.getjTextFieldEmail().setText(rn.listarFornecedor().get(item).getEmail());
-          nfornecedor.getjTextFieldRua().setText(rn.listarFornecedor().get(item).getEndereço().getRua());
-          nfornecedor.getjTextFieldNumEnd().setText(rn.listarFornecedor().get(item).getEndereço().getNumero());
-          nfornecedor.getjTextFieldBairro().setText(rn.listarFornecedor().get(item).getEndereço().getBairro());
-          nfornecedor.getjTextFieldComplemento().setText(rn.listarFornecedor().get(item).getEndereço().getComplemento());
-          nfornecedor.getjTextFieldCidade().setText(rn.listarFornecedor().get(item).getEndereço().getCidade());
-          nfornecedor.getjTextFieldCep().setText(rn.listarFornecedor().get(item).getEndereço().getCep());
-          nfornecedor.getjTextFieldUf().setText(rn.listarFornecedor().get(item).getEndereço().getUf());
-          codigo=rn.listarFornecedor().get(item).getCodigo();
-          codE= rn.listarFornecedor().get(item).getEndereço().getId();
+          nfornecedor.getjTextFieldRazaoSocial().setText(listfornecedores.get(item).getRazaosocial());
+          nfornecedor.getjTextFieldInscriçãoEstadual().setText(listfornecedores.get(item).getInscricaoestadual());
+          nfornecedor.getjTextFieldCnpj().setText(listfornecedores.get(item).getCnpj());
+          nfornecedor.getjTextFieldTelefone1().setText(listfornecedores.get(item).getTelefone1());
+          nfornecedor.getjTextFieldTelefoneII().setText(listfornecedores.get(item).getTelefoneII());
+          nfornecedor.getjTextFieldEmail().setText(listfornecedores.get(item).getEmail());
+          nfornecedor.getjTextFieldRua().setText(listfornecedores.get(item).getEndereço().getRua());
+          nfornecedor.getjTextFieldNumEnd().setText(listfornecedores.get(item).getEndereço().getNumero());
+          nfornecedor.getjTextFieldBairro().setText(listfornecedores.get(item).getEndereço().getBairro());
+          nfornecedor.getjTextFieldComplemento().setText(listfornecedores.get(item).getEndereço().getComplemento());
+          nfornecedor.getjTextFieldCidade().setText(listfornecedores.get(item).getEndereço().getCidade());
+          nfornecedor.getjTextFieldCep().setText(listfornecedores.get(item).getEndereço().getCep());
+          nfornecedor.getjTextFieldUf().setText(listfornecedores.get(item).getEndereço().getUf());
+          codigo=listfornecedores.get(item).getCodigo();
+          codE= listfornecedores.get(item).getEndereço().getId();
+          nfornecedor.mudaEstadoBotton();
+          nfornecedor.habilitaCampos();
+          nfornecedor.setVisible(true);
           
-        } 
+        }
+        edit=true;
     }
     private void exibeDados(){
         int item = gfornecedor.itemSelecionado();
         if(item >= 0){
-          nfornecedor.getjTextFieldRazaoSocial().setText(rn.listarFornecedor().get(item).getRazaosocial());
-          nfornecedor.getjTextFieldInscriçãoEstadual().setText(rn.listarFornecedor().get(item).getInscricaoestadual());
-          nfornecedor.getjTextFieldCnpj().setText(rn.listarFornecedor().get(item).getCnpj());
-          nfornecedor.getjTextFieldTelefone1().setText(rn.listarFornecedor().get(item).getTelefone1());
-          nfornecedor.getjTextFieldTelefoneII().setText(rn.listarFornecedor().get(item).getTelefoneII());
-          nfornecedor.getjTextFieldEmail().setText(rn.listarFornecedor().get(item).getEmail());
-          nfornecedor.getjTextFieldRua().setText(rn.listarFornecedor().get(item).getEndereço().getRua());
-          nfornecedor.getjTextFieldNumEnd().setText(rn.listarFornecedor().get(item).getEndereço().getNumero());
-          nfornecedor.getjTextFieldBairro().setText(rn.listarFornecedor().get(item).getEndereço().getBairro());
-          nfornecedor.getjTextFieldComplemento().setText(rn.listarFornecedor().get(item).getEndereço().getComplemento());
-          nfornecedor.getjTextFieldCidade().setText(rn.listarFornecedor().get(item).getEndereço().getCidade());
-          nfornecedor.getjTextFieldCep().setText(rn.listarFornecedor().get(item).getEndereço().getCep());
-          nfornecedor.getjTextFieldUf().setText(rn.listarFornecedor().get(item).getEndereço().getUf());
-           
-          nfornecedor.desabilitaCampos();
-          nfornecedor.abilitaBotConfirmExc();         
-          codigo=rn.listarFornecedor().get(item).getCodigo();
-          codE= rn.listarFornecedor().get(item).getEndereço().getId();
+            
+          nfornecedor.getjTextFieldRazaoSocial().setText(listfornecedores.get(item).getRazaosocial());
+          nfornecedor.getjTextFieldInscriçãoEstadual().setText(listfornecedores.get(item).getInscricaoestadual());
+          nfornecedor.getjTextFieldCnpj().setText(listfornecedores.get(item).getCnpj());
+          nfornecedor.getjTextFieldTelefone1().setText(listfornecedores.get(item).getTelefone1());
+          nfornecedor.getjTextFieldTelefoneII().setText(listfornecedores.get(item).getTelefoneII());
+          nfornecedor.getjTextFieldEmail().setText(listfornecedores.get(item).getEmail());
+          nfornecedor.getjTextFieldRua().setText(listfornecedores.get(item).getEndereço().getRua());
+          nfornecedor.getjTextFieldNumEnd().setText(listfornecedores.get(item).getEndereço().getNumero());
+          nfornecedor.getjTextFieldBairro().setText(listfornecedores.get(item).getEndereço().getBairro());
+          nfornecedor.getjTextFieldComplemento().setText(listfornecedores.get(item).getEndereço().getComplemento());
+          nfornecedor.getjTextFieldCidade().setText(listfornecedores.get(item).getEndereço().getCidade());
+          nfornecedor.getjTextFieldCep().setText(listfornecedores.get(item).getEndereço().getCep());
+          nfornecedor.getjTextFieldUf().setText(listfornecedores.get(item).getEndereço().getUf());                 
+          codigo=listfornecedores.get(item).getCodigo();
+          codE= listfornecedores.get(item).getEndereço().getId();
+          nfornecedor.abilitaBotConfirmExc();  
+          nfornecedor.setVisible(true);
         } 
     }
+    
     private void excluiFornecedor(){
           rn.excluiFornecedor(codigo);
-          listaDados();
+          listaDados();     
           nfornecedor.mudaEstadoBotton();
           nfornecedor.habilitaCampos();
           nfornecedor.limpaTela();       
-          nfornecedor.dispose();       
+          nfornecedor.dispose();  
+          JOptionPane.showMessageDialog(null, "Exclusão realizada com sucesso!");
           delete=false;       
     }
     private void pesquisa(){
       boolean buscar=false;
       limpaTabela(); 
       if(gfornecedor.getjTextFieldPesquisa().getText().equals("")==false){
-          List<Fornecedor> forn=new ArrayList <Fornecedor>();
-          if(rn.buscarFornecedor(gfornecedor.getjTextFieldPesquisa().getText())!=null){ 
-              forn=rn.buscarFornecedor(gfornecedor.getjTextFieldPesquisa().getText());
-              for(int i=0;i<forn.size();i++){
+          listfornecedores.clear();
+          listfornecedores.addAll(rn.buscarFornecedor(gfornecedor.getjTextFieldPesquisa().getText()));
+          if(listfornecedores.size()>0){ 
+              
+              for(int i=0;i<listfornecedores.size();i++){
             
                 addTabela(
-                    forn.get(i).getCodigo(),
-                    forn.get(i).getRazaosocial(),
-                    forn.get(i).getCnpj(),
-                    forn.get(i).getInscricaoestadual(),
-                    forn.get(i).getEmail(),
-                    forn.get(i).getTelefone1(),
-                    forn.get(i).getTelefoneII()
+                    listfornecedores.get(i).getCodigo(),
+                    listfornecedores.get(i).getRazaosocial(),
+                    listfornecedores.get(i).getCnpj(),
+                    listfornecedores.get(i).getInscricaoestadual(),
+                    listfornecedores.get(i).getEmail(),
+                    listfornecedores.get(i).getTelefone1(),
+                    listfornecedores.get(i).getTelefoneII()
                     
                     );
                 buscar=true;
@@ -223,10 +233,12 @@ public class ControleFornecedor implements MouseListener {
          if(buscar==false){
              JOptionPane.showMessageDialog(gfornecedor,"Fornecedor não encontrado!"); 
              listaDados();
+
          }
       }else{
-          listaDados();
-       }
+         listaDados();
+      }
+      gfornecedor.limpaCampoBusca();
   }
     
     
@@ -236,16 +248,18 @@ public class ControleFornecedor implements MouseListener {
     
     
     private void listaDados() {
-        limpaTabela();        
-        for(int i=0;i<rn.listarFornecedor().size();i++){
+        limpaTabela();    
+        listfornecedores.clear();
+        listfornecedores.addAll(rn.listarFornecedor());
+        for(int i=0;i<listfornecedores.size();i++){
             addTabela(
-                    rn.listarFornecedor().get(i).getCodigo(),
-                    rn.listarFornecedor().get(i).getRazaosocial(),
-                    rn.listarFornecedor().get(i).getCnpj(),
-                    rn.listarFornecedor().get(i).getInscricaoestadual(),
-                    rn.listarFornecedor().get(i).getEmail(),
-                    rn.listarFornecedor().get(i).getTelefone1(),
-                    rn.listarFornecedor().get(i).getTelefoneII()
+                    listfornecedores.get(i).getCodigo(),
+                    listfornecedores.get(i).getRazaosocial(),
+                    listfornecedores.get(i).getCnpj(),
+                    listfornecedores.get(i).getInscricaoestadual(),
+                    listfornecedores.get(i).getEmail(),
+                    listfornecedores.get(i).getTelefone1(),
+                    listfornecedores.get(i).getTelefoneII()
                     
                     );
         }
