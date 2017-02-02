@@ -78,9 +78,9 @@ public class ControleUsuario implements MouseListener {
     private void salvarDados() {
         boolean uSalvo = false;
         String strPass = new String(telaUsuario.getjPasswordFieldSenha().getPassword()).trim();
-        String charComfirmaPass = new String(telaUsuario.getjPasswordFieldSenha().getPassword()).trim();
+        String strComfirmaPass = new String(telaUsuario.getjPasswordFieldConfirmaSenha().getPassword()).trim();
 
-        if (strPass.equals(charComfirmaPass)) {
+        if (strPass.equals(strComfirmaPass)) {
             Usuario u = new Usuario();
 
             u.setNome(telaUsuario.getJTextFieldNome().getText());
@@ -113,16 +113,19 @@ public class ControleUsuario implements MouseListener {
 
     private void editaDados() {
         int item = gUsuario.itemSelecionado();
+        String usrSenha;
         if (item >= 0) {
             codigo = usrLista.get(item).getCodigo();
+            usrSenha = usuarioDAO.buscarLogin(usrLista.get(item).getLogin()).getSenha();
 
             telaUsuario.getJTextFieldNome().setText(usrLista.get(item).getNome());
             telaUsuario.getJTextFieldLogin().setText(usrLista.get(item).getLogin());
+            telaUsuario.getjPasswordFieldSenha().setText(usrSenha);
+            telaUsuario.getjPasswordFieldConfirmaSenha().setText(usrSenha);
 
             if (usrLista.get(item).getTipo() == true) {;
                 telaUsuario.getjCheckBoxUsrAdm().setSelected(true);
             }
-
             //OPÇÃO 2: EDICAÇÃO USUARIO
             telaUsuario.setVisible(true);
         }
@@ -234,7 +237,7 @@ public class ControleUsuario implements MouseListener {
             telaUsuario.limpaCampos();
             telaUsuario.ocultaErro();
             edit = false;
-            
+
             verificaUsrAdm();
             telaUsuario.setVisible(true);
         }
@@ -243,7 +246,7 @@ public class ControleUsuario implements MouseListener {
             telaUsuario.limpaCampos();
             telaUsuario.ocultaErro();
             edit = true;
-            
+
             verificaUsrAdm();
             editaDados();
         }

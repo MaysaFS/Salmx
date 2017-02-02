@@ -50,10 +50,10 @@ public class UsuarioDAO {
     }
 
     public List<Usuario> buscarUsuario(String login) {
-        login = '%'+login+'%';
+        login = '%' + login + '%';
         List<Usuario> usuario = new ArrayList<Usuario>();
         String sql = "select * from usuario where nome like ?";
-        
+
         try {
             PreparedStatement pst = conexao.prepareStatement(sql);
             pst.setString(1, login);
